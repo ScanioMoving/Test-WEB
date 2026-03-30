@@ -1,60 +1,772 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Phone, ArrowDown, ChevronDown, ChevronLeft, ChevronRight, Menu, X, ExternalLink } from "lucide-react";
+
+/**
+ * VERSION A — "ATELIER"
+ * Inspired by Loro Piana, The Row, Bottega Veneta
+ *
+ * Warm minimalism. Cashmere tones. Serif headlines.
+ * The luxury is in the silence between elements.
+ */
+
+function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.unobserve(el); } },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-[1000ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${className}`}
+      style={{ transitionDelay: `${delay}ms`, transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
+    >
+      {children}
+    </div>
+  );
+}
+
+const testimonials = [
+  {
+    quote: "How something is moved says everything about how it is valued.",
+    author: "Nir Shuminer",
+  },
+  {
+    quote: "The team accomplished the job with amazing efficiency. Zero damage, and all furniture was properly reassembled. I couldn't have asked for a better experience.",
+    author: "Bruce Bogart",
+  },
+  {
+    quote: "Everyone knew what they were doing and maintained a sense of good humor throughout. We couldn't be happier.",
+    author: "Nina Hennessey & Ellen Saland",
+  },
+  {
+    quote: "We do not have a single horror story concerning our move. That alone says volumes. Everything arrived in perfect condition.",
+    author: "Louis Stamm",
+  },
+  {
+    quote: "From start to finish, the move was a total success. The team's professional approach made what could have been stressful into a pleasant experience.",
+    author: "Steven N. Gordon",
+  },
+  {
+    quote: "Having used Scanio both personally and as a vendor, I give them my highest recommendation. The consistency of their service quality is truly impressive.",
+    author: "David L. Reni",
+  },
+];
+
+const heroSlides = [
+  { src: "/slides/slide-2-cycle.jpg", alt: "NYC skyline" },
+];
+
+function TestimonialCarousel() {
+  const [current, setCurrent] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  function goTo(index: number) {
+    setFade(false);
+    setTimeout(() => { setCurrent(index); setFade(true); }, 300);
+  }
+
+  function goPrev() {
+    goTo((current - 1 + testimonials.length) % testimonials.length);
+  }
+
+  function goNext() {
+    goTo((current + 1) % testimonials.length);
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setCurrent((prev) => (prev + 1) % testimonials.length);
+        setFade(true);
+      }, 500);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="py-36 md:py-48" style={{ background: "#F5F8FC" }}>
+      <div className="max-w-[1100px] mx-auto px-4 md:px-8 text-center relative">
+        {/* Left arrow */}
+        <button
+          onClick={goPrev}
+          className="absolute left-0 md:left-[-20px] top-1/2 -translate-y-1/2 p-2 transition-opacity hover:opacity-60"
+          style={{ color: "#0B5DB5" }}
+          aria-label="Previous testimonial"
+        >
+          <ChevronLeft size={28} />
+        </button>
+
+        {/* Right arrow */}
+        <button
+          onClick={goNext}
+          className="absolute right-0 md:right-[-20px] top-1/2 -translate-y-1/2 p-2 transition-opacity hover:opacity-60"
+          style={{ color: "#0B5DB5" }}
+          aria-label="Next testimonial"
+        >
+          <ChevronRight size={28} />
+        </button>
+
+        <div className="max-w-[900px] mx-auto relative">
+          <span
+            className="absolute left-4 md:left-[-10px] top-0 text-[100px] md:text-[160px] font-light leading-none select-none"
+            style={{ color: "#0B5DB5", opacity: 0.12 }}
+          >
+            &ldquo;
+          </span>
+          <span
+            className="absolute right-4 md:right-[-10px] top-0 text-[100px] md:text-[160px] font-light leading-none select-none"
+            style={{ color: "#0B5DB5", opacity: 0.12 }}
+          >
+            &rdquo;
+          </span>
+
+          {/* Fixed height container so quotes don't shift layout */}
+          <div className="min-h-[220px] md:min-h-[200px] flex flex-col justify-center">
+            <div
+              className="transition-opacity duration-500"
+              style={{ opacity: fade ? 1 : 0 }}
+            >
+              <h2
+                className="text-[clamp(24px,3.5vw,44px)] font-light leading-[1.3] tracking-[-0.01em] mb-6"
+                style={{ color: "#0A1628" }}
+              >
+                {testimonials[current].quote}
+              </h2>
+
+              <p
+                className="text-[15px] font-medium tracking-[0.1em] uppercase text-right pr-4 md:pr-16"
+                style={{ color: "#0B5DB5" }}
+              >
+                &mdash; {testimonials[current].author}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center gap-2 mt-12">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className="w-2 h-2 rounded-full transition-all duration-300"
+              style={{
+                background: i === current ? "#0B5DB5" : "#D6E0ED",
+              }}
+              aria-label={`Testimonial ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function HomePage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-white" style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}>
-      <div className="max-w-4xl mx-auto px-8 text-center">
-        <Image
-          src="/scanio-logo.png"
-          alt="Scanio Moving & Storage"
-          width={240}
-          height={167}
-          priority
-          className="mx-auto mb-14 opacity-70"
-        />
-        <h2 className="text-[clamp(20px,3vw,32px)] font-light tracking-[-0.01em] mb-3" style={{ color: "#1A1A1A" }}>
-          Choose a Direction
-        </h2>
-        <p className="text-[14px] font-light mb-14" style={{ color: "#9CA3AF" }}>
-          Five design concepts for the new Scanio experience.
-        </p>
+  const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
+  const servicesBtnRef = useRef<HTMLButtonElement>(null);
+  const [servicesBtnCenter, setServicesBtnCenter] = useState(0);
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            { href: "/version-a", label: "Version A", sub: "Atelier", desc: "Loro Piana warmth. Serif elegance. Quiet luxury." },
-            { href: "/version-b", label: "Version B", sub: "Galerie", desc: "Gagosian gallery meets Patek precision." },
-            { href: "/version-c", label: "Version C", sub: "Pavilion", desc: "Guggenheim institutional. Modular blocks." },
-            { href: "/version-d", label: "Version D", sub: "Noir", desc: "UOVO cinema. Full dark. Immersive." },
-            { href: "/version-e", label: "Version E", sub: "Institution", desc: "UOVO big header. Scanio truck blue." },
-          ].map((v) => (
-            <Link
-              key={v.href}
-              href={v.href}
-              className="group block p-6 md:p-8 border text-left transition-all duration-300 hover:shadow-lg hover:border-[#0B5DB5]"
-              style={{ borderColor: "#E5E7EB" }}
-            >
-              <div className="flex items-baseline justify-between mb-3">
-                <span className="text-[18px] font-semibold tracking-[-0.01em]" style={{ color: "#1A1A1A" }}>
-                  {v.label}
+  function handleServiceEnter() {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setServicesOpen(true);
+  }
+
+  function handleServiceLeave() {
+    dropdownTimeout.current = setTimeout(() => setServicesOpen(false), 200);
+  }
+
+  useEffect(() => {
+    if (servicesOpen && servicesBtnRef.current) {
+      const rect = servicesBtnRef.current.getBoundingClientRect();
+      setServicesBtnCenter(rect.left + rect.width / 2);
+    }
+  }, [servicesOpen]);
+
+  useEffect(() => {
+    document.body.style.background = "#F5F8FC";
+
+    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight - 160);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      document.body.style.background = "";
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
+  return (
+    <div style={{ fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif" }}>
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes lineGrow {
+          from { transform: scaleY(0); }
+          to { transform: scaleY(1); }
+        }
+      `}</style>
+
+      {/* ─── NAV — Large header, solid bg after hero ─── */}
+      <nav
+        className="fixed top-0 left-0 right-0 z-50"
+        style={{ mixBlendMode: (!scrolled && !mobileOpen) ? "difference" : "normal" }}
+        onMouseLeave={handleServiceLeave}
+      >
+        <div
+          className="transition-all duration-500"
+          style={{
+            height: 150,
+            background: scrolled ? "#F5F8FC" : "transparent",
+            boxShadow: scrolled && !servicesOpen ? "0 1px 0 #D6E0ED" : "none",
+          }}
+        >
+          <div className="w-full px-10 md:px-12 h-full flex items-center justify-between">
+            <Link href="/" className="flex shrink-0 items-center gap-4">
+              <div
+                className="block shrink-0 transition-all duration-500 h-[60px] md:h-[75px] aspect-[1217/1561] translate-y-[1px] md:translate-y-[2px]"
+                style={{
+                  background: scrolled ? "#0B5DB5" : "white",
+                  WebkitMaskImage: "url(/scanio-s-knockout-white.png)",
+                  WebkitMaskSize: "contain",
+                  WebkitMaskRepeat: "no-repeat",
+                  WebkitMaskPosition: "center",
+                  maskImage: "url(/scanio-s-knockout-white.png)",
+                  maskSize: "contain",
+                  maskRepeat: "no-repeat",
+                  maskPosition: "center",
+                }}
+              />
+              <div className="flex flex-col justify-center items-start" style={{ transform: "translateY(var(--logoTextOffsetY, 0px))" }}>
+                <span
+                  className="block text-[56px] md:text-[72px] font-semibold tracking-[0.02em] uppercase transition-colors duration-500"
+                  style={{ color: scrolled ? "#0B5DB5" : "white", lineHeight: "0.85", margin: 0, marginLeft: "-3px", padding: 0 }}
+                >
+                  Scanio
                 </span>
-                <span className="text-[11px] uppercase tracking-[0.15em] font-medium" style={{ color: "#0B5DB5" }}>
-                  {v.sub}
+                <span
+                  className="block text-[13px] tracking-[0.02em] uppercase font-normal transition-colors duration-500"
+                  style={{ color: scrolled ? "#4A5568" : "rgba(255,255,255,0.65)", lineHeight: "1", marginTop: "4px" }}
+                >
+                  Moving &amp; Storage &mdash; Since 1941
                 </span>
               </div>
-              <p className="text-[13px] font-light leading-relaxed" style={{ color: "#9CA3AF" }}>
-                {v.desc}
-              </p>
             </Link>
+
+            {/* Desktop nav */}
+            <div className="hidden lg:flex items-center gap-10">
+              <Link
+                href="/about"
+                className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
+                style={{ color: scrolled ? "#0B5DB5" : "white", opacity: scrolled ? 0.85 : 1 }}
+              >
+                About Us
+              </Link>
+
+              <a
+                href="https://designers.scaniomoving.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
+                style={{ color: scrolled ? "#0B5DB5" : "white", opacity: scrolled ? 0.85 : 1 }}
+              >
+                Designer Portal
+                <ExternalLink size={12} className="opacity-50" />
+              </a>
+
+              <div
+                className="relative"
+                onMouseEnter={handleServiceEnter}
+                onMouseLeave={handleServiceLeave}
+              >
+                <button
+                  ref={servicesBtnRef}
+                  className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
+                  style={{ color: scrolled ? "#0B5DB5" : "white", opacity: scrolled ? 0.85 : 1 }}
+                >
+                  Services
+                  <ChevronDown
+                    size={14}
+                    className="transition-transform duration-300"
+                    style={{ transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                  />
+                </button>
+
+                {/* Services dropdown */}
+                <div
+                  className="absolute top-full pt-3 transition-all duration-300"
+                  style={{
+                    left: "50%",
+                    opacity: servicesOpen ? 1 : 0,
+                    transform: servicesOpen ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-6px)",
+                    pointerEvents: servicesOpen ? "auto" : "none",
+                  }}
+                >
+                  <div
+                    className="min-w-[200px] py-3 px-6"
+                    style={scrolled ? {
+                      background: "#F5F8FC",
+                    } : {}}
+                  >
+                    {[
+                      { name: "Residential", href: "/services/residential" },
+                      { name: "Commercial", href: "/services/commercial" },
+                      { name: "Long Distance", href: "/services/long-distance" },
+                      { name: "International", href: "/services/international" },
+                      { name: "Storage", href: "/storage" },
+                      { name: "FF&E / Designer", href: "/services/ffe-designer" },
+                    ].map((s) => (
+                      <Link
+                        key={s.href}
+                        href={s.href}
+                        className="block py-2 text-[12px] tracking-[0.1em] uppercase font-medium text-center transition-all duration-300"
+                        style={{ color: scrolled ? "rgba(11,93,181,0.5)" : "rgba(255,255,255,0.5)" }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = scrolled ? "#0B5DB5" : "rgba(255,255,255,1)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = scrolled ? "rgba(11,93,181,0.5)" : "rgba(255,255,255,0.5)"; }}
+                      >
+                        {s.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              <Link
+                href="/contact"
+                className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
+                style={{ color: scrolled ? "#0B5DB5" : "white", opacity: scrolled ? 0.85 : 1 }}
+              >
+                Contact
+              </Link>
+            </div>
+
+            {/* Mobile hamburger */}
+            <button
+              className="lg:hidden p-2 transition-colors duration-500"
+              style={{ color: scrolled ? "#0B5DB5" : "white" }}
+              onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+
+        </div>
+
+        {/* Mobile nav panel */}
+        {mobileOpen && (
+          <div
+            className="lg:hidden border-t overflow-y-auto"
+            style={{ background: "#F5F8FC", borderColor: "#D6E0ED", height: "calc(100vh - 150px)" }}
+          >
+            <div className="px-10 py-8 space-y-1 flex flex-col h-full">
+              <Link
+                href="/about"
+                className="block py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+                style={{ color: "#0A1628" }}
+                onClick={() => setMobileOpen(false)}
+              >
+                About Us
+              </Link>
+              <a
+                href="https://designers.scaniomoving.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+                style={{ color: "#0A1628" }}
+                onClick={() => setMobileOpen(false)}
+              >
+                Designer Portal
+                <ExternalLink size={13} className="opacity-40" />
+              </a>
+
+              {/* Mobile services accordion */}
+              <div>
+                <button
+                  className="flex items-center justify-between w-full py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+                  style={{ color: "#0A1628" }}
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                >
+                  Services
+                  <ChevronDown
+                    size={16}
+                    className="transition-transform duration-300"
+                    style={{ transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                  />
+                </button>
+                {servicesOpen && (
+                  <div className="pl-5 pb-2 space-y-0.5">
+                    {[
+                      { name: "Residential", href: "/services/residential" },
+                      { name: "Commercial", href: "/services/commercial" },
+                      { name: "Long Distance", href: "/services/long-distance" },
+                      { name: "International", href: "/services/international" },
+                      { name: "Storage", href: "/storage" },
+                      { name: "FF&E / Designer", href: "/services/ffe-designer" },
+                    ].map((s) => (
+                      <Link
+                        key={s.href}
+                        href={s.href}
+                        className="block py-2.5 text-[13px] tracking-[0.05em] font-light"
+                        style={{ color: "#6B7B8D" }}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {s.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="/contact"
+                className="block py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+                style={{ color: "#0A1628" }}
+                onClick={() => setMobileOpen(false)}
+              >
+                Contact
+              </Link>
+
+              <div className="pt-4 mt-auto border-t" style={{ borderColor: "#D6E0ED" }}>
+                <Link
+                  href="/quote"
+                  className="block text-center text-[12px] tracking-[0.3em] uppercase font-medium px-8 py-4 border transition-all"
+                  style={{ color: "#0A1628", borderColor: "#0F1D2F" }}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Request Consultation
+                </Link>
+                <a
+                  href="tel:6468638070"
+                  className="flex items-center justify-center gap-2 mt-4 text-[13px] tracking-[0.15em]"
+                  style={{ color: "#6B7B8D" }}
+                >
+                  <Phone size={14} />
+                  646.863.8070
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* ─── HERO ─── */}
+      <section className="relative h-[100svh] flex items-end pb-[18vh] md:pb-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/slides/slide-2-cycle.jpg"
+            alt="NYC skyline"
+            fill
+            priority
+            quality={95}
+            className="object-cover"
+            style={{ objectPosition: "center 40%" }}
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        </div>
+
+        <div className="relative z-10 px-8 md:px-16 w-full flex items-end">
+          <div className="flex flex-col gap-5">
+            <Reveal delay={100}>
+              <a
+                href="tel:6468638070"
+                className="text-white/50 text-[clamp(14px,2vw,18px)] tracking-[0.2em] font-light hover:text-white transition-colors"
+              >
+                646.863.8070
+              </a>
+            </Reveal>
+            <Reveal delay={300}>
+              <Link
+                href="/quote"
+                className="text-white text-[clamp(16px,2.5vw,22px)] tracking-[0.3em] uppercase font-semibold border-t border-white/30 pt-5 hover:border-white transition-all"
+              >
+                Request Consultation
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 opacity-0 animate-[fadeIn_1s_1.5s_forwards]">
+          <ArrowDown size={16} className="text-white/30" />
+        </div>
+      </section>
+
+      {/* ─── TESTIMONIALS ─── */}
+      <TestimonialCarousel />
+
+      {/* ─── SERVICES — Image blocks from Version E ─── */}
+      <section style={{ background: "#F5F8FC" }}>
+        <div className="px-10 md:px-12 py-10 border-b text-center" style={{ borderColor: "#D6E0ED" }}>
+          <h2 className="text-[13px] uppercase font-bold tracking-[0.1em]" style={{ color: "#0B5DB5" }}>
+            Our Services
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-2">
+          {[
+            { title: "Residential Moving", desc: "From Park Avenue penthouses to Brooklyn brownstones. Every home move handled with museum-grade care.", img: "/services/residential-truck.jpg", href: "/services/residential" },
+            { title: "Storage", desc: "Climate-controlled. Secure. Flexible terms for any timeline.", img: "/services/storage.jpg", href: "/storage" },
+          ].map((s, i) => (
+            <Reveal key={s.title} delay={i * 100}>
+              <Link href={s.href} className="group block relative overflow-hidden cursor-pointer">
+                <div className="relative h-[45vh] md:h-[55vh]">
+                  <Image
+                    src={s.img}
+                    alt={s.title}
+                    fill
+                    quality={95}
+                    className="object-cover transition-transform duration-[1000ms] group-hover:scale-[1.04]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%, transparent 100%)" }}
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
+                    <h3 className="text-white text-[22px] md:text-[28px] font-bold tracking-[-0.01em] uppercase">
+                      {s.title}
+                    </h3>
+                  </div>
+                </div>
+              </Link>
+            </Reveal>
           ))}
         </div>
 
-        <p className="text-[12px] font-light mt-12" style={{ color: "#D1D5DB" }}>
-          222 West 37th Street, New York &middot; 646.863.8070
-        </p>
-      </div>
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {[
+            { title: "FF&E / Designer", desc: "Fine art, antiques, pianos. Museum-quality care.", img: "/services/ffe-vase.jpg", href: "/services/ffe-designer" },
+            { title: "Long Distance", desc: "Coast-to-coast. ICC-licensed. Fully insured.", img: "/services/long-distance.jpg", href: "/services/long-distance" },
+            { title: "International", desc: "Global relocations. Customs handled. Door to door.", img: "/services/international.jpg", href: "/services/international" },
+            { title: "Commercial", desc: "Corporate and office relocations with precision.", img: "/services/commercial-lobby.jpg", href: "/services/commercial" },
+          ].map((s, i) => (
+            <Reveal key={s.title} delay={i * 80}>
+              <Link href={s.href} className="group block relative overflow-hidden cursor-pointer">
+                <div className="relative h-[30vh] md:h-[35vh]">
+                  <Image
+                    src={s.img}
+                    alt={s.title}
+                    fill
+                    quality={95}
+                    className="object-cover transition-transform duration-[800ms] group-hover:scale-[1.05]"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 60%, transparent 100%)" }}
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+                    <h3 className="text-white text-[15px] md:text-[18px] font-bold tracking-[0.01em] uppercase">
+                      {s.title}
+                    </h3>
+                  </div>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── HERITAGE — From Version E ─── */}
+      <section className="py-24 md:py-32" style={{ background: "#F5F8FC" }}>
+        <div className="max-w-[1200px] mx-auto px-10 md:px-12">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+            <Reveal>
+              <div>
+                <p className="text-[11px] uppercase font-bold tracking-[0.15em] mb-6" style={{ color: "#0B5DB5" }}>
+                  Since 1941
+                </p>
+                <h2 className="text-[clamp(26px,3vw,42px)] font-bold leading-[1.2] tracking-[-0.02em] mb-6" style={{ color: "#0A1628" }}>
+                  Three Generations
+                  of New York Expertise
+                </h2>
+                <p className="text-[15px] font-light leading-[1.85] mb-6" style={{ color: "#6B7B8D" }}>
+                  Founded in 1941, Scanio is a premier and highly reputable
+                  New York City based moving and storage company. We handle
+                  each and every move with care, planning and executing the
+                  transport of your belongings so that your transition from
+                  one space to the next is seamless.
+                </p>
+                <p className="text-[15px] font-light leading-[1.85]" style={{ color: "#6B7B8D" }}>
+                  With over seven decades of operational experience in the
+                  New York metropolitan area, our expertise in detailed
+                  logistics is unmatched.
+                </p>
+                <div className="flex gap-10 pt-8 mt-8 border-t" style={{ borderColor: "#D6E0ED" }}>
+                  {[
+                    { val: "80+", label: "Years" },
+                    { val: "NYC", label: "Based" },
+                  ].map((s) => (
+                    <div key={s.label}>
+                      <p className="text-[32px] font-bold tracking-[-0.02em]" style={{ color: "#0A1628" }}>
+                        {s.val}
+                      </p>
+                      <p className="text-[10px] uppercase font-semibold tracking-[0.15em] mt-1" style={{ color: "#A3B3C6" }}>
+                        {s.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <div className="relative overflow-hidden rounded-sm h-full min-h-[350px]" style={{ background: "#F0ECE6" }}>
+                <Image
+                  src="/vintage-trucks.jpg"
+                  alt="Vintage Scanio Moving trucks"
+                  fill
+                  quality={95}
+                  className="object-cover mix-blend-multiply"
+                  style={{ objectPosition: "center 52%", transform: "scaleX(1.02) scaleY(1.15)" }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA ─── */}
+      <section className="py-36 md:py-48 border-t" style={{ borderColor: "#D6E0ED", background: "#EBF1F8" }}>
+        <div className="max-w-[800px] mx-auto px-8 text-center">
+          <h2 className="text-[clamp(28px,4vw,48px)] font-light leading-[1.2] tracking-[-0.01em] mb-8" style={{ color: "#0A1628" }}>
+            Every exceptional move
+            <br />
+            begins with a conversation.
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
+            <Link
+              href="/quote"
+              className="text-[12px] tracking-[0.3em] uppercase font-sans px-10 py-4 border transition-all"
+              style={{ color: "#0A1628", borderColor: "#0F1D2F" }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "#0F1D2F"; e.currentTarget.style.color = "#F5F8FC"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#0F1D2F"; }}
+            >
+              Request Consultation
+            </Link>
+            <a
+              href="tel:6468638070"
+              className="flex items-center gap-2 text-[13px] tracking-[0.2em] font-sans transition-opacity hover:opacity-60"
+              style={{ color: "#6B7B8D" }}
+            >
+              <Phone size={14} />
+              646.863.8070
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FOOTER ─── */}
+      <footer className="pt-16 pb-10 border-t" style={{ borderColor: "#D6E0ED", background: "#0A1628" }}>
+        <div className="max-w-[1400px] mx-auto px-8 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-10 mb-14">
+            {/* Brand + Licensed */}
+            <div>
+              <div className="flex items-center gap-4 mb-4">
+                <Image
+                  src="/scanio-s-navy.png"
+                  alt="Scanio S logo"
+                  width={40}
+                  height={51}
+                  className="w-[40px]"
+                />
+                <div>
+                  <p className="text-white text-[28px] font-semibold tracking-[0.02em] uppercase leading-none mb-1">
+                    Scanio
+                  </p>
+                  <p className="text-white/50 text-[13px] font-light">
+                    Moving &amp; Storage
+                  </p>
+                </div>
+              </div>
+              <div className="mt-6 border border-white/10 p-5 space-y-1">
+                <p className="text-[10px] uppercase font-semibold tracking-[0.15em] text-white/30 mb-3">
+                  Licensed &amp; Insured
+                </p>
+                <p className="text-[16px] font-semibold text-white/70">NY DOT T11495</p>
+                <p className="text-[16px] font-semibold text-white/70">ICC MC93512</p>
+                <p className="text-[16px] font-semibold text-white/70">NJ 39PC00099002</p>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <p className="text-[11px] uppercase font-bold tracking-[0.15em] mb-5" style={{ color: "#0B5DB5" }}>
+                Services
+              </p>
+              <ul className="space-y-2">
+                {["Residential", "Commercial", "Long Distance", "International", "Storage", "FF&E / Designer"].map((item) => (
+                  <li key={item} className="text-[13px] font-light text-white/40 hover:text-white/70 transition-colors cursor-pointer">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <p className="text-[11px] uppercase font-bold tracking-[0.15em] mb-5" style={{ color: "#0B5DB5" }}>
+                Company
+              </p>
+              <ul className="space-y-2">
+                {["About", "Testimonials", "Free Estimate", "Contact"].map((item) => (
+                  <li key={item} className="text-[13px] font-light text-white/40 hover:text-white/70 transition-colors cursor-pointer">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <p className="text-[11px] uppercase font-bold tracking-[0.15em] mb-5" style={{ color: "#0B5DB5" }}>
+                Contact
+              </p>
+              <ul className="space-y-2 text-[13px] font-light text-white/40">
+                <li><a href="tel:6468638070" className="hover:text-white/70 transition-colors">646.863.8070</a></li>
+                <li><a href="mailto:info@scaniomoving.com" className="hover:text-white/70 transition-colors">info@scaniomoving.com</a></li>
+                <li>222 West 37th Street, 3rd Floor</li>
+                <li>New York, NY 10018</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="border-t border-white/10 pt-8 flex justify-center">
+            <span className="text-[11px] font-light text-white/20">
+              &copy; {new Date().getFullYear()} Scanio Moving &amp; Storage. All rights reserved.
+            </span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

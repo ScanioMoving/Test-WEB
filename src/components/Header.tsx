@@ -1,22 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 
-const services = [
-  { name: "Residential Moving", href: "/services/residential" },
-  { name: "Commercial Moving", href: "/services/commercial" },
-  { name: "Long Distance Moving", href: "/services/long-distance" },
-  { name: "White Glove Moving", href: "/services/white-glove" },
-  { name: "Packing & Unpacking", href: "/services/packing" },
+const serviceItems = [
+  { name: "Residential", href: "/services/residential" },
+  { name: "Commercial", href: "/services/commercial" },
+  { name: "Long Distance", href: "/services/long-distance" },
+  { name: "International", href: "/services/international" },
   { name: "Storage", href: "/storage" },
+  { name: "FF&E / Designer", href: "/services/ffe-designer" },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
+  const servicesBtnRef = useRef<HTMLButtonElement>(null);
+  const [servicesBtnCenter, setServicesBtnCenter] = useState(0);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -24,161 +28,281 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  function handleDropdownEnter() {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setServicesOpen(true);
+  }
+
+  function handleDropdownLeave() {
+    dropdownTimeout.current = setTimeout(() => setServicesOpen(false), 200);
+  }
+
+  useEffect(() => {
+    if (servicesOpen && servicesBtnRef.current) {
+      const rect = servicesBtnRef.current.getBoundingClientRect();
+      setServicesBtnCenter(rect.left + rect.width / 2);
+    }
+  }, [servicesOpen]);
+
+  const solid = scrolled;
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50"
+      onMouseLeave={() => {
+        if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+        setServicesOpen(false);
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
-        {/* Logo */}
-        <Link href="/" className="flex flex-col relative z-10">
-          <span
-            className={`text-[28px] font-bold tracking-tight transition-colors duration-500 ${
-              scrolled ? "text-navy" : "text-white"
-            }`}
-          >
-            SCANIO
-          </span>
-          <span
-            className={`text-[11px] tracking-[0.35em] uppercase -mt-1 transition-colors duration-500 ${
-              scrolled ? "text-text-secondary" : "text-white/70"
-            }`}
-          >
-            Moving & Storage
-          </span>
-        </Link>
+      {/* Main nav bar */}
+      <div
+        className="transition-all duration-500"
+        style={{
+          height: 150,
+          background: solid ? "#F5F8FC" : "transparent",
+          boxShadow: solid && !servicesOpen ? "0 1px 0 #D6E0ED" : "none",
+        }}
+      >
+        <div className="w-full px-10 md:px-12 h-full flex items-center justify-between">
+          <Link href="/" className="flex shrink-0 items-center gap-4 relative z-10">
+            <div
+              className="block shrink-0 transition-all duration-500 h-[60px] md:h-[75px] aspect-[1217/1561] translate-y-[1px] md:translate-y-[2px]"
+              style={{
+                background: solid ? "#0B5DB5" : "white",
+                WebkitMaskImage: "url(/scanio-s-knockout-white.png)",
+                WebkitMaskSize: "contain",
+                WebkitMaskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+                maskImage: "url(/scanio-s-knockout-white.png)",
+                maskSize: "contain",
+                maskRepeat: "no-repeat",
+                maskPosition: "center",
+              }}
+            />
+            <div className="flex flex-col justify-center items-start" style={{ transform: "translateY(var(--logoTextOffsetY, 0px))" }}>
+              <span
+                className="block text-[56px] md:text-[72px] font-semibold tracking-[0.02em] uppercase transition-colors duration-500"
+                style={{ color: solid ? "#0B5DB5" : "white", lineHeight: "0.85", margin: 0, marginLeft: "-3px", padding: 0 }}
+              >
+                Scanio
+              </span>
+              <span
+                className="block text-[13px] tracking-[0.02em] uppercase font-normal transition-colors duration-500"
+                style={{ color: solid ? "#4A5568" : "rgba(255,255,255,0.65)", lineHeight: "1", marginTop: "4px" }}
+              >
+                Moving &amp; Storage &mdash; Since 1941
+              </span>
+            </div>
+          </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-10">
-          {[
-            { label: "About", href: "/about" },
-            { label: "Testimonials", href: "/testimonials" },
-            { label: "Contact", href: "/contact" },
-          ].map((item) => (
+          <div className="hidden lg:flex items-center gap-10">
             <Link
-              key={item.href}
-              href={item.href}
-              className={`text-[13px] font-medium tracking-wide transition-colors duration-500 ${
-                scrolled
-                  ? "text-text-secondary hover:text-navy"
-                  : "text-white/80 hover:text-white"
-              }`}
+              href="/about"
+              className="text-[14px] tracking-[0.15em] uppercase font-medium hover:opacity-100 transition-all duration-500"
+              style={{ color: solid ? "#0B5DB5" : "white", opacity: solid ? 0.85 : 0.6 }}
             >
-              {item.label}
+              About Us
             </Link>
-          ))}
 
-          {/* Services dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <Link
-              href="/services"
-              className={`flex items-center gap-1 text-[13px] font-medium tracking-wide transition-colors duration-500 ${
-                scrolled
-                  ? "text-text-secondary hover:text-navy"
-                  : "text-white/80 hover:text-white"
-              }`}
+            <a
+              href="https://designers.scaniomoving.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-[14px] tracking-[0.15em] uppercase font-medium hover:opacity-100 transition-all duration-500"
+              style={{ color: solid ? "#0B5DB5" : "white", opacity: solid ? 0.85 : 0.6 }}
             >
-              Services <ChevronDown size={14} />
-            </Link>
-            {servicesOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 pt-3">
-                <div className="bg-white rounded-xl shadow-xl border border-border py-3 min-w-[240px]">
-                  {services.map((s) => (
+              Designer Portal
+              <ExternalLink size={12} className="opacity-50" />
+            </a>
+
+            <div
+              className="relative"
+              onMouseEnter={handleDropdownEnter}
+              onMouseLeave={handleDropdownLeave}
+            >
+              <button
+                ref={servicesBtnRef}
+                className="flex items-center gap-1.5 text-[14px] tracking-[0.15em] uppercase font-medium hover:opacity-100 transition-all duration-500"
+                style={{ color: solid ? "#0B5DB5" : "white", opacity: solid ? 0.85 : 0.6 }}
+              >
+                Services
+                <ChevronDown
+                  size={14}
+                  className="transition-transform duration-300"
+                  style={{ transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                />
+              </button>
+
+              {/* Services dropdown */}
+              <div
+                className="absolute top-full pt-3 transition-all duration-300"
+                style={{
+                  left: "50%",
+                  opacity: servicesOpen ? 1 : 0,
+                  transform: servicesOpen ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-6px)",
+                  pointerEvents: servicesOpen ? "auto" : "none",
+                  zIndex: 60,
+                }}
+              >
+                <div
+                  className="min-w-[200px] py-3 px-6"
+                  style={{ background: "#F5F8FC" }}
+                >
+                  {serviceItems.map((s) => (
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="block px-5 py-2.5 text-[13px] text-text-secondary hover:bg-cream hover:text-navy transition-colors"
+                      className="block py-2 text-[12px] tracking-[0.1em] uppercase font-medium text-center transition-all duration-300"
+                      style={{ color: "rgba(11,93,181,0.5)" }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = "#0B5DB5"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(11,93,181,0.5)"; }}
                     >
                       {s.name}
                     </Link>
                   ))}
                 </div>
               </div>
-            )}
+
+            </div>
+
+            <Link
+              href="/contact"
+              className="text-[14px] tracking-[0.15em] uppercase font-medium hover:opacity-100 transition-all duration-500"
+              style={{ color: solid ? "#0B5DB5" : "white", opacity: solid ? 0.85 : 0.6 }}
+            >
+              Contact
+            </Link>
           </div>
 
-          <div
-            className={`w-px h-5 transition-colors duration-500 ${
-              scrolled ? "bg-border" : "bg-white/20"
-            }`}
-          />
-
-          <a
-            href="tel:6468638070"
-            className={`flex items-center gap-2 text-[13px] font-medium tracking-wide transition-colors duration-500 ${
-              scrolled
-                ? "text-text-secondary hover:text-navy"
-                : "text-white/80 hover:text-white"
-            }`}
+          <button
+            className="lg:hidden p-2 relative z-10 transition-colors duration-500"
+            style={{ color: solid ? "#0B5DB5" : "white" }}
+            onClick={() => {
+              setMobileOpen(!mobileOpen);
+              setServicesOpen(false);
+            }}
+            aria-label="Toggle menu"
           >
-            <Phone size={14} />
-            646.863.8070
-          </a>
+            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
 
-          <Link
-            href="/quote"
-            className={`text-[13px] font-semibold px-5 py-2.5 rounded-full transition-all duration-500 ${
-              scrolled
-                ? "bg-navy text-white hover:bg-navy-light"
-                : "bg-white text-navy hover:bg-white/90"
-            }`}
-          >
-            Get Estimate
-          </Link>
-        </nav>
-
-        {/* Mobile toggle */}
-        <button
-          className={`lg:hidden p-2 relative z-10 transition-colors duration-500 ${
-            scrolled ? "text-navy" : "text-white"
-          }`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
 
-      {/* Mobile nav */}
+      {/* Mobile nav panel */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-border">
-          <div className="px-6 py-6 space-y-1">
-            {[
-              { label: "About", href: "/about" },
-              { label: "Services", href: "/services" },
-              ...services.map((s) => ({ label: s.name, href: s.href, indent: true })),
-              { label: "Storage", href: "/storage" },
-              { label: "Testimonials", href: "/testimonials" },
-              { label: "Contact", href: "/contact" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`block py-2.5 text-[15px] transition-colors ${
-                  "indent" in item && item.indent
-                    ? "pl-5 text-text-light text-[13px]"
-                    : "text-text-primary font-medium"
-                }`}
-                onClick={() => setMobileOpen(false)}
+        <div
+          className="lg:hidden border-t overflow-y-auto"
+          style={{
+            background: "#F5F8FC",
+            borderColor: "#D6E0ED",
+            height: "calc(100vh - 150px)",
+          }}
+        >
+          <div className="px-10 py-8 space-y-1 flex flex-col h-full">
+            <Link
+              href="/about"
+              className="block py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+              style={{ color: "#0A1628" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              About Us
+            </Link>
+            <a
+              href="https://designers.scaniomoving.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+              style={{ color: "#0A1628" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              Designer Portal
+              <ExternalLink size={13} className="opacity-40" />
+            </a>
+
+            <div>
+              <button
+                className="flex items-center justify-between w-full py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+                style={{ color: "#0A1628" }}
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
               >
-                {item.label}
-              </Link>
-            ))}
-            <div className="pt-4">
+                Services
+                <ChevronDown
+                  size={16}
+                  className="transition-transform duration-300"
+                  style={{ transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                />
+              </button>
+              {mobileServicesOpen && (
+                <div className="pl-5 pb-2 space-y-0.5">
+                  <Link
+                    href="/services"
+                    className="block py-2.5 text-[13px] tracking-[0.05em] font-light"
+                    style={{ color: "#6B7B8D" }}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    All Services
+                  </Link>
+                  {serviceItems.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className="block py-2.5 text-[13px] tracking-[0.05em] font-light"
+                      style={{ color: "#6B7B8D" }}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {s.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/contact"
+              className="block py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+              style={{ color: "#0A1628" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              Contact
+            </Link>
+
+            <Link
+              href="/testimonials"
+              className="block py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+              style={{ color: "#0A1628" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              Testimonials
+            </Link>
+
+            <div className="pt-4 mt-auto border-t" style={{ borderColor: "#D6E0ED" }}>
               <Link
                 href="/quote"
-                className="block bg-navy text-white text-center font-semibold px-6 py-3.5 rounded-full text-[14px]"
+                className="block text-center text-[12px] tracking-[0.3em] uppercase font-medium px-8 py-4 border transition-all"
+                style={{ color: "#0A1628", borderColor: "#0F1D2F" }}
                 onClick={() => setMobileOpen(false)}
               >
-                Get Free Estimate
+                Request Consultation
               </Link>
+              <a
+                href="tel:6468638070"
+                className="flex items-center justify-center gap-2 mt-4 text-[13px] tracking-[0.15em]"
+                style={{ color: "#6B7B8D" }}
+              >
+                646.863.8070
+              </a>
             </div>
           </div>
         </div>
