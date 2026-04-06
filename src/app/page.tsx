@@ -93,7 +93,7 @@ function TestimonialCarousel() {
       setTimeout(() => {
         setCurrent((prev) => (prev + 1) % testimonials.length);
         setFade(true);
-      }, 500);
+      }, 400);
     }, 6000);
     return () => clearInterval(interval);
   }, []);
@@ -138,8 +138,8 @@ function TestimonialCarousel() {
           {/* Fixed height container so quotes don't shift layout */}
           <div className="min-h-[220px] md:min-h-[200px] flex flex-col justify-center">
             <div
-              className="transition-opacity duration-500"
-              style={{ opacity: fade ? 1 : 0 }}
+              className="transition-opacity duration-400"
+              style={{ opacity: fade ? 1 : 0.15 }}
             >
               <h2
                 className="text-[clamp(24px,3.5vw,44px)] font-light leading-[1.3] tracking-[-0.01em] mb-6"
@@ -760,8 +760,8 @@ export default function HomePage() {
           </div>
 
           {/* Bottom bar */}
-          <div className="border-t border-white/10 pt-8 flex justify-center">
-            <span className="text-[11px] font-light text-white/20">
+          <div className="border-t border-white/10 pt-8 flex justify-center" style={{ opacity: 1 }}>
+            <span className="text-[11px] font-light" style={{ color: "rgba(255,255,255,0.2)" }}>
               &copy; {new Date().getFullYear()} Scanio Moving &amp; Storage. All rights reserved.
             </span>
           </div>
