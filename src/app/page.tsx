@@ -84,21 +84,29 @@ function TruckScrollHero() {
     for (let i = 0; i < TRUCK_FRAME_COUNT; i++) {
       const img = new window.Image();
       const n = String(i + 1).padStart(3, "0");
+      const finish = () => {
+        done++;
+        if (!cancelled) setLoaded(done);
+      };
+      img.onload = finish;
+      img.onerror = finish;
       img.src = `/truck-sequence/ezgif-frame-${n}.jpg`;
-      img.onload = () => {
+      // if cached, onload may have fired before we attached — handle synchronously
+      if (img.complete && img.naturalWidth > 0) {
         done++;
-        if (!cancelled) setLoaded(done);
-      };
-      img.onerror = () => {
-        done++;
-        if (!cancelled) setLoaded(done);
-      };
+      }
       images.push(img);
     }
     imagesRef.current = images;
+    if (done > 0) setLoaded(done);
 
     return () => { cancelled = true; };
   }, []);
+
+  // Redraw whenever a new frame has loaded (so first frame shows without scrolling)
+  useEffect(() => {
+    if (loaded > 0) draw(scrollProgress);
+  }, [loaded, draw, scrollProgress]);
 
   // Draw frame based on scroll progress
   const draw = useCallback((progress: number) => {
