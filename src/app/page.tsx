@@ -110,9 +110,12 @@ function TruckScrollHero() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Hold the final frame for the last ~12% of scroll (≈1/3 second at typical speed)
+    const holdAt = 0.88;
+    const eff = Math.min(1, Math.max(0, progress) / holdAt);
     const target = Math.min(
       TRUCK_FRAME_COUNT - 1,
-      Math.max(0, Math.floor(progress * (TRUCK_FRAME_COUNT - 1)))
+      Math.max(0, Math.floor(eff * (TRUCK_FRAME_COUNT - 1)))
     );
     // If target frame isn't loaded yet, walk outward to nearest ready frame
     let img = imagesRef.current[target];
