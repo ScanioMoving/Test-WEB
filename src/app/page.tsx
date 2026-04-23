@@ -66,7 +66,7 @@ const testimonials = [
   },
 ];
 
-const TRUCK_FRAME_COUNT = 185;
+const TRUCK_FRAME_COUNT = 188;
 
 function TruckScrollHero() {
   const sectionRef = useRef<HTMLElement>(null);
