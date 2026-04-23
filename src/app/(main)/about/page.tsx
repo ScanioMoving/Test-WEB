@@ -187,9 +187,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
+      {/* Values + Licenses + CTA */}
       <section className="py-20" style={{ background: "#F5F8FC" }}>
         <div className="max-w-5xl mx-auto px-10 text-center">
+
+          {/* What We Stand For */}
           <h2
             className="text-[clamp(24px,3vw,32px)] font-light leading-[1.3] mb-4"
             style={{ color: "#0A1628" }}
@@ -203,123 +205,74 @@ export default function AboutPage() {
             Our values have guided us since 1941 and continue to define every
             move we make today.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
             {[
-              {
-                stat: "80+",
-                label: "Years of Service",
-                desc: "Trusted by generations of New Yorkers since 1941.",
-              },
-              {
-                stat: "NYC",
-                label: "Based & Operated",
-                desc: "We know every building, block, and borough.",
-              },
-              {
-                stat: "5 Star",
-                label: "Rated Service",
-                desc: "Consistently top-rated by our customers.",
-              },
-              {
-                stat: "24hr",
-                label: "Response Time",
-                desc: "We get back to you within one business day.",
-              },
+              { stat: "80+", label: "Years of Service", desc: "Trusted by generations of New Yorkers since 1941." },
+              { stat: "NYC", label: "Based & Operated", desc: "We know every building, block, and borough." },
+              { stat: "5 Star", label: "Rated Service", desc: "Consistently top-rated by our customers." },
+              { stat: "24hr", label: "Response Time", desc: "We get back to you within one business day." },
             ].map((v) => (
               <div key={v.label} className="text-center">
-                <p
-                  className="text-[36px] font-light mb-1"
-                  style={{ color: "#0B5DB5" }}
-                >
-                  {v.stat}
-                </p>
-                <p
-                  className="text-[13px] tracking-[0.1em] uppercase font-medium mb-3"
-                  style={{ color: "#0A1628" }}
-                >
-                  {v.label}
-                </p>
-                <p
-                  className="text-[14px] font-light leading-[1.7]"
-                  style={{ color: "#6B7B8D" }}
-                >
-                  {v.desc}
-                </p>
+                <p className="text-[36px] font-light mb-1" style={{ color: "#0B5DB5" }}>{v.stat}</p>
+                <p className="text-[13px] tracking-[0.1em] uppercase font-medium mb-3" style={{ color: "#0A1628" }}>{v.label}</p>
+                <p className="text-[14px] font-light leading-[1.7]" style={{ color: "#6B7B8D" }}>{v.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-
-      {/* Licenses */}
-      <section className="py-16" style={{ background: "#F5F8FC" }}>
-        <div className="max-w-5xl mx-auto px-10 text-center">
-          <h2
-            className="text-[clamp(20px,2.5vw,28px)] font-light mb-10"
-            style={{ color: "#0A1628" }}
-          >
-            Licensed &amp; Insured
-          </h2>
-          <div className="flex flex-wrap justify-center gap-8">
-            {[
-              { label: "New York DOT", value: "T11495" },
-              { label: "ICC Interstate", value: "MC93512" },
-              { label: "New Jersey", value: "39PC00099002" },
-              { label: "US DOT", value: "537054" },
-            ].map((l) => (
-              <div key={l.value} className="bg-white px-8 py-6 text-center">
-                <p
-                  className="text-[11px] tracking-[0.1em] uppercase font-light mb-1"
-                  style={{ color: "#6B7B8D" }}
-                >
-                  {l.label}
-                </p>
-                <p
-                  className="text-[18px] font-medium"
-                  style={{ color: "#0A1628" }}
-                >
-                  {l.value}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20" style={{ background: "#0A1628" }}>
-        <div className="max-w-4xl mx-auto px-10 text-center">
-          <h2
-            className="text-[clamp(24px,3vw,36px)] font-light leading-[1.3] mb-4"
-            style={{ color: "white" }}
-          >
-            Experience the Scanio difference.
-          </h2>
-          <p
-            className="text-[15px] font-light mb-10"
-            style={{ color: "rgba(255,255,255,0.5)" }}
-          >
-            Join thousands of satisfied customers who trust their moves to
-            NYC&apos;s finest moving company.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/quote"
-              className="text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 border transition-all"
-              style={{ color: "white", borderColor: "rgba(255,255,255,0.3)" }}
+          {/* Licensed & Insured */}
+          <div className="border-t pt-16 mb-16" style={{ borderColor: "#D6E0ED" }}>
+            <h2
+              className="text-[clamp(20px,2.5vw,28px)] font-light mb-10"
+              style={{ color: "#0A1628" }}
             >
-              Get an Estimate
-            </Link>
-            <a
-              href="tel:6468638070"
-              className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] font-light transition-opacity hover:opacity-60"
-              style={{ color: "rgba(255,255,255,0.5)" }}
-            >
-              <Phone size={14} />
-              646.863.8070
-            </a>
+              Licensed &amp; Insured
+            </h2>
+            <div className="flex flex-wrap justify-center gap-8">
+              {[
+                { label: "New York DOT", value: "T11495" },
+                { label: "ICC Interstate", value: "MC93512" },
+                { label: "New Jersey", value: "39PC00099002" },
+                { label: "US DOT", value: "537054" },
+              ].map((l) => (
+                <div key={l.value} className="bg-white px-8 py-6 text-center">
+                  <p className="text-[11px] tracking-[0.1em] uppercase font-light mb-1" style={{ color: "#6B7B8D" }}>{l.label}</p>
+                  <p className="text-[18px] font-medium" style={{ color: "#0A1628" }}>{l.value}</p>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* CTA */}
+          <div className="border-t pt-16" style={{ borderColor: "#D6E0ED" }}>
+            <h2
+              className="text-[clamp(24px,3vw,36px)] font-light leading-[1.3] mb-4"
+              style={{ color: "#0A1628" }}
+            >
+              Experience the Scanio difference.
+            </h2>
+            <p className="text-[15px] font-light mb-10" style={{ color: "#6B7B8D" }}>
+              Join thousands of satisfied customers who trust their moves to NYC&apos;s finest moving company.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/quote"
+                className="text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 border transition-all"
+                style={{ color: "#0A1628", borderColor: "#0A1628" }}
+              >
+                Get an Estimate
+              </Link>
+              <a
+                href="tel:6468638070"
+                className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] font-light transition-opacity hover:opacity-60"
+                style={{ color: "#0B5DB5" }}
+              >
+                <Phone size={14} />
+                646.863.8070
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
     </>

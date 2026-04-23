@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, ArrowDown, ChevronDown, ChevronLeft, ChevronRight, Menu, X, ExternalLink } from "lucide-react";
@@ -65,6 +65,170 @@ const testimonials = [
     author: "David L. Reni",
   },
 ];
+
+const TRUCK_FRAME_COUNT = 240;
+
+function TruckScrollHero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
+  const [loaded, setLoaded] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Preload frames
+  useEffect(() => {
+    let cancelled = false;
+    const images: HTMLImageElement[] = [];
+    let done = 0;
+
+    for (let i = 0; i < TRUCK_FRAME_COUNT; i++) {
+      const img = new window.Image();
+      const n = String(i + 1).padStart(3, "0");
+      img.src = `/truck-sequence/ezgif-frame-${n}.jpg`;
+      img.onload = () => {
+        done++;
+        if (!cancelled) setLoaded(done);
+      };
+      img.onerror = () => {
+        done++;
+        if (!cancelled) setLoaded(done);
+      };
+      images.push(img);
+    }
+    imagesRef.current = images;
+
+    return () => { cancelled = true; };
+  }, []);
+
+  // Draw frame based on scroll progress
+  const draw = useCallback((progress: number) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const frameIndex = Math.min(
+      TRUCK_FRAME_COUNT - 1,
+      Math.max(0, Math.floor(progress * (TRUCK_FRAME_COUNT - 1)))
+    );
+    const img = imagesRef.current[frameIndex];
+    if (!img || !img.complete || img.naturalWidth === 0) return;
+
+    const cw = window.innerWidth;
+    const ch = window.innerHeight;
+    const iw = img.naturalWidth;
+    const ih = img.naturalHeight;
+    const scale = Math.max(cw / iw, ch / ih);
+    const dw = iw * scale;
+    const dh = ih * scale;
+    const dx = (cw - dw) / 2;
+    const dy = (ch - dh) / 2;
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.drawImage(img, dx, dy, dw, dh);
+  }, []);
+
+  // Size canvas to viewport (and redraw)
+  useEffect(() => {
+    const resize = () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      const ctx = canvas.getContext("2d");
+      if (ctx) ctx.scale(dpr, dpr);
+      draw(scrollProgress);
+    };
+    resize();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, [draw, scrollProgress]);
+
+  // Scroll handler
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const el = sectionRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const total = el.offsetHeight - window.innerHeight;
+        const progress = Math.min(1, Math.max(0, -rect.top / total));
+        setScrollProgress(progress);
+        draw(progress);
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [draw]);
+
+  const loadPct = Math.round((loaded / TRUCK_FRAME_COUNT) * 100);
+  const ready = loaded >= Math.min(20, TRUCK_FRAME_COUNT); // need at least first ~20 frames to start
+  const textOpacity = Math.max(0, (scrollProgress - 0.7) / 0.3); // reveal in last 30%
+
+  return (
+    <section ref={sectionRef} className="relative" style={{ height: "300vh" }}>
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden" style={{ background: "#0A1628" }}>
+        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+
+        {/* Loading overlay */}
+        {!ready && (
+          <div className="absolute inset-0 flex items-center justify-center" style={{ background: "#0A1628" }}>
+            <div className="text-center">
+              <p className="text-white/40 text-[11px] tracking-[0.3em] uppercase mb-3">Loading</p>
+              <div className="w-48 h-[1px] bg-white/10 relative overflow-hidden">
+                <div
+                  className="absolute inset-y-0 left-0 bg-white/60 transition-all duration-200"
+                  style={{ width: `${loadPct}%` }}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Dark gradient at bottom for text */}
+        <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
+
+        {/* Hero text — reveals near end of scroll */}
+        <div
+          className="absolute inset-x-0 bottom-[18vh] md:bottom-24 z-10 px-8 md:px-16 transition-opacity duration-500"
+          style={{ opacity: textOpacity }}
+        >
+          <div className="flex flex-col gap-5">
+            <a
+              href="tel:6468638070"
+              className="text-white/50 text-[clamp(14px,2vw,18px)] tracking-[0.2em] font-light hover:text-white transition-colors"
+            >
+              646.863.8070
+            </a>
+            <Link
+              href="/quote"
+              className="text-white text-[clamp(16px,2.5vw,22px)] tracking-[0.3em] uppercase font-semibold border-t border-white/30 pt-5 hover:border-white transition-all w-fit"
+            >
+              Request Consultation
+            </Link>
+          </div>
+        </div>
+
+        {/* Scroll hint — hides once scrolled past 10% */}
+        <div
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-500"
+          style={{ opacity: scrollProgress < 0.1 ? 1 : 0 }}
+        >
+          <ArrowDown size={16} className="text-white/30" />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const heroSlides = [
   { src: "/slides/slide-2-cycle.jpg", alt: "NYC skyline" },
@@ -203,7 +367,7 @@ export default function HomePage() {
   useEffect(() => {
     document.body.style.background = "#F5F8FC";
 
-    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight - 160);
+    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight * 2 - 160);
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
@@ -476,47 +640,8 @@ export default function HomePage() {
         )}
       </nav>
 
-      {/* ─── HERO ─── */}
-      <section className="relative h-[100svh] flex items-end pb-[18vh] md:pb-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/slides/slide-2-cycle.jpg"
-            alt="NYC skyline"
-            fill
-            priority
-            quality={95}
-            className="object-cover"
-            style={{ objectPosition: "center 40%" }}
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        </div>
-
-        <div className="relative z-10 px-8 md:px-16 w-full flex items-end">
-          <div className="flex flex-col gap-5">
-            <Reveal delay={100}>
-              <a
-                href="tel:6468638070"
-                className="text-white/50 text-[clamp(14px,2vw,18px)] tracking-[0.2em] font-light hover:text-white transition-colors"
-              >
-                646.863.8070
-              </a>
-            </Reveal>
-            <Reveal delay={300}>
-              <Link
-                href="/quote"
-                className="text-white text-[clamp(16px,2.5vw,22px)] tracking-[0.3em] uppercase font-semibold border-t border-white/30 pt-5 hover:border-white transition-all"
-              >
-                Request Consultation
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 opacity-0 animate-[fadeIn_1s_1.5s_forwards]">
-          <ArrowDown size={16} className="text-white/30" />
-        </div>
-      </section>
+      {/* ─── HERO — Scroll-driven truck sequence ─── */}
+      <TruckScrollHero />
 
       {/* ─── TESTIMONIALS ─── */}
       <TestimonialCarousel />
