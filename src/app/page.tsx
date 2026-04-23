@@ -115,12 +115,23 @@ function TruckScrollHero() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const frameIndex = Math.min(
+    const target = Math.min(
       TRUCK_FRAME_COUNT - 1,
       Math.max(0, Math.floor(progress * (TRUCK_FRAME_COUNT - 1)))
     );
-    const img = imagesRef.current[frameIndex];
-    if (!img || !img.complete || img.naturalWidth === 0) return;
+    // If target frame isn't loaded yet, walk outward to nearest ready frame
+    let img = imagesRef.current[target];
+    if (!img || !img.complete || img.naturalWidth === 0) {
+      let found: HTMLImageElement | null = null;
+      for (let d = 1; d < TRUCK_FRAME_COUNT; d++) {
+        const a = imagesRef.current[target - d];
+        if (a && a.complete && a.naturalWidth > 0) { found = a; break; }
+        const b = imagesRef.current[target + d];
+        if (b && b.complete && b.naturalWidth > 0) { found = b; break; }
+      }
+      if (!found) return;
+      img = found;
+    }
 
     const cw = window.innerWidth;
     const ch = window.innerHeight;
