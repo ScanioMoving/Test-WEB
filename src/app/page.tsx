@@ -103,11 +103,6 @@ function TruckScrollHero() {
     return () => { cancelled = true; };
   }, []);
 
-  // Redraw whenever a new frame has loaded (so first frame shows without scrolling)
-  useEffect(() => {
-    if (loaded > 0) draw(scrollProgress);
-  }, [loaded, draw, scrollProgress]);
-
   // Draw frame based on scroll progress
   const draw = useCallback((progress: number) => {
     const canvas = canvasRef.current;
@@ -145,6 +140,11 @@ function TruckScrollHero() {
     ctx.clearRect(0, 0, cw, ch);
     ctx.drawImage(img, dx, dy, dw, dh);
   }, []);
+
+  // Redraw whenever a new frame has loaded (so first frame shows without scrolling)
+  useEffect(() => {
+    if (loaded > 0) draw(scrollProgress);
+  }, [loaded, draw, scrollProgress]);
 
   // Size canvas to viewport (and redraw)
   useEffect(() => {
