@@ -198,7 +198,7 @@ function TruckScrollHero() {
 
   return (
     <section ref={sectionRef} className="relative" style={{ height: "300vh" }}>
-      <div className="sticky top-0 h-[100svh] w-full overflow-hidden" style={{ background: "#0A1628" }}>
+      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden" style={{ background: "#0A1628" }}>
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
         {/* Loading overlay */}
