@@ -418,26 +418,54 @@ export default function HomePage() {
         }
       `}</style>
 
-      {/* ─── NAV — Large header, solid bg after hero ─── */}
+      {/* ─── NAV — Large header; liquid-glass backdrop over hero, solid bg after ─── */}
       <nav
         className="fixed top-0 left-0 right-0 z-50"
-        style={{ mixBlendMode: (!scrolled && !mobileOpen) ? "difference" : "normal" }}
         onMouseLeave={handleServiceLeave}
       >
         <div
-          className="transition-all duration-500"
+          className="relative transition-all duration-500"
           style={{
             height: 150,
             background: scrolled ? "#F5F8FC" : "transparent",
             boxShadow: scrolled && !servicesOpen ? "0 1px 0 #D6E0ED" : "none",
           }}
         >
-          <div className="w-full px-10 md:px-12 h-full flex items-center justify-between">
+          {/* Frosted glass — only render over hero */}
+          {!scrolled && (
+            <>
+              {/* Smooth frost blur */}
+              <div
+                aria-hidden
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  backdropFilter: "blur(24px) saturate(200%)",
+                  WebkitBackdropFilter: "blur(24px) saturate(200%)",
+                }}
+              />
+              {/* Specular — light-catching inner edges + crisp bottom hairline */}
+              <div
+                aria-hidden
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  boxShadow: [
+                    "inset 0 1px 0 rgba(255,255,255,0.45)",
+                    "inset 1px 0 0 rgba(255,255,255,0.18)",
+                    "inset -1px 0 0 rgba(255,255,255,0.18)",
+                    "inset 0 -1px 0 rgba(255,255,255,0.7)",
+                    "0 0.5px 0 rgba(255,255,255,0.55)",
+                    "0 8px 24px -12px rgba(0,0,0,0.25)",
+                  ].join(", "),
+                }}
+              />
+            </>
+          )}
+          <div className="relative z-10 w-full px-10 md:px-12 h-full flex items-center justify-between">
             <Link href="/" className="flex shrink-0 items-center gap-4">
               <div
                 className="block shrink-0 transition-all duration-500 h-[60px] md:h-[75px] aspect-[1217/1561] translate-y-[1px] md:translate-y-[2px]"
                 style={{
-                  background: scrolled ? "#0B5DB5" : "white",
+                  background: scrolled ? "#0B5DB5" : "#000000",
                   WebkitMaskImage: "url(/scanio-s-knockout-white.png)",
                   WebkitMaskSize: "contain",
                   WebkitMaskRepeat: "no-repeat",
@@ -451,13 +479,13 @@ export default function HomePage() {
               <div className="flex flex-col justify-center items-start" style={{ transform: "translateY(var(--logoTextOffsetY, 0px))" }}>
                 <span
                   className="block text-[56px] md:text-[72px] font-semibold tracking-[0.02em] uppercase transition-colors duration-500"
-                  style={{ color: scrolled ? "#0B5DB5" : "white", lineHeight: "0.85", margin: 0, marginLeft: "-3px", padding: 0 }}
+                  style={{ color: scrolled ? "#0B5DB5" : "#000000", lineHeight: "0.85", margin: 0, marginLeft: "-3px", padding: 0 }}
                 >
                   Scanio
                 </span>
                 <span
                   className="block text-[13px] tracking-[0.02em] uppercase font-normal transition-colors duration-500"
-                  style={{ color: scrolled ? "#4A5568" : "rgba(255,255,255,0.65)", lineHeight: "1", marginTop: "4px" }}
+                  style={{ color: scrolled ? "#4A5568" : "rgba(0,0,0,0.65)", lineHeight: "1", marginTop: "4px" }}
                 >
                   Moving &amp; Storage &mdash; Since 1941
                 </span>
@@ -469,7 +497,7 @@ export default function HomePage() {
               <Link
                 href="/about"
                 className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
-                style={{ color: scrolled ? "#0B5DB5" : "white", opacity: scrolled ? 0.85 : 1 }}
+                style={{ color: scrolled ? "#0B5DB5" : "#000000", opacity: 0.85 }}
               >
                 About Us
               </Link>
@@ -479,7 +507,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
-                style={{ color: scrolled ? "#0B5DB5" : "white", opacity: scrolled ? 0.85 : 1 }}
+                style={{ color: scrolled ? "#0B5DB5" : "#000000", opacity: 0.85 }}
               >
                 Designer Portal
                 <ExternalLink size={12} className="opacity-50" />
@@ -493,7 +521,7 @@ export default function HomePage() {
                 <button
                   ref={servicesBtnRef}
                   className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
-                  style={{ color: scrolled ? "#0B5DB5" : "white", opacity: scrolled ? 0.85 : 1 }}
+                  style={{ color: scrolled ? "#0B5DB5" : "#000000", opacity: 0.85 }}
                 >
                   Services
                   <ChevronDown
@@ -531,9 +559,9 @@ export default function HomePage() {
                         key={s.href}
                         href={s.href}
                         className="block py-2 text-[12px] tracking-[0.1em] uppercase font-medium text-center transition-all duration-300"
-                        style={{ color: scrolled ? "rgba(11,93,181,0.5)" : "rgba(255,255,255,0.5)" }}
-                        onMouseEnter={(e) => { e.currentTarget.style.color = scrolled ? "#0B5DB5" : "rgba(255,255,255,1)"; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.color = scrolled ? "rgba(11,93,181,0.5)" : "rgba(255,255,255,0.5)"; }}
+                        style={{ color: scrolled ? "rgba(11,93,181,0.5)" : "rgba(0,0,0,0.5)" }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = scrolled ? "#0B5DB5" : "#000000"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = scrolled ? "rgba(11,93,181,0.5)" : "rgba(0,0,0,0.5)"; }}
                       >
                         {s.name}
                       </Link>
@@ -546,7 +574,7 @@ export default function HomePage() {
               <Link
                 href="/contact"
                 className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
-                style={{ color: scrolled ? "#0B5DB5" : "white", opacity: scrolled ? 0.85 : 1 }}
+                style={{ color: scrolled ? "#0B5DB5" : "#000000", opacity: 0.85 }}
               >
                 Contact
               </Link>
@@ -555,7 +583,7 @@ export default function HomePage() {
             {/* Mobile hamburger */}
             <button
               className="lg:hidden p-2 transition-colors duration-500"
-              style={{ color: scrolled ? "#0B5DB5" : "white" }}
+              style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}
               aria-label="Toggle menu"
             >
