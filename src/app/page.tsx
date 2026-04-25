@@ -427,39 +427,44 @@ export default function HomePage() {
           className="relative transition-all duration-500"
           style={{
             height: 150,
-            background: scrolled ? "#F5F8FC" : "transparent",
             boxShadow: scrolled && !servicesOpen ? "0 1px 0 #D6E0ED" : "none",
           }}
         >
-          {/* Frosted glass — only render over hero */}
-          {!scrolled && (
-            <>
-              {/* Smooth frost blur */}
-              <div
-                aria-hidden
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  backdropFilter: "blur(24px) saturate(200%)",
-                  WebkitBackdropFilter: "blur(24px) saturate(200%)",
-                }}
-              />
-              {/* Specular — light-catching inner edges + crisp bottom hairline */}
-              <div
-                aria-hidden
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  boxShadow: [
-                    "inset 0 1px 0 rgba(255,255,255,0.45)",
-                    "inset 1px 0 0 rgba(255,255,255,0.18)",
-                    "inset -1px 0 0 rgba(255,255,255,0.18)",
-                    "inset 0 -1px 0 rgba(255,255,255,0.7)",
-                    "0 0.5px 0 rgba(255,255,255,0.55)",
-                    "0 8px 24px -12px rgba(0,0,0,0.25)",
-                  ].join(", "),
-                }}
-              />
-            </>
-          )}
+          {/* Solid background — cross-fades in when scrolled past hero */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+            style={{
+              background: "#F5F8FC",
+              opacity: scrolled ? 1 : 0,
+            }}
+          />
+          {/* Smooth frost blur — cross-fades out when scrolled */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+            style={{
+              backdropFilter: "blur(24px) saturate(200%)",
+              WebkitBackdropFilter: "blur(24px) saturate(200%)",
+              opacity: scrolled ? 0 : 1,
+            }}
+          />
+          {/* Specular — light-catching inner edges + crisp bottom hairline */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+            style={{
+              opacity: scrolled ? 0 : 1,
+              boxShadow: [
+                "inset 0 1px 0 rgba(255,255,255,0.45)",
+                "inset 1px 0 0 rgba(255,255,255,0.18)",
+                "inset -1px 0 0 rgba(255,255,255,0.18)",
+                "inset 0 -1px 0 rgba(255,255,255,0.7)",
+                "0 0.5px 0 rgba(255,255,255,0.55)",
+                "0 8px 24px -12px rgba(0,0,0,0.25)",
+              ].join(", "),
+            }}
+          />
           <div className="relative z-10 w-full px-10 md:px-12 h-full flex items-center justify-between">
             <Link href="/" className="flex shrink-0 items-center gap-4">
               <div
