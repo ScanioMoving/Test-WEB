@@ -36,7 +36,7 @@ export default function FFEDesignerPage() {
               fill
               priority
               quality={95}
-              className="object-contain"
+              className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
