@@ -90,6 +90,13 @@ function TruckScrollHero() {
       };
       img.onload = finish;
       img.onerror = finish;
+      // Bias the network: get the opening frames in viewers' eyes ASAP, defer
+      // the tail so it doesn't crowd out what they actually see first.
+      if (i < 12) {
+        (img as HTMLImageElement & { fetchPriority?: string }).fetchPriority = "high";
+      } else if (i > 60) {
+        (img as HTMLImageElement & { fetchPriority?: string }).fetchPriority = "low";
+      }
       img.src = `/truck-sequence/ezgif-frame-${n}.jpg`;
       // if cached, onload may have fired before we attached — handle synchronously
       if (img.complete && img.naturalWidth > 0) {
@@ -193,7 +200,7 @@ function TruckScrollHero() {
   }, [draw]);
 
   const loadPct = Math.round((loaded / TRUCK_FRAME_COUNT) * 100);
-  const ready = loaded >= Math.min(20, TRUCK_FRAME_COUNT); // need at least first ~20 frames to start
+  const ready = loaded >= Math.min(3, TRUCK_FRAME_COUNT); // show as soon as the opening frames land; draw() walks to nearest loaded frame for any unloaded targets
   const textOpacity = Math.max(0, (scrollProgress - 0.7) / 0.3); // reveal in last 30%
 
   return (

@@ -32,12 +32,11 @@ export default function FFEDesignerPage() {
           <div className="lg:w-1/2 relative min-h-[50vh] lg:min-h-0">
             <Image
               src="/services/ffe-vase.jpg"
-              alt="Blue and white porcelain vase in Scanio staging area"
+              alt="Blue and white porcelain vase flanked by studio lamps in Scanio staging area"
               fill
               priority
               quality={95}
-              className="object-cover"
-              style={{ objectPosition: "center bottom" }}
+              className="object-contain"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
