@@ -497,14 +497,11 @@ export default function HomePage() {
                   Scanio
                 </span>
                 <span
-                  className="block text-[13px] tracking-[0.02em] uppercase font-normal transition-colors duration-500"
+                  className="block text-[13px] md:text-[17px] tracking-[0.02em] uppercase font-normal transition-colors duration-500"
                   style={{
                     color: scrolled ? "#4A5568" : "rgba(0,0,0,0.65)",
                     lineHeight: "1",
-                    marginTop: "4px",
-                    width: "100%",
-                    textAlign: "justify",
-                    textAlignLast: "justify",
+                    marginTop: "6px",
                   }}
                 >
                   Moving &amp; Storage &mdash; Since 1941
