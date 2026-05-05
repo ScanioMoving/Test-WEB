@@ -148,18 +148,16 @@ function TruckScrollHero() {
     const dh = ih * scale;
     const dy = (ch - dh) / 2;
 
-    // Mobile-only final-stretch pan: a 16:9 source on a portrait viewport
-    // cover-fits with horizontal overflow on both sides. As we approach
-    // the lock frame, slide the visible window to the right (image moves
-    // left on canvas) so the viewer sees more of the right side of the
-    // scene — exactly within the existing horizontal overflow, so no
-    // blank canvas is ever exposed.
+    // Mobile-only horizontal bias: a 16:9 source on a portrait viewport
+    // cover-fits with horizontal overflow on both sides. Shift the visible
+    // window slightly to the right (image moves left on canvas) so the
+    // truck lands where we want it. Constant — no time-based ramp, so
+    // there's no zoom-like motion at the end of the scroll.
     const isMobile = cw < 1024;
-    const panT = isMobile
-      ? Math.max(0, Math.min(1, (progress - 0.7) / (holdAt - 0.7)))
-      : 0;
     const horizontalHeadroom = Math.max(0, (dw - cw) / 2);
-    const horizontalShift = -Math.min(0.22 * cw, horizontalHeadroom) * panT;
+    const horizontalShift = isMobile
+      ? -Math.min(0.195 * cw, horizontalHeadroom)
+      : 0;
     const dx = (cw - dw) / 2 + horizontalShift;
 
     ctx.clearRect(0, 0, cw, ch);
