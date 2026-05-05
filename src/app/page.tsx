@@ -498,7 +498,14 @@ export default function HomePage() {
                 </span>
                 <span
                   className="block text-[13px] tracking-[0.02em] uppercase font-normal transition-colors duration-500"
-                  style={{ color: scrolled ? "#4A5568" : "rgba(0,0,0,0.65)", lineHeight: "1", marginTop: "4px" }}
+                  style={{
+                    color: scrolled ? "#4A5568" : "rgba(0,0,0,0.65)",
+                    lineHeight: "1",
+                    marginTop: "4px",
+                    width: "100%",
+                    textAlign: "justify",
+                    textAlignLast: "justify",
+                  }}
                 >
                   Moving &amp; Storage &mdash; Since 1941
                 </span>
@@ -558,7 +565,17 @@ export default function HomePage() {
                     className="min-w-[200px] py-3 px-6"
                     style={scrolled ? {
                       background: "#F5F8FC",
-                    } : {}}
+                    } : {
+                      backdropFilter: "blur(24px) saturate(200%)",
+                      WebkitBackdropFilter: "blur(24px) saturate(200%)",
+                      boxShadow: [
+                        "inset 0 1px 0 rgba(255,255,255,0.45)",
+                        "inset 1px 0 0 rgba(255,255,255,0.18)",
+                        "inset -1px 0 0 rgba(255,255,255,0.18)",
+                        "inset 0 -1px 0 rgba(255,255,255,0.7)",
+                        "0 8px 24px -12px rgba(0,0,0,0.25)",
+                      ].join(", "),
+                    }}
                   >
                     {[
                       { name: "Residential", href: "/services/residential" },
