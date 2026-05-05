@@ -514,7 +514,7 @@ export default function HomePage() {
               <Link
                 href="/about"
                 className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
-                style={{ color: scrolled ? "#0B5DB5" : "#000000", opacity: 0.85 }}
+                style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 About Us
               </Link>
@@ -524,7 +524,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
-                style={{ color: scrolled ? "#0B5DB5" : "#000000", opacity: 0.85 }}
+                style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 Designer Portal
                 <ExternalLink size={12} className="opacity-50" />
@@ -538,7 +538,7 @@ export default function HomePage() {
                 <button
                   ref={servicesBtnRef}
                   className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
-                  style={{ color: scrolled ? "#0B5DB5" : "#000000", opacity: 0.85 }}
+                  style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
                 >
                   Services
                   <ChevronDown
@@ -550,12 +550,13 @@ export default function HomePage() {
 
                 {/* Services dropdown */}
                 <div
-                  className="absolute top-full pt-3 transition-all duration-300"
+                  className="absolute top-full pt-3"
                   style={{
                     left: "50%",
                     opacity: servicesOpen ? 1 : 0,
-                    transform: servicesOpen ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-6px)",
+                    transform: servicesOpen ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-4px)",
                     pointerEvents: servicesOpen ? "auto" : "none",
+                    transition: "opacity 120ms ease-out, transform 120ms ease-out",
                   }}
                 >
                   <div
@@ -601,7 +602,7 @@ export default function HomePage() {
               <Link
                 href="/contact"
                 className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
-                style={{ color: scrolled ? "#0B5DB5" : "#000000", opacity: 0.85 }}
+                style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 Contact
               </Link>
@@ -706,7 +707,7 @@ export default function HomePage() {
                 <a
                   href="tel:6468638070"
                   className="flex items-center justify-center gap-2 mt-4 text-[13px] tracking-[0.15em]"
-                  style={{ color: "#4A5568" }}
+                  style={{ color: "#0A1628" }}
                 >
                   <Phone size={14} />
                   646.863.8070
@@ -877,7 +878,7 @@ export default function HomePage() {
             <a
               href="tel:6468638070"
               className="flex items-center gap-2 text-[13px] tracking-[0.2em] font-sans transition-opacity hover:opacity-60"
-              style={{ color: "#4A5568" }}
+              style={{ color: "#0A1628" }}
             >
               <Phone size={14} />
               646.863.8070
