@@ -249,7 +249,8 @@ function TruckScrollHero() {
           <div className="flex flex-col gap-5">
             <a
               href="tel:6468638070"
-              className="text-white/50 text-[clamp(14px,2vw,18px)] tracking-[0.2em] font-light hover:text-white transition-colors"
+              className="text-white text-[clamp(15px,2.1vw,19px)] tracking-[0.2em] font-medium hover:opacity-80 transition-opacity"
+              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.45)" }}
             >
               646.863.8070
             </a>
