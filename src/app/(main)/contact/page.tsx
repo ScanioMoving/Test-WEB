@@ -93,7 +93,7 @@ export default function ContactPage() {
                     <a
                       href="tel:6468638070"
                       className="text-[14px] font-light hover:opacity-60 transition-opacity"
-                      style={{ color: "#4A5568" }}
+                      style={{ color: "#0A1628" }}
                     >
                       646.863.8070
                     </a>

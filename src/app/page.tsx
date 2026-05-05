@@ -148,19 +148,26 @@ function TruckScrollHero() {
     const dh = ih * scale;
     const dx = (cw - dw) / 2;
 
-    // Mobile-only final-stretch pan: as we approach the lock frame, slide
-    // the cover crop downward through the image so the truck — which sits
-    // in the upper third of the top-down aerial source — settles into the
-    // viewport center. Desktop has plenty of horizontal width and the
-    // truck already lands well, so we leave it as a centered cover crop.
+    // Mobile-only final-stretch pan: with a 16:9 source on a portrait
+    // viewport, cover-fit makes dh === ch (no vertical slack), and the
+    // truck sits in the lower portion of the frame — so it lands below
+    // the viewport's vertical center. As we approach the lock frame,
+    // shift the image upward so the truck rises into the middle of the
+    // viewport. The exposed bottom band is filled with the same white
+    // the frames already use as their backdrop, so it blends in.
     const isMobile = cw < 1024;
     const panT = isMobile
       ? Math.max(0, Math.min(1, (progress - 0.7) / (holdAt - 0.7)))
       : 0;
-    const headroom = Math.max(0, -(ch - dh) / 2);
-    const dy = (ch - dh) / 2 + panT * headroom;
+    const verticalShift = -0.18 * ch * panT;
+    const dy = (ch - dh) / 2 + verticalShift;
 
-    ctx.clearRect(0, 0, cw, ch);
+    if (panT > 0) {
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillRect(0, 0, cw, ch);
+    } else {
+      ctx.clearRect(0, 0, cw, ch);
+    }
     ctx.drawImage(img, dx, dy, dw, dh);
   }, []);
 

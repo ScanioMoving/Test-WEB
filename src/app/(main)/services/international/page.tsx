@@ -91,7 +91,7 @@ export default function InternationalPage() {
               <a
                 href="tel:6468638070"
                 className="flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
-                style={{ color: "#0B5DB5" }}
+                style={{ color: "#0A1628" }}
               >
                 <Phone size={14} />
                 646.863.8070
