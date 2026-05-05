@@ -146,28 +146,23 @@ function TruckScrollHero() {
     const scale = Math.max(cw / iw, ch / ih);
     const dw = iw * scale;
     const dh = ih * scale;
-    const dx = (cw - dw) / 2;
+    const dy = (ch - dh) / 2;
 
-    // Mobile-only final-stretch pan: with a 16:9 source on a portrait
-    // viewport, cover-fit makes dh === ch (no vertical slack), and the
-    // truck sits in the lower portion of the frame — so it lands below
-    // the viewport's vertical center. As we approach the lock frame,
-    // shift the image upward so the truck rises into the middle of the
-    // viewport. The exposed bottom band is filled with the same white
-    // the frames already use as their backdrop, so it blends in.
+    // Mobile-only final-stretch pan: a 16:9 source on a portrait viewport
+    // cover-fits with horizontal overflow on both sides. As we approach
+    // the lock frame, slide the visible window to the left (image moves
+    // right on canvas) so the viewer sees more of the left side of the
+    // scene — exactly within the existing horizontal overflow, so no
+    // blank canvas is ever exposed.
     const isMobile = cw < 1024;
     const panT = isMobile
       ? Math.max(0, Math.min(1, (progress - 0.7) / (holdAt - 0.7)))
       : 0;
-    const verticalShift = -0.18 * ch * panT;
-    const dy = (ch - dh) / 2 + verticalShift;
+    const horizontalHeadroom = Math.max(0, (dw - cw) / 2);
+    const horizontalShift = Math.min(0.22 * cw, horizontalHeadroom) * panT;
+    const dx = (cw - dw) / 2 + horizontalShift;
 
-    if (panT > 0) {
-      ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(0, 0, cw, ch);
-    } else {
-      ctx.clearRect(0, 0, cw, ch);
-    }
+    ctx.clearRect(0, 0, cw, ch);
     ctx.drawImage(img, dx, dy, dw, dh);
   }, []);
 
