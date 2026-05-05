@@ -111,7 +111,7 @@ export default function AboutPage() {
           </div>
 
           {/* Right: Text + Vintage truck photo */}
-          <div className="lg:w-1/2 py-20 px-10 md:px-16 lg:px-20 flex flex-col justify-center items-center text-center">
+          <div className="lg:w-1/2 py-16 md:py-20 px-6 md:px-12 lg:px-20 flex flex-col justify-center items-center text-center">
             <p
               className="text-[11px] tracking-[0.3em] uppercase font-medium mb-6"
               style={{ color: "#0B5DB5" }}

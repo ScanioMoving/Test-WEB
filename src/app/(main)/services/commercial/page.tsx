@@ -43,7 +43,7 @@ export default function CommercialPage() {
           </div>
 
           {/* Left: Content */}
-          <div className="lg:w-1/2 lg:order-1 py-20 px-10 md:px-16 lg:px-20 flex flex-col justify-center items-center text-center">
+          <div className="lg:w-1/2 lg:order-1 py-16 md:py-20 px-6 md:px-12 lg:px-20 flex flex-col justify-center items-center text-center">
             <h2
               className="text-[clamp(26px,3vw,36px)] font-light leading-[1.25] tracking-[-0.01em] mb-8"
               style={{ color: "#0A1628" }}
@@ -71,7 +71,7 @@ export default function CommercialPage() {
               weekend moves to keep your business running without interruption.
             </p>
 
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3 mb-12 max-w-lg text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-12 max-w-lg text-left">
               {features.map((f) => (
                 <div key={f} className="flex items-start gap-2">
                   <CheckCircle className="shrink-0 mt-0.5" size={16} style={{ color: "#0B5DB5" }} />
@@ -103,7 +103,7 @@ export default function CommercialPage() {
 
       {/* CTA */}
       <section className="py-20" style={{ background: "#0A1628" }}>
-        <div className="max-w-4xl mx-auto px-10 text-center">
+        <div className="max-w-4xl mx-auto px-6 md:px-10 text-center">
           <h2
             className="text-[clamp(24px,3vw,36px)] font-light leading-[1.3] mb-4"
             style={{ color: "white" }}

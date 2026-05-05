@@ -46,7 +46,7 @@ export default function ContactPage() {
         className="pt-16 pb-16 bg-white"
         style={{ minHeight: "calc(100vh - 150px)" }}
       >
-        <div className="max-w-6xl mx-auto px-10">
+        <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="text-center mb-12">
             <p
               className="text-[11px] tracking-[0.3em] uppercase font-medium mb-4"
@@ -329,7 +329,7 @@ export default function ContactPage() {
                         <p className={labelClass} style={labelStyle}>
                           Special Services Needed
                         </p>
-                        <div className="grid sm:grid-cols-3 gap-3 mt-2">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-2">
                           {[
                             "White Glove Service",
                             "Piano Moving",

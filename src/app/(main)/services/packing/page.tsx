@@ -25,7 +25,7 @@ export default function PackingPage() {
       {/* Hero — split layout */}
       <section className="min-h-screen flex flex-col lg:flex-row">
         {/* Left: Content */}
-        <div className="lg:w-1/2 flex flex-col justify-center px-10 md:px-16 lg:px-20 pt-[180px] pb-16 lg:py-0">
+        <div className="lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-[140px] md:pt-[180px] pb-16 lg:py-0">
           <p
             className="text-[11px] uppercase font-bold tracking-[0.15em] mb-6"
             style={{ color: "#0B5DB5" }}
@@ -57,7 +57,7 @@ export default function PackingPage() {
             FF&amp;E project with white-glove precision.
           </p>
 
-          <div className="grid grid-cols-2 gap-x-6 gap-y-3 mb-12 max-w-lg">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-12 max-w-lg">
             {features.map((f) => (
               <div key={f} className="flex items-start gap-2">
                 <CheckCircle className="shrink-0 mt-0.5" size={16} style={{ color: "#0B5DB5" }} />
@@ -103,7 +103,7 @@ export default function PackingPage() {
 
       {/* CTA */}
       <section className="py-20" style={{ background: "#0A1628" }}>
-        <div className="max-w-4xl mx-auto px-10 text-center">
+        <div className="max-w-4xl mx-auto px-6 md:px-10 text-center">
           <h2
             className="text-[clamp(24px,3vw,36px)] font-light leading-[1.3] mb-4"
             style={{ color: "white" }}
