@@ -249,9 +249,10 @@ function TruckScrollHero() {
 
         {/* Scroll hint — hides once scrolled past 10% */}
         <div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-500"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-500 flex flex-col items-center gap-2"
           style={{ opacity: scrollProgress < 0.1 ? 1 : 0 }}
         >
+          <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">Scroll</span>
           <ArrowDown size={16} className="text-white/30" />
         </div>
       </div>
@@ -660,7 +661,7 @@ export default function HomePage() {
                         key={s.href}
                         href={s.href}
                         className="block py-2.5 text-[13px] tracking-[0.05em] font-light"
-                        style={{ color: "#6B7B8D" }}
+                        style={{ color: "#4A5568" }}
                         onClick={() => setMobileOpen(false)}
                       >
                         {s.name}
@@ -691,7 +692,7 @@ export default function HomePage() {
                 <a
                   href="tel:6468638070"
                   className="flex items-center justify-center gap-2 mt-4 text-[13px] tracking-[0.15em]"
-                  style={{ color: "#6B7B8D" }}
+                  style={{ color: "#4A5568" }}
                 >
                   <Phone size={14} />
                   646.863.8070
@@ -794,14 +795,14 @@ export default function HomePage() {
                   Three Generations
                   of New York Expertise
                 </h2>
-                <p className="text-[15px] font-light leading-[1.85] mb-6" style={{ color: "#6B7B8D" }}>
+                <p className="text-[15px] font-light leading-[1.85] mb-6" style={{ color: "#4A5568" }}>
                   Founded in 1941, Scanio is a premier and highly reputable
                   New York City based moving and storage company. We handle
                   each and every move with care, planning and executing the
                   transport of your belongings so that your transition from
                   one space to the next is seamless.
                 </p>
-                <p className="text-[15px] font-light leading-[1.85]" style={{ color: "#6B7B8D" }}>
+                <p className="text-[15px] font-light leading-[1.85]" style={{ color: "#4A5568" }}>
                   With over seven decades of operational experience in the
                   New York metropolitan area, our expertise in detailed
                   logistics is unmatched.
@@ -862,7 +863,7 @@ export default function HomePage() {
             <a
               href="tel:6468638070"
               className="flex items-center gap-2 text-[13px] tracking-[0.2em] font-sans transition-opacity hover:opacity-60"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               <Phone size={14} />
               646.863.8070

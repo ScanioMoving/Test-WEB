@@ -54,7 +54,7 @@ export default function CommercialPage() {
             </h2>
             <p
               className="text-[16px] font-light leading-[1.85] mb-6 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               A commercial move involves more than just transporting
               furniture. It requires careful planning, coordination with
@@ -63,7 +63,7 @@ export default function CommercialPage() {
             </p>
             <p
               className="text-[16px] font-light leading-[1.85] mb-10 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               Our experienced team works with you to create a detailed move
               plan that accounts for every workstation, server, filing
@@ -75,7 +75,7 @@ export default function CommercialPage() {
               {features.map((f) => (
                 <div key={f} className="flex items-start gap-2">
                   <CheckCircle className="shrink-0 mt-0.5" size={16} style={{ color: "#0B5DB5" }} />
-                  <span className="text-[13px]" style={{ color: "#6B7B8D" }}>{f}</span>
+                  <span className="text-[13px]" style={{ color: "#4A5568" }}>{f}</span>
                 </div>
               ))}
             </div>

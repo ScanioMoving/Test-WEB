@@ -128,7 +128,7 @@ export default function AboutPage() {
             </h2>
             <p
               className="text-[16px] font-light leading-[1.85] mb-5 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               Founded in New York City in 1941, Scanio Moving &amp; Storage
               began as a small, family-operated moving company with a simple
@@ -136,7 +136,7 @@ export default function AboutPage() {
             </p>
             <p
               className="text-[16px] font-light leading-[1.85] mb-5 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               Over eight decades later, that promise still drives everything
               we do. We&apos;ve grown from a single truck to a full fleet, but
@@ -145,7 +145,7 @@ export default function AboutPage() {
             </p>
             <p
               className="text-[16px] font-light leading-[1.85] mb-10 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               No locale, building, or set of circumstances is too much for
               our professional movers. Whether you&apos;re moving across the
@@ -200,7 +200,7 @@ export default function AboutPage() {
           </h2>
           <p
             className="text-[15px] font-light mb-14 max-w-2xl mx-auto"
-            style={{ color: "#6B7B8D" }}
+            style={{ color: "#4A5568" }}
           >
             Our values have guided us since 1941 and continue to define every
             move we make today.
@@ -215,7 +215,7 @@ export default function AboutPage() {
               <div key={v.label} className="text-center">
                 <p className="text-[36px] font-light mb-1" style={{ color: "#0B5DB5" }}>{v.stat}</p>
                 <p className="text-[13px] tracking-[0.1em] uppercase font-medium mb-3" style={{ color: "#0A1628" }}>{v.label}</p>
-                <p className="text-[14px] font-light leading-[1.7]" style={{ color: "#6B7B8D" }}>{v.desc}</p>
+                <p className="text-[14px] font-light leading-[1.7]" style={{ color: "#4A5568" }}>{v.desc}</p>
               </div>
             ))}
           </div>
@@ -236,7 +236,7 @@ export default function AboutPage() {
                 { label: "US DOT", value: "537054" },
               ].map((l) => (
                 <div key={l.value} className="bg-white px-8 py-6 text-center">
-                  <p className="text-[11px] tracking-[0.1em] uppercase font-light mb-1" style={{ color: "#6B7B8D" }}>{l.label}</p>
+                  <p className="text-[11px] tracking-[0.1em] uppercase font-light mb-1" style={{ color: "#4A5568" }}>{l.label}</p>
                   <p className="text-[18px] font-medium" style={{ color: "#0A1628" }}>{l.value}</p>
                 </div>
               ))}
@@ -251,7 +251,7 @@ export default function AboutPage() {
             >
               Experience the Scanio difference.
             </h2>
-            <p className="text-[15px] font-light mb-10" style={{ color: "#6B7B8D" }}>
+            <p className="text-[15px] font-light mb-10" style={{ color: "#4A5568" }}>
               Join thousands of satisfied customers who trust their moves to NYC&apos;s finest moving company.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

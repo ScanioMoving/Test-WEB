@@ -40,7 +40,7 @@ export default function StoragePage() {
             </h2>
             <p
               className="text-[16px] font-light leading-[1.85] mb-6 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               Whether you&apos;re between homes, downsizing, renovating, or
               need long-term storage for valuables, our facility provides the
@@ -48,7 +48,7 @@ export default function StoragePage() {
             </p>
             <p
               className="text-[16px] font-light leading-[1.85] mb-10 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               Located in Secaucus, NJ &mdash; just 3 miles from the Lincoln
               Tunnel &mdash; our warehouse is easily accessible from anywhere
@@ -60,7 +60,7 @@ export default function StoragePage() {
               {features.map((f) => (
                 <div key={f} className="flex items-start gap-2">
                   <CheckCircle className="shrink-0 mt-0.5" size={16} style={{ color: "#0B5DB5" }} />
-                  <span className="text-[13px]" style={{ color: "#6B7B8D" }}>{f}</span>
+                  <span className="text-[13px]" style={{ color: "#4A5568" }}>{f}</span>
                 </div>
               ))}
             </div>

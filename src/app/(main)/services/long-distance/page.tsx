@@ -54,7 +54,7 @@ export default function LongDistancePage() {
             </h2>
             <p
               className="text-[16px] font-light leading-[1.85] mb-6 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               Moving long distance requires a different level of planning and
               care. Your belongings spend more time in transit, go through
@@ -63,7 +63,7 @@ export default function LongDistancePage() {
             </p>
             <p
               className="text-[16px] font-light leading-[1.85] mb-10 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               With Scanio, you get a dedicated team that handles every aspect
               of your long-distance move &mdash; from professional packing and
@@ -76,7 +76,7 @@ export default function LongDistancePage() {
               {features.map((f) => (
                 <div key={f} className="flex items-start gap-2">
                   <CheckCircle className="shrink-0 mt-0.5" size={16} style={{ color: "#0B5DB5" }} />
-                  <span className="text-[13px]" style={{ color: "#6B7B8D" }}>{f}</span>
+                  <span className="text-[13px]" style={{ color: "#4A5568" }}>{f}</span>
                 </div>
               ))}
             </div>

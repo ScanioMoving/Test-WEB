@@ -117,7 +117,7 @@ export default function ResidentialPage() {
             </h2>
             <p
               className="text-[16px] font-light leading-[1.85] mb-6 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               Moving in NYC is unlike anywhere else. Narrow hallways, strict
               building rules, elevator reservations, and Manhattan traffic
@@ -125,7 +125,7 @@ export default function ResidentialPage() {
             </p>
             <p
               className="text-[16px] font-light leading-[1.85] mb-10 max-w-lg"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               With over 80 years of moving New Yorkers, we understand the
               unique challenges of residential moves in the city. From a
@@ -137,7 +137,7 @@ export default function ResidentialPage() {
               {features.map((f) => (
                 <div key={f} className="flex items-start gap-2">
                   <CheckCircle className="shrink-0 mt-0.5" size={16} style={{ color: "#0B5DB5" }} />
-                  <span className="text-[13px]" style={{ color: "#6B7B8D" }}>{f}</span>
+                  <span className="text-[13px]" style={{ color: "#4A5568" }}>{f}</span>
                 </div>
               ))}
             </div>

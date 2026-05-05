@@ -62,7 +62,7 @@ export default function ContactPage() {
             </h1>
             <p
               className="text-[16px] font-light max-w-xl mx-auto"
-              style={{ color: "#6B7B8D" }}
+              style={{ color: "#4A5568" }}
             >
               Fill out the form below for a complimentary, no-obligation
               estimate. Or call us directly.
@@ -93,7 +93,7 @@ export default function ContactPage() {
                     <a
                       href="tel:6468638070"
                       className="text-[14px] font-light hover:opacity-60 transition-opacity"
-                      style={{ color: "#6B7B8D" }}
+                      style={{ color: "#4A5568" }}
                     >
                       646.863.8070
                     </a>
@@ -113,7 +113,7 @@ export default function ContactPage() {
                     <a
                       href="mailto:info@scaniomoving.com"
                       className="text-[14px] font-light hover:opacity-60 transition-opacity"
-                      style={{ color: "#6B7B8D" }}
+                      style={{ color: "#4A5568" }}
                     >
                       info@scaniomoving.com
                     </a>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                     <p className="text-[14px] font-medium mb-1" style={{ color: "#0A1628" }}>
                       NYC Office
                     </p>
-                    <p className="text-[14px] font-light" style={{ color: "#6B7B8D" }}>
+                    <p className="text-[14px] font-light" style={{ color: "#4A5568" }}>
                       222 West 37th Street, 3rd Floor
                       <br />
                       New York, NY 10018
@@ -148,7 +148,7 @@ export default function ContactPage() {
                     <p className="text-[14px] font-medium mb-1" style={{ color: "#0A1628" }}>
                       Office Hours
                     </p>
-                    <p className="text-[14px] font-light" style={{ color: "#6B7B8D" }}>
+                    <p className="text-[14px] font-light" style={{ color: "#4A5568" }}>
                       Monday &ndash; Friday: 9:00 AM &ndash; 6:00 PM
                     </p>
                   </div>
@@ -173,10 +173,10 @@ export default function ContactPage() {
                     >
                       Request Received!
                     </h3>
-                    <p className="text-[14px] font-light mb-1" style={{ color: "#6B7B8D" }}>
+                    <p className="text-[14px] font-light mb-1" style={{ color: "#4A5568" }}>
                       Thank you for your interest in Scanio Moving &amp; Storage.
                     </p>
-                    <p className="text-[14px] font-light" style={{ color: "#6B7B8D" }}>
+                    <p className="text-[14px] font-light" style={{ color: "#4A5568" }}>
                       Our team will reach out within 24 hours with your
                       personalized estimate.
                     </p>
@@ -341,7 +341,7 @@ export default function ContactPage() {
                             <label
                               key={s}
                               className="flex items-center gap-2 text-[13px]"
-                              style={{ color: "#6B7B8D" }}
+                              style={{ color: "#4A5568" }}
                             >
                               <input type="checkbox" value={s} />
                               {s}
