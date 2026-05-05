@@ -32,6 +32,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Kick off the first hero frame before React mounts so the canvas
+            has something to draw the moment the page is interactive. */}
+        <link
+          rel="preload"
+          as="image"
+          href="/truck-sequence/ezgif-frame-001.jpg"
+          fetchPriority="high"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}
       >
