@@ -142,11 +142,24 @@ function TruckScrollHero() {
     const ch = window.innerHeight;
     const iw = img.naturalWidth;
     const ih = img.naturalHeight;
+
     const scale = Math.max(cw / iw, ch / ih);
     const dw = iw * scale;
     const dh = ih * scale;
     const dx = (cw - dw) / 2;
-    const dy = (ch - dh) / 2;
+
+    // Mobile-only final-stretch pan: as we approach the lock frame, slide
+    // the cover crop downward through the image so the truck — which sits
+    // in the upper third of the top-down aerial source — settles into the
+    // viewport center. Desktop has plenty of horizontal width and the
+    // truck already lands well, so we leave it as a centered cover crop.
+    const isMobile = cw < 1024;
+    const panT = isMobile
+      ? Math.max(0, Math.min(1, (progress - 0.7) / (holdAt - 0.7)))
+      : 0;
+    const headroom = Math.max(0, -(ch - dh) / 2);
+    const dy = (ch - dh) / 2 + panT * headroom;
+
     ctx.clearRect(0, 0, cw, ch);
     ctx.drawImage(img, dx, dy, dw, dh);
   }, []);
@@ -375,24 +388,19 @@ export default function HomePage() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
-  const servicesBtnRef = useRef<HTMLButtonElement>(null);
-  const [servicesBtnCenter, setServicesBtnCenter] = useState(0);
 
   function handleServiceEnter() {
-    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    if (dropdownTimeout.current) {
+      clearTimeout(dropdownTimeout.current);
+      dropdownTimeout.current = null;
+    }
     setServicesOpen(true);
   }
 
   function handleServiceLeave() {
-    dropdownTimeout.current = setTimeout(() => setServicesOpen(false), 200);
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    dropdownTimeout.current = setTimeout(() => setServicesOpen(false), 280);
   }
-
-  useEffect(() => {
-    if (servicesOpen && servicesBtnRef.current) {
-      const rect = servicesBtnRef.current.getBoundingClientRect();
-      setServicesBtnCenter(rect.left + rect.width / 2);
-    }
-  }, [servicesOpen]);
 
   useEffect(() => {
     document.body.style.background = "#F5F8FC";
@@ -536,27 +544,30 @@ export default function HomePage() {
                 onMouseLeave={handleServiceLeave}
               >
                 <button
-                  ref={servicesBtnRef}
                   className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
                   style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
                 >
                   Services
                   <ChevronDown
                     size={14}
-                    className="transition-transform duration-300"
-                    style={{ transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                    style={{
+                      transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)",
+                      transition: "transform 180ms ease-out",
+                    }}
                   />
                 </button>
 
                 {/* Services dropdown */}
                 <div
                   className="absolute top-full pt-3"
+                  onMouseEnter={handleServiceEnter}
+                  onMouseLeave={handleServiceLeave}
                   style={{
                     left: "50%",
                     opacity: servicesOpen ? 1 : 0,
                     transform: servicesOpen ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-4px)",
                     pointerEvents: servicesOpen ? "auto" : "none",
-                    transition: "opacity 120ms ease-out, transform 120ms ease-out",
+                    transition: "opacity 180ms ease-out, transform 180ms ease-out",
                   }}
                 >
                   <div
