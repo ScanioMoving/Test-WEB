@@ -148,14 +148,17 @@ function TruckScrollHero() {
     const dh = ih * scale;
     const dy = (ch - dh) / 2;
 
-    // Mobile-only continuous pan: a 16:9 source on a portrait viewport
-    // cover-fits with horizontal overflow on both sides. Slide the visible
-    // window gradually to the right across the entire scroll so the truck
-    // drives through viewport center at the lock frame. Pan is continuous
-    // (not a sudden ramp at the end) which avoids a perceived zoom kick
-    // in the final frames.
+    // Mobile-only final-stretch pan: a 16:9 source on a portrait viewport
+    // cover-fits with horizontal overflow on both sides. Pan kicks in at
+    // progress 0.7 and uses an ease-out so the motion decelerates as the
+    // truck settles into the lock frame — feels like a smooth arrival,
+    // not the compounding zoom that a linear ramp produces against the
+    // truck's own motion in the source.
     const isMobile = cw < 1024;
-    const panT = isMobile ? Math.max(0, Math.min(1, progress / holdAt)) : 0;
+    const rawPanT = isMobile
+      ? Math.max(0, Math.min(1, (progress - 0.7) / (holdAt - 0.7)))
+      : 0;
+    const panT = 1 - Math.pow(1 - rawPanT, 3);
     const horizontalHeadroom = Math.max(0, (dw - cw) / 2);
     const horizontalShift = -Math.min(0.195 * cw, horizontalHeadroom) * panT;
     const dx = (cw - dw) / 2 + horizontalShift;
