@@ -29,10 +29,10 @@ export default function CommercialPage() {
       {/* Spacer behind the fixed header */}
       <div className="h-[150px] w-full bg-white" />
 
-      {/* Split: Sticky image left + scrollable content right */}
+      {/* Split: Scrollable content left + sticky image right */}
       <section className="bg-white">
-        <div className="flex flex-col lg:flex-row items-start">
-          {/* Left: Sticky image */}
+        <div className="flex flex-col lg:flex-row-reverse items-start">
+          {/* Right (desktop) / Top (mobile): Sticky image */}
           <div className="lg:w-1/2 w-full lg:sticky lg:top-[150px] lg:self-start relative min-h-[42vh] md:min-h-[55vh] lg:min-h-0 lg:h-[calc(100vh-150px)]">
             <Image
               src="/services/commercial-lobby.jpg"
@@ -46,7 +46,7 @@ export default function CommercialPage() {
             />
           </div>
 
-          {/* Right: Scrollable content */}
+          {/* Left (desktop) / Below image (mobile): Scrollable content */}
           <div className="lg:w-1/2 w-full relative bg-white">
             <div className="px-5 md:px-10 lg:px-16 py-10 md:py-14 lg:py-16">
               <h1
