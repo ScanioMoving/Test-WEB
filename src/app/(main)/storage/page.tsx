@@ -3,92 +3,35 @@ import Image from "next/image";
 import { Phone, CheckCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Storage Solutions NYC | Climate-Controlled | Scanio Moving & Storage",
+  title: "Storage Solutions NYC | Temperature-Controlled | Scanio Moving & Storage",
   description:
-    "Secure, climate-controlled storage in Secaucus, NJ — just 3 miles from the Lincoln Tunnel. Flexible short and long-term options. Pay only for space you use.",
+    "Secure, temperature-controlled storage in Secaucus, NJ — just 3 miles from the Lincoln Tunnel. Flexible short and long-term options. Pay only for the space you use.",
 };
 
 const features = [
-  "Climate-controlled environment",
-  "Secure, 24/7 monitored facility",
-  "Month-to-month flexibility",
-  "Two-week rental increments",
-  "Pay only for space used",
-  "3 miles from Lincoln Tunnel",
-  "Weekday access hours",
-  "Saturday access by appointment",
+  "Temperature-controlled environment that protects against extreme heat and cold",
+  "Secure facility monitored 24/7",
+  "Month-to-month flexibility with no long commitment required",
+  "Two-week rental increments for shorter needs",
+  "You pay only for the space you actually use",
+  "Just three miles from the Lincoln Tunnel",
+  "Weekday access hours, with Saturday access available by appointment",
 ];
 
 export default function StoragePage() {
   return (
     <>
-      {/* Header background — dark navy */}
-      <div className="h-[150px] w-full" style={{ background: "#0A1628" }} />
+      {/* Spacer behind the fixed header */}
+      <div className="h-[150px] w-full bg-white" />
 
-      {/* Split: Image + Content */}
+      {/* Split: Sticky image left + scrollable content right */}
       <section className="bg-white">
-        <div className="flex flex-col lg:flex-row min-h-[calc(100vh-150px)]">
-          {/* Left: Content */}
-          <div className="lg:w-1/2 py-16 md:py-20 px-6 md:px-12 lg:px-20 flex flex-col justify-center items-center text-center order-2 lg:order-1">
-            <h2
-              className="text-[clamp(26px,3vw,36px)] font-light leading-[1.25] tracking-[-0.01em] mb-8"
-              style={{ color: "#0A1628" }}
-            >
-              Secure, Climate-Controlled
-              <br />
-              Storage You Can Trust
-            </h2>
-            <p
-              className="text-[16px] font-light leading-[1.85] mb-6 max-w-lg"
-              style={{ color: "#4A5568" }}
-            >
-              Whether you&apos;re between homes, downsizing, renovating, or
-              need long-term storage for valuables, our facility provides the
-              security and climate control your belongings deserve.
-            </p>
-            <p
-              className="text-[16px] font-light leading-[1.85] mb-10 max-w-lg"
-              style={{ color: "#4A5568" }}
-            >
-              Located in Secaucus, NJ &mdash; just 3 miles from the Lincoln
-              Tunnel &mdash; our warehouse is easily accessible from anywhere
-              in the NYC metro area. You only pay for the space you actually
-              use, with flexible month-to-month or two-week rental increments.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-12 max-w-lg text-left">
-              {features.map((f) => (
-                <div key={f} className="flex items-start gap-2">
-                  <CheckCircle className="shrink-0 mt-0.5" size={16} style={{ color: "#0B5DB5" }} />
-                  <span className="text-[13px]" style={{ color: "#4A5568" }}>{f}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-5">
-              <Link
-                href="/quote"
-                className="text-[12px] tracking-[0.3em] uppercase font-medium px-8 py-4 border transition-all"
-                style={{ color: "#0A1628", borderColor: "#0A1628" }}
-              >
-                Get Storage Quote
-              </Link>
-              <a
-                href="tel:2127226850"
-                className="flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
-                style={{ color: "#0A1628" }}
-              >
-                <Phone size={14} />
-                212.722.6850
-              </a>
-            </div>
-          </div>
-
-          {/* Right: Image */}
-          <div className="lg:w-1/2 relative min-h-[50vh] lg:min-h-0 order-1 lg:order-2">
+        <div className="flex flex-col lg:flex-row items-start">
+          {/* Left: Sticky image */}
+          <div className="lg:w-1/2 w-full lg:sticky lg:top-[150px] lg:self-start relative min-h-[42vh] md:min-h-[55vh] lg:min-h-0 lg:h-[calc(100vh-150px)]">
             <Image
               src="/services/storage.jpg"
-              alt="Scanio climate-controlled storage facility"
+              alt="Scanio temperature-controlled storage facility"
               fill
               priority
               quality={95}
@@ -97,34 +40,156 @@ export default function StoragePage() {
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
+
+          {/* Right: Scrollable content */}
+          <div className="lg:w-1/2 w-full relative bg-white">
+            <div className="px-5 md:px-10 lg:px-16 py-10 md:py-14 lg:py-16">
+              <p
+                className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase font-medium mb-4 md:mb-5"
+                style={{ color: "#0B5DB5" }}
+              >
+                Storage
+              </p>
+              <h2
+                className="text-[clamp(24px,3.2vw,42px)] font-light leading-[1.15] tracking-[-0.01em] mb-4 md:mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Secure, temperature-controlled
+                <br />
+                storage you can trust
+              </h2>
+              <p
+                className="text-[15px] md:text-[16px] font-medium italic leading-[1.6] mb-8 md:mb-10"
+                style={{ color: "#0B5DB5" }}
+              >
+                Your belongings, safe and sound, for as long as you need.
+              </p>
+              <p
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-5 md:mb-6"
+                style={{ color: "#2D3748" }}
+              >
+                Life does not always line up perfectly. Sometimes you are
+                between homes, downsizing, renovating, or simply need a safe
+                place for things you are not ready to part with. Whatever
+                the reason, Scanio gives your belongings a home of their
+                own, in a facility built to protect them.
+              </p>
+              <p
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                style={{ color: "#2D3748" }}
+              >
+                Our warehouse sits in Secaucus, New Jersey, just three miles
+                from the Lincoln Tunnel, which puts it within easy reach of
+                anywhere in the NYC metro area. Everything inside is kept
+                in a temperature-controlled environment, so the extremes of
+                summer heat and winter cold never get the chance to damage
+                wood, fabric, electronics, artwork, or anything else you
+                trust us to hold. And because the facility is monitored
+                around the clock, your belongings are protected day and
+                night.
+              </p>
+
+              {/* Storage that works around you */}
+              <h3
+                className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Storage that works around you
+              </h3>
+              <p
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-8 md:mb-10"
+                style={{ color: "#2D3748" }}
+              >
+                We believe you should pay for what you use and nothing
+                more. Our storage is flexible by design, so whether you
+                need a few weeks or a few years, the arrangement fits your
+                situation instead of forcing you into someone else&apos;s
+                terms.
+              </p>
+
+              <h4
+                className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase font-medium mb-4 md:mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                What you get
+              </h4>
+              <div className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14">
+                {features.map((f) => (
+                  <div key={f} className="flex items-start gap-2.5">
+                    <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
+                    <span className="text-[13px] md:text-[14px] font-medium leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Storage that connects to your move */}
+              <h3
+                className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Storage that connects to your move
+              </h3>
+              <p
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                style={{ color: "#2D3748" }}
+              >
+                Because storage is part of what we do, not a separate
+                business, it folds seamlessly into your move. We can pick
+                up, store, and later deliver your belongings as one
+                coordinated effort, with the same careful handling and
+                the same digital inventory throughout. Your things go
+                from your door to our warehouse and back again without
+                ever leaving our care.
+              </p>
+
+              {/* Ready to reserve your space */}
+              <h3
+                className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Ready to reserve your space?
+              </h3>
+              <p
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85]"
+                style={{ color: "#2D3748" }}
+              >
+                Tell us what you need to store and for how long, and we
+                will help you find the right fit. Contact Scanio today for
+                a storage quote.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20" style={{ background: "#0A1628" }}>
+      {/* CTA — light blue band */}
+      <section className="py-16 md:py-24 border-t border-b" style={{ background: "#EBF1F8", borderColor: "#D6E0ED" }}>
         <div className="max-w-4xl mx-auto px-6 md:px-10 text-center">
+          <p className="text-[11px] tracking-[0.3em] uppercase font-medium mb-4" style={{ color: "#0B5DB5" }}>
+            Ready when you are
+          </p>
           <h2
-            className="text-[clamp(24px,3vw,36px)] font-light leading-[1.3] mb-4"
-            style={{ color: "white" }}
+            className="text-[clamp(24px,3vw,38px)] font-light leading-[1.25] tracking-[-0.01em] mb-4"
+            style={{ color: "#0A1628" }}
           >
             Need storage space?
           </h2>
-          <p className="text-[15px] font-light mb-10" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <p className="text-[15px] md:text-[16px] font-normal leading-[1.75] mb-8 md:mb-10 max-w-xl mx-auto" style={{ color: "#2D3748" }}>
             Contact us to discuss your storage needs and get a personalized
             quote.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/quote"
-              className="text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 border transition-all"
-              style={{ color: "white", borderColor: "rgba(255,255,255,0.3)" }}
+              className="text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 transition-all hover:opacity-90"
+              style={{ background: "#0A1628", color: "white" }}
             >
-              Get an Estimate
+              Get a Storage Quote
             </Link>
             <a
               href="tel:2127226850"
-              className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] font-light transition-opacity hover:opacity-60"
-              style={{ color: "rgba(255,255,255,0.5)" }}
+              className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
+              style={{ color: "#0A1628" }}
             >
               <Phone size={14} />
               212.722.6850
