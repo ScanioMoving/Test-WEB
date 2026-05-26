@@ -75,11 +75,11 @@ export default function ResidentialPage() {
       {/* Header background */}
       <div className="h-[150px] w-full" style={{ background: "#0B5DB5" }} />
 
-      {/* Split: Cycling Images + Content */}
+      {/* Split: Sticky image left + scrollable content right (CTA pinned at top) */}
       <section className="bg-white">
-        <div className="flex flex-col lg:flex-row min-h-[calc(100vh-150px)]">
-          {/* Left: Rotating images */}
-          <div className="lg:w-1/2 relative min-h-[50vh] lg:min-h-0">
+        <div className="flex flex-col lg:flex-row items-start">
+          {/* Left: Sticky rotating images */}
+          <div className="lg:w-1/2 w-full lg:sticky lg:top-[150px] lg:self-start relative min-h-[55vh] lg:min-h-0 lg:h-[calc(100vh-150px)]">
             {rotatingPhotos.map((photo, i) => (
               <div
                 key={photo.src}
@@ -132,186 +132,197 @@ export default function ResidentialPage() {
             </div>
           </div>
 
-          {/* Right: Content */}
-          <div className="lg:w-1/2 py-16 md:py-20 px-6 md:px-12 lg:px-20 flex flex-col justify-center items-center text-center">
-            <p
-              className="text-[11px] tracking-[0.3em] uppercase font-medium mb-6"
-              style={{ color: "#0B5DB5" }}
+          {/* Right: Scrollable content with sticky CTA at top */}
+          <div className="lg:w-1/2 w-full relative bg-white">
+            {/* Sticky CTA bar — pinned just below the global nav */}
+            <div
+              className="sticky top-[150px] z-20"
+              style={{
+                background: "rgba(255,255,255,0.94)",
+                backdropFilter: "blur(10px) saturate(180%)",
+                WebkitBackdropFilter: "blur(10px) saturate(180%)",
+                borderBottom: "1px solid #E5ECF4",
+              }}
             >
-              Residential Moving
-            </p>
-            <h2
-              className="text-[clamp(26px,3vw,36px)] font-light leading-[1.25] tracking-[-0.01em] mb-8"
-              style={{ color: "#0A1628" }}
-            >
-              Every move handled
-              <br />
-              like it&apos;s family
-            </h2>
-            <p
-              className="text-[16px] font-light leading-[1.85] mb-6 max-w-lg"
-              style={{ color: "#4A5568" }}
-            >
-              Moving your home is one of the most personal things you can
-              trust a company to do. At Scanio Movers, we have been doing it
-              since 1941, and in that time we have learned that a great move
-              is not about trucks and boxes. It is about care, planning, and
-              people who know what they are doing. From the first phone call
-              to the moment the last item is set in place, our team is right
-              beside you, taking the stress and uncertainty out of the day.
-            </p>
-            <p
-              className="text-[16px] font-light leading-[1.85] mb-10 max-w-lg"
-              style={{ color: "#4A5568" }}
-            >
-              We handle moves of every size, from a single apartment to a
-              full estate, and across every distance, whether you are
-              relocating across town, across the country, or around the
-              world. Whatever the move, the standard never changes: your
-              belongings are treated with the same respect we would give
-              our own.
-            </p>
+              <div className="px-6 md:px-10 lg:px-16 py-4 flex flex-wrap items-center justify-center gap-5">
+                <Link
+                  href="/quote"
+                  className="text-[12px] tracking-[0.3em] uppercase font-medium px-8 py-3.5 border transition-all hover:bg-[#0A1628] hover:text-white"
+                  style={{ color: "#0A1628", borderColor: "#0A1628" }}
+                >
+                  Get Free Estimate
+                </Link>
+                <a
+                  href="tel:2127226850"
+                  className="flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
+                  style={{ color: "#0A1628" }}
+                >
+                  <Phone size={14} />
+                  212.722.6850
+                </a>
+              </div>
+            </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-5">
-              <Link
-                href="/quote"
-                className="text-[12px] tracking-[0.3em] uppercase font-medium px-8 py-4 border transition-all"
-                style={{ color: "#0A1628", borderColor: "#0A1628" }}
+            {/* All content (scrolls past sticky image and sticky CTA) */}
+            <div className="px-6 md:px-10 lg:px-16 py-14 md:py-16">
+              <p
+                className="text-[11px] tracking-[0.3em] uppercase font-medium mb-5"
+                style={{ color: "#0B5DB5" }}
               >
-                Get Free Estimate
-              </Link>
-              <a
-                href="tel:2127226850"
-                className="flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
+                Residential Moving
+              </p>
+              <h2
+                className="text-[clamp(28px,3.2vw,42px)] font-light leading-[1.15] tracking-[-0.01em] mb-8"
                 style={{ color: "#0A1628" }}
               >
-                <Phone size={14} />
-                212.722.6850
-              </a>
+                Every move handled
+                <br />
+                like it&apos;s family
+              </h2>
+              <p
+                className="text-[16px] font-light leading-[1.85] mb-6"
+                style={{ color: "#4A5568" }}
+              >
+                Moving your home is one of the most personal things you can
+                trust a company to do. At Scanio Movers, we have been doing
+                it since 1941, and in that time we have learned that a
+                great move is not about trucks and boxes. It is about care,
+                planning, and people who know what they are doing. From the
+                first phone call to the moment the last item is set in
+                place, our team is right beside you, taking the stress and
+                uncertainty out of the day.
+              </p>
+              <p
+                className="text-[16px] font-light leading-[1.85] mb-14"
+                style={{ color: "#4A5568" }}
+              >
+                We handle moves of every size, from a single apartment to a
+                full estate, and across every distance, whether you are
+                relocating across town, across the country, or around the
+                world. Whatever the move, the standard never changes: your
+                belongings are treated with the same respect we would give
+                our own.
+              </p>
+
+              {/* Why families choose Scanio */}
+              <h3
+                className="text-[clamp(22px,2.4vw,30px)] font-light leading-[1.25] mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Why families choose Scanio
+              </h3>
+              <p
+                className="text-[16px] font-light leading-[1.85] mb-12"
+                style={{ color: "#4A5568" }}
+              >
+                A move is only as good as the people who carry it out. That
+                is where Scanio stands apart. Many of our crews,
+                coordinators, and warehouse staff have been with the
+                company for decades, in an industry known for constant
+                turnover. When a Scanio team arrives at your door, they are
+                not learning the job. They have packed the china, wrapped
+                the heirlooms, and navigated the tight staircases hundreds
+                of times before. That experience is something you can feel
+                from the moment they walk in.
+              </p>
+
+              {/* Services list */}
+              <h4
+                className="text-[12px] tracking-[0.22em] uppercase font-medium mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Our residential services include
+              </h4>
+              <div className="grid grid-cols-1 gap-y-3 mb-14">
+                {features.map((f) => (
+                  <div key={f} className="flex items-start gap-2.5">
+                    <CheckCircle className="shrink-0 mt-0.5" size={16} style={{ color: "#0B5DB5" }} />
+                    <span className="text-[14px] leading-[1.6]" style={{ color: "#4A5568" }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Planning your move */}
+              <h3
+                className="text-[clamp(22px,2.4vw,30px)] font-light leading-[1.25] mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Planning your move
+              </h3>
+              <p
+                className="text-[16px] font-light leading-[1.85] mb-14"
+                style={{ color: "#4A5568" }}
+              >
+                Every successful move begins long before moving day. A
+                Scanio coordinator works with you to take a careful
+                inventory of your home, flag fragile and sentimental items
+                that need special handling, and build a plan around your
+                timeline and your building&apos;s rules. We confirm access
+                times, prepare any certificates of insurance, and stay in
+                touch in the days leading up to the move so nothing is left
+                to chance. On the day itself, an experienced foreman leads
+                a crew that already knows your plan inside and out.
+              </p>
+
+              {/* Packing and unpacking */}
+              <h3
+                className="text-[clamp(22px,2.4vw,30px)] font-light leading-[1.25] mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Packing and unpacking, your way
+              </h3>
+              <p
+                className="text-[16px] font-light leading-[1.85] mb-9"
+                style={{ color: "#4A5568" }}
+              >
+                Not every move calls for the same level of service, so we
+                tailor each move to your needs.
+              </p>
+
+              <h4
+                className="text-[12px] tracking-[0.22em] uppercase font-medium mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Packing options
+              </h4>
+              <div className="space-y-4 mb-10">
+                {packingOptions.map(([title, desc]) => (
+                  <div key={title} className="flex items-start gap-3">
+                    <CheckCircle className="shrink-0 mt-1" size={16} style={{ color: "#0B5DB5" }} />
+                    <p className="text-[15px] font-light leading-[1.75]" style={{ color: "#4A5568" }}>
+                      <span className="font-medium" style={{ color: "#0A1628" }}>{title}</span> {desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <h4
+                className="text-[12px] tracking-[0.22em] uppercase font-medium mb-5"
+                style={{ color: "#0A1628" }}
+              >
+                Unpacking options
+              </h4>
+              <div className="space-y-4 mb-9">
+                {unpackingOptions.map(([title, desc]) => (
+                  <div key={title} className="flex items-start gap-3">
+                    <CheckCircle className="shrink-0 mt-1" size={16} style={{ color: "#0B5DB5" }} />
+                    <p className="text-[15px] font-light leading-[1.75]" style={{ color: "#4A5568" }}>
+                      <span className="font-medium" style={{ color: "#0A1628" }}>{title}</span> {desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p
+                className="text-[16px] font-light leading-[1.85] italic"
+                style={{ color: "#4A5568" }}
+              >
+                Whatever you choose, our goal is the same: to deliver your
+                home to your new address in move-in condition, with as
+                little disruption to your life as possible.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Long-form content */}
-      <section className="py-20 md:py-28 bg-white border-t" style={{ borderColor: "#E5ECF4" }}>
-        <div className="max-w-3xl mx-auto px-6 md:px-10">
-          {/* Why families choose Scanio */}
-          <h3
-            className="text-[clamp(22px,2.5vw,30px)] font-light leading-[1.3] mb-6"
-            style={{ color: "#0A1628" }}
-          >
-            Why families choose Scanio
-          </h3>
-          <p
-            className="text-[16px] font-light leading-[1.85] mb-14"
-            style={{ color: "#4A5568" }}
-          >
-            A move is only as good as the people who carry it out. That is
-            where Scanio stands apart. Many of our crews, coordinators, and
-            warehouse staff have been with the company for decades, in an
-            industry known for constant turnover. When a Scanio team arrives
-            at your door, they are not learning the job. They have packed
-            the china, wrapped the heirlooms, and navigated the tight
-            staircases hundreds of times before. That experience is
-            something you can feel from the moment they walk in.
-          </p>
-
-          {/* Services list */}
-          <h4
-            className="text-[13px] tracking-[0.2em] uppercase font-medium mb-6"
-            style={{ color: "#0A1628" }}
-          >
-            Our residential services include
-          </h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mb-16">
-            {features.map((f) => (
-              <div key={f} className="flex items-start gap-2">
-                <CheckCircle className="shrink-0 mt-0.5" size={16} style={{ color: "#0B5DB5" }} />
-                <span className="text-[14px] leading-[1.6]" style={{ color: "#4A5568" }}>{f}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Planning your move */}
-          <h3
-            className="text-[clamp(22px,2.5vw,30px)] font-light leading-[1.3] mb-6"
-            style={{ color: "#0A1628" }}
-          >
-            Planning your move
-          </h3>
-          <p
-            className="text-[16px] font-light leading-[1.85] mb-16"
-            style={{ color: "#4A5568" }}
-          >
-            Every successful move begins long before moving day. A Scanio
-            coordinator works with you to take a careful inventory of your
-            home, flag fragile and sentimental items that need special
-            handling, and build a plan around your timeline and your
-            building&apos;s rules. We confirm access times, prepare any
-            certificates of insurance, and stay in touch in the days leading
-            up to the move so nothing is left to chance. On the day itself,
-            an experienced foreman leads a crew that already knows your plan
-            inside and out.
-          </p>
-
-          {/* Packing and unpacking */}
-          <h3
-            className="text-[clamp(22px,2.5vw,30px)] font-light leading-[1.3] mb-6"
-            style={{ color: "#0A1628" }}
-          >
-            Packing and unpacking, your way
-          </h3>
-          <p
-            className="text-[16px] font-light leading-[1.85] mb-10"
-            style={{ color: "#4A5568" }}
-          >
-            Not every move calls for the same level of service, so we tailor
-            each move to your needs.
-          </p>
-
-          <h4
-            className="text-[13px] tracking-[0.2em] uppercase font-medium mb-5"
-            style={{ color: "#0A1628" }}
-          >
-            Packing options
-          </h4>
-          <div className="space-y-4 mb-12">
-            {packingOptions.map(([title, desc]) => (
-              <div key={title} className="flex items-start gap-3">
-                <CheckCircle className="shrink-0 mt-1" size={16} style={{ color: "#0B5DB5" }} />
-                <p className="text-[15px] font-light leading-[1.75]" style={{ color: "#4A5568" }}>
-                  <span className="font-medium" style={{ color: "#0A1628" }}>{title}</span> {desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <h4
-            className="text-[13px] tracking-[0.2em] uppercase font-medium mb-5"
-            style={{ color: "#0A1628" }}
-          >
-            Unpacking options
-          </h4>
-          <div className="space-y-4 mb-10">
-            {unpackingOptions.map(([title, desc]) => (
-              <div key={title} className="flex items-start gap-3">
-                <CheckCircle className="shrink-0 mt-1" size={16} style={{ color: "#0B5DB5" }} />
-                <p className="text-[15px] font-light leading-[1.75]" style={{ color: "#4A5568" }}>
-                  <span className="font-medium" style={{ color: "#0A1628" }}>{title}</span> {desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <p
-            className="text-[16px] font-light leading-[1.85] italic"
-            style={{ color: "#4A5568" }}
-          >
-            Whatever you choose, our goal is the same: to deliver your home
-            to your new address in move-in condition, with as little
-            disruption to your life as possible.
-          </p>
         </div>
       </section>
 
