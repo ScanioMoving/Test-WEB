@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 
 const serviceItems = [
@@ -14,6 +15,8 @@ const serviceItems = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -55,7 +58,8 @@ export default function Header() {
     }
   }, [servicesOpen]);
 
-  const solid = scrolled;
+  // Always-opaque header on inner pages so scrolling text never bleeds past it.
+  const solid = scrolled || !isHome;
 
   return (
     <header
