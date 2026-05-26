@@ -736,8 +736,68 @@ export default function HomePage() {
       {/* ─── HERO — Scroll-driven truck sequence ─── */}
       <TruckScrollHero />
 
-      {/* ─── TESTIMONIALS ─── */}
-      <TestimonialCarousel />
+      {/* ─── TESTIMONIALS — hidden, on back burner ─── */}
+      {/* <TestimonialCarousel /> */}
+
+      {/* ─── ABOUT / HERITAGE — moved above services ─── */}
+      <section className="py-24 md:py-32" style={{ background: "#F5F8FC" }}>
+        <div className="max-w-[1200px] mx-auto px-10 md:px-12">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+            <Reveal>
+              <div>
+                <p className="text-[11px] uppercase font-bold tracking-[0.15em] mb-6" style={{ color: "#0B5DB5" }}>
+                  Since 1941
+                </p>
+                <h2 className="text-[clamp(26px,3vw,42px)] font-bold leading-[1.2] tracking-[-0.02em] mb-6" style={{ color: "#0A1628" }}>
+                  Three Generations
+                  of New York Expertise
+                </h2>
+                <p className="text-[15px] font-light leading-[1.85] mb-6" style={{ color: "#4A5568" }}>
+                  Founded in 1941, Scanio is a premier and highly reputable
+                  New York City based moving and storage company. We handle
+                  each and every move with care, planning and executing the
+                  transport of your belongings so that your transition from
+                  one space to the next is seamless.
+                </p>
+                <p className="text-[15px] font-light leading-[1.85]" style={{ color: "#4A5568" }}>
+                  With over seven decades of operational experience in the
+                  New York metropolitan area, our expertise in detailed
+                  logistics is unmatched.
+                </p>
+                <div className="flex gap-10 pt-8 mt-8 border-t" style={{ borderColor: "#D6E0ED" }}>
+                  {[
+                    { val: "80+", label: "Years" },
+                    { val: "NYC", label: "Based" },
+                  ].map((s) => (
+                    <div key={s.label}>
+                      <p className="text-[32px] font-bold tracking-[-0.02em]" style={{ color: "#0A1628" }}>
+                        {s.val}
+                      </p>
+                      <p className="text-[10px] uppercase font-semibold tracking-[0.15em] mt-1" style={{ color: "#A3B3C6" }}>
+                        {s.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <div className="relative overflow-hidden rounded-sm h-full min-h-[350px]" style={{ background: "#F0ECE6" }}>
+                <Image
+                  src="/vintage-trucks.jpg"
+                  alt="Vintage Scanio Moving trucks"
+                  fill
+                  quality={95}
+                  className="object-cover mix-blend-multiply"
+                  style={{ objectPosition: "center 52%", transform: "scaleX(1.02) scaleY(1.15)" }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
       {/* ─── SERVICES — Image blocks from Version E ─── */}
       <section style={{ background: "#F5F8FC" }}>
@@ -809,66 +869,6 @@ export default function HomePage() {
               </Link>
             </Reveal>
           ))}
-        </div>
-      </section>
-
-      {/* ─── HERITAGE — From Version E ─── */}
-      <section className="py-24 md:py-32" style={{ background: "#F5F8FC" }}>
-        <div className="max-w-[1200px] mx-auto px-10 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16 md:gap-24">
-            <Reveal>
-              <div>
-                <p className="text-[11px] uppercase font-bold tracking-[0.15em] mb-6" style={{ color: "#0B5DB5" }}>
-                  Since 1941
-                </p>
-                <h2 className="text-[clamp(26px,3vw,42px)] font-bold leading-[1.2] tracking-[-0.02em] mb-6" style={{ color: "#0A1628" }}>
-                  Three Generations
-                  of New York Expertise
-                </h2>
-                <p className="text-[15px] font-light leading-[1.85] mb-6" style={{ color: "#4A5568" }}>
-                  Founded in 1941, Scanio is a premier and highly reputable
-                  New York City based moving and storage company. We handle
-                  each and every move with care, planning and executing the
-                  transport of your belongings so that your transition from
-                  one space to the next is seamless.
-                </p>
-                <p className="text-[15px] font-light leading-[1.85]" style={{ color: "#4A5568" }}>
-                  With over seven decades of operational experience in the
-                  New York metropolitan area, our expertise in detailed
-                  logistics is unmatched.
-                </p>
-                <div className="flex gap-10 pt-8 mt-8 border-t" style={{ borderColor: "#D6E0ED" }}>
-                  {[
-                    { val: "80+", label: "Years" },
-                    { val: "NYC", label: "Based" },
-                  ].map((s) => (
-                    <div key={s.label}>
-                      <p className="text-[32px] font-bold tracking-[-0.02em]" style={{ color: "#0A1628" }}>
-                        {s.val}
-                      </p>
-                      <p className="text-[10px] uppercase font-semibold tracking-[0.15em] mt-1" style={{ color: "#A3B3C6" }}>
-                        {s.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={150}>
-              <div className="relative overflow-hidden rounded-sm h-full min-h-[350px]" style={{ background: "#F0ECE6" }}>
-                <Image
-                  src="/vintage-trucks.jpg"
-                  alt="Vintage Scanio Moving trucks"
-                  fill
-                  quality={95}
-                  className="object-cover mix-blend-multiply"
-                  style={{ objectPosition: "center 52%", transform: "scaleX(1.02) scaleY(1.15)" }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
 
