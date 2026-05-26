@@ -44,10 +44,10 @@ export default function LongDistancePage() {
           <div className="lg:w-1/2 w-full relative bg-white">
             <div className="px-5 md:px-10 lg:px-16 py-10 md:py-14 lg:py-16">
               <h1
-                className="text-[clamp(32px,4.4vw,56px)] font-semibold leading-[1.05] tracking-[-0.02em] mb-3 md:mb-4"
+                className="text-[clamp(34px,4.8vw,60px)] font-semibold leading-[1.05] tracking-[-0.02em] mb-3 md:mb-4"
                 style={{ color: "#0B5DB5" }}
               >
-                Long Distance &amp; Cross Country Moving
+                Long Distance Moving
               </h1>
               <p
                 className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-medium mb-5 md:mb-6"
