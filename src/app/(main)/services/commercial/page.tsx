@@ -49,20 +49,18 @@ export default function CommercialPage() {
           {/* Right: Scrollable content */}
           <div className="lg:w-1/2 w-full relative bg-white">
             <div className="px-5 md:px-10 lg:px-16 py-10 md:py-14 lg:py-16">
-              <p
-                className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase font-medium mb-4 md:mb-5"
+              <h1
+                className="text-[clamp(34px,4.8vw,60px)] font-semibold leading-[1.05] tracking-[-0.02em] mb-3 md:mb-4"
                 style={{ color: "#0B5DB5" }}
               >
                 Commercial Moving
-              </p>
-              <h2
-                className="text-[clamp(24px,3.2vw,42px)] font-light leading-[1.15] tracking-[-0.01em] mb-6 md:mb-8"
+              </h1>
+              <p
+                className="text-[clamp(18px,2.4vw,28px)] font-light leading-[1.3] tracking-[-0.01em] mb-6 md:mb-8"
                 style={{ color: "#0A1628" }}
               >
-                Keeping your
-                <br />
-                business moving
-              </h2>
+                Keeping your business moving
+              </p>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-5 md:mb-6"
                 style={{ color: "#2D3748" }}

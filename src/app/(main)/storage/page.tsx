@@ -44,20 +44,18 @@ export default function StoragePage() {
           {/* Right: Scrollable content */}
           <div className="lg:w-1/2 w-full relative bg-white">
             <div className="px-5 md:px-10 lg:px-16 py-10 md:py-14 lg:py-16">
-              <p
-                className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase font-medium mb-4 md:mb-5"
+              <h1
+                className="text-[clamp(34px,4.8vw,60px)] font-semibold leading-[1.05] tracking-[-0.02em] mb-3 md:mb-4"
                 style={{ color: "#0B5DB5" }}
               >
                 Storage
-              </p>
-              <h2
-                className="text-[clamp(24px,3.2vw,42px)] font-light leading-[1.15] tracking-[-0.01em] mb-4 md:mb-5"
+              </h1>
+              <p
+                className="text-[clamp(18px,2.4vw,28px)] font-light leading-[1.3] tracking-[-0.01em] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
-                Secure, temperature-controlled
-                <br />
-                storage you can trust
-              </h2>
+                Secure, temperature-controlled storage you can trust
+              </p>
               <p
                 className="text-[15px] md:text-[16px] font-medium italic leading-[1.6] mb-8 md:mb-10"
                 style={{ color: "#0B5DB5" }}

@@ -801,8 +801,8 @@ export default function HomePage() {
 
       {/* ─── SERVICES — Image blocks from Version E ─── */}
       <section style={{ background: "#F5F8FC" }}>
-        <div className="px-10 md:px-12 py-10 border-b text-center" style={{ borderColor: "#D6E0ED" }}>
-          <h2 className="text-[13px] uppercase font-bold tracking-[0.1em]" style={{ color: "#0B5DB5" }}>
+        <div className="px-10 md:px-12 py-16 md:py-24 border-b text-center" style={{ borderColor: "#D6E0ED" }}>
+          <h2 className="text-[clamp(32px,5vw,56px)] font-bold leading-[1.1] tracking-[-0.02em]" style={{ color: "#0B5DB5" }}>
             Our Services
           </h2>
         </div>
