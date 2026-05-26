@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 
 const serviceItems = [
@@ -15,8 +14,6 @@ const serviceItems = [
 ];
 
 export default function Header() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -58,8 +55,7 @@ export default function Header() {
     }
   }, [servicesOpen]);
 
-  // Always-opaque header on inner pages so scrolling text never bleeds past it.
-  const solid = scrolled || !isHome;
+  const solid = scrolled;
 
   return (
     <header
@@ -71,14 +67,29 @@ export default function Header() {
     >
       {/* Main nav bar */}
       <div
-        className="transition-all duration-500"
+        className="relative transition-all duration-500"
         style={{
           height: 150,
-          background: solid ? "#F5F8FC" : "transparent",
           boxShadow: solid && !servicesOpen ? "0 1px 0 #D6E0ED" : "none",
         }}
       >
-        <div className="w-full px-10 md:px-12 h-full flex items-center justify-between">
+        {/* Solid cream bg — fades in once scrolled */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+          style={{ background: "#F5F8FC", opacity: solid ? 1 : 0 }}
+        />
+        {/* Frost blur — always on while transparent so scrolling text behind reads as a hazy blur, not legible bleed */}
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+          style={{
+            backdropFilter: "blur(24px) saturate(180%)",
+            WebkitBackdropFilter: "blur(24px) saturate(180%)",
+            opacity: solid ? 0 : 1,
+          }}
+        />
+        <div className="relative z-10 w-full px-10 md:px-12 h-full flex items-center justify-between">
           <Link href="/" className="flex shrink-0 items-center gap-4 relative z-10">
             <div
               className="block shrink-0 transition-all duration-500 h-[60px] md:h-[75px] aspect-[1217/1561] translate-y-[1px] md:translate-y-[2px]"
