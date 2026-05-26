@@ -752,14 +752,14 @@ export default function HomePage() {
                   Three Generations
                   of New York Expertise
                 </h2>
-                <p className="text-[18px] font-normal leading-[1.75] mb-6" style={{ color: "#1A2233" }}>
+                <p className="text-[18px] font-medium leading-[1.75] mb-6" style={{ color: "#0F1B2D" }}>
                   Founded in 1941, Scanio is a premier and highly reputable
                   New York City based moving and storage company. We handle
                   each and every move with care, planning and executing the
                   transport of your belongings so that your transition from
                   one space to the next is seamless.
                 </p>
-                <p className="text-[18px] font-normal leading-[1.75]" style={{ color: "#1A2233" }}>
+                <p className="text-[18px] font-medium leading-[1.75]" style={{ color: "#0F1B2D" }}>
                   With over seven decades of operational experience in the
                   New York metropolitan area, our expertise in detailed
                   logistics is unmatched.

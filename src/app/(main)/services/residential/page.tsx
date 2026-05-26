@@ -72,8 +72,22 @@ export default function ResidentialPage() {
 
   return (
     <>
-      {/* Header background */}
-      <div className="h-[150px] w-full" style={{ background: "#0B5DB5" }} />
+      {/* Spacer behind the fixed header — matches the page so the header reads as one continuous surface */}
+      <div className="h-[150px] w-full bg-white" />
+
+      {/* Fade band just under the header. As content scrolls up it becomes invisible
+          before it ever reaches the header. Full width on mobile (stacked layout);
+          right half only on desktop so the sticky image isn't washed out. */}
+      <div
+        aria-hidden
+        className="fixed z-40 pointer-events-none left-0 right-0 lg:left-1/2"
+        style={{
+          top: 150,
+          height: 70,
+          background:
+            "linear-gradient(to bottom, #FFFFFF 0%, rgba(255,255,255,0.95) 40%, rgba(255,255,255,0) 100%)",
+        }}
+      />
 
       {/* Split: Sticky image left + scrollable content right (CTA pinned at top) */}
       <section className="bg-white">
