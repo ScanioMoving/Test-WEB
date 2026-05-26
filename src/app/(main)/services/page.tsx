@@ -173,11 +173,11 @@ export default function ServicesPage() {
               Get Your Free Estimate
             </Link>
             <a
-              href="tel:6468638070"
+              href="tel:2127226850"
               className="border-2 border-white/30 hover:border-white text-white font-semibold px-10 py-4 rounded-md transition-colors flex items-center justify-center gap-2"
             >
               <Phone size={18} />
-              646.863.8070
+              212.722.6850
             </a>
           </div>
         </div>

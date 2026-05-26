@@ -90,12 +90,12 @@ export default function LongDistancePage() {
                 Get Free Estimate
               </Link>
               <a
-                href="tel:6468638070"
+                href="tel:2127226850"
                 className="flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
                 style={{ color: "#0A1628" }}
               >
                 <Phone size={14} />
-                646.863.8070
+                212.722.6850
               </a>
             </div>
           </div>
@@ -123,12 +123,12 @@ export default function LongDistancePage() {
               Get an Estimate
             </Link>
             <a
-              href="tel:6468638070"
+              href="tel:2127226850"
               className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] font-light transition-opacity hover:opacity-60"
               style={{ color: "rgba(255,255,255,0.5)" }}
             >
               <Phone size={14} />
-              646.863.8070
+              212.722.6850
             </a>
           </div>
         </div>

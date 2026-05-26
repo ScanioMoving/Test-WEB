@@ -249,11 +249,11 @@ function TruckScrollHero() {
         >
           <div className="flex flex-col gap-5">
             <a
-              href="tel:6468638070"
+              href="tel:2127226850"
               className="text-white text-[clamp(15px,2.1vw,19px)] tracking-[0.2em] font-medium hover:opacity-80 transition-opacity"
               style={{ textShadow: "0 1px 8px rgba(0,0,0,0.45)" }}
             >
-              646.863.8070
+              212.722.6850
             </a>
             <Link
               href="/quote"
@@ -720,12 +720,12 @@ export default function HomePage() {
                   Request Consultation
                 </Link>
                 <a
-                  href="tel:6468638070"
+                  href="tel:2127226850"
                   className="flex items-center justify-center gap-2 mt-4 text-[13px] tracking-[0.15em]"
                   style={{ color: "#0A1628" }}
                 >
                   <Phone size={14} />
-                  646.863.8070
+                  212.722.6850
                 </a>
               </div>
             </div>
@@ -891,12 +891,12 @@ export default function HomePage() {
               Request Consultation
             </Link>
             <a
-              href="tel:6468638070"
+              href="tel:2127226850"
               className="flex items-center gap-2 text-[13px] tracking-[0.2em] font-sans transition-opacity hover:opacity-60"
               style={{ color: "#0A1628" }}
             >
               <Phone size={14} />
-              646.863.8070
+              212.722.6850
             </a>
           </div>
         </div>
@@ -969,10 +969,10 @@ export default function HomePage() {
                 Contact
               </p>
               <ul className="space-y-2 text-[13px] font-light text-white/40">
-                <li><a href="tel:6468638070" className="hover:text-white/70 transition-colors">646.863.8070</a></li>
+                <li><a href="tel:2127226850" className="hover:text-white/70 transition-colors">212.722.6850</a></li>
                 <li><a href="mailto:info@scaniomoving.com" className="hover:text-white/70 transition-colors">info@scaniomoving.com</a></li>
-                <li>222 West 37th Street, 3rd Floor</li>
-                <li>New York, NY 10018</li>
+                <li>450 7th Ave</li>
+                <li>New York, NY 10001</li>
               </ul>
             </div>
           </div>

@@ -85,10 +85,10 @@ export default function Footer() {
               Contact
             </p>
             <ul className="space-y-2 text-[13px] font-light text-white/40">
-              <li><a href="tel:6468638070" className="hover:text-white/70 transition-colors">646.863.8070</a></li>
+              <li><a href="tel:2127226850" className="hover:text-white/70 transition-colors">212.722.6850</a></li>
               <li><a href="mailto:info@scaniomoving.com" className="hover:text-white/70 transition-colors">info@scaniomoving.com</a></li>
-              <li>222 West 37th Street, 3rd Floor</li>
-              <li>New York, NY 10018</li>
+              <li>450 7th Ave</li>
+              <li>New York, NY 10001</li>
             </ul>
           </div>
         </div>

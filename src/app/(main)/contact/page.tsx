@@ -91,11 +91,11 @@ export default function ContactPage() {
                       Phone
                     </p>
                     <a
-                      href="tel:6468638070"
+                      href="tel:2127226850"
                       className="text-[14px] font-light hover:opacity-60 transition-opacity"
                       style={{ color: "#0A1628" }}
                     >
-                      646.863.8070
+                      212.722.6850
                     </a>
                   </div>
                 </li>
@@ -131,9 +131,9 @@ export default function ContactPage() {
                       NYC Office
                     </p>
                     <p className="text-[14px] font-light" style={{ color: "#4A5568" }}>
-                      222 West 37th Street, 3rd Floor
+                      450 7th Ave
                       <br />
-                      New York, NY 10018
+                      New York, NY 10001
                     </p>
                   </div>
                 </li>
