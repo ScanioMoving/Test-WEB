@@ -150,8 +150,8 @@ export default function ResidentialPage() {
                 like it&apos;s family
               </h2>
               <p
-                className="text-[15px] md:text-[16px] font-light leading-[1.75] md:leading-[1.85] mb-5 md:mb-6"
-                style={{ color: "#4A5568" }}
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-5 md:mb-6"
+                style={{ color: "#2D3748" }}
               >
                 Moving your home is one of the most personal things you can
                 trust a company to do. At Scanio Movers, we have been doing
@@ -163,8 +163,8 @@ export default function ResidentialPage() {
                 uncertainty out of the day.
               </p>
               <p
-                className="text-[15px] md:text-[16px] font-light leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
-                style={{ color: "#4A5568" }}
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                style={{ color: "#2D3748" }}
               >
                 We handle moves of every size, from a single apartment to a
                 full estate, and across every distance, whether you are
@@ -182,8 +182,8 @@ export default function ResidentialPage() {
                 Why families choose Scanio
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-light leading-[1.75] md:leading-[1.85] mb-10 md:mb-12"
-                style={{ color: "#4A5568" }}
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-12"
+                style={{ color: "#2D3748" }}
               >
                 A move is only as good as the people who carry it out. That
                 is where Scanio stands apart. Many of our crews,
@@ -207,7 +207,7 @@ export default function ResidentialPage() {
                 {features.map((f) => (
                   <div key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
-                    <span className="text-[13px] md:text-[14px] leading-[1.6]" style={{ color: "#4A5568" }}>{f}</span>
+                    <span className="text-[13px] md:text-[14px] font-medium leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
                   </div>
                 ))}
               </div>
@@ -220,8 +220,8 @@ export default function ResidentialPage() {
                 Planning your move
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-light leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
-                style={{ color: "#4A5568" }}
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                style={{ color: "#2D3748" }}
               >
                 Every successful move begins long before moving day. A
                 Scanio coordinator works with you to take a careful
@@ -242,8 +242,8 @@ export default function ResidentialPage() {
                 Packing and unpacking, your way
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-light leading-[1.75] md:leading-[1.85] mb-7 md:mb-9"
-                style={{ color: "#4A5568" }}
+                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-7 md:mb-9"
+                style={{ color: "#2D3748" }}
               >
                 Not every move calls for the same level of service, so we
                 tailor each move to your needs.
@@ -259,7 +259,7 @@ export default function ResidentialPage() {
                 {packingOptions.map(([title, desc]) => (
                   <div key={title} className="flex items-start gap-3">
                     <CheckCircle className="shrink-0 mt-1" size={15} style={{ color: "#0B5DB5" }} />
-                    <p className="text-[14px] md:text-[15px] font-light leading-[1.7] md:leading-[1.75]" style={{ color: "#4A5568" }}>
+                    <p className="text-[14px] md:text-[15px] font-normal leading-[1.7] md:leading-[1.75]" style={{ color: "#2D3748" }}>
                       <span className="font-medium" style={{ color: "#0A1628" }}>{title}</span> {desc}
                     </p>
                   </div>
@@ -276,7 +276,7 @@ export default function ResidentialPage() {
                 {unpackingOptions.map(([title, desc]) => (
                   <div key={title} className="flex items-start gap-3">
                     <CheckCircle className="shrink-0 mt-1" size={15} style={{ color: "#0B5DB5" }} />
-                    <p className="text-[14px] md:text-[15px] font-light leading-[1.7] md:leading-[1.75]" style={{ color: "#4A5568" }}>
+                    <p className="text-[14px] md:text-[15px] font-normal leading-[1.7] md:leading-[1.75]" style={{ color: "#2D3748" }}>
                       <span className="font-medium" style={{ color: "#0A1628" }}>{title}</span> {desc}
                     </p>
                   </div>
@@ -284,8 +284,8 @@ export default function ResidentialPage() {
               </div>
 
               <p
-                className="text-[14px] md:text-[16px] font-light leading-[1.75] md:leading-[1.85] italic"
-                style={{ color: "#4A5568" }}
+                className="text-[14px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] italic"
+                style={{ color: "#2D3748" }}
               >
                 Whatever you choose, our goal is the same: to deliver your
                 home to your new address in move-in condition, with as
@@ -308,7 +308,7 @@ export default function ResidentialPage() {
           >
             Ready to move?
           </h2>
-          <p className="text-[15px] md:text-[16px] font-light leading-[1.75] mb-8 md:mb-10 max-w-xl mx-auto" style={{ color: "#4A5568" }}>
+          <p className="text-[15px] md:text-[16px] font-normal leading-[1.75] mb-8 md:mb-10 max-w-xl mx-auto" style={{ color: "#2D3748" }}>
             Get a free in-home estimate and see why thousands trust Scanio
             with their residential moves.
           </p>
