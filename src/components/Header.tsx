@@ -58,28 +58,17 @@ export default function Header() {
         setServicesOpen(false);
       }}
     >
-      {/* Main nav bar — two stacked solid layers cross-fade so the header is
-          never transparent at any point during the swap. */}
+      {/* Main nav bar — single fully-opaque bg that smoothly transitions
+          its color from brand blue to cream. No opacity layers, so it can
+          never become transparent mid-swap. */}
       <div
-        className="relative transition-all duration-500"
+        className="relative transition-[background-color,box-shadow] duration-500"
         style={{
           height: 150,
+          backgroundColor: scrolled ? SCROLLED_CREAM : BRAND_BLUE,
           boxShadow: scrolled && !servicesOpen ? "0 1px 0 #D6E0ED" : "none",
         }}
       >
-        {/* Blue layer — initial state */}
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none transition-opacity duration-500"
-          style={{ background: BRAND_BLUE, opacity: scrolled ? 0 : 1 }}
-        />
-        {/* Cream layer — scrolled state */}
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none transition-opacity duration-500"
-          style={{ background: SCROLLED_CREAM, opacity: scrolled ? 1 : 0 }}
-        />
-
         <div className="relative z-10 w-full px-10 md:px-12 h-full flex items-center justify-between">
           <Link href="/" className="flex shrink-0 items-center gap-4 relative z-10">
             <div
