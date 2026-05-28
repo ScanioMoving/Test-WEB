@@ -874,7 +874,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-2 md:grid-cols-4">
           {[
-            { title: "FF&E / Designer", desc: "Fine art, antiques, pianos. Museum-quality care.", img: "/services/ffe-vase.jpg", href: "/services/ffe-designer" },
+            { title: "FF&E / Designer", desc: "Fine art, antiques, pianos. Museum-quality care.", img: "/services/ffe-landing.png", href: "/services/ffe-designer" },
             { title: "Long Distance", desc: "Coast-to-coast. ICC-licensed. Fully insured.", img: "/services/long-distance.jpg", href: "/services/long-distance" },
             { title: "International", desc: "Global relocations. Customs handled. Door to door.", img: "/services/international.jpg", href: "/services/international" },
             { title: "Commercial", desc: "Corporate and office relocations with precision.", img: "/services/commercial-lobby.jpg", href: "/services/commercial" },

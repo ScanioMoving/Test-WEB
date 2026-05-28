@@ -249,7 +249,7 @@ export default function AboutPage() {
               { stat: "80+", label: "Years of Service", desc: "Trusted by generations of New Yorkers since 1941." },
               { stat: "NYC", label: "Based & Operated", desc: "We know every building, block, and borough." },
               { stat: "Family", label: "Owned & Run", desc: "A father and son team handling every move as a matter of trust." },
-              { stat: "24hr", label: "Response Time", desc: "We get back to you within one business day." },
+              { stat: "Worldwide", label: "Anywhere You Go", desc: "Local, long distance, and international moves by land, sea, and air." },
             ].map((v) => (
               <div key={v.label} className="text-center">
                 <p className="text-[32px] md:text-[36px] font-light mb-1" style={{ color: "#0B5DB5" }}>{v.stat}</p>

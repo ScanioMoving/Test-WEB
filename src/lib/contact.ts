@@ -25,7 +25,7 @@ export const COMPANY = {
     line2: "New York, NY 10001",
   },
 
-  hours: "Monday – Friday: 9:00 AM – 6:00 PM",
+  hours: "Monday – Friday: 9:00 AM – 5:00 PM",
 
   licenses: [
     { label: "NY DOT", value: "T11495" },
