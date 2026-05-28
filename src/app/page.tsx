@@ -788,12 +788,12 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            <Reveal delay={150}>
-              {/* Polaroid frame — sticks to the viewport instead of stretching
-                  with the (now very tall) story column, so it stays at proper
-                  polaroid proportions: thin top + side margins, thicker bottom
-                  caption-style margin. */}
-              <div className="md:sticky md:top-[180px] flex justify-center">
+            {/* Polaroid — sticky positioning lives on the grid item itself
+                (not inside Reveal) so the containing block is the tall text
+                column, not the polaroid's own height. That way it stays
+                pinned in place while the story scrolls past. */}
+            <div className="md:sticky md:top-[180px] md:self-start flex justify-center">
+              <Reveal delay={150}>
                 <div
                   className="relative w-full max-w-[460px] p-3 md:p-4 pb-12 md:pb-16"
                   style={{
@@ -814,8 +814,8 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>

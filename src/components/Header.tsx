@@ -93,7 +93,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-10">
             <Link
               href="/about"
-              className="text-[14px] tracking-[0.15em] uppercase font-medium transition-opacity duration-300"
+              className="text-[16px] tracking-[0.15em] uppercase font-semibold transition-opacity duration-300"
               style={{ color: "white", opacity: 0.9 }}
               onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
               onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.9"; }}
@@ -167,7 +167,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="text-[14px] tracking-[0.15em] uppercase font-medium transition-opacity duration-300"
+              className="text-[16px] tracking-[0.15em] uppercase font-semibold transition-opacity duration-300"
               style={{ color: "white", opacity: 0.9 }}
               onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
               onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.9"; }}
