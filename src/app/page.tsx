@@ -750,28 +750,33 @@ export default function HomePage() {
                   Since 1941
                 </p>
                 <h2 className="text-[clamp(30px,3.8vw,50px)] font-bold leading-[1.15] tracking-[-0.02em] mb-8" style={{ color: "#0A1628" }}>
-                  Three Generations
-                  of New York Expertise
+                  The Scanio Story
                 </h2>
-                <p className="text-[18px] font-medium leading-[1.75] mb-6" style={{ color: "#0F1B2D" }}>
-                  Founded in 1941, Scanio is a premier and highly reputable
-                  New York City based moving and storage company. We handle
-                  each and every move with care, planning and executing the
-                  transport of your belongings so that your transition from
-                  one space to the next is seamless.
-                </p>
                 <p className="text-[18px] font-medium leading-[1.75]" style={{ color: "#0F1B2D" }}>
-                  With over seven decades of operational experience in the
-                  New York metropolitan area, our expertise in detailed
-                  logistics is unmatched.
+                  Founded in 1941 by Frank Scanio, Scanio Movers has spent
+                  more than eight decades earning a reputation built on
+                  honest work and careful service. In 1999, Nir Shuminer
+                  took the helm, preserving the values that defined the
+                  company while bringing modern systems and new energy, and
+                  in 2015 his son Idan joined to run Scanio as a true father
+                  and son team. That family spirit runs through the whole
+                  company. Many of our crews, operations staff, and
+                  warehouse team have been with Scanio for decades, which
+                  means seasoned professionals handle your belongings at
+                  every stage of the move. Today Scanio moves households
+                  across the country and around the world by land, sea, and
+                  air, yet what defines us hasn&apos;t changed since 1941: a
+                  family-owned commitment to care, reliability, and doing
+                  right by every customer.
                 </p>
-                <div className="flex gap-10 pt-8 mt-10 border-t" style={{ borderColor: "#D6E0ED" }}>
+                <div className="flex gap-8 md:gap-10 pt-8 mt-10 border-t flex-wrap" style={{ borderColor: "#D6E0ED" }}>
                   {[
                     { val: "80+", label: "Years" },
                     { val: "NYC", label: "Based" },
+                    { val: "Family", label: "Owned" },
                   ].map((s) => (
                     <div key={s.label}>
-                      <p className="text-[36px] font-bold tracking-[-0.02em]" style={{ color: "#0A1628" }}>
+                      <p className="text-[28px] md:text-[36px] font-bold tracking-[-0.02em]" style={{ color: "#0A1628" }}>
                         {s.val}
                       </p>
                       <p className="text-[11px] uppercase font-semibold tracking-[0.15em] mt-1" style={{ color: "#5B6B82" }}>
