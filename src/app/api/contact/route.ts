@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
 import { COMPANY } from "@/lib/contact";
 
 export const runtime = "nodejs";
@@ -7,11 +7,27 @@ export const runtime = "nodejs";
 /**
  * Quote / contact form submission endpoint.
  *
- * Required env vars:
- *   RESEND_API_KEY    - https://resend.com/api-keys
- *   CONTACT_TO        - destination inbox (defaults to COMPANY.email)
- *   CONTACT_FROM      - verified sender on Resend (e.g. "website@scaniomoving.com").
- *                       Until a domain is verified, Resend accepts onboarding@resend.dev.
+ * Sends mail through Amazon SES v2 so it slots cleanly into the planned
+ * AWS production environment. When the app runs on AWS (EC2/ECS/Lambda/
+ * App Runner/etc.) the SDK auto-discovers credentials from the attached
+ * IAM role — no keys to manage. When the app runs elsewhere (e.g.
+ * Vercel today) the SDK falls back to the AWS_ACCESS_KEY_ID /
+ * AWS_SECRET_ACCESS_KEY env vars.
+ *
+ * Required env vars in any environment:
+ *   AWS_SES_REGION    Region where SES is configured, e.g. us-east-1.
+ *                     (AWS_REGION also works.)
+ *   CONTACT_FROM      Verified SES identity used as the From address,
+ *                     e.g. "website@scaniomoving.com". Must be verified
+ *                     in SES; account must be out of the sandbox to
+ *                     send to non-verified recipients.
+ *
+ * Optional:
+ *   CONTACT_TO              Override the inbox quote requests land in
+ *                           (defaults to COMPANY.email).
+ *   AWS_ACCESS_KEY_ID,
+ *   AWS_SECRET_ACCESS_KEY   Required only when not running inside AWS
+ *                           with an instance/task role.
  */
 
 const FIELD_LABELS: Record<string, string> = {
@@ -55,6 +71,18 @@ function escapeHtml(s: string): string {
     .replace(/'/g, "&#39;");
 }
 
+function configError() {
+  return NextResponse.json(
+    {
+      error:
+        "Email service is not configured yet. Please call us at " +
+        COMPANY.phone.display +
+        " and we'll help you directly.",
+    },
+    { status: 503 },
+  );
+}
+
 export async function POST(request: Request) {
   let body: Payload;
   try {
@@ -82,22 +110,15 @@ export async function POST(request: Request) {
   if (!toAddress) return NextResponse.json({ error: "Moving-to address is required." }, { status: 400 });
   if (!hearAboutUs) return NextResponse.json({ error: 'Please fill in "How did you hear about us".' }, { status: 400 });
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const region = process.env.AWS_SES_REGION || process.env.AWS_REGION;
   const to = process.env.CONTACT_TO || COMPANY.email;
-  const from = process.env.CONTACT_FROM || "onboarding@resend.dev";
+  const from = process.env.CONTACT_FROM;
 
-  if (!apiKey) {
-    // Don't crash in dev — log and surface a friendly error.
-    console.error("[contact] RESEND_API_KEY is not set; cannot send email.");
-    return NextResponse.json(
-      {
-        error:
-          "Email service is not configured yet. Please call us at " +
-          COMPANY.phone.display +
-          " and we'll help you directly.",
-      },
-      { status: 503 },
+  if (!region || !from) {
+    console.error(
+      "[contact] AWS SES is not configured. Need AWS_SES_REGION (or AWS_REGION) and CONTACT_FROM.",
     );
+    return configError();
   }
 
   // Build a readable summary for the inbox.
@@ -121,9 +142,7 @@ export async function POST(request: Request) {
     if (value) rows.push({ label: FIELD_LABELS[key], value });
   }
 
-  const textBody = rows
-    .map((r) => `${r.label}:\n${r.value}`)
-    .join("\n\n");
+  const textBody = rows.map((r) => `${r.label}:\n${r.value}`).join("\n\n");
 
   const htmlBody = `
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; color: #0A1628;">
@@ -147,30 +166,31 @@ export async function POST(request: Request) {
   `;
 
   try {
-    const resend = new Resend(apiKey);
-    const result = await resend.emails.send({
-      from,
-      to,
-      replyTo: email,
-      subject: `New quote request — ${fullName}`,
-      text: textBody,
-      html: htmlBody,
-    });
+    const ses = new SESv2Client({ region });
+    const result = await ses.send(
+      new SendEmailCommand({
+        FromEmailAddress: from,
+        Destination: { ToAddresses: [to] },
+        ReplyToAddresses: [email],
+        Content: {
+          Simple: {
+            Subject: { Data: `New quote request — ${fullName}`, Charset: "UTF-8" },
+            Body: {
+              Text: { Data: textBody, Charset: "UTF-8" },
+              Html: { Data: htmlBody, Charset: "UTF-8" },
+            },
+          },
+        },
+      }),
+    );
 
-    if (result.error) {
-      console.error("[contact] Resend error:", result.error);
-      return NextResponse.json(
-        { error: "We couldn't send your request right now. Please try again or call us." },
-        { status: 502 },
-      );
-    }
-
+    console.log("[contact] SES message id:", result.MessageId);
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("[contact] Unexpected error:", err);
+    console.error("[contact] SES send failed:", err);
     return NextResponse.json(
       { error: "We couldn't send your request right now. Please try again or call us." },
-      { status: 500 },
+      { status: 502 },
     );
   }
 }
