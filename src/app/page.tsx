@@ -789,26 +789,30 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={150}>
-              {/* Polaroid-style frame: cream mat around the photo, slight shadow,
-                  mix-blend-multiply tints the photo with the cream for the
-                  vintage look. object-contain so the whole photo is visible
-                  with the mat showing around all four edges. */}
-              <div
-                className="relative h-full min-h-[350px] p-5 md:p-7"
-                style={{
-                  background: "#F0ECE6",
-                  boxShadow: "0 1px 0 rgba(0,0,0,0.04), 0 12px 32px -16px rgba(10,22,40,0.18)",
-                }}
-              >
-                <div className="relative w-full h-full">
-                  <Image
-                    src="/vintage-trucks.jpg"
-                    alt="Vintage Scanio Moving trucks"
-                    fill
-                    quality={95}
-                    className="object-contain mix-blend-multiply"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+              {/* Polaroid frame — sticks to the viewport instead of stretching
+                  with the (now very tall) story column, so it stays at proper
+                  polaroid proportions: thin top + side margins, thicker bottom
+                  caption-style margin. */}
+              <div className="md:sticky md:top-[180px] flex justify-center">
+                <div
+                  className="relative w-full max-w-[460px] p-3 md:p-4 pb-12 md:pb-16"
+                  style={{
+                    background: "#FAF6EC",
+                    boxShadow:
+                      "0 1px 0 rgba(0,0,0,0.03), 0 24px 48px -22px rgba(10,22,40,0.30)",
+                    transform: "rotate(-1deg)",
+                  }}
+                >
+                  <div className="relative w-full aspect-[4/3] overflow-hidden">
+                    <Image
+                      src="/vintage-trucks.jpg"
+                      alt="Vintage Scanio Moving trucks"
+                      fill
+                      quality={95}
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                 </div>
               </div>
             </Reveal>
