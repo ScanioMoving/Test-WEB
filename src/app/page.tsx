@@ -853,9 +853,9 @@ export default function HomePage() {
                     src={s.img}
                     alt={s.title}
                     fill
-                    quality={95}
+                    quality={100}
                     className="object-cover transition-transform duration-[1000ms] group-hover:scale-[1.04]"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 720px"
                   />
                   <div
                     className="absolute inset-0"
@@ -886,9 +886,9 @@ export default function HomePage() {
                     src={s.img}
                     alt={s.title}
                     fill
-                    quality={95}
+                    quality={100}
                     className="object-cover transition-transform duration-[800ms] group-hover:scale-[1.05]"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw, 360px"
                   />
                   <div
                     className="absolute inset-0"
