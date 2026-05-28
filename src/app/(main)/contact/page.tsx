@@ -1,38 +1,87 @@
 "use client";
 
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, AlertCircle } from "lucide-react";
+import { COMPANY, TEL_HREF, MAILTO_HREF } from "@/lib/contact";
 import { useState, type FormEvent } from "react";
 
-export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+type Status =
+  | { kind: "idle" }
+  | { kind: "submitting" }
+  | { kind: "success" }
+  | { kind: "error"; message: string };
 
-  function handleSubmit(e: FormEvent) {
+const SPECIAL_SERVICES = [
+  "White Glove Service",
+  "Piano Moving",
+  "Fine Art",
+  "Antiques",
+  "Crating",
+  "Storage",
+];
+
+export default function ContactPage() {
+  const [status, setStatus] = useState<Status>({ kind: "idle" });
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.target as HTMLFormElement;
+    if (status.kind === "submitting") return;
+
+    const form = e.currentTarget;
     const data = new FormData(form);
-    const lines: string[] = [];
-    data.forEach((val, key) => {
-      if (val) lines.push(`${key}: ${val}`);
-    });
-    // Also gather checkboxes
-    const checks = form.querySelectorAll<HTMLInputElement>(
-      'input[type="checkbox"]:checked'
-    );
-    if (checks.length > 0) {
-      lines.push(
-        `Special Services: ${Array.from(checks)
-          .map((c) => c.value)
-          .join(", ")}`
-      );
+
+    const specialServices = Array.from(
+      form.querySelectorAll<HTMLInputElement>('input[name="specialServices"]:checked'),
+    ).map((input) => input.value);
+
+    const payload = {
+      fullName: String(data.get("fullName") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      email: String(data.get("email") ?? ""),
+      preferredDate: String(data.get("preferredDate") ?? ""),
+      fromAddress: String(data.get("fromAddress") ?? ""),
+      fromUnit: String(data.get("fromUnit") ?? ""),
+      toAddress: String(data.get("toAddress") ?? ""),
+      toUnit: String(data.get("toUnit") ?? ""),
+      specialServices,
+      hearAboutUs: String(data.get("hearAboutUs") ?? ""),
+      details: String(data.get("details") ?? ""),
+      // Honeypot — bots fill this, real users won't see it.
+      website: String(data.get("website") ?? ""),
+    };
+
+    setStatus({ kind: "submitting" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = (await res.json().catch(() => ({}))) as { error?: string };
+      if (!res.ok) {
+        setStatus({
+          kind: "error",
+          message:
+            json.error ||
+            `We couldn't send your request (status ${res.status}). Please try again or call us.`,
+        });
+        return;
+      }
+      setStatus({ kind: "success" });
+      form.reset();
+    } catch {
+      setStatus({
+        kind: "error",
+        message:
+          "We couldn't reach the server. Check your connection and try again, or call us at " +
+          COMPANY.phone.display +
+          ".",
+      });
     }
-    const subject = encodeURIComponent("New Quote Request from Website");
-    const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:info@scaniomoving.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
   }
 
   const inputClass =
-    "w-full px-4 py-3 text-[14px] focus:outline-none bg-white";
+    "w-full px-4 py-3 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#0B5DB5]/30 bg-white";
   const inputStyle = { border: "1px solid #D6E0ED" };
   const labelClass = "block text-[13px] font-medium mb-1.5";
   const labelStyle = { color: "#0A1628" };
@@ -91,11 +140,11 @@ export default function ContactPage() {
                       Phone
                     </p>
                     <a
-                      href="tel:2127226850"
+                      href={TEL_HREF}
                       className="text-[14px] font-light hover:opacity-60 transition-opacity"
                       style={{ color: "#0A1628" }}
                     >
-                      212.722.6850
+                      {COMPANY.phone.display}
                     </a>
                   </div>
                 </li>
@@ -111,11 +160,11 @@ export default function ContactPage() {
                       Email
                     </p>
                     <a
-                      href="mailto:info@scaniomoving.com"
+                      href={MAILTO_HREF}
                       className="text-[14px] font-light hover:opacity-60 transition-opacity"
                       style={{ color: "#4A5568" }}
                     >
-                      info@scaniomoving.com
+                      {COMPANY.email}
                     </a>
                   </div>
                 </li>
@@ -131,9 +180,9 @@ export default function ContactPage() {
                       NYC Office
                     </p>
                     <p className="text-[14px] font-light" style={{ color: "#4A5568" }}>
-                      450 7th Ave
+                      {COMPANY.address.line1}
                       <br />
-                      New York, NY 10001
+                      {COMPANY.address.line2}
                     </p>
                   </div>
                 </li>
@@ -149,7 +198,7 @@ export default function ContactPage() {
                       Office Hours
                     </p>
                     <p className="text-[14px] font-light" style={{ color: "#4A5568" }}>
-                      Monday &ndash; Friday: 9:00 AM &ndash; 6:00 PM
+                      {COMPANY.hours}
                     </p>
                   </div>
                 </li>
@@ -159,7 +208,7 @@ export default function ContactPage() {
             {/* Quote form */}
             <div className="lg:col-span-3">
               <div className="p-10" style={{ background: "#F5F8FC" }}>
-                {submitted ? (
+                {status.kind === "success" ? (
                   <div className="text-center py-16">
                     <div
                       className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
@@ -182,7 +231,15 @@ export default function ContactPage() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-8">
+                  <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+                    {/* Honeypot — hidden from real users via CSS; bots will fill it. */}
+                    <div aria-hidden style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+                      <label>
+                        Website
+                        <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+                      </label>
+                    </div>
+
                     {/* Your Information */}
                     <div>
                       <h3
@@ -198,8 +255,9 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="text"
-                            name="Full Name"
+                            name="fullName"
                             required
+                            autoComplete="name"
                             className={inputClass}
                             style={inputStyle}
                           />
@@ -210,8 +268,9 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="tel"
-                            name="Phone"
+                            name="phone"
                             required
+                            autoComplete="tel"
                             className={inputClass}
                             style={inputStyle}
                           />
@@ -222,8 +281,9 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="email"
-                            name="Email"
+                            name="email"
                             required
+                            autoComplete="email"
                             className={inputClass}
                             style={inputStyle}
                           />
@@ -234,7 +294,7 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="date"
-                            name="Preferred Move Date"
+                            name="preferredDate"
                             className={inputClass}
                             style={inputStyle}
                           />
@@ -257,7 +317,7 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="text"
-                            name="Moving From Address"
+                            name="fromAddress"
                             required
                             placeholder="Street address, city, state, zip"
                             className={inputClass}
@@ -270,7 +330,7 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="text"
-                            name="Moving From Unit"
+                            name="fromUnit"
                             placeholder="e.g., Apt 4B, Suite 200"
                             className={inputClass}
                             style={inputStyle}
@@ -294,7 +354,7 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="text"
-                            name="Moving To Address"
+                            name="toAddress"
                             required
                             placeholder="Street address, city, state, zip"
                             className={inputClass}
@@ -307,7 +367,7 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="text"
-                            name="Moving To Unit"
+                            name="toUnit"
                             placeholder="e.g., Apt 12A, Unit 3"
                             className={inputClass}
                             style={inputStyle}
@@ -330,20 +390,13 @@ export default function ContactPage() {
                           Special Services Needed
                         </p>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-2">
-                          {[
-                            "White Glove Service",
-                            "Piano Moving",
-                            "Fine Art",
-                            "Antiques",
-                            "Crating",
-                            "Storage",
-                          ].map((s) => (
+                          {SPECIAL_SERVICES.map((s) => (
                             <label
                               key={s}
                               className="flex items-center gap-2 text-[13px]"
                               style={{ color: "#4A5568" }}
                             >
-                              <input type="checkbox" value={s} />
+                              <input type="checkbox" name="specialServices" value={s} />
                               {s}
                             </label>
                           ))}
@@ -357,7 +410,7 @@ export default function ContactPage() {
                           </label>
                           <input
                             type="text"
-                            name="How Did You Hear About Us"
+                            name="hearAboutUs"
                             required
                             placeholder="e.g., Google, referral, saw our truck"
                             className={inputClass}
@@ -371,7 +424,7 @@ export default function ContactPage() {
                           Additional Details
                         </label>
                         <textarea
-                          name="Additional Details"
+                          name="details"
                           rows={4}
                           placeholder="Tell us about any special requirements, large or fragile items, timing constraints, etc."
                           className={`${inputClass} resize-none`}
@@ -380,12 +433,28 @@ export default function ContactPage() {
                       </div>
                     </div>
 
+                    {status.kind === "error" && (
+                      <div
+                        className="flex items-start gap-3 px-4 py-3 text-[13px]"
+                        style={{
+                          background: "rgba(220, 38, 38, 0.06)",
+                          border: "1px solid rgba(220, 38, 38, 0.25)",
+                          color: "#B91C1C",
+                        }}
+                        role="alert"
+                      >
+                        <AlertCircle size={16} className="shrink-0 mt-0.5" />
+                        <span>{status.message}</span>
+                      </div>
+                    )}
+
                     <button
                       type="submit"
-                      className="text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 transition-all"
+                      disabled={status.kind === "submitting"}
+                      className="text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                       style={{ background: "#0B5DB5", color: "white" }}
                     >
-                      Request Free Estimate
+                      {status.kind === "submitting" ? "Sending…" : "Request Free Estimate"}
                     </button>
                   </form>
                 )}

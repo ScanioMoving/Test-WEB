@@ -9,6 +9,7 @@ import {
   ArrowRight,
   Phone,
 } from "lucide-react";
+import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
   title: "Moving Services | Scanio Moving & Storage NYC",
@@ -173,11 +174,11 @@ export default function ServicesPage() {
               Get Your Free Estimate
             </Link>
             <a
-              href="tel:2127226850"
+              href={TEL_HREF}
               className="border-2 border-white/30 hover:border-white text-white font-semibold px-10 py-4 rounded-md transition-colors flex items-center justify-center gap-2"
             >
               <Phone size={18} />
-              212.722.6850
+              {COMPANY.phone.display}
             </a>
           </div>
         </div>

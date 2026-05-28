@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { COMPANY, TEL_HREF, MAILTO_HREF } from "@/lib/contact";
 
 export default function Footer() {
   return (
@@ -85,10 +86,10 @@ export default function Footer() {
               Contact
             </p>
             <ul className="space-y-2 text-[13px] font-light text-white/40">
-              <li><a href="tel:2127226850" className="hover:text-white/70 transition-colors">212.722.6850</a></li>
-              <li><a href="mailto:info@scaniomoving.com" className="hover:text-white/70 transition-colors">info@scaniomoving.com</a></li>
-              <li>450 7th Ave</li>
-              <li>New York, NY 10001</li>
+              <li><a href={TEL_HREF} className="hover:text-white/70 transition-colors">{COMPANY.phone.display}</a></li>
+              <li><a href={MAILTO_HREF} className="hover:text-white/70 transition-colors">{COMPANY.email}</a></li>
+              <li>{COMPANY.address.line1}</li>
+              <li>{COMPANY.address.line2}</li>
             </ul>
           </div>
         </div>

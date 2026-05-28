@@ -57,7 +57,7 @@ export default function FFEDesignerPage() {
                 The trusted partner behind a flawless install
               </p>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Behind every beautifully finished room is a logistics
@@ -80,7 +80,7 @@ export default function FFEDesignerPage() {
                 Full-service FF&amp;E project management
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Scanio understands that every piece tells a story, and we
@@ -102,7 +102,7 @@ export default function FFEDesignerPage() {
                 Built for the way designers work
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Our temperature-controlled Secaucus facility sits just
@@ -127,7 +127,7 @@ export default function FFEDesignerPage() {
                 {features.map((f) => (
                   <div key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
-                    <span className="text-[13px] md:text-[14px] font-medium leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
+                    <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
                   </div>
                 ))}
               </div>
@@ -140,7 +140,7 @@ export default function FFEDesignerPage() {
                 One point of contact, start to finish
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Every designer project at Scanio is managed by a dedicated
@@ -162,7 +162,7 @@ export default function FFEDesignerPage() {
                 Let&apos;s plan your next project
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85]"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85]"
                 style={{ color: "#2D3748" }}
               >
                 Whether it is a single signature piece or a full residence,

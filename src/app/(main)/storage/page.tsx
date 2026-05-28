@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, CheckCircle } from "lucide-react";
+import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
   title: "Storage Solutions NYC | Temperature-Controlled | Scanio Moving & Storage",
@@ -63,7 +64,7 @@ export default function StoragePage() {
                 Your belongings, safe and sound, for as long as you need.
               </p>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-5 md:mb-6"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-5 md:mb-6"
                 style={{ color: "#2D3748" }}
               >
                 Life does not always line up perfectly. Sometimes you are
@@ -73,7 +74,7 @@ export default function StoragePage() {
                 own, in a facility built to protect them.
               </p>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Our warehouse sits in Secaucus, New Jersey, just three miles
@@ -95,7 +96,7 @@ export default function StoragePage() {
                 Storage that works around you
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-8 md:mb-10"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-8 md:mb-10"
                 style={{ color: "#2D3748" }}
               >
                 We believe you should pay for what you use and nothing
@@ -115,7 +116,7 @@ export default function StoragePage() {
                 {features.map((f) => (
                   <div key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
-                    <span className="text-[13px] md:text-[14px] font-medium leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
+                    <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
                   </div>
                 ))}
               </div>
@@ -128,7 +129,7 @@ export default function StoragePage() {
                 Storage that connects to your move
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Because storage is part of what we do, not a separate
@@ -148,7 +149,7 @@ export default function StoragePage() {
                 Ready to reserve your space?
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85]"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85]"
                 style={{ color: "#2D3748" }}
               >
                 Tell us what you need to store and for how long, and we
@@ -185,12 +186,12 @@ export default function StoragePage() {
               Get a Storage Quote
             </Link>
             <a
-              href="tel:2127226850"
+              href={TEL_HREF}
               className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
               style={{ color: "#0A1628" }}
             >
               <Phone size={14} />
-              212.722.6850
+              {COMPANY.phone.display}
             </a>
           </div>
         </div>

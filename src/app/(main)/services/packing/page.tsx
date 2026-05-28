@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, CheckCircle, ExternalLink } from "lucide-react";
+import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
   title: "FF&E & Designer Services NYC | Scanio Moving & Storage",
@@ -123,12 +124,12 @@ export default function PackingPage() {
               Get an Estimate
             </Link>
             <a
-              href="tel:2127226850"
+              href={TEL_HREF}
               className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] font-light transition-opacity hover:opacity-60"
               style={{ color: "rgba(255,255,255,0.5)" }}
             >
               <Phone size={14} />
-              212.722.6850
+              {COMPANY.phone.display}
             </a>
           </div>
         </div>

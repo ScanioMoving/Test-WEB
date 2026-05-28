@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, CheckCircle, ExternalLink } from "lucide-react";
+import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
   title: "Long Distance Moving | Scanio Moving & Storage NYC",
@@ -62,7 +63,7 @@ export default function LongDistancePage() {
                 From one coast to the other, in steady hands
               </p>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 A move across the country is a different kind of journey.
@@ -83,7 +84,7 @@ export default function LongDistancePage() {
                 One company, the whole way there
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-12"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-12"
                 style={{ color: "#2D3748" }}
               >
                 The biggest risk in a long distance move is how many hands
@@ -108,7 +109,7 @@ export default function LongDistancePage() {
                 {features.map((f) => (
                   <div key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
-                    <span className="text-[13px] md:text-[14px] font-medium leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
+                    <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
                   </div>
                 ))}
               </div>
@@ -121,7 +122,7 @@ export default function LongDistancePage() {
                 Built around your calendar
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 A cross country move touches everything: closing dates,
@@ -142,7 +143,7 @@ export default function LongDistancePage() {
                 Digital inventory management
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Before anything leaves your home, our team builds a complete
@@ -165,7 +166,7 @@ export default function LongDistancePage() {
                 Know where your belongings are
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Distance should not mean uncertainty. We keep you informed
@@ -182,7 +183,7 @@ export default function LongDistancePage() {
                 Shuttle transfers
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Not every destination can accommodate a full-size moving
@@ -203,7 +204,7 @@ export default function LongDistancePage() {
                 Anywhere the road, the sea, or the sky reaches
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-6"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-6"
                 style={{ color: "#2D3748" }}
               >
                 Some moves go beyond the lower 48. Through our sister
@@ -260,12 +261,12 @@ export default function LongDistancePage() {
               Get an Estimate
             </Link>
             <a
-              href="tel:2127226850"
+              href={TEL_HREF}
               className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
               style={{ color: "#0A1628" }}
             >
               <Phone size={14} />
-              212.722.6850
+              {COMPANY.phone.display}
             </a>
           </div>
         </div>

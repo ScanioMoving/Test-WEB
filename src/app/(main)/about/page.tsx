@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, ChevronLeft, ChevronRight } from "lucide-react";
+import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 const rotatingPhotos = [
   {
@@ -175,12 +176,12 @@ export default function AboutPage() {
                 Get Free Estimate
               </Link>
               <a
-                href="tel:2127226850"
+                href={TEL_HREF}
                 className="flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
                 style={{ color: "#0A1628" }}
               >
                 <Phone size={14} />
-                212.722.6850
+                {COMPANY.phone.display}
               </a>
             </div>
           </div>
@@ -263,12 +264,12 @@ export default function AboutPage() {
                 Get an Estimate
               </Link>
               <a
-                href="tel:2127226850"
+                href={TEL_HREF}
                 className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] font-light transition-opacity hover:opacity-60"
                 style={{ color: "#0B5DB5" }}
               >
                 <Phone size={14} />
-                212.722.6850
+                {COMPANY.phone.display}
               </a>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, CheckCircle, ExternalLink } from "lucide-react";
+import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
   title: "International Moving NYC | Scanio Moving & Storage",
@@ -58,7 +59,7 @@ export default function InternationalPage() {
                 Global relocations, handled door to door
               </p>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-5 md:mb-6"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-5 md:mb-6"
                 style={{ color: "#2D3748" }}
               >
                 Moving across borders is its own kind of logistics. Customs
@@ -78,7 +79,7 @@ export default function InternationalPage() {
                 to every Scanio move.
               </p>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-8 md:mb-10"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-8 md:mb-10"
                 style={{ color: "#2D3748" }}
               >
                 Whether you are relocating to London, Tel Aviv, Tokyo, or
@@ -100,12 +101,12 @@ export default function InternationalPage() {
                   <ExternalLink size={13} />
                 </a>
                 <a
-                  href="tel:2127226850"
+                  href={TEL_HREF}
                   className="flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
                   style={{ color: "#0A1628" }}
                 >
                   <Phone size={14} />
-                  212.722.6850
+                  {COMPANY.phone.display}
                 </a>
               </div>
 
@@ -117,7 +118,7 @@ export default function InternationalPage() {
                 What an international move includes
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-8 md:mb-10"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-8 md:mb-10"
                 style={{ color: "#2D3748" }}
               >
                 Every overseas move is coordinated end to end. From the
@@ -137,7 +138,7 @@ export default function InternationalPage() {
                 {features.map((f) => (
                   <div key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
-                    <span className="text-[13px] md:text-[14px] font-medium leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
+                    <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
                   </div>
                 ))}
               </div>
@@ -150,7 +151,7 @@ export default function InternationalPage() {
                 Customs and documentation
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-12"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-12"
                 style={{ color: "#2D3748" }}
               >
                 Every country has its own paperwork, duties, and inspection
@@ -169,7 +170,7 @@ export default function InternationalPage() {
                 Ocean and air, sized to your move
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-12"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-12"
                 style={{ color: "#2D3748" }}
               >
                 A full container, a shared shipment, or air freight when
@@ -187,7 +188,7 @@ export default function InternationalPage() {
                 Settling in at your destination
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-12"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-12"
                 style={{ color: "#2D3748" }}
               >
                 A vetted partner network handles the final mile in
@@ -199,7 +200,7 @@ export default function InternationalPage() {
 
               {/* Closing line */}
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] italic"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] italic"
                 style={{ color: "#2D3748" }}
               >
                 For pricing, country-specific requirements, and to start

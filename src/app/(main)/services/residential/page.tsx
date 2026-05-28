@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 const rotatingPhotos = [
   {
@@ -148,7 +149,7 @@ export default function ResidentialPage() {
                 Every move handled like it&apos;s family
               </p>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-5 md:mb-6"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-5 md:mb-6"
                 style={{ color: "#2D3748" }}
               >
                 Moving your home is one of the most personal things you can
@@ -161,7 +162,7 @@ export default function ResidentialPage() {
                 uncertainty out of the day.
               </p>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 We handle moves of every size, from a single apartment to a
@@ -180,7 +181,7 @@ export default function ResidentialPage() {
                 Why families choose Scanio
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-12"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-12"
                 style={{ color: "#2D3748" }}
               >
                 A move is only as good as the people who carry it out. That
@@ -205,7 +206,7 @@ export default function ResidentialPage() {
                 {features.map((f) => (
                   <div key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
-                    <span className="text-[13px] md:text-[14px] font-medium leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
+                    <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
                   </div>
                 ))}
               </div>
@@ -218,7 +219,7 @@ export default function ResidentialPage() {
                 Planning your move
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-10 md:mb-14"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
               >
                 Every successful move begins long before moving day. A
@@ -240,7 +241,7 @@ export default function ResidentialPage() {
                 Packing and unpacking, your way
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] mb-7 md:mb-9"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-7 md:mb-9"
                 style={{ color: "#2D3748" }}
               >
                 Not every move calls for the same level of service, so we
@@ -257,7 +258,7 @@ export default function ResidentialPage() {
                 {packingOptions.map(([title, desc]) => (
                   <div key={title} className="flex items-start gap-3">
                     <CheckCircle className="shrink-0 mt-1" size={15} style={{ color: "#0B5DB5" }} />
-                    <p className="text-[14px] md:text-[15px] font-normal leading-[1.7] md:leading-[1.75]" style={{ color: "#2D3748" }}>
+                    <p className="text-[15px] font-normal leading-[1.75]" style={{ color: "#2D3748" }}>
                       <span className="font-medium" style={{ color: "#0A1628" }}>{title}</span> {desc}
                     </p>
                   </div>
@@ -274,7 +275,7 @@ export default function ResidentialPage() {
                 {unpackingOptions.map(([title, desc]) => (
                   <div key={title} className="flex items-start gap-3">
                     <CheckCircle className="shrink-0 mt-1" size={15} style={{ color: "#0B5DB5" }} />
-                    <p className="text-[14px] md:text-[15px] font-normal leading-[1.7] md:leading-[1.75]" style={{ color: "#2D3748" }}>
+                    <p className="text-[15px] font-normal leading-[1.75]" style={{ color: "#2D3748" }}>
                       <span className="font-medium" style={{ color: "#0A1628" }}>{title}</span> {desc}
                     </p>
                   </div>
@@ -282,7 +283,7 @@ export default function ResidentialPage() {
               </div>
 
               <p
-                className="text-[14px] md:text-[16px] font-normal leading-[1.75] md:leading-[1.85] italic"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] italic"
                 style={{ color: "#2D3748" }}
               >
                 Whatever you choose, our goal is the same: to deliver your
@@ -319,12 +320,12 @@ export default function ResidentialPage() {
               Get an Estimate
             </Link>
             <a
-              href="tel:2127226850"
+              href={TEL_HREF}
               className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
               style={{ color: "#0A1628" }}
             >
               <Phone size={14} />
-              212.722.6850
+              {COMPANY.phone.display}
             </a>
           </div>
         </div>

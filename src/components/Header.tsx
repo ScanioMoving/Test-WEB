@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 const serviceItems = [
   { name: "Residential", href: "/services/residential" },
@@ -286,11 +287,11 @@ export default function Header() {
                 Request Consultation
               </Link>
               <a
-                href="tel:2127226850"
+                href={TEL_HREF}
                 className="flex items-center justify-center gap-2 mt-4 text-[13px] tracking-[0.15em]"
                 style={{ color: "rgba(255,255,255,0.85)" }}
               >
-                212.722.6850
+                {COMPANY.phone.display}
               </a>
             </div>
           </div>
