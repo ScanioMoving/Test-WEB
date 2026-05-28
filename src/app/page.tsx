@@ -789,16 +789,27 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal delay={150}>
-              <div className="relative overflow-hidden rounded-sm h-full min-h-[350px]" style={{ background: "#F0ECE6" }}>
-                <Image
-                  src="/vintage-trucks.jpg"
-                  alt="Vintage Scanio Moving trucks"
-                  fill
-                  quality={95}
-                  className="object-cover mix-blend-multiply"
-                  style={{ objectPosition: "center 52%", transform: "scaleX(1.02) scaleY(1.15)" }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+              {/* Polaroid-style frame: cream mat around the photo, slight shadow,
+                  mix-blend-multiply tints the photo with the cream for the
+                  vintage look. object-contain so the whole photo is visible
+                  with the mat showing around all four edges. */}
+              <div
+                className="relative h-full min-h-[350px] p-5 md:p-7"
+                style={{
+                  background: "#F0ECE6",
+                  boxShadow: "0 1px 0 rgba(0,0,0,0.04), 0 12px 32px -16px rgba(10,22,40,0.18)",
+                }}
+              >
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/vintage-trucks.jpg"
+                    alt="Vintage Scanio Moving trucks"
+                    fill
+                    quality={95}
+                    className="object-contain mix-blend-multiply"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </Reveal>
           </div>
