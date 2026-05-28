@@ -746,7 +746,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-16 md:gap-24">
             <Reveal>
               <div>
-                <p className="text-[12px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#0B5DB5" }}>
+                <p className="text-[clamp(20px,1.8vw,26px)] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#0B5DB5" }}>
                   Since 1941
                 </p>
                 <h2 className="text-[clamp(30px,3.8vw,50px)] font-bold leading-[1.15] tracking-[-0.02em] mb-8" style={{ color: "#0A1628" }}>
@@ -813,8 +813,8 @@ export default function HomePage() {
           style={{ borderColor: "#D6E0ED" }}
         >
           <p
-            className="text-[11px] uppercase font-semibold tracking-[0.25em] mb-4"
-            style={{ color: "#0B5DB5", opacity: 0.7 }}
+            className="text-[clamp(18px,1.8vw,24px)] uppercase font-semibold tracking-[0.25em] mb-4"
+            style={{ color: "#0B5DB5", opacity: 0.8 }}
           >
             What we do
           </p>

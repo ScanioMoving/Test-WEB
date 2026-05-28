@@ -82,8 +82,8 @@ export default function Header() {
                 Scanio
               </span>
               <span
-                className="block text-[13px] tracking-[0.02em] uppercase font-normal"
-                style={{ color: "rgba(255,255,255,0.75)", lineHeight: "1", marginTop: "4px" }}
+                className="block text-[13px] md:text-[17px] tracking-[0.02em] uppercase font-normal"
+                style={{ color: "rgba(255,255,255,0.75)", lineHeight: "1", marginTop: "6px" }}
               >
                 Moving &amp; Storage &mdash; Since 1941
               </span>
