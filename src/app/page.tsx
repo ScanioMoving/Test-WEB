@@ -788,36 +788,33 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            {/* Polaroid — sticky positioning lives on the grid item itself
-                (not inside Reveal) so the containing block is the tall text
-                column, not the polaroid's own height. That way it stays
-                pinned in place while the story scrolls past. */}
-            <div className="md:sticky md:top-[180px] md:self-start flex justify-center">
-              <Reveal delay={150}>
-                <div
-                  className="relative w-full max-w-[460px] p-3 md:p-4 pb-12 md:pb-16"
-                  style={{
-                    background: "#FAF6EC",
-                    boxShadow:
-                      "0 1px 0 rgba(0,0,0,0.03), 0 24px 48px -22px rgba(10,22,40,0.30)",
-                    transform: "rotate(-1deg)",
-                  }}
-                >
-                  {/* Source is square (1080x1080); match its aspect so the
-                      photo isn't being cropped 25% top/bottom. */}
-                  <div className="relative w-full aspect-square overflow-hidden">
-                    <Image
-                      src="/vintage-trucks.jpg"
-                      alt="Vintage Scanio Moving trucks"
-                      fill
-                      quality={95}
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
+            {/* Polaroid — scrolls in flow with the text column (no sticky).
+                Reveal carries the explicit width so it doesn't collapse and
+                centers itself inside the grid cell. */}
+            <Reveal delay={150} className="mx-auto w-full max-w-[460px]">
+              <div
+                className="relative w-full p-3 md:p-4 pb-12 md:pb-16"
+                style={{
+                  background: "#FAF6EC",
+                  boxShadow:
+                    "0 1px 0 rgba(0,0,0,0.03), 0 24px 48px -22px rgba(10,22,40,0.30)",
+                  transform: "rotate(-1deg)",
+                }}
+              >
+                {/* Source is square (1080x1080); match its aspect so the
+                    photo isn't being cropped 25% top/bottom. */}
+                <div className="relative w-full aspect-square overflow-hidden">
+                  <Image
+                    src="/vintage-trucks.jpg"
+                    alt="Vintage Scanio Moving trucks"
+                    fill
+                    quality={95}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
-              </Reveal>
-            </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
