@@ -832,42 +832,40 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                {/* Aged, torn-edge tape — top right */}
+                {/* Clean translucent tape — top-right corner, rotated 45°
+                    so the strip bisects the corner and half hangs off. */}
                 <div
                   aria-hidden
                   className="absolute z-20 pointer-events-none"
                   style={{
-                    top: "-10px",
-                    right: "6%",
-                    width: "24%",
-                    height: "32px",
-                    transform: "rotate(11deg)",
+                    top: "-14px",
+                    right: "-50px",
+                    width: "110px",
+                    height: "28px",
                     background:
-                      "radial-gradient(ellipse at 25% 40%, rgba(160,128,72,0.18), transparent 55%), radial-gradient(ellipse at 75% 65%, rgba(160,128,72,0.22), transparent 50%), linear-gradient(180deg, rgba(228,210,168,0.75) 0%, rgba(208,184,138,0.70) 100%)",
-                    boxShadow:
-                      "0 2px 6px rgba(0,0,0,0.12), inset 0 0 12px rgba(140,110,60,0.10)",
-                    // Ragged torn edges via clip-path
-                    clipPath:
-                      "polygon(3% 20%, 9% 5%, 17% 12%, 26% 2%, 38% 8%, 50% 0%, 63% 6%, 74% 2%, 88% 10%, 96% 4%, 99% 22%, 96% 38%, 99% 60%, 95% 82%, 97% 95%, 85% 92%, 72% 100%, 58% 94%, 44% 98%, 30% 91%, 18% 97%, 8% 90%, 2% 78%, 5% 55%, 1% 40%)",
+                      "linear-gradient(180deg, rgba(232,217,182,0.82) 0%, rgba(218,199,158,0.82) 100%)",
+                    transform: "rotate(-45deg)",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.10)",
+                    borderLeft: "1px solid rgba(255,255,255,0.4)",
+                    borderRight: "1px solid rgba(255,255,255,0.4)",
                   }}
                 />
 
-                {/* Aged, torn-edge tape — bottom left */}
+                {/* Clean translucent tape — bottom-left corner, mirrored. */}
                 <div
                   aria-hidden
                   className="absolute z-20 pointer-events-none"
                   style={{
-                    bottom: "-10px",
-                    left: "6%",
-                    width: "24%",
-                    height: "32px",
-                    transform: "rotate(-13deg)",
+                    bottom: "-14px",
+                    left: "-50px",
+                    width: "110px",
+                    height: "28px",
                     background:
-                      "radial-gradient(ellipse at 65% 35%, rgba(160,128,72,0.20), transparent 50%), radial-gradient(ellipse at 30% 70%, rgba(160,128,72,0.16), transparent 55%), linear-gradient(180deg, rgba(228,210,168,0.75) 0%, rgba(208,184,138,0.70) 100%)",
-                    boxShadow:
-                      "0 2px 6px rgba(0,0,0,0.12), inset 0 0 12px rgba(140,110,60,0.10)",
-                    clipPath:
-                      "polygon(5% 12%, 14% 4%, 24% 8%, 33% 0%, 47% 6%, 60% 2%, 72% 9%, 84% 1%, 95% 8%, 99% 25%, 94% 42%, 98% 58%, 95% 78%, 99% 92%, 88% 94%, 76% 99%, 62% 92%, 50% 98%, 38% 90%, 24% 95%, 12% 91%, 3% 84%, 7% 60%, 2% 38%)",
+                      "linear-gradient(180deg, rgba(232,217,182,0.82) 0%, rgba(218,199,158,0.82) 100%)",
+                    transform: "rotate(-45deg)",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.10)",
+                    borderLeft: "1px solid rgba(255,255,255,0.4)",
+                    borderRight: "1px solid rgba(255,255,255,0.4)",
                   }}
                 />
               </div>
