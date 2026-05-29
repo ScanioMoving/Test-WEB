@@ -795,21 +795,25 @@ export default function HomePage() {
                 story column instead of hugging the top. */}
             <Reveal delay={150} className="mx-auto w-full max-w-[560px] md:self-center">
               <div className="relative w-full">
-                {/* Drop shadow + photo */}
+                {/* Corner-localized shadow layer behind the photo. Two
+                    radial gradients (top-left + bottom-right) fade out to
+                    transparent before they reach the taped corners, so
+                    the top-right and bottom-left read fully flush. */}
                 <div
-                  className="relative w-full aspect-square overflow-hidden"
+                  aria-hidden
+                  className="absolute pointer-events-none"
                   style={{
-                    // Only the two untaped corners (top-left + bottom-right)
-                    // get a shadow. Strong negative spread localizes each
-                    // shadow to a single corner so it never bleeds toward
-                    // the taped corners (top-right + bottom-left), which
-                    // need to read flush against the page.
-                    boxShadow: [
-                      "-26px -26px 36px -30px rgba(10,22,40,0.55)",
-                      "26px 26px 36px -30px rgba(10,22,40,0.55)",
+                    inset: "-32px",
+                    zIndex: -1,
+                    background: [
+                      "radial-gradient(60% 60% at 0% 0%, rgba(10,22,40,0.55), transparent 75%)",
+                      "radial-gradient(60% 60% at 100% 100%, rgba(10,22,40,0.55), transparent 75%)",
                     ].join(", "),
                   }}
-                >
+                />
+
+                {/* Photo */}
+                <div className="relative w-full aspect-square overflow-hidden">
                   <Image
                     src="/vintage-trucks.jpg"
                     alt="Vintage Scanio Moving trucks"
