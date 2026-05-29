@@ -795,19 +795,42 @@ export default function HomePage() {
                 story column instead of hugging the top. */}
             <Reveal delay={150} className="mx-auto w-full max-w-[560px] md:self-center">
               <div className="relative w-full">
-                {/* Photo with a filter: drop-shadow() chain. Two opposing
-                    shadows bias their reach toward the two untaped corners
-                    (top-left + bottom-right) — drop-shadow respects the
-                    photo's alpha and renders a softer, more natural halo
-                    than box-shadow does. Filter is on the photo container
-                    so the tape pieces aren't affected. */}
+                {/* Corner shadow rigs. Each rig is a half-quadrant rectangle
+                    pinned at one corner of the polaroid with a directional
+                    box-shadow that escapes outward only past its anchored
+                    corner. They sit behind the photo (z-index -1) so the
+                    photo occludes everything except the soft halo that
+                    actually emerges past the corner. Because each rig only
+                    occupies half the polaroid, the shadow physically can't
+                    reach the other half — no bleed onto the taped
+                    top-right or bottom-left corners. */}
                 <div
-                  className="relative w-full aspect-square overflow-hidden"
+                  aria-hidden
+                  className="absolute pointer-events-none"
                   style={{
-                    filter:
-                      "drop-shadow(-12px -10px 22px rgba(10,22,40,0.32)) drop-shadow(12px 10px 22px rgba(10,22,40,0.32))",
+                    top: 0,
+                    left: 0,
+                    width: "55%",
+                    height: "55%",
+                    zIndex: -1,
+                    boxShadow: "-16px -16px 32px -6px rgba(10,22,40,0.40)",
                   }}
-                >
+                />
+                <div
+                  aria-hidden
+                  className="absolute pointer-events-none"
+                  style={{
+                    bottom: 0,
+                    right: 0,
+                    width: "55%",
+                    height: "55%",
+                    zIndex: -1,
+                    boxShadow: "16px 16px 32px -6px rgba(10,22,40,0.40)",
+                  }}
+                />
+
+                {/* Photo */}
+                <div className="relative w-full aspect-square overflow-hidden">
                   <Image
                     src="/vintage-trucks.jpg"
                     alt="Vintage Scanio Moving trucks"
