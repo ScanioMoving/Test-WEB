@@ -1035,18 +1035,18 @@ export default function HomePage() {
                   <p className="text-white text-[28px] font-semibold tracking-[0.02em] uppercase leading-none mb-1">
                     Scanio
                   </p>
-                  <p className="text-white/50 text-[13px] font-light">
+                  <p className="text-white/70 text-[13px] font-normal">
                     Moving &amp; Storage
                   </p>
                 </div>
               </div>
               <div className="mt-6 border border-white/10 p-5 space-y-1">
-                <p className="text-[10px] uppercase font-semibold tracking-[0.15em] text-white/30 mb-3">
+                <p className="text-[10px] uppercase font-semibold tracking-[0.15em] text-white/55 mb-3">
                   Licensed &amp; Insured
                 </p>
-                <p className="text-[16px] font-semibold text-white/70">NY DOT T11495</p>
-                <p className="text-[16px] font-semibold text-white/70">ICC MC93512</p>
-                <p className="text-[16px] font-semibold text-white/70">NJ 39PC00099002</p>
+                <p className="text-[16px] font-semibold text-white/85">NY DOT T11495</p>
+                <p className="text-[16px] font-semibold text-white/85">ICC MC93512</p>
+                <p className="text-[16px] font-semibold text-white/85">NJ 39PC00099002</p>
               </div>
             </div>
 
@@ -1057,7 +1057,7 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2">
                 {["Residential", "Commercial", "Long Distance", "International", "Storage", "FF&E / Designer"].map((item) => (
-                  <li key={item} className="text-[13px] font-light text-white/40 hover:text-white/70 transition-colors cursor-pointer">
+                  <li key={item} className="text-[13px] font-normal text-white/75 hover:text-white transition-colors cursor-pointer">
                     {item}
                   </li>
                 ))}
@@ -1071,7 +1071,7 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2">
                 {["About", "Testimonials", "Free Estimate", "Contact"].map((item) => (
-                  <li key={item} className="text-[13px] font-light text-white/40 hover:text-white/70 transition-colors cursor-pointer">
+                  <li key={item} className="text-[13px] font-normal text-white/75 hover:text-white transition-colors cursor-pointer">
                     {item}
                   </li>
                 ))}
@@ -1083,9 +1083,9 @@ export default function HomePage() {
               <p className="text-[11px] uppercase font-bold tracking-[0.15em] mb-5" style={{ color: "#0B5DB5" }}>
                 Contact
               </p>
-              <ul className="space-y-2 text-[13px] font-light text-white/40">
-                <li><a href={TEL_HREF} className="hover:text-white/70 transition-colors">{COMPANY.phone.display}</a></li>
-                <li><a href={MAILTO_HREF} className="hover:text-white/70 transition-colors">{COMPANY.email}</a></li>
+              <ul className="space-y-2 text-[13px] font-normal text-white/75">
+                <li><a href={TEL_HREF} className="hover:text-white transition-colors">{COMPANY.phone.display}</a></li>
+                <li><a href={MAILTO_HREF} className="hover:text-white transition-colors">{COMPANY.email}</a></li>
                 <li>{COMPANY.address.line1}</li>
                 <li>{COMPANY.address.line2}</li>
               </ul>
@@ -1094,7 +1094,7 @@ export default function HomePage() {
 
           {/* Bottom bar */}
           <div className="border-t border-white/10 pt-8 flex justify-center" style={{ opacity: 1 }}>
-            <span className="text-[11px] font-light" style={{ color: "rgba(255,255,255,0.2)" }}>
+            <span className="text-[11px] font-normal" style={{ color: "rgba(255,255,255,0.65)" }}>
               &copy; {new Date().getFullYear()} Scanio Moving &amp; Storage. All rights reserved.
             </span>
           </div>
