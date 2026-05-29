@@ -817,7 +817,7 @@ export default function HomePage() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
 
-                  {/* Handwritten "2002" on the bottom polaroid strip */}
+                  {/* Handwritten "Scanio" on the bottom polaroid strip */}
                   <span
                     aria-hidden
                     className="absolute z-10 select-none"
@@ -833,7 +833,7 @@ export default function HomePage() {
                       opacity: 0.92,
                     }}
                   >
-                    2002
+                    Scanio
                   </span>
                 </div>
 
