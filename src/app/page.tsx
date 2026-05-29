@@ -799,15 +799,14 @@ export default function HomePage() {
                 <div
                   className="relative w-full aspect-square overflow-hidden"
                   style={{
-                    // Asymmetric shadow pattern: deeper shadows around the
-                    // untaped top-left and bottom-right corners so they
-                    // read as lifted, while the taped corners (top-right
-                    // and bottom-left) stay flush.
+                    // Only the two untaped corners (top-left + bottom-right)
+                    // get a shadow. Strong negative spread localizes each
+                    // shadow to a single corner so it never bleeds toward
+                    // the taped corners (top-right + bottom-left), which
+                    // need to read flush against the page.
                     boxShadow: [
-                      "0 1px 0 rgba(0,0,0,0.05)",
-                      "0 18px 36px -20px rgba(10,22,40,0.22)",
-                      "-14px -14px 32px -18px rgba(10,22,40,0.32)",
-                      "14px 14px 32px -18px rgba(10,22,40,0.32)",
+                      "-26px -26px 36px -30px rgba(10,22,40,0.55)",
+                      "26px 26px 36px -30px rgba(10,22,40,0.55)",
                     ].join(", "),
                   }}
                 >
