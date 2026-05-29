@@ -795,12 +795,17 @@ export default function HomePage() {
                 story column instead of hugging the top. */}
             <Reveal delay={150} className="mx-auto w-full max-w-[560px] md:self-center">
               <div className="relative w-full">
-                {/* Photo with a soft natural drop-shadow */}
+                {/* Photo with a filter: drop-shadow() chain. Two opposing
+                    shadows bias their reach toward the two untaped corners
+                    (top-left + bottom-right) — drop-shadow respects the
+                    photo's alpha and renders a softer, more natural halo
+                    than box-shadow does. Filter is on the photo container
+                    so the tape pieces aren't affected. */}
                 <div
                   className="relative w-full aspect-square overflow-hidden"
                   style={{
-                    boxShadow:
-                      "0 18px 36px -18px rgba(10,22,40,0.30), 0 2px 4px rgba(10,22,40,0.08)",
+                    filter:
+                      "drop-shadow(-12px -10px 22px rgba(10,22,40,0.32)) drop-shadow(12px 10px 22px rgba(10,22,40,0.32))",
                   }}
                 >
                   <Image
