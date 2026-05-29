@@ -795,25 +795,14 @@ export default function HomePage() {
                 story column instead of hugging the top. */}
             <Reveal delay={150} className="mx-auto w-full max-w-[560px] md:self-center">
               <div className="relative w-full">
-                {/* Corner-localized shadow layer behind the photo. Two
-                    radial gradients (top-left + bottom-right) fade out to
-                    transparent before they reach the taped corners, so
-                    the top-right and bottom-left read fully flush. */}
+                {/* Photo with a soft natural drop-shadow */}
                 <div
-                  aria-hidden
-                  className="absolute pointer-events-none"
+                  className="relative w-full aspect-square overflow-hidden"
                   style={{
-                    inset: "-32px",
-                    zIndex: -1,
-                    background: [
-                      "radial-gradient(60% 60% at 0% 0%, rgba(10,22,40,0.55), transparent 75%)",
-                      "radial-gradient(60% 60% at 100% 100%, rgba(10,22,40,0.55), transparent 75%)",
-                    ].join(", "),
+                    boxShadow:
+                      "0 18px 36px -18px rgba(10,22,40,0.30), 0 2px 4px rgba(10,22,40,0.08)",
                   }}
-                />
-
-                {/* Photo */}
-                <div className="relative w-full aspect-square overflow-hidden">
+                >
                   <Image
                     src="/vintage-trucks.jpg"
                     alt="Vintage Scanio Moving trucks"
