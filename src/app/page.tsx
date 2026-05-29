@@ -877,7 +877,7 @@ export default function HomePage() {
             { title: "FF&E / Designer", desc: "Fine art, antiques, pianos. Museum-quality care.", img: "/services/ffe-landing.png", href: "/services/ffe-designer" },
             { title: "Long Distance", desc: "Coast-to-coast. ICC-licensed. Fully insured.", img: "/services/long-distance.jpg", href: "/services/long-distance" },
             { title: "International", desc: "Global relocations. Customs handled. Door to door.", img: "/services/international.jpg", href: "/services/international" },
-            { title: "Commercial", desc: "Corporate and office relocations with precision.", img: "/services/commercial-lobby.jpg", href: "/services/commercial" },
+            { title: "Commercial", desc: "Corporate and office relocations with precision.", img: "/services/commercial-office.png", href: "/services/commercial" },
           ].map((s, i) => (
             <Reveal key={s.title} delay={i * 80}>
               <Link href={s.href} className="group block relative overflow-hidden cursor-pointer">

@@ -36,11 +36,11 @@ export default function CommercialPage() {
           {/* Right (desktop) / Top (mobile): Sticky image */}
           <div className="lg:w-1/2 w-full lg:sticky lg:top-[150px] lg:self-start relative min-h-[42vh] md:min-h-[55vh] lg:min-h-0 lg:h-[calc(100vh-150px)]">
             <Image
-              src="/services/commercial-lobby.jpg"
-              alt="Scanio crew setting up furniture in a modern commercial lobby"
+              src="/services/commercial-office.png"
+              alt="Scanio movers in branded gear carrying boxes and clearing workstations during an office relocation"
               fill
               priority
-              quality={95}
+              quality={100}
               className="object-cover"
               style={{ objectPosition: "center center" }}
               sizes="(max-width: 1024px) 100vw, 50vw"
