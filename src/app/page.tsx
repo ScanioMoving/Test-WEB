@@ -799,8 +799,16 @@ export default function HomePage() {
                 <div
                   className="relative w-full aspect-square overflow-hidden"
                   style={{
-                    boxShadow:
-                      "0 1px 0 rgba(0,0,0,0.05), 0 28px 56px -24px rgba(10,22,40,0.32)",
+                    // Asymmetric shadow pattern: deeper shadows around the
+                    // untaped top-left and bottom-right corners so they
+                    // read as lifted, while the taped corners (top-right
+                    // and bottom-left) stay flush.
+                    boxShadow: [
+                      "0 1px 0 rgba(0,0,0,0.05)",
+                      "0 18px 36px -20px rgba(10,22,40,0.22)",
+                      "-14px -14px 32px -18px rgba(10,22,40,0.32)",
+                      "14px 14px 32px -18px rgba(10,22,40,0.32)",
+                    ].join(", "),
                   }}
                 >
                   <Image
@@ -832,13 +840,13 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                {/* Tape — top-right corner, nearly vertical (85°). */}
+                {/* Tape — top-right corner, pushed slightly into the photo. */}
                 <div
                   aria-hidden
                   className="absolute z-20 pointer-events-none"
                   style={{
-                    top: "-18px",
-                    right: "-55px",
+                    top: "-4px",
+                    right: "-42px",
                     width: "110px",
                     height: "38px",
                     background:
@@ -850,13 +858,13 @@ export default function HomePage() {
                   }}
                 />
 
-                {/* Tape — bottom-left corner, mirrored (95°). */}
+                {/* Tape — bottom-left corner, mirrored. */}
                 <div
                   aria-hidden
                   className="absolute z-20 pointer-events-none"
                   style={{
-                    bottom: "-18px",
-                    left: "-55px",
+                    bottom: "-4px",
+                    left: "-42px",
                     width: "110px",
                     height: "38px",
                     background:
