@@ -843,7 +843,7 @@ export default function HomePage() {
                     height: "38px",
                     background:
                       "linear-gradient(180deg, rgba(228,210,168,0.94) 0%, rgba(212,191,148,0.94) 100%)",
-                    transform: "rotate(130deg)",
+                    transform: "rotate(220deg)",
                     boxShadow: "0 2px 4px rgba(0,0,0,0.12)",
                     borderLeft: "1px solid rgba(255,255,255,0.45)",
                     borderRight: "1px solid rgba(255,255,255,0.45)",
@@ -861,7 +861,7 @@ export default function HomePage() {
                     height: "38px",
                     background:
                       "linear-gradient(180deg, rgba(228,210,168,0.94) 0%, rgba(212,191,148,0.94) 100%)",
-                    transform: "rotate(140deg)",
+                    transform: "rotate(230deg)",
                     boxShadow: "0 2px 4px rgba(0,0,0,0.12)",
                     borderLeft: "1px solid rgba(255,255,255,0.45)",
                     borderRight: "1px solid rgba(255,255,255,0.45)",
