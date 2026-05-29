@@ -803,7 +803,9 @@ export default function HomePage() {
                     transform: "rotate(-1deg)",
                   }}
                 >
-                  <div className="relative w-full aspect-[4/3] overflow-hidden">
+                  {/* Source is square (1080x1080); match its aspect so the
+                      photo isn't being cropped 25% top/bottom. */}
+                  <div className="relative w-full aspect-square overflow-hidden">
                     <Image
                       src="/vintage-trucks.jpg"
                       alt="Vintage Scanio Moving trucks"
