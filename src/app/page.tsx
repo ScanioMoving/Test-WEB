@@ -810,10 +810,10 @@ export default function HomePage() {
                   style={{
                     top: 0,
                     left: 0,
-                    width: "55%",
-                    height: "55%",
+                    width: "70%",
+                    height: "70%",
                     zIndex: -1,
-                    boxShadow: "-16px -16px 32px -6px rgba(10,22,40,0.40)",
+                    boxShadow: "-12px -12px 72px 4px rgba(10,22,40,0.28)",
                   }}
                 />
                 <div
@@ -822,10 +822,10 @@ export default function HomePage() {
                   style={{
                     bottom: 0,
                     right: 0,
-                    width: "55%",
-                    height: "55%",
+                    width: "70%",
+                    height: "70%",
                     zIndex: -1,
-                    boxShadow: "16px 16px 32px -6px rgba(10,22,40,0.40)",
+                    boxShadow: "12px 12px 72px 4px rgba(10,22,40,0.28)",
                   }}
                 />
 
