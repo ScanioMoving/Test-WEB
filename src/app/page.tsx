@@ -423,7 +423,7 @@ export default function HomePage() {
   return (
     <div style={{ fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif" }}>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Permanent+Marker&display=swap');
 
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(30px); }
@@ -788,25 +788,84 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            {/* Polaroid — the source image already has a baked-in polaroid
-                mat (white border on three sides, thicker on the bottom), so
-                we just render it as-is with a soft drop shadow for depth.
-                No extra frame, no rotation — the photo IS the polaroid. */}
-            <Reveal delay={150} className="mx-auto w-full max-w-[460px]">
-              <div
-                className="relative w-full aspect-square overflow-hidden"
-                style={{
-                  boxShadow:
-                    "0 1px 0 rgba(0,0,0,0.04), 0 24px 48px -22px rgba(10,22,40,0.28)",
-                }}
-              >
-                <Image
-                  src="/vintage-trucks.jpg"
-                  alt="Vintage Scanio Moving trucks"
-                  fill
-                  quality={95}
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+            {/* Polaroid — the source image already has a polaroid mat baked
+                in. We layer tape pieces over the top corners and a sharpie-
+                style "1941" on the bottom strip for the scrapbook feel.
+                md:self-center vertically centers the polaroid alongside the
+                story column instead of hugging the top. */}
+            <Reveal delay={150} className="mx-auto w-full max-w-[560px] md:self-center">
+              <div className="relative w-full">
+                {/* Drop shadow + photo */}
+                <div
+                  className="relative w-full aspect-square overflow-hidden"
+                  style={{
+                    boxShadow:
+                      "0 1px 0 rgba(0,0,0,0.05), 0 28px 56px -24px rgba(10,22,40,0.32)",
+                  }}
+                >
+                  <Image
+                    src="/vintage-trucks.jpg"
+                    alt="Vintage Scanio Moving trucks"
+                    fill
+                    quality={95}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+
+                  {/* Handwritten "1941" on the bottom polaroid strip */}
+                  <span
+                    aria-hidden
+                    className="absolute z-10 select-none"
+                    style={{
+                      fontFamily: "'Permanent Marker', cursive",
+                      color: "#1A1F2C",
+                      fontSize: "clamp(28px, 3.4vw, 44px)",
+                      lineHeight: 1,
+                      letterSpacing: "0.04em",
+                      right: "8%",
+                      bottom: "3.5%",
+                      transform: "rotate(-3deg)",
+                      opacity: 0.92,
+                    }}
+                  >
+                    1941
+                  </span>
+                </div>
+
+                {/* Tape — top-left */}
+                <div
+                  aria-hidden
+                  className="absolute z-20 pointer-events-none"
+                  style={{
+                    top: "-14px",
+                    left: "8%",
+                    width: "22%",
+                    height: "30px",
+                    background:
+                      "linear-gradient(180deg, rgba(232,217,182,0.85) 0%, rgba(218,199,158,0.85) 100%)",
+                    transform: "rotate(-9deg)",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.10)",
+                    borderLeft: "1px solid rgba(255,255,255,0.4)",
+                    borderRight: "1px solid rgba(255,255,255,0.4)",
+                  }}
+                />
+
+                {/* Tape — top-right */}
+                <div
+                  aria-hidden
+                  className="absolute z-20 pointer-events-none"
+                  style={{
+                    top: "-12px",
+                    right: "8%",
+                    width: "22%",
+                    height: "30px",
+                    background:
+                      "linear-gradient(180deg, rgba(232,217,182,0.85) 0%, rgba(218,199,158,0.85) 100%)",
+                    transform: "rotate(7deg)",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.10)",
+                    borderLeft: "1px solid rgba(255,255,255,0.4)",
+                    borderRight: "1px solid rgba(255,255,255,0.4)",
+                  }}
                 />
               </div>
             </Reveal>
