@@ -832,40 +832,39 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                {/* Clean translucent tape — top-right corner, rotated 45°
-                    so the strip bisects the corner and half hangs off. */}
+                {/* Tape — top-right corner, nearly vertical (85°). */}
                 <div
                   aria-hidden
                   className="absolute z-20 pointer-events-none"
                   style={{
-                    top: "-14px",
-                    right: "-50px",
+                    top: "-18px",
+                    right: "-55px",
                     width: "110px",
-                    height: "28px",
+                    height: "38px",
                     background:
-                      "linear-gradient(180deg, rgba(232,217,182,0.82) 0%, rgba(218,199,158,0.82) 100%)",
-                    transform: "rotate(-45deg)",
-                    boxShadow: "0 2px 4px rgba(0,0,0,0.10)",
-                    borderLeft: "1px solid rgba(255,255,255,0.4)",
-                    borderRight: "1px solid rgba(255,255,255,0.4)",
+                      "linear-gradient(180deg, rgba(228,210,168,0.94) 0%, rgba(212,191,148,0.94) 100%)",
+                    transform: "rotate(85deg)",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.12)",
+                    borderLeft: "1px solid rgba(255,255,255,0.45)",
+                    borderRight: "1px solid rgba(255,255,255,0.45)",
                   }}
                 />
 
-                {/* Clean translucent tape — bottom-left corner, mirrored. */}
+                {/* Tape — bottom-left corner, mirrored (95°). */}
                 <div
                   aria-hidden
                   className="absolute z-20 pointer-events-none"
                   style={{
-                    bottom: "-14px",
-                    left: "-50px",
+                    bottom: "-18px",
+                    left: "-55px",
                     width: "110px",
-                    height: "28px",
+                    height: "38px",
                     background:
-                      "linear-gradient(180deg, rgba(232,217,182,0.82) 0%, rgba(218,199,158,0.82) 100%)",
-                    transform: "rotate(-45deg)",
-                    boxShadow: "0 2px 4px rgba(0,0,0,0.10)",
-                    borderLeft: "1px solid rgba(255,255,255,0.4)",
-                    borderRight: "1px solid rgba(255,255,255,0.4)",
+                      "linear-gradient(180deg, rgba(228,210,168,0.94) 0%, rgba(212,191,148,0.94) 100%)",
+                    transform: "rotate(95deg)",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.12)",
+                    borderLeft: "1px solid rgba(255,255,255,0.45)",
+                    borderRight: "1px solid rgba(255,255,255,0.45)",
                   }}
                 />
               </div>
