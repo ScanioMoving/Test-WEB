@@ -53,7 +53,7 @@ const nextConfig: NextConfig = {
       { source: "/nyc-moving-process.php", destination: "/faqs#moving-process", permanent: true },
       { source: "/scanio-license-insurance.php", destination: "/faqs#licensing", permanent: true },
       { source: "/nyc-referral-rewards.php", destination: "/faqs#partners", permanent: true },
-      { source: "/green-moving-company.php", destination: "/faqs#green", permanent: true },
+      { source: "/green-moving-company.php", destination: "/", permanent: true },
       { source: "/moving-and-storage-glossary.php", destination: "/faqs#glossary", permanent: true },
       { source: "/smart-moving-guide.php", destination: "/faqs#choosing", permanent: true },
       { source: "/choosing-a-moving-company.php", destination: "/faqs#choosing", permanent: true },

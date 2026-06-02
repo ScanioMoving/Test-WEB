@@ -19,13 +19,9 @@ export type FaqSection = {
   /** URL anchor — old .php URLs deep-link here, so don't rename casually. */
   anchor: string;
   blurb: string;
-  image?: { src: string; alt: string };
   items: FaqItem[];
 };
 export type GlossaryTerm = { term: string; definition: string };
-
-export const FAQ_INTRO =
-  `Scanio Moving & Storage has been a family-owned New York mover since 1941, run today as a father-and-son team with crews, coordinators, and warehouse staff who have been with us for decades. Whether you're moving across the hall, across the country, or around the world, these answers cover the questions we hear most from New Yorkers — from co-op COIs and elevator reservations to pianos, storage, and protecting what matters. For anything not covered here, or to set up a free, no-obligation estimate, call 212.722.6850 or email info@scaniomoving.com.`;
 
 export const FAQ_SECTIONS: FaqSection[] = [
   {
@@ -33,10 +29,6 @@ export const FAQ_SECTIONS: FaqSection[] = [
     anchor: "specialty",
     blurb:
       "How our trained crews protect pianos, fine art, antiques, and other irreplaceable pieces with the right equipment and documentation.",
-    image: {
-      src: "/services/ffe-landing.png",
-      alt: "Scanio crew carefully wrapping a blue-and-white porcelain vase for transport",
-    },
     items: [
       {
         q: "Can you move my piano? It's an upright in a 4th-floor walk-up.",
@@ -97,10 +89,6 @@ export const FAQ_SECTIONS: FaqSection[] = [
     anchor: "moving-process",
     blurb:
       "What to expect from your first call through moving day — your coordinator, COIs, elevator reservations, and parking.",
-    image: {
-      src: "/services/residential-truck.jpg",
-      alt: "Scanio moving truck parked on a brownstone-lined New York City street",
-    },
     items: [
       {
         q: "What happens from my first phone call to moving day?",
@@ -170,10 +158,6 @@ export const FAQ_SECTIONS: FaqSection[] = [
     anchor: "storage",
     blurb:
       "Our temperature-controlled, 24/7-monitored Secaucus warehouse — flexible billing, access, and storage between closing dates.",
-    image: {
-      src: "/services/storage.jpg",
-      alt: "Scanio temperature-controlled storage warehouse in Secaucus, New Jersey",
-    },
     items: [
       {
         q: "Is your storage facility climate-controlled? I have wood furniture and some artwork I'm worried about.",
@@ -308,22 +292,6 @@ export const FAQ_SECTIONS: FaqSection[] = [
       {
         q: "I'd like to recommend Scanio to friends and neighbors. Can I send them your way?",
         a: "Please do — it means a great deal to us. After more than 80 years moving New Yorkers, much of our work still comes from word of mouth and repeat clients, which is the part we're proudest of. Have them mention you when they call, and feel free to reach out to your coordinator if you'd like to talk it through.",
-      },
-    ],
-  },
-  {
-    title: "Green & Sustainability",
-    anchor: "green",
-    blurb:
-      "The steps we take to keep moves greener in a dense city, from reusable materials to smarter logistics.",
-    items: [
-      {
-        q: "Is Scanio environmentally friendly? I'm trying to cut down on cardboard waste for my move.",
-        a: "Yes, and it's something we care about. We use reusable moving bins and blankets along with recyclable packing materials, so you're not left with a mountain of cardboard after the move. One of our customers specifically praised our eco-friendly recyclable packing, which we were glad to hear. Ask your coordinator about reusable bins when you set up your move.",
-      },
-      {
-        q: "How do you keep moves greener in a city like NYC with all the traffic and trucks?",
-        a: "A big part of it is smart logistics. We plan efficient routes and consolidate loads so there are fewer trucks idling on narrow streets and fewer trips overall, which cuts both emissions and the headaches that come with NYC parking. Combined with our reusable bins and blankets and recyclable materials, it adds up to a noticeably lighter footprint for your move.",
       },
     ],
   },

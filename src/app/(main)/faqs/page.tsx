@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Phone, ChevronDown } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 import { SITE_URL } from "@/lib/seo";
-import { FAQ_INTRO, FAQ_SECTIONS, FAQ_GLOSSARY } from "./faq-data";
+import { FAQ_SECTIONS, FAQ_GLOSSARY } from "./faq-data";
 
 export const metadata: Metadata = {
   title: "Moving FAQs & Glossary",
@@ -58,17 +57,11 @@ export default function FaqsPage() {
             Help Center
           </p>
           <h1
-            className="text-[clamp(34px,4.8vw,60px)] font-semibold leading-[1.05] tracking-[-0.02em] mb-6"
+            className="text-[clamp(34px,4.8vw,60px)] font-semibold leading-[1.05] tracking-[-0.02em] mb-8"
             style={{ color: "#0B5DB5" }}
           >
             Frequently Asked Questions
           </h1>
-          <p
-            className="text-[15px] md:text-[17px] font-normal leading-[1.8] mb-8"
-            style={{ color: "#2D3748" }}
-          >
-            {FAQ_INTRO}
-          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/quote"
@@ -126,19 +119,6 @@ export default function FaqsPage() {
               id={section.anchor}
               className="scroll-mt-[230px] md:scroll-mt-[220px] mb-14 md:mb-20"
             >
-              {section.image ? (
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-sm mb-7 md:mb-9">
-                  <Image
-                    src={section.image.src}
-                    alt={section.image.alt}
-                    fill
-                    quality={90}
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 768px"
-                  />
-                </div>
-              ) : null}
-
               <h2
                 className="text-[clamp(22px,2.8vw,32px)] font-light leading-[1.2] tracking-[-0.01em] mb-2"
                 style={{ color: "#0A1628" }}
@@ -265,7 +245,7 @@ export default function FaqsPage() {
             className="text-[clamp(24px,3vw,38px)] font-light leading-[1.25] tracking-[-0.01em] mb-4"
             style={{ color: "#0A1628" }}
           >
-            We're happy to help.
+            We&apos;re happy to help.
           </h2>
           <p className="text-[15px] md:text-[16px] font-normal leading-[1.75] mb-8 md:mb-10 max-w-xl mx-auto" style={{ color: "#2D3748" }}>
             Call us, send a note, or request a free, no-obligation estimate and a
