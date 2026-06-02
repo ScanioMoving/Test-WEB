@@ -4,9 +4,12 @@ import { Phone, CheckCircle, ExternalLink } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
-  title: "FF&E & Designer Services NYC | Scanio Moving & Storage",
+  // This route 301-redirects to /services/ffe-designer (duplicate content);
+  // noindex as a belt-and-suspenders measure in case the redirect is removed.
+  title: "Packing & Unpacking",
   description:
-    "Specialized FF&E and designer moving services in NYC. White-glove handling for fine furniture, fixtures, antiques, and art. Trusted by top designers since 1941.",
+    "Professional packing and unpacking in NYC — careful handling of everything from everyday items to fragile valuables.",
+  robots: { index: false, follow: true },
 };
 
 const features = [

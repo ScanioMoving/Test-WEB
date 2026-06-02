@@ -12,9 +12,10 @@ import {
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
-  title: "Moving Services | Scanio Moving & Storage NYC",
+  title: "Moving Services",
   description:
-    "Comprehensive moving services in NYC: residential, commercial, long distance, white glove, packing, and storage. Licensed and insured since 1941.",
+    "Full-service moving in NYC: residential, commercial, long distance, international, storage, and FF&E/designer handling. Licensed and insured since 1941.",
+  alternates: { canonical: "/services" },
 };
 
 const services = [

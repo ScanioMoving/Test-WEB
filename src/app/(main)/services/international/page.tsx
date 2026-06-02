@@ -4,9 +4,10 @@ import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
-  title: "International Moving NYC | Scanio Moving & Storage",
+  title: "International Movers NYC",
   description:
-    "International relocations from NYC. Customs coordination, ocean and air freight, and door-to-door delivery worldwide. Talk to Scanio first and we'll walk you through every step.",
+    "International relocation from NYC with full logistics, customs, and door-to-door coordination. Experienced and trusted since 1941.",
+  alternates: { canonical: "/services/international" },
 };
 
 const features = [

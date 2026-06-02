@@ -1,9 +1,9 @@
-@import "tailwindcss";
-/* Load Manrope from Google Fonts CDN with the same weight set the home
-   page hero uses, so the wordmark renders identically across pages.
-   (The next/font version in layout.tsx ships a different subset, which
-   was making the inner-page header logo render slightly bolder.) */
+/* Google Fonts must be imported before any other rules (incl. Tailwind),
+   per the CSS spec: all @import statements precede other rules. Loads
+   Manrope (same weights as the home hero, so the wordmark renders
+   identically across pages) and Permanent Marker (polaroid handwriting). */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Permanent+Marker&display=swap');
+@import "tailwindcss";
 
 @theme inline {
   --color-navy: #0A1628;

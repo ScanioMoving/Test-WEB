@@ -4,9 +4,10 @@ import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
-  title: "Commercial Moving NYC | Scanio Moving & Storage",
+  title: "NYC Commercial Movers",
   description:
-    "Professional commercial and office moving services in NYC. Minimize downtime with Scanio's expert team. Tradeshow, retail, and corporate relocations.",
+    "Office, warehouse, and retail relocation across NYC with minimal downtime. Trusted commercial movers since 1941. Call 212.722.6850.",
+  alternates: { canonical: "/services/commercial" },
 };
 
 const features = [

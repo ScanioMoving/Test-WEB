@@ -4,9 +4,10 @@ import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
-  title: "Long Distance Moving | Scanio Moving & Storage NYC",
+  title: "Long Distance Movers NYC",
   description:
-    "ICC-licensed (MC93512) interstate moving from NYC to anywhere in the US. Scanio carries your shipment coast to coast under one accountable team — no mystery carriers.",
+    "Long distance moves from New York City handled start to finish by one accountable team. ICC-licensed (MC93512), insured, and experienced since 1941.",
+  alternates: { canonical: "/services/long-distance" },
 };
 
 const features = [

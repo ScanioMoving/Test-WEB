@@ -3,9 +3,10 @@ import Image from "next/image";
 import { CheckCircle, ExternalLink } from "lucide-react";
 
 export const metadata = {
-  title: "Designer Services NYC | Scanio Moving & Storage",
+  title: "FF&E & Designer Services NYC",
   description:
-    "FF&E and designer moving services in NYC. Receiving, inspection, temperature-controlled staging, and white-glove installation for interior designers and architects. Trusted since 1941.",
+    "White-glove FF&E and designer logistics in NYC: receiving, inspection, climate-controlled staging, and installation for interior designers and architects.",
+  alternates: { canonical: "/services/ffe-designer" },
 };
 
 const features = [

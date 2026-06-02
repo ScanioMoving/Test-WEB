@@ -4,9 +4,10 @@ import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
-  title: "Storage Solutions NYC | Temperature-Controlled | Scanio Moving & Storage",
+  title: "NYC Storage Services",
   description:
-    "Secure, temperature-controlled storage in Secaucus, NJ — just 3 miles from the Lincoln Tunnel. Flexible short and long-term options. Pay only for the space you use.",
+    "Secure, temperature-controlled storage in the NYC metro area, 3 miles from the Lincoln Tunnel. Flexible terms — pay only for the space you use.",
+  alternates: { canonical: "/storage" },
 };
 
 const features = [
