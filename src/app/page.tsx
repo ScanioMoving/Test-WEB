@@ -259,10 +259,10 @@ function TruckScrollHero() {
             </a>
             <Link
               href="/quote"
-              className="inline-block text-white text-[clamp(16px,2.5vw,22px)] tracking-[0.3em] uppercase font-bold border-2 px-7 py-4 transition-all hover:bg-white hover:text-[#0A1628]"
+              className="inline-block text-white text-[clamp(16px,2.5vw,22px)] tracking-[0.3em] uppercase font-bold px-8 py-4 transition-all hover:opacity-90"
               style={{
-                borderColor: "white",
-                textShadow: "0 2px 10px rgba(0,0,0,0.45)",
+                background: "#0B5DB5",
+                boxShadow: "0 8px 24px -8px rgba(0,0,0,0.45)",
               }}
             >
               Request Consultation
