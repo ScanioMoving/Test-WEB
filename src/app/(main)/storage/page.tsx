@@ -156,6 +156,39 @@ export default function StoragePage() {
                 will help you find the right fit. Contact Scanio today for
                 a storage quote.
               </p>
+
+              {/* Warehouse address + NJ license */}
+              <div
+                className="mt-10 md:mt-12 pt-6 md:pt-8 border-t"
+                style={{ borderColor: "#E5ECF4" }}
+              >
+                <p
+                  className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase font-medium mb-3"
+                  style={{ color: "#0A1628" }}
+                >
+                  Warehouse
+                </p>
+                <p
+                  className="text-[14px] md:text-[15px] font-medium leading-[1.65]"
+                  style={{ color: "#0A1628" }}
+                >
+                  Scanio Moving and Storage
+                </p>
+                <p
+                  className="text-[14px] md:text-[15px] font-normal leading-[1.65]"
+                  style={{ color: "#2D3748" }}
+                >
+                  355 County Avenue
+                  <br />
+                  Secaucus, NJ&nbsp;07094
+                </p>
+                <p
+                  className="text-[12px] md:text-[13px] tracking-[0.12em] uppercase font-medium mt-3"
+                  style={{ color: "#4A5568" }}
+                >
+                  License: 39PC00099000
+                </p>
+              </div>
             </div>
           </div>
         </div>
