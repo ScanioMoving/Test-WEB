@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, CheckCircle, ExternalLink } from "lucide-react";
+import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
   title: "International Moving NYC | Scanio Moving & Storage",
   description:
-    "International relocations from NYC, handled by our sister company Sea & Air International. Customs coordination, ocean and air freight, and door-to-door delivery worldwide.",
+    "International relocations from NYC. Customs coordination, ocean and air freight, and door-to-door delivery worldwide. Talk to Scanio first and we'll walk you through every step.",
 };
 
 const features = [
@@ -65,41 +65,34 @@ export default function InternationalPage() {
                 Moving across borders is its own kind of logistics. Customs
                 rules, freight schedules, port handling, and destination
                 services all have to line up before your belongings can
-                arrive safely on the other side. That is why Scanio entrusts
-                international moves to our sister company, <a
-                  href="https://sea-air.net/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
-                  style={{ color: "#0B5DB5" }}
-                >
+                arrive safely on the other side. Scanio coordinates the
+                entire process — together with our sister company,{" "}
+                <span className="font-medium" style={{ color: "#0A1628" }}>
                   Sea &amp; Air International
-                </a>, an experienced global mover that handles overseas
-                relocations with the same care and accountability we bring
-                to every Scanio move.
+                </span>{" "}
+                — so you get one accountable team from your first call
+                through final delivery overseas.
               </p>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-8 md:mb-10"
                 style={{ color: "#2D3748" }}
               >
                 Whether you are relocating to London, Tel Aviv, Tokyo, or
-                anywhere in between, you get one accountable team from
-                pickup in the U.S. through customs clearance and final
-                delivery at your new address abroad.
+                anywhere in between, start with a conversation with our
+                team. We will scope the move, recommend the right shipping
+                approach, and handle the logistics, customs, and
+                destination services end to end.
               </p>
 
-              {/* Primary CTA to sister company */}
+              {/* Primary CTA — contact Scanio first */}
               <div className="flex flex-wrap items-center gap-4 mb-12 md:mb-14">
-                <a
-                  href="https://sea-air.net/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[12px] tracking-[0.3em] uppercase font-medium px-8 py-4 transition-all hover:opacity-90"
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center text-[12px] tracking-[0.3em] uppercase font-medium px-8 py-4 transition-all hover:opacity-90"
                   style={{ background: "#0B5DB5", color: "white" }}
                 >
-                  Visit Sea &amp; Air International
-                  <ExternalLink size={13} />
-                </a>
+                  Request a Consultation
+                </Link>
                 <a
                   href={TEL_HREF}
                   className="flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
@@ -123,8 +116,8 @@ export default function InternationalPage() {
               >
                 Every overseas move is coordinated end to end. From the
                 first inventory at your home to the moment your belongings
-                are placed in your new residence abroad, Sea &amp; Air
-                International manages each step so you are never left
+                are placed in your new residence abroad, your Scanio
+                coordinator manages each step so you are never left
                 wondering where things stand.
               </p>
 
@@ -155,11 +148,11 @@ export default function InternationalPage() {
                 style={{ color: "#2D3748" }}
               >
                 Every country has its own paperwork, duties, and inspection
-                process. Sea &amp; Air International prepares the
-                documentation your destination requires, coordinates with
-                customs brokers on both ends, and keeps you informed at
-                each clearance milestone. The goal is simple: no surprise
-                holds at the port and no last-minute paperwork on your end.
+                process. We prepare the documentation your destination
+                requires, coordinate with customs brokers on both ends, and
+                keep you informed at each clearance milestone. The goal is
+                simple: no surprise holds at the port and no last-minute
+                paperwork on your end.
               </p>
 
               {/* Ocean and air freight */}
@@ -188,7 +181,7 @@ export default function InternationalPage() {
                 Settling in at your destination
               </h3>
               <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-12"
+                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85]"
                 style={{ color: "#2D3748" }}
               >
                 A vetted partner network handles the final mile in
@@ -197,65 +190,43 @@ export default function InternationalPage() {
                 buildings and access rules. You arrive to a home that is
                 ready, not a stack of crates to sort through alone.
               </p>
-
-              {/* Closing line */}
-              <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] italic"
-                style={{ color: "#2D3748" }}
-              >
-                For pricing, country-specific requirements, and to start
-                your overseas move, visit{" "}
-                <a
-                  href="https://sea-air.net/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
-                  style={{ color: "#0B5DB5" }}
-                >
-                  sea-air.net
-                </a>{" "}
-                or call our team and we will route you directly.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA — light blue band */}
+      {/* CTA — matches the Residential bottom CTA. No links to sea-air.net. */}
       <section className="py-16 md:py-24 border-t border-b" style={{ background: "#EBF1F8", borderColor: "#D6E0ED" }}>
         <div className="max-w-4xl mx-auto px-6 md:px-10 text-center">
           <p className="text-[11px] tracking-[0.3em] uppercase font-medium mb-4" style={{ color: "#0B5DB5" }}>
-            Sister company
+            Ready when you are
           </p>
           <h2
             className="text-[clamp(24px,3vw,38px)] font-light leading-[1.25] tracking-[-0.01em] mb-4"
             style={{ color: "#0A1628" }}
           >
-            Planning an international move?
+            Ready to move?
           </h2>
           <p className="text-[15px] md:text-[16px] font-normal leading-[1.75] mb-8 md:mb-10 max-w-xl mx-auto" style={{ color: "#2D3748" }}>
-            International relocations are handled by our sister company,
-            Sea &amp; Air International. Start your overseas move with the
-            team that has handled global moves for our clients for decades.
+            Get a free in-home estimate and see why thousands trust Scanio
+            with their residential moves.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="https://sea-air.net/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 transition-all hover:opacity-90"
+            <Link
+              href="/quote"
+              className="text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 transition-all hover:opacity-90"
               style={{ background: "#0A1628", color: "white" }}
             >
-              Visit Sea &amp; Air International
-              <ExternalLink size={13} />
-            </a>
-            <Link
-              href="/contact"
-              className="flex items-center justify-center gap-2 text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 border transition-all"
-              style={{ color: "#0A1628", borderColor: "#0A1628" }}
-            >
-              Contact Scanio
+              Get an Estimate
             </Link>
+            <a
+              href={TEL_HREF}
+              className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
+              style={{ color: "#0A1628" }}
+            >
+              <Phone size={14} />
+              {COMPANY.phone.display}
+            </a>
           </div>
         </div>
       </section>
