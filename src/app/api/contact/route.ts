@@ -28,9 +28,11 @@ export const runtime = "nodejs";
  * Optional:
  *   CONTACT_TO              Inbox(es) quote requests land in. One address or
  *                           a comma-separated list (defaults to COMPANY.email).
- *   AWS_ACCESS_KEY_ID,
- *   AWS_SECRET_ACCESS_KEY   Required only when not running inside AWS
- *                           with an instance/task role.
+ *   SES_ACCESS_KEY_ID,
+ *   SES_SECRET_ACCESS_KEY   Explicit SES credentials. Use these on Amplify
+ *                           (the AWS_ prefix is reserved there). When unset,
+ *                           the SDK's default chain is used (instance/task
+ *                           role on App Runner/EC2, or AWS_ creds locally).
  */
 
 const FIELD_LABELS: Record<string, string> = {
@@ -177,8 +179,21 @@ export async function POST(request: Request) {
     </div>
   `;
 
+  // On Amplify/Lambda the AWS_ prefix is reserved, so the SDK's default
+  // AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY env vars can't be set there.
+  // Read custom-named SES_ keys and pass them explicitly when present;
+  // otherwise fall back to the default provider chain (instance role on
+  // App Runner/EC2, or AWS_ creds locally).
+  const sesAccessKeyId = process.env.SES_ACCESS_KEY_ID;
+  const sesSecretAccessKey = process.env.SES_SECRET_ACCESS_KEY;
+
   try {
-    const ses = new SESv2Client({ region });
+    const ses = new SESv2Client({
+      region,
+      ...(sesAccessKeyId && sesSecretAccessKey
+        ? { credentials: { accessKeyId: sesAccessKeyId, secretAccessKey: sesSecretAccessKey } }
+        : {}),
+    });
     const result = await ses.send(
       new SendEmailCommand({
         FromEmailAddress: from,
