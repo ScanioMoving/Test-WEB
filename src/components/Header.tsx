@@ -77,13 +77,25 @@ export default function Header() {
             <div className="flex flex-col justify-center items-start" style={{ transform: "translateY(var(--logoTextOffsetY, 0px))" }}>
               <span
                 className="block text-[56px] md:text-[72px] font-semibold tracking-[0.02em] uppercase"
-                style={{ color: "white", lineHeight: "0.85", margin: 0, marginLeft: "-3px", padding: 0 }}
+                style={{
+                  fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                  color: "white",
+                  lineHeight: "0.85",
+                  margin: 0,
+                  marginLeft: "-3px",
+                  padding: 0,
+                }}
               >
                 Scanio
               </span>
               <span
                 className="block text-[13px] md:text-[17px] tracking-[0.02em] uppercase font-normal"
-                style={{ color: "rgba(255,255,255,0.75)", lineHeight: "1", marginTop: "6px" }}
+                style={{
+                  fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                  color: "rgba(255,255,255,0.75)",
+                  lineHeight: "1",
+                  marginTop: "6px",
+                }}
               >
                 Moving &amp; Storage &mdash; Since 1941
               </span>
