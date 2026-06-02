@@ -1056,9 +1056,18 @@ export default function HomePage() {
                 Services
               </p>
               <ul className="space-y-3">
-                {["Residential", "Commercial", "Long Distance", "International", "Storage", "FF&E / Designer"].map((item) => (
-                  <li key={item} className="text-[16px] font-normal text-white/85 hover:text-white transition-colors cursor-pointer">
-                    {item}
+                {[
+                  { label: "Residential", href: "/services/residential" },
+                  { label: "Commercial", href: "/services/commercial" },
+                  { label: "Long Distance", href: "/services/long-distance" },
+                  { label: "International", href: "/services/international" },
+                  { label: "Storage", href: "/storage" },
+                  { label: "FF&E / Designer", href: "/services/ffe-designer" },
+                ].map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="text-[16px] font-normal text-white/85 hover:text-white transition-colors">
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -1070,9 +1079,15 @@ export default function HomePage() {
                 Company
               </p>
               <ul className="space-y-3">
-                {["About", "Testimonials", "Free Estimate", "Contact"].map((item) => (
-                  <li key={item} className="text-[16px] font-normal text-white/85 hover:text-white transition-colors cursor-pointer">
-                    {item}
+                {[
+                  { label: "About", href: "/about" },
+                  { label: "Free Estimate", href: "/contact" },
+                  { label: "Contact", href: "/contact" },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <Link href={item.href} className="text-[16px] font-normal text-white/85 hover:text-white transition-colors">
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

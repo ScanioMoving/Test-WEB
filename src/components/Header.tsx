@@ -284,15 +284,6 @@ export default function Header() {
               Contact
             </Link>
 
-            <Link
-              href="/testimonials"
-              className="block py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
-              style={{ color: "white" }}
-              onClick={() => setMobileOpen(false)}
-            >
-              Testimonials
-            </Link>
-
             <div className="pt-4 mt-auto border-t" style={{ borderColor: "rgba(255,255,255,0.2)" }}>
               <Link
                 href="/quote"
