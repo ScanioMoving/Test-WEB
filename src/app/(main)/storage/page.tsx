@@ -187,7 +187,7 @@ export default function StoragePage() {
                   className="text-[12px] md:text-[13px] tracking-[0.12em] uppercase font-medium mt-3"
                   style={{ color: "#4A5568" }}
                 >
-                  License: 39PC00099000
+                  NJ License: 39PC00099000
                 </p>
               </div>
             </div>
