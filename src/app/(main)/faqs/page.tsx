@@ -49,7 +49,7 @@ export default function FaqsPage() {
 
       {/* Hero */}
       <section className="bg-white">
-        <div className="max-w-3xl mx-auto px-5 md:px-10 pt-10 md:pt-16 pb-8 md:pb-12 text-center">
+        <div className="max-w-4xl mx-auto px-5 md:px-10 pt-10 md:pt-16 pb-8 md:pb-12 text-center">
           <p
             className="text-[11px] md:text-[12px] tracking-[0.3em] uppercase font-medium mb-4"
             style={{ color: "#0B5DB5" }}
@@ -112,7 +112,7 @@ export default function FaqsPage() {
 
       {/* Sections */}
       <section className="bg-white">
-        <div className="max-w-3xl mx-auto px-5 md:px-10 py-12 md:py-16">
+        <div className="max-w-4xl mx-auto px-5 md:px-10 py-12 md:py-16">
           {FAQ_SECTIONS.map((section, si) => (
             <div
               key={section.anchor}
