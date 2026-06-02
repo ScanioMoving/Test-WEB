@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, ExternalLink, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 const serviceItems = [
@@ -192,29 +192,17 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile actions — tap-to-call always visible alongside the
-              hamburger so calling never requires opening the menu. */}
-          <div className="lg:hidden flex items-center gap-1 relative z-10">
-            <a
-              href={TEL_HREF}
-              aria-label={`Call ${COMPANY.phone.display}`}
-              className="flex items-center justify-center w-11 h-11 rounded-full transition-opacity hover:opacity-80"
-              style={{ background: "rgba(255,255,255,0.18)", color: "white" }}
-            >
-              <Phone size={20} strokeWidth={2.4} />
-            </a>
-            <button
-              className="p-2"
-              style={{ color: "white" }}
-              onClick={() => {
-                setMobileOpen(!mobileOpen);
-                setServicesOpen(false);
-              }}
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
+          <button
+            className="lg:hidden p-2 relative z-10"
+            style={{ color: "white" }}
+            onClick={() => {
+              setMobileOpen(!mobileOpen);
+              setServicesOpen(false);
+            }}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
 
       </div>

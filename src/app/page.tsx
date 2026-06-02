@@ -629,29 +629,15 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Mobile actions — tap-to-call always visible alongside the
-                hamburger so calling never requires opening the menu. */}
-            <div className="lg:hidden flex items-center gap-1">
-              <a
-                href={TEL_HREF}
-                aria-label={`Call ${COMPANY.phone.display}`}
-                className="flex items-center justify-center w-11 h-11 rounded-full transition-all duration-500 hover:opacity-80"
-                style={{
-                  background: scrolled ? "rgba(11,93,181,0.12)" : "rgba(0,0,0,0.08)",
-                  color: scrolled ? "#0B5DB5" : "#000000",
-                }}
-              >
-                <Phone size={20} strokeWidth={2.4} />
-              </a>
-              <button
-                className="p-2 transition-colors duration-500"
-                style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
-                onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}
-                aria-label="Toggle menu"
-              >
-                {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-              </button>
-            </div>
+            {/* Mobile hamburger */}
+            <button
+              className="lg:hidden p-2 transition-colors duration-500"
+              style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
+              onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
           </div>
 
         </div>
