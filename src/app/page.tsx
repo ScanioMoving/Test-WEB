@@ -245,21 +245,21 @@ function TruckScrollHero() {
 
         {/* Hero text — reveals near end of scroll */}
         <div
-          className="absolute inset-x-0 bottom-[18vh] md:bottom-24 z-10 px-8 md:px-16 transition-opacity duration-500"
+          className="absolute inset-x-0 bottom-6 md:bottom-24 z-10 px-8 md:px-16 transition-opacity duration-500"
           style={{ opacity: textOpacity }}
         >
-          <div className="flex flex-col gap-5 items-start">
+          <div className="flex flex-col gap-4 items-start">
             <a
               href={TEL_HREF}
-              className="inline-flex items-center gap-2.5 text-white text-[clamp(18px,2.4vw,24px)] tracking-[0.2em] font-bold hover:opacity-80 transition-opacity"
+              className="inline-flex items-center gap-2 text-white text-[clamp(15px,2.1vw,20px)] tracking-[0.2em] font-bold hover:opacity-80 transition-opacity"
               style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}
             >
-              <Phone size={20} strokeWidth={2.4} />
+              <Phone size={17} strokeWidth={2.4} />
               {COMPANY.phone.display}
             </a>
             <Link
               href="/quote"
-              className="inline-block text-white text-[clamp(16px,2.5vw,22px)] tracking-[0.3em] uppercase font-bold px-8 py-4 transition-all hover:opacity-90"
+              className="inline-block text-white text-[clamp(13px,2.1vw,18px)] tracking-[0.28em] uppercase font-bold px-6 py-3 md:px-7 md:py-3.5 transition-all hover:opacity-90"
               style={{
                 background: "#0B5DB5",
                 boxShadow: "0 8px 24px -8px rgba(0,0,0,0.45)",
