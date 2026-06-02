@@ -1051,7 +1051,6 @@ export default function HomePage() {
                 </p>
                 <p className="text-[18px] font-semibold text-white/95">NY DOT T11495</p>
                 <p className="text-[18px] font-semibold text-white/95">ICC MC93512</p>
-                <p className="text-[18px] font-semibold text-white/95">NJ 39PC00099002</p>
               </div>
             </div>
 
@@ -1115,7 +1114,7 @@ export default function HomePage() {
           {/* Bottom bar */}
           <div className="border-t border-white/10 pt-8 flex justify-center" style={{ opacity: 1 }}>
             <span className="text-[13px] font-normal" style={{ color: "rgba(255,255,255,0.75)" }}>
-              &copy; {new Date().getFullYear()} Scanio Moving &amp; Storage. All rights reserved.
+              &copy; {new Date().getFullYear()} Scanio Movers Inc. All rights reserved.
             </span>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, CheckCircle, ExternalLink } from "lucide-react";
+import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 export const metadata = {
@@ -197,41 +197,6 @@ export default function LongDistancePage() {
               </p>
 
               {/* Anywhere the road, the sea, or the sky reaches */}
-              <h3
-                className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
-                style={{ color: "#0A1628" }}
-              >
-                Anywhere the road, the sea, or the sky reaches
-              </h3>
-              <p
-                className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-6"
-                style={{ color: "#2D3748" }}
-              >
-                Some moves go beyond the lower 48. Through our sister
-                company, <a
-                  href="https://sea-air.net/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
-                  style={{ color: "#0B5DB5" }}
-                >
-                  Sea &amp; Air International
-                </a>, Scanio carries households and businesses well past
-                state lines, by land, by sea, and by air. Whether you are
-                relocating to another state or another continent, we
-                handle the logistics, customs documentation, and careful
-                handling that an international move demands.
-              </p>
-              <a
-                href="https://sea-air.net/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[12px] tracking-[0.25em] uppercase font-medium px-7 py-3.5 border transition-all hover:bg-[#0B5DB5] hover:text-white"
-                style={{ color: "#0B5DB5", borderColor: "#0B5DB5" }}
-              >
-                Visit Sea &amp; Air International
-                <ExternalLink size={13} />
-              </a>
             </div>
           </div>
         </div>

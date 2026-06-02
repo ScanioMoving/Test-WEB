@@ -30,7 +30,6 @@ export const COMPANY = {
   licenses: [
     { label: "NY DOT", value: "T11495" },
     { label: "ICC Interstate", value: "MC93512" },
-    { label: "NJ", value: "39PC00099002" },
     { label: "US DOT", value: "537054" },
   ],
 
