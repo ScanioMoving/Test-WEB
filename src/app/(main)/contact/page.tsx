@@ -2,6 +2,7 @@
 
 import { Phone, Mail, MapPin, Clock, Send, AlertCircle } from "lucide-react";
 import { COMPANY, TEL_HREF, MAILTO_HREF } from "@/lib/contact";
+import AddressAutocompleteInput from "@/components/AddressAutocompleteInput";
 import { useState, type FormEvent } from "react";
 
 type Status =
@@ -315,11 +316,11 @@ export default function ContactPage() {
                           <label className={labelClass} style={labelStyle}>
                             Address *
                           </label>
-                          <input
+                          <AddressAutocompleteInput
                             type="text"
                             name="fromAddress"
                             required
-                            placeholder="Street address, city, state, zip"
+                            placeholder="Start typing the address…"
                             className={inputClass}
                             style={inputStyle}
                           />
@@ -352,11 +353,11 @@ export default function ContactPage() {
                           <label className={labelClass} style={labelStyle}>
                             Address *
                           </label>
-                          <input
+                          <AddressAutocompleteInput
                             type="text"
                             name="toAddress"
                             required
-                            placeholder="Street address, city, state, zip"
+                            placeholder="Start typing the address…"
                             className={inputClass}
                             style={inputStyle}
                           />
