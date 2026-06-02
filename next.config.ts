@@ -90,6 +90,12 @@ const nextConfig: NextConfig = {
       // Internal dedup: /services/packing duplicates the FF&E/Designer page.
       // (The in-app /quote page already redirects to /contact on its own.)
       { source: "/services/packing", destination: "/services/ffe-designer", permanent: true },
+
+      // Safety net — any other legacy .php URL not mapped above (e.g. indexed
+      // but missing from the sitemap, or linked from an external site) falls
+      // back to the homepage instead of a 404. Specific rules above win
+      // because Next applies the first matching redirect.
+      { source: "/:slug.php", destination: "/", permanent: true },
     ];
   },
 };
