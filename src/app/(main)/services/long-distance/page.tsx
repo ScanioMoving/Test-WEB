@@ -30,13 +30,13 @@ export default function LongDistancePage() {
           {/* Left: Sticky image */}
           <div className="lg:w-1/2 w-full lg:sticky lg:top-[150px] lg:self-start relative min-h-[42vh] md:min-h-[55vh] lg:min-h-0 lg:h-[calc(100vh-150px)]">
             <Image
-              src="/services/long-distance-truck.jpg"
-              alt="Scanio Moving & Storage long distance truck on a NYC street"
+              src="/services/long-distance-truck.png"
+              alt="Scanio Moving & Storage long-haul tractor-trailer on an open desert highway"
               fill
               priority
-              quality={95}
+              quality={100}
               className="object-cover"
-              style={{ objectPosition: "20% center" }}
+              style={{ objectPosition: "center center" }}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
