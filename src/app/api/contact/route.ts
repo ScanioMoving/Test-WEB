@@ -23,8 +23,8 @@ export const runtime = "nodejs";
  *                     send to non-verified recipients.
  *
  * Optional:
- *   CONTACT_TO              Override the inbox quote requests land in
- *                           (defaults to COMPANY.email).
+ *   CONTACT_TO              Inbox(es) quote requests land in. One address or
+ *                           a comma-separated list (defaults to COMPANY.email).
  *   AWS_ACCESS_KEY_ID,
  *   AWS_SECRET_ACCESS_KEY   Required only when not running inside AWS
  *                           with an instance/task role.
@@ -111,10 +111,16 @@ export async function POST(request: Request) {
   if (!hearAboutUs) return NextResponse.json({ error: 'Please fill in "How did you hear about us".' }, { status: 400 });
 
   const region = process.env.AWS_SES_REGION || process.env.AWS_REGION;
-  const to = process.env.CONTACT_TO || COMPANY.email;
+  // CONTACT_TO accepts one address or a comma-separated list, so quote
+  // requests can be "chained" to several inboxes (e.g. info@ + a personal
+  // address) from a single env var. Defaults to COMPANY.email.
+  const toList = (process.env.CONTACT_TO || COMPANY.email)
+    .split(",")
+    .map((addr) => addr.trim())
+    .filter(Boolean);
   const from = process.env.CONTACT_FROM;
 
-  if (!region || !from) {
+  if (!region || !from || toList.length === 0) {
     console.error(
       "[contact] AWS SES is not configured. Need AWS_SES_REGION (or AWS_REGION) and CONTACT_FROM.",
     );
@@ -170,7 +176,7 @@ export async function POST(request: Request) {
     const result = await ses.send(
       new SendEmailCommand({
         FromEmailAddress: from,
-        Destination: { ToAddresses: [to] },
+        Destination: { ToAddresses: toList },
         ReplyToAddresses: [email],
         Content: {
           Simple: {
