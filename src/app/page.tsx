@@ -248,17 +248,22 @@ function TruckScrollHero() {
           className="absolute inset-x-0 bottom-[18vh] md:bottom-24 z-10 px-8 md:px-16 transition-opacity duration-500"
           style={{ opacity: textOpacity }}
         >
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 items-start">
             <a
               href={TEL_HREF}
-              className="text-white text-[clamp(15px,2.1vw,19px)] tracking-[0.2em] font-medium hover:opacity-80 transition-opacity"
-              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.45)" }}
+              className="inline-flex items-center gap-2.5 text-white text-[clamp(18px,2.4vw,24px)] tracking-[0.2em] font-bold hover:opacity-80 transition-opacity"
+              style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}
             >
+              <Phone size={20} strokeWidth={2.4} />
               {COMPANY.phone.display}
             </a>
             <Link
               href="/quote"
-              className="text-white text-[clamp(16px,2.5vw,22px)] tracking-[0.3em] uppercase font-semibold border-t border-white/30 pt-5 hover:border-white transition-all w-fit"
+              className="inline-block text-white text-[clamp(16px,2.5vw,22px)] tracking-[0.3em] uppercase font-bold border-2 px-7 py-4 transition-all hover:bg-white hover:text-[#0A1628]"
+              style={{
+                borderColor: "white",
+                textShadow: "0 2px 10px rgba(0,0,0,0.45)",
+              }}
             >
               Request Consultation
             </Link>
@@ -624,15 +629,29 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Mobile hamburger */}
-            <button
-              className="lg:hidden p-2 transition-colors duration-500"
-              style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
-              onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+            {/* Mobile actions — tap-to-call always visible alongside the
+                hamburger so calling never requires opening the menu. */}
+            <div className="lg:hidden flex items-center gap-1">
+              <a
+                href={TEL_HREF}
+                aria-label={`Call ${COMPANY.phone.display}`}
+                className="flex items-center justify-center w-11 h-11 rounded-full transition-all duration-500 hover:opacity-80"
+                style={{
+                  background: scrolled ? "rgba(11,93,181,0.12)" : "rgba(0,0,0,0.08)",
+                  color: scrolled ? "#0B5DB5" : "#000000",
+                }}
+              >
+                <Phone size={20} strokeWidth={2.4} />
+              </a>
+              <button
+                className="p-2 transition-colors duration-500"
+                style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
+                onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}
+                aria-label="Toggle menu"
+              >
+                {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
 
         </div>
