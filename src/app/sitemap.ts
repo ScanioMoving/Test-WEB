@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/services/international", priority: 0.8, changeFrequency: "monthly" },
     { path: "/services/ffe-designer", priority: 0.8, changeFrequency: "monthly" },
     { path: "/storage", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/faqs", priority: 0.7, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.9, changeFrequency: "yearly" },
   ];
 

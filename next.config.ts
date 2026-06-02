@@ -41,28 +41,31 @@ const nextConfig: NextConfig = {
       { source: "/contact-nyc-moving-company.php", destination: "/contact", permanent: true },
 
       // Specialty handling → FF&E / Designer (white glove, fine art, antiques,
-      // instruments, and packing all live there now)
+      // and packing live there)
       { source: "/packing-unpacking-services.php", destination: "/services/ffe-designer", permanent: true },
       { source: "/nyc-white-glove-moving.php", destination: "/services/ffe-designer", permanent: true },
       { source: "/nyc-fine-art-moving.php", destination: "/services/ffe-designer", permanent: true },
       { source: "/nyc-antique-moving.php", destination: "/services/ffe-designer", permanent: true },
-      { source: "/musical-instruments-moving.php", destination: "/services/ffe-designer", permanent: true },
 
-      // Closest-related mappings for pages without a direct equivalent
+      // Topics without a dedicated page now live on the FAQ hub. Deep-link to
+      // the matching section anchor.
+      { source: "/musical-instruments-moving.php", destination: "/faqs#specialty", permanent: true },
+      { source: "/nyc-moving-process.php", destination: "/faqs#moving-process", permanent: true },
+      { source: "/scanio-license-insurance.php", destination: "/faqs#licensing", permanent: true },
+      { source: "/nyc-referral-rewards.php", destination: "/faqs#partners", permanent: true },
+      { source: "/green-moving-company.php", destination: "/faqs#green", permanent: true },
+      { source: "/moving-and-storage-glossary.php", destination: "/faqs#glossary", permanent: true },
+      { source: "/smart-moving-guide.php", destination: "/faqs#choosing", permanent: true },
+      { source: "/choosing-a-moving-company.php", destination: "/faqs#choosing", permanent: true },
+      { source: "/moving-dos-and-donts.php", destination: "/faqs#choosing", permanent: true },
+      { source: "/moving-faqs.php", destination: "/faqs", permanent: true },
+      { source: "/nyc-moving-information.php", destination: "/faqs", permanent: true },
+      { source: "/moving-related-articles.php", destination: "/faqs", permanent: true },
+
+      // Closest-related mappings for the rest
       { source: "/nyc-luxury-moving-company.php", destination: "/services/residential", permanent: true },
       { source: "/professional-moving-services.php", destination: "/services", permanent: true },
-      { source: "/nyc-moving-process.php", destination: "/services", permanent: true },
       { source: "/nyc-moving-company-reviews.php", destination: "/", permanent: true },
-      { source: "/nyc-referral-rewards.php", destination: "/contact", permanent: true },
-      { source: "/scanio-license-insurance.php", destination: "/about", permanent: true },
-      { source: "/green-moving-company.php", destination: "/", permanent: true },
-      { source: "/nyc-moving-information.php", destination: "/services", permanent: true },
-      { source: "/moving-faqs.php", destination: "/", permanent: true },
-      { source: "/moving-related-articles.php", destination: "/", permanent: true },
-      { source: "/moving-and-storage-glossary.php", destination: "/", permanent: true },
-      { source: "/smart-moving-guide.php", destination: "/", permanent: true },
-      { source: "/choosing-a-moving-company.php", destination: "/", permanent: true },
-      { source: "/moving-dos-and-donts.php", destination: "/", permanent: true },
 
       // Internal dedup: /services/packing duplicates the FF&E/Designer page.
       // (The in-app /quote page already redirects to /contact on its own.)
