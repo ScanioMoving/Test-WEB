@@ -22,7 +22,7 @@ export const COMPANY = {
 
   address: {
     line1: "450 7th Ave",
-    line2: "New York, NY 10001",
+    line2: "New York, NY 10123",
   },
 
   hours: "Monday – Friday: 9:00 AM – 5:00 PM",
