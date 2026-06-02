@@ -10,6 +10,8 @@ import { useEffect, useRef, type InputHTMLAttributes } from "react";
  * the input keeps its `name`, so the existing FormData submission is unchanged.
  */
 
+// NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is inlined at build (provided via
+// .env.production by amplify.yml). Empty/undefined → fields stay plain text.
 const MAPS_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
 // Minimal shapes for the bits of the Maps JS API we touch (avoids pulling in
