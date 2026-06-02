@@ -67,6 +67,26 @@ const nextConfig: NextConfig = {
       { source: "/professional-moving-services.php", destination: "/services", permanent: true },
       { source: "/nyc-moving-company-reviews.php", destination: "/", permanent: true },
 
+      // Additional indexed URLs found in the old (live) sitemap that the
+      // migration guide's list omitted — individual customer-review pages,
+      // resource articles, and service variants. Mapped to the closest live
+      // page so none of them 404 after cutover.
+      { source: "/annie-mack.php", destination: "/about", permanent: true },
+      { source: "/bruce-bogart.php", destination: "/about", permanent: true },
+      { source: "/dana-engel.php", destination: "/about", permanent: true },
+      { source: "/david-reni.php", destination: "/about", permanent: true },
+      { source: "/louis-stamm.php", destination: "/about", permanent: true },
+      { source: "/nina-hennessey.php", destination: "/about", permanent: true },
+      { source: "/steven-gordon.php", destination: "/about", permanent: true },
+      { source: "/moving-nightmare.php", destination: "/about", permanent: true },
+      { source: "/nyc-luxury-movers.php", destination: "/services/residential", permanent: true },
+      { source: "/antique-moving-protection.php", destination: "/services/ffe-designer", permanent: true },
+      { source: "/high-end-furniture-movers.php", destination: "/services/ffe-designer", permanent: true },
+      { source: "/finding-the-right-mover.php", destination: "/faqs#choosing", permanent: true },
+      { source: "/working-with-a-moving-company.php", destination: "/faqs#choosing", permanent: true },
+      { source: "/tips-for-a-successful-move.php", destination: "/faqs#choosing", permanent: true },
+      { source: "/index.html", destination: "/", permanent: true },
+
       // Internal dedup: /services/packing duplicates the FF&E/Designer page.
       // (The in-app /quote page already redirects to /contact on its own.)
       { source: "/services/packing", destination: "/services/ffe-designer", permanent: true },
