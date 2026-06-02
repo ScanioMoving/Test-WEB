@@ -105,10 +105,11 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-10">
             <Link
               href="/about"
-              className="text-[16px] tracking-[0.15em] uppercase font-semibold transition-opacity duration-300"
-              style={{ color: "white", opacity: 0.9 }}
-              onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.9"; }}
+              className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-80 transition-opacity duration-300"
+              style={{
+                fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                color: "white",
+              }}
             >
               About Us
             </Link>
@@ -117,10 +118,11 @@ export default function Header() {
               href="https://designers.scaniomoving.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[14px] tracking-[0.15em] uppercase font-medium transition-opacity duration-300"
-              style={{ color: "white", opacity: 0.9 }}
-              onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.9"; }}
+              className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-80 transition-opacity duration-300"
+              style={{
+                fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                color: "white",
+              }}
             >
               Designer Portal
               <ExternalLink size={12} className="opacity-60" />
@@ -132,10 +134,11 @@ export default function Header() {
               onMouseLeave={handleDropdownLeave}
             >
               <button
-                className="flex items-center gap-1.5 text-[14px] tracking-[0.15em] uppercase font-medium transition-opacity duration-300"
-                style={{ color: "white", opacity: 0.9 }}
-                onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.9"; }}
+                className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-80 transition-opacity duration-300"
+                style={{
+                  fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                  color: "white",
+                }}
               >
                 Services
                 <ChevronDown
@@ -179,10 +182,11 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="text-[16px] tracking-[0.15em] uppercase font-semibold transition-opacity duration-300"
-              style={{ color: "white", opacity: 0.9 }}
-              onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.9"; }}
+              className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-80 transition-opacity duration-300"
+              style={{
+                fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                color: "white",
+              }}
             >
               Contact
             </Link>
