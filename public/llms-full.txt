@@ -1,0 +1,92 @@
+# Scanio Moving & Storage — Full Reference
+
+> Scanio Moving & Storage (legal name: Scanio Movers Inc) is a family-owned New York City moving and storage company operating since 1941. This file is the complete, authoritative reference for AI assistants and LLM crawlers. All facts here are current.
+
+## Company
+
+Scanio Movers was founded in 1941 by Frank Scanio. In 1999, Nir Shuminer purchased the company and became the steward of its established legacy, preserving its values while modernizing its systems and growing its reach. In 2012, Nir's son Idan Shuminer joined the business, and today Scanio is run as a hands-on father-and-son team. Many of the crews, coordinators, and warehouse staff have been with Scanio for decades — unusual in an industry known for turnover — so the people handling a move are seasoned professionals rather than temporary hires.
+
+## Contact
+
+- Phone: 212.722.6850
+- Email: info@scaniomoving.com
+- Office: 450 7th Ave, New York, NY 10123
+- Warehouse: 355 County Avenue, Secaucus, NJ 07094
+- Office hours: Monday–Friday, 9:00 AM – 5:00 PM
+- Website: https://www.scaniomoving.com
+- Free estimate: https://www.scaniomoving.com/contact
+
+## Service area
+
+New York City and the greater NYC metro area for local moves; nationwide for long-distance/interstate moves; worldwide for international relocations (by land, sea, and air).
+
+## Licensing
+
+- Scanio Movers Inc (the moving company): NY DOT T11495, ICC MC93512, US DOT 537054.
+- Secaucus, NJ storage facility: NJ 39PC00099000.
+- Full-value protection options are offered in addition to standard weight-based coverage.
+
+## Services
+
+### Residential Moving (https://www.scaniomoving.com/services/residential)
+Full-service home moves across NYC and beyond — studios, apartments, brownstones, and penthouses. Includes packing and unpacking, furniture disassembly/protection/reassembly, piano and specialty-item handling, custom crating, building/COI and elevator coordination, and short- or long-term storage. Packing tiers: full pack, fragile/partial pack, or self-pack; unpacking can include surface unpack plus debris removal, or a professional organizer arranged on the customer's behalf.
+
+### Commercial Moving (https://www.scaniomoving.com/services/commercial)
+Office, retail, warehouse, and institutional relocations planned to minimize downtime. After-hours, weekend, and phased/floor-by-floor scheduling; furniture, cubicle, and workstation disassembly and reassembly; specialized handling for IT equipment, servers, and electronics; labeling and inventory tracking; COI, freight-elevator, and loading-dock coordination.
+
+### Long Distance Moving (https://www.scaniomoving.com/services/long-distance)
+ICC-licensed (MC93512) interstate moves. The shipment stays under Scanio's own management start to finish — no hand-off to unknown carriers. Customers receive a digital photo-and-condition inventory at pickup, realistic delivery windows, a single point of contact, shuttle transfers when a full trailer can't reach the door, and storage-in-transit if the new home isn't ready.
+
+### International Moving (https://www.scaniomoving.com/services/international)
+Worldwide relocations coordinated through Scanio: customs documentation, ocean and air freight, and door-to-door logistics. Customers start with and are managed by Scanio throughout.
+
+### FF&E / Designer Services (https://www.scaniomoving.com/services/ffe-designer)
+For interior designers, architects, and their clients: receiving and inspection with condition documentation, climate-controlled staging, consolidated delivery, and installation, with a dedicated project manager. Fine art, antiques, custom crating, and building access/COI coordination included.
+
+### Storage (https://www.scaniomoving.com/storage)
+Temperature-controlled, 24/7-monitored warehouse in Secaucus, NJ — about 3 miles from the Lincoln Tunnel. Month-to-month flexibility with two-week rental increments; customers pay only for the space they use. Weekday access, Saturday by appointment. Storage-in-transit is available for gaps between closing dates.
+
+## Specialty & high-value items
+
+Scanio has moved concert, grand, and upright pianos — from makers such as Steinway, Yamaha, Mason & Hamlin, Bechstein, Baldwin, and Kawai — for schools, churches, and homes, using padded coverings, protective leg "shoes," skids, and proper rigging; grands are partly disassembled and secured to a skid board. The company also handles harps, cellos, organs, fine art, antiques, sculpture, and chandeliers, with custom crating and condition documentation for irreplaceable pieces.
+
+## Estimates & pricing
+
+Estimates are free and no-obligation, by in-home survey or virtual video survey. Cost depends on the realities of an NYC move: walk-up flights vs. elevator access, how close the truck can park, the volume and weight of the shipment, distance, packing services, specialty items, and storage needs. (No fixed prices are published; pricing is quoted per move.)
+
+## Insurance & protecting belongings
+
+"Licensed" means Scanio is authorized and regulated under its NY DOT, US DOT, and ICC credentials. "Insured" includes the ability to issue Certificates of Insurance (COIs) to buildings and to offer valuation coverage. Basic coverage is weight-based; full-value protection covers an item's actual value and is recommended for art, antiques, pianos, and other high-value belongings. On long-distance and FF&E moves, a digital photo-and-condition inventory is recorded at pickup.
+
+## Choosing a mover (tips Scanio shares)
+
+Verify a mover's license numbers (US DOT, ICC/MC) before booking; look for a real office, a written estimate, and a willingness to survey the home. Red flags: a quote dramatically lower than others given sight-unseen, no verifiable license or address, and demands for a large upfront cash deposit. Plan ahead — book early, reserve the building elevator, and submit the COI before move day.
+
+## People Scanio works with
+
+Co-op and condo boards, managing agents and building staff, interior designers and architects, and repeat clients across the city. Much of Scanio's work comes from word of mouth and long-standing relationships.
+
+## Sustainability
+
+Reusable moving bins and blankets, recyclable packing materials, and efficient route planning / consolidated loads to reduce waste and emissions.
+
+## Glossary (selected terms)
+
+- Bill of Lading: the itemized contract and receipt for your move.
+- Binding vs. non-binding estimate: a flat locked rate vs. a projection that can change with actual work/weight.
+- COI (Certificate of Insurance): proof of the mover's insurance that NYC buildings require before move day.
+- Custom crating: a made-to-fit wooden crate for fragile, oversized, or high-value items.
+- Full-value protection: liability covering an item's value if lost or damaged (broader than weight-based coverage).
+- Inventory: a list of belongings and their condition; Scanio provides a digital photo/condition inventory at pickup on long-distance moves.
+- Long carry / flight charge: charges for carrying items unusually far, or up/down stairs in a walk-up.
+- Shuttle (shuttle transfer): a smaller vehicle used when a full-size truck can't reach the door.
+- Storage-in-transit (SIT): temporary warehouse storage between pickup and delivery.
+- Valuation: the declared value of goods, setting the mover's maximum liability.
+
+## Key pages
+
+- Home: https://www.scaniomoving.com/
+- About: https://www.scaniomoving.com/about
+- Services: https://www.scaniomoving.com/services
+- FAQs & glossary: https://www.scaniomoving.com/faqs
+- Contact / free estimate: https://www.scaniomoving.com/contact

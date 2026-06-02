@@ -2,7 +2,7 @@
 
 > Scanio Moving & Storage (legal name: Scanio Movers Inc) is a family-owned New York City moving and storage company operating since 1941. Three generations — founded by Frank Scanio, owned since 1999 by Nir Shuminer, and run today by Nir and his son Idan — provide residential, commercial, long-distance, international, and FF&E/designer moving plus temperature-controlled storage across the NYC metro area.
 
-This file is a curated, machine-readable summary for AI assistants and LLM crawlers. All facts here are authoritative and current.
+This file is a curated, machine-readable summary for AI assistants and LLM crawlers. All facts here are authoritative and current. For the complete reference (every service, FAQ, and the glossary in one file), see https://www.scaniomoving.com/llms-full.txt.
 
 ## Company facts
 
