@@ -32,6 +32,7 @@ export default function Footer() {
               </p>
               <p className="text-[18px] font-semibold text-white/95">NY DOT T11495</p>
               <p className="text-[18px] font-semibold text-white/95">ICC MC93512</p>
+              <p className="text-[18px] font-semibold text-white/95">US DOT 537054</p>
             </div>
           </div>
 
