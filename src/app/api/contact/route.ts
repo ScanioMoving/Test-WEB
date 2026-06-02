@@ -15,8 +15,11 @@ export const runtime = "nodejs";
  * AWS_SECRET_ACCESS_KEY env vars.
  *
  * Required env vars in any environment:
- *   AWS_SES_REGION    Region where SES is configured, e.g. us-east-1.
- *                     (AWS_REGION also works.)
+ *   SES_REGION        Region where SES is configured, e.g. us-east-2.
+ *                     Use SES_REGION on Amplify/Lambda — the AWS_ prefix is
+ *                     reserved there, so AWS_SES_REGION can't be set. Falls
+ *                     back to AWS_SES_REGION (local dev) and then AWS_REGION
+ *                     (auto-set by the AWS runtime to the deploy region).
  *   CONTACT_FROM      Verified SES identity used as the From address,
  *                     e.g. "website@scaniomoving.com". Must be verified
  *                     in SES; account must be out of the sandbox to
@@ -110,7 +113,10 @@ export async function POST(request: Request) {
   if (!toAddress) return NextResponse.json({ error: "Moving-to address is required." }, { status: 400 });
   if (!hearAboutUs) return NextResponse.json({ error: 'Please fill in "How did you hear about us".' }, { status: 400 });
 
-  const region = process.env.AWS_SES_REGION || process.env.AWS_REGION;
+  // Prefer SES_REGION (Amplify/Lambda reserve the AWS_ prefix). Fall back to
+  // AWS_SES_REGION for local dev, then AWS_REGION (auto-set by the runtime).
+  const region =
+    process.env.SES_REGION || process.env.AWS_SES_REGION || process.env.AWS_REGION;
   // CONTACT_TO accepts one address or a comma-separated list, so quote
   // requests can be "chained" to several inboxes (e.g. info@ + a personal
   // address) from a single env var. Defaults to COMPANY.email.
@@ -122,7 +128,7 @@ export async function POST(request: Request) {
 
   if (!region || !from || toList.length === 0) {
     console.error(
-      "[contact] AWS SES is not configured. Need AWS_SES_REGION (or AWS_REGION) and CONTACT_FROM.",
+      "[contact] AWS SES is not configured. Need SES_REGION (or AWS_REGION) and CONTACT_FROM.",
     );
     return configError();
   }
