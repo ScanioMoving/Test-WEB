@@ -6,6 +6,19 @@ frontend:
         - npm ci
     build:
       commands:
+        # Amplify exposes app env vars to the BUILD shell but NOT to the
+        # Next.js SSR runtime. Persist the server-side vars into
+        # .env.production so the running server (and the /api/contact route)
+        # can read them at request time.
+        - |
+          {
+            echo "SES_REGION=$SES_REGION"
+            echo "CONTACT_FROM=$CONTACT_FROM"
+            echo "CONTACT_TO=$CONTACT_TO"
+            echo "SES_ACCESS_KEY_ID=$SES_ACCESS_KEY_ID"
+            echo "SES_SECRET_ACCESS_KEY=$SES_SECRET_ACCESS_KEY"
+            echo "NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL"
+          } > .env.production
         - npm run build
   artifacts:
     # Next.js App Router (SSR / WEB_COMPUTE). Amplify packages the server
