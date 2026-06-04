@@ -157,7 +157,7 @@ export default function AboutPage() {
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-6"
                 style={{ color: "#2D3748" }}
               >
-                In 2012, Nir&apos;s son, Idan Shuminer, joined the business,
+                In 2015, Nir&apos;s son, Idan Shuminer, joined the business,
                 and what had been one man&apos;s stewardship became a true
                 family enterprise. Together, the father and son duo run
                 Scanio Movers as a hands-on team. Nir brings decades of
