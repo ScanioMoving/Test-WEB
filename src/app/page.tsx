@@ -428,6 +428,73 @@ function TestimonialCarousel() {
   );
 }
 
+// Plays the truck clip once on load (no scroll), on web and mobile. Built from
+// the same scroll frames, served as a single ~6MB H.264 video so it's light and
+// hardware-decoded (smooth on mobile). The first frame is held ~0.5s before
+// playback to give the clip a moment to buffer. To revert to the scroll-driven
+// version, render <TruckScrollHero /> instead of <VideoHero /> below.
+function VideoHero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [showText, setShowText] = useState(false);
+
+  useEffect(() => {
+    // Hold the poster (first frame) ~0.5s, then play — gives it time to buffer.
+    const t = setTimeout(() => {
+      videoRef.current?.play().catch(() => {});
+    }, 500);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <section className="relative h-[100dvh] w-full overflow-hidden" style={{ background: "#0A1628" }}>
+      <video
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/truck-hero.mp4"
+        poster="/truck-sequence/ezgif-frame-001.webp"
+        muted
+        playsInline
+        preload="auto"
+        onTimeUpdate={(e) => {
+          const v = e.currentTarget;
+          if (v.duration && v.currentTime / v.duration > 0.7) setShowText(true);
+        }}
+        onEnded={() => setShowText(true)}
+      />
+
+      {/* Dark gradient at the bottom for text legibility */}
+      <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
+
+      {/* Hero text — fades in over the last stretch of the clip */}
+      <div
+        className="absolute inset-x-0 bottom-6 md:bottom-24 z-10 px-8 md:px-16 transition-opacity duration-700"
+        style={{ opacity: showText ? 1 : 0 }}
+      >
+        <div className="flex flex-col gap-4 items-start">
+          <a
+            href={TEL_HREF}
+            className="inline-flex items-center gap-2 text-white text-[clamp(15px,2.1vw,20px)] tracking-[0.2em] font-bold hover:opacity-80 transition-opacity"
+            style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}
+          >
+            <Phone size={17} strokeWidth={2.4} />
+            {COMPANY.phone.display}
+          </a>
+          <Link
+            href="/quote"
+            className="inline-block text-white text-[clamp(13px,2.1vw,18px)] tracking-[0.28em] uppercase font-bold px-6 py-3 md:px-7 md:py-3.5 transition-all hover:opacity-90"
+            style={{
+              background: "#0B5DB5",
+              boxShadow: "0 8px 24px -8px rgba(0,0,0,0.45)",
+            }}
+          >
+            Request Consultation
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -778,7 +845,7 @@ export default function HomePage() {
       </nav>
 
       {/* ─── HERO — Scroll-driven truck sequence ─── */}
-      <TruckScrollHero />
+      <VideoHero />
 
       {/* ─── TESTIMONIALS — hidden, on back burner ─── */}
       {/* <TestimonialCarousel /> */}
