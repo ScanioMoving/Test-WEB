@@ -32,7 +32,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   return (
     <div
       ref={ref}
-      className={`transition-all duration-[500ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${className}`}
+      className={`lg:transition-all lg:duration-[500ms] ${visible ? "lg:opacity-100 lg:translate-y-0" : "lg:opacity-0 lg:translate-y-5"} ${className}`}
       style={{ transitionDelay: `${delay}ms`, transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
     >
       {children}
@@ -209,31 +209,45 @@ function TruckScrollHero() {
     };
   }, [draw]);
 
-  // Scroll handler
+  // Drive the animation from a continuous animation-frame loop (while the hero
+  // is on screen) instead of from scroll events. iOS dispatches touch-scroll
+  // events at an irregular cadence, so redrawing on each event stutters;
+  // sampling the scroll position every frame keeps the truck locked to the
+  // scroll and feels as fluid as a trackpad. The loop pauses when the hero
+  // leaves the viewport and skips redraws when nothing moved (no idle work).
+  // All updates are imperative (canvas + refs) — scrolling never re-renders.
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
     let raf = 0;
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0;
-        const el = sectionRef.current;
-        if (!el) return;
+    let active = false;
+    let lastTop = NaN;
+
+    const frame = () => {
+      const el = sectionRef.current;
+      if (el) {
         const rect = el.getBoundingClientRect();
-        const total = el.offsetHeight - window.innerHeight;
-        const progress = Math.min(1, Math.max(0, -rect.top / total));
-        progressRef.current = progress;
-        draw(progress);
-        // Update overlay opacities directly — no React render on scroll.
-        if (textRef.current) textRef.current.style.opacity = String(Math.max(0, (progress - 0.7) / 0.3));
-        if (hintRef.current) hintRef.current.style.opacity = progress < 0.1 ? "1" : "0";
-      });
+        if (rect.top !== lastTop) {
+          lastTop = rect.top;
+          const total = el.offsetHeight - window.innerHeight;
+          const progress = Math.min(1, Math.max(0, -rect.top / total));
+          progressRef.current = progress;
+          draw(progress);
+          if (textRef.current) textRef.current.style.opacity = String(Math.max(0, (progress - 0.7) / 0.3));
+          if (hintRef.current) hintRef.current.style.opacity = progress < 0.1 ? "1" : "0";
+        }
+      }
+      raf = requestAnimationFrame(frame);
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
+    const start = () => { if (!active) { active = true; lastTop = NaN; raf = requestAnimationFrame(frame); } };
+    const stop = () => { if (active) { active = false; cancelAnimationFrame(raf); raf = 0; } };
+
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) start(); else stop(); },
+      { rootMargin: "200px 0px 200px 0px" },
+    );
+    io.observe(section);
+    return () => { stop(); io.disconnect(); };
   }, [draw]);
 
   const loadPct = Math.round((loaded / TRUCK_FRAME_COUNT) * 100);
