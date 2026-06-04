@@ -88,7 +88,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/truck-sequence/ezgif-frame-001.jpg"
+          href="/truck-sequence/ezgif-frame-001.webp"
           fetchPriority="high"
         />
         {/* LocalBusiness structured data — helps Google local + Maps and

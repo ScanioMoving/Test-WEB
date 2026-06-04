@@ -94,7 +94,7 @@ export default function PackingPage() {
         {/* Right: Image */}
         <div className="lg:w-1/2 relative min-h-[50vh] lg:min-h-screen">
           <Image
-            src="/services/ffe-vase.jpg"
+            src="/services/ffe-vase.webp"
             alt="Blue and white porcelain vase in Scanio staging area"
             fill
             priority

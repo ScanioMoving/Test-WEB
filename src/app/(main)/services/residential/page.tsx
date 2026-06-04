@@ -8,11 +8,11 @@ import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 const rotatingPhotos = [
   {
-    src: "/services/residential-truck.jpg",
+    src: "/services/residential-truck.webp",
     alt: "Scanio Moving truck parked on a brownstone-lined NYC street",
   },
   {
-    src: "/services/residential-house.jpg",
+    src: "/services/residential-house.webp",
     alt: "Scanio truck at a residential home",
   },
 ];

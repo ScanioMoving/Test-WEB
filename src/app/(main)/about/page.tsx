@@ -8,15 +8,15 @@ import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 const rotatingPhotos = [
   {
-    src: "/about/handshake-client.png",
+    src: "/about/handshake-client.webp",
     alt: "A Scanio mover shaking hands with a longtime client after a careful packing job",
   },
   {
-    src: "/about/warehouse-crew.jpg",
+    src: "/about/warehouse-crew.webp",
     alt: "A Scanio team member at our warehouse, organizing client belongings on managed shelving",
   },
   {
-    src: "/about/scanio-truck-crew.jpg",
+    src: "/about/scanio-truck-crew.webp",
     alt: "Scanio crew in front of the company truck on a New York City street",
   },
 ];

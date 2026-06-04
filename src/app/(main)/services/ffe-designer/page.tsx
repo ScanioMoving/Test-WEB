@@ -32,7 +32,7 @@ export default function FFEDesignerPage() {
           {/* Left: Sticky image */}
           <div className="lg:w-1/2 w-full lg:sticky lg:top-[150px] lg:self-start relative min-h-[42vh] md:min-h-[55vh] lg:min-h-0 lg:h-[calc(100vh-150px)]">
             <Image
-              src="/services/ffe-vase.jpg"
+              src="/services/ffe-vase.webp"
               alt="Blue and white porcelain vase flanked by studio lamps in Scanio staging area"
               fill
               priority

@@ -33,7 +33,7 @@ export default function InternationalPage() {
           {/* Right (desktop) / Top (mobile): Sticky image */}
           <div className="lg:w-1/2 w-full lg:sticky lg:top-[150px] lg:self-start relative min-h-[42vh] md:min-h-[55vh] lg:min-h-0 lg:h-[calc(100vh-150px)]">
             <Image
-              src="/services/international.jpg"
+              src="/services/international.webp"
               alt="International shipping and global relocations"
               fill
               priority

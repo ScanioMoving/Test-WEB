@@ -98,7 +98,7 @@ function TruckScrollHero() {
       } else if (i > 60) {
         (img as HTMLImageElement & { fetchPriority?: string }).fetchPriority = "low";
       }
-      img.src = `/truck-sequence/ezgif-frame-${n}.jpg`;
+      img.src = `/truck-sequence/ezgif-frame-${n}.webp`;
       // if cached, onload may have fired before we attached — handle synchronously
       if (img.complete && img.naturalWidth > 0) {
         done++;
@@ -284,7 +284,7 @@ function TruckScrollHero() {
 }
 
 const heroSlides = [
-  { src: "/slides/slide-2-cycle.jpg", alt: "NYC skyline" },
+  { src: "/slides/slide-2-cycle.webp", alt: "NYC skyline" },
 ];
 
 function TestimonialCarousel() {
@@ -929,8 +929,8 @@ export default function HomePage() {
 
         <div className="grid md:grid-cols-2">
           {[
-            { title: "Residential Moving", desc: "From Park Avenue penthouses to Brooklyn brownstones. Every home move handled with museum-grade care.", img: "/services/residential-truck.jpg", href: "/services/residential" },
-            { title: "Storage", desc: "Climate-controlled. Secure. Flexible terms for any timeline.", img: "/services/storage.jpg", href: "/storage" },
+            { title: "Residential Moving", desc: "From Park Avenue penthouses to Brooklyn brownstones. Every home move handled with museum-grade care.", img: "/services/residential-truck.webp", href: "/services/residential" },
+            { title: "Storage", desc: "Climate-controlled. Secure. Flexible terms for any timeline.", img: "/services/storage.webp", href: "/storage" },
           ].map((s, i) => (
             <Reveal key={s.title} delay={i * 100}>
               <Link href={s.href} className="group block relative overflow-hidden cursor-pointer">
@@ -960,10 +960,10 @@ export default function HomePage() {
 
         <div className="grid grid-cols-2 md:grid-cols-4">
           {[
-            { title: "FF&E / Designer", desc: "Fine art, antiques, pianos. Museum-quality care.", img: "/services/ffe-landing.png", href: "/services/ffe-designer" },
-            { title: "Long Distance", desc: "Coast-to-coast. ICC-licensed. Fully insured.", img: "/services/long-distance-truck.png", href: "/services/long-distance" },
-            { title: "International", desc: "Global relocations. Customs handled. Door to door.", img: "/services/international.jpg", href: "/services/international" },
-            { title: "Commercial", desc: "Corporate and office relocations with precision.", img: "/services/commercial-office.png", href: "/services/commercial" },
+            { title: "FF&E / Designer", desc: "Fine art, antiques, pianos. Museum-quality care.", img: "/services/ffe-landing.webp", href: "/services/ffe-designer" },
+            { title: "Long Distance", desc: "Coast-to-coast. ICC-licensed. Fully insured.", img: "/services/long-distance-truck.webp", href: "/services/long-distance" },
+            { title: "International", desc: "Global relocations. Customs handled. Door to door.", img: "/services/international.webp", href: "/services/international" },
+            { title: "Commercial", desc: "Corporate and office relocations with precision.", img: "/services/commercial-office.webp", href: "/services/commercial" },
           ].map((s, i) => (
             <Reveal key={s.title} delay={i * 80}>
               <Link href={s.href} className="group block relative overflow-hidden cursor-pointer">

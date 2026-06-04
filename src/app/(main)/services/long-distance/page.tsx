@@ -31,7 +31,7 @@ export default function LongDistancePage() {
           {/* Left: Sticky image */}
           <div className="lg:w-1/2 w-full lg:sticky lg:top-[150px] lg:self-start relative min-h-[42vh] md:min-h-[55vh] lg:min-h-0 lg:h-[calc(100vh-150px)]">
             <Image
-              src="/services/long-distance-truck.png"
+              src="/services/long-distance-truck.webp"
               alt="Scanio Moving & Storage long-haul tractor-trailer on an open desert highway"
               fill
               priority

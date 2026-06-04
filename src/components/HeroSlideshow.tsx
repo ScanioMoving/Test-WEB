@@ -10,19 +10,19 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    src: "/slides/slide-1.jpg",
+    src: "/slides/slide-1.webp",
     alt: "New York City skyline at dusk",
   },
   {
-    src: "/slides/slide-2.jpg",
+    src: "/slides/slide-2.webp",
     alt: "Luxury home interior",
   },
   {
-    src: "/slides/slide-3.jpg",
+    src: "/slides/slide-3.webp",
     alt: "Modern architectural interior",
   },
   {
-    src: "/slides/slide-4.jpg",
+    src: "/slides/slide-4.webp",
     alt: "Manhattan cityscape",
   },
 ];
