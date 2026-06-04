@@ -446,24 +446,34 @@ function VideoHero() {
     return () => clearTimeout(t);
   }, []);
 
-  // Mobile only: mirror the old scroll hero's framing. Hold centered, then
-  // ease-pan to the right ONLY over the last ~2 seconds, so the truck "drives"
-  // into its final framing and settles (ease-out cubic, like the old setup).
-  // Driven off the video's own currentTime via rAF so it stays in sync.
-  // Desktop fills a landscape screen fine — no pan there.
+  // Mobile only: hold the framing centered, then shift it LINEARLY over the
+  // last 40 frames of the clip — the same window the old scroll hero panned
+  // across (its progress 0.7→0.88 maps to frames 148–187 of 188), so the
+  // motion is slow/absent at first and only ramps up at the end. Magnitude is
+  // ported from the old pan (0.195 × viewport width, clamped to the cover
+  // overflow); direction settles the truck toward the right of frame. Driven
+  // off the video's currentTime via rAF. Desktop fills landscape fine — no pan.
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia("(max-width: 1023px)").matches) return;
     const v = videoRef.current;
     if (!v) return;
     let raf = 0;
-    const PAN_SECONDS = 2; // only pan over the final stretch
+    const PAN_FRAMES = 40;
+    const startFrac = (TRUCK_FRAME_COUNT - PAN_FRAMES) / TRUCK_FRAME_COUNT; // ~0.787
     const pan = () => {
       const dur = v.duration;
       if (dur) {
-        const win = Math.min(PAN_SECONDS, dur);
-        const raw = Math.max(0, Math.min(1, (v.currentTime - (dur - win)) / win));
-        const eased = 1 - Math.pow(1 - raw, 3); // ease-out cubic
-        v.style.objectPosition = `${50 - 15 * eased}% center`;
+        const p = v.currentTime / dur;
+        const raw = Math.max(0, Math.min(1, (p - startFrac) / (1 - startFrac))); // linear over last 40 frames
+        const cw = v.clientWidth || 1;
+        const ch = v.clientHeight || 1;
+        const iw = v.videoWidth || 1920;
+        const ih = v.videoHeight || 1080;
+        const scale = Math.max(cw / iw, ch / ih);
+        const overflow = Math.max(1, iw * scale - cw);
+        const shiftPx = Math.min(0.195 * cw, overflow / 2);
+        const posX = 50 - (shiftPx / overflow) * 100 * raw; // settle toward the right
+        v.style.objectPosition = `${posX}% center`;
         if (v.ended || v.currentTime >= dur) return;
       }
       raf = requestAnimationFrame(pan);
