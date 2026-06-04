@@ -142,7 +142,15 @@ export default function StoragePage() {
                 style={{ color: "#2D3748" }}
               >
                 Because storage is part of what we do, not a separate
-                business, it folds seamlessly into your move. We can pick
+                business, it folds seamlessly into{" "}
+                <Link
+                  href="/services"
+                  className="underline decoration-1 underline-offset-2 transition-opacity hover:opacity-70"
+                  style={{ color: "#0B5DB5" }}
+                >
+                  your move
+                </Link>
+                . We can pick
                 up, store, and later deliver your belongings as one
                 coordinated effort, with the same careful handling and
                 the same digital inventory throughout. Your things go

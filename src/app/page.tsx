@@ -771,9 +771,24 @@ export default function HomePage() {
                   company. Many of our crews, operations staff, and
                   warehouse team have been with Scanio for decades, which
                   means seasoned professionals handle your belongings at
-                  every stage of the move. Today Scanio moves households
-                  across the country and around the world by land, sea, and
-                  air, yet what defines us hasn&apos;t changed since 1941: a
+                  every stage of the move. Today Scanio moves households{" "}
+                  <Link
+                    href="/services/long-distance"
+                    className="underline decoration-1 underline-offset-2 transition-opacity hover:opacity-70"
+                    style={{ color: "#0B5DB5" }}
+                  >
+                    across the country
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/services/international"
+                    className="underline decoration-1 underline-offset-2 transition-opacity hover:opacity-70"
+                    style={{ color: "#0B5DB5" }}
+                  >
+                    around the world
+                  </Link>{" "}
+                  by land, sea, and air, yet what defines us hasn&apos;t
+                  changed since 1941: a
                   family-owned commitment to care, reliability, and doing
                   right by every customer.
                 </p>

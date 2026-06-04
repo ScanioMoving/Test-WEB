@@ -142,7 +142,15 @@ export default function LongDistancePage() {
                 you need to be settled, then plans the packing, pickup,
                 transport, and delivery so the pieces line up. If your new
                 place will not be ready in time, we hold your belongings
-                safely in our warehouse until you are.
+                safely in{" "}
+                <Link
+                  href="/storage"
+                  className="underline decoration-1 underline-offset-2 transition-opacity hover:opacity-70"
+                  style={{ color: "#0B5DB5" }}
+                >
+                  our warehouse
+                </Link>{" "}
+                until you are.
               </p>
 
               {/* Digital Inventory Management */}

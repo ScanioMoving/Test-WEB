@@ -167,8 +167,23 @@ export default function ResidentialPage() {
               >
                 We handle moves of every size, from a single apartment to a
                 full estate, and across every distance, whether you are
-                relocating across town, across the country, or around the
-                world. Whatever the move, the standard never changes: your
+                relocating across town,{" "}
+                <Link
+                  href="/services/long-distance"
+                  className="underline decoration-1 underline-offset-2 transition-opacity hover:opacity-70"
+                  style={{ color: "#0B5DB5" }}
+                >
+                  across the country
+                </Link>
+                , or{" "}
+                <Link
+                  href="/services/international"
+                  className="underline decoration-1 underline-offset-2 transition-opacity hover:opacity-70"
+                  style={{ color: "#0B5DB5" }}
+                >
+                  around the world
+                </Link>
+                . Whatever the move, the standard never changes: your
                 belongings are treated with the same respect we would give
                 our own.
               </p>

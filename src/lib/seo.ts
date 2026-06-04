@@ -62,9 +62,14 @@ export const localBusinessJsonLd = {
       closes: "17:00",
     },
   ],
-  // Corroborating profile(s) that identify the business. Google Business
-  // entity for now; add Facebook/Instagram/Yelp URLs here as they're confirmed.
-  sameAs: ["https://www.google.com/search?kgmid=/g/113h8bdvx"],
+  // Corroborating public profiles that identify the business (helps Google
+  // resolve the entity / knowledge panel).
+  sameAs: [
+    "https://www.google.com/search?kgmid=/g/113h8bdvx",
+    "https://www.facebook.com/scaniomovingandstorage/",
+    "https://www.instagram.com/scaniomovers/",
+    "https://www.yelp.com/biz/scanio-moving-and-storage-new-york-2",
+  ],
   additionalProperty: COMPANY.licenses.map((l) => ({
     "@type": "PropertyValue",
     name: l.label,
