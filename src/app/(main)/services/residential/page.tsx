@@ -91,10 +91,10 @@ export default function ResidentialPage() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  quality={82}
+                  quality={95}
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority={i === 0}
+                  priority
                 />
               </div>
             ))}

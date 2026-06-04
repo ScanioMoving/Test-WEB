@@ -44,7 +44,7 @@ export default function StoragePage() {
               alt="Scanio temperature-controlled storage facility"
               fill
               priority
-              quality={82}
+              quality={95}
               className="object-cover"
               style={{ objectPosition: "center center" }}
               sizes="(max-width: 1024px) 100vw, 50vw"

@@ -44,7 +44,7 @@ export default function LongDistancePage() {
               alt="Scanio Moving & Storage long-haul tractor-trailer on an open desert highway"
               fill
               priority
-              quality={82}
+              quality={100}
               className="object-cover"
               style={{ objectPosition: "center center" }}
               sizes="(max-width: 1024px) 100vw, 50vw"

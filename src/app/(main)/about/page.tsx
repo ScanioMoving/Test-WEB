@@ -61,14 +61,14 @@ export default function AboutPage() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  quality={82}
+                  quality={95}
                   className="object-cover"
                   // The first photo (handshake-client.png) has a thin white
                   // border baked into the source — zoom slightly so it
                   // crops out beyond the visible area.
                   style={i === 0 ? { transform: "scale(1.05)" } : undefined}
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority={i === 0}
+                  priority
                 />
               </div>
             ))}

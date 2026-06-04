@@ -859,7 +859,7 @@ export default function HomePage() {
                     alt="Vintage Scanio Moving trucks"
                     fill
                     loading="eager"
-                    quality={82}
+                    quality={95}
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
@@ -959,7 +959,7 @@ export default function HomePage() {
                     alt={s.title}
                     fill
                     loading="eager"
-                    quality={82}
+                    quality={100}
                     className="object-cover transition-transform duration-[1000ms] group-hover:scale-[1.04]"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 720px"
                   />
@@ -993,7 +993,7 @@ export default function HomePage() {
                     alt={s.title}
                     fill
                     loading="eager"
-                    quality={82}
+                    quality={100}
                     className="object-cover transition-transform duration-[800ms] group-hover:scale-[1.05]"
                     sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw, 360px"
                   />
