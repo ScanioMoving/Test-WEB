@@ -445,6 +445,27 @@ function VideoHero() {
     return () => clearTimeout(t);
   }, []);
 
+  // Mobile only: gently pan the framing across the clip. The 16:9 video
+  // center-crops on a portrait phone, so this follows the truck like the old
+  // scroll hero's mobile pan did. Driven off the video's own currentTime via
+  // rAF so it stays in sync and smooth. Desktop fills landscape fine — no pan.
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia("(max-width: 1023px)").matches) return;
+    const v = videoRef.current;
+    if (!v) return;
+    let raf = 0;
+    const pan = () => {
+      if (v.duration) {
+        const p = Math.min(1, v.currentTime / v.duration);
+        v.style.objectPosition = `${38 + 24 * p}% center`;
+        if (p >= 1) return;
+      }
+      raf = requestAnimationFrame(pan);
+    };
+    raf = requestAnimationFrame(pan);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden" style={{ background: "#0A1628" }}>
       <video
