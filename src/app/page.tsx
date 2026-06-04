@@ -144,8 +144,8 @@ function TruckScrollHero() {
       img = found;
     }
 
-    const cw = window.innerWidth;
-    const ch = window.innerHeight;
+    const cw = canvas.clientWidth;
+    const ch = canvas.clientHeight;
     const iw = img.naturalWidth;
     const ih = img.naturalHeight;
 
@@ -178,23 +178,35 @@ function TruckScrollHero() {
     if (loaded > 0) draw(progressRef.current);
   }, [loaded, draw]);
 
-  // Size canvas to viewport (and redraw)
+  // Size the canvas backing store to the canvas's OWN rendered box (its
+  // 100dvh container) — not window.innerHeight. On mobile those differ
+  // because of the dynamic address bar, which left the canvas shorter than
+  // its container and exposed the dark background as a "black box" at the
+  // bottom. Let CSS (w-full h-full) drive the element size; we only set the
+  // backing-store resolution here and redraw on viewport changes.
   useEffect(() => {
     const resize = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      if (!w || !h) return;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
       const ctx = canvas.getContext("2d");
       if (ctx) ctx.scale(dpr, dpr);
       draw(progressRef.current);
     };
     resize();
     window.addEventListener("resize", resize);
-    return () => window.removeEventListener("resize", resize);
+    // The mobile address bar showing/hiding fires visualViewport resize (not
+    // always window resize), so track that too to stay perfectly filled.
+    window.visualViewport?.addEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+      window.visualViewport?.removeEventListener("resize", resize);
+    };
   }, [draw]);
 
   // Scroll handler
