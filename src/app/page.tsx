@@ -472,7 +472,7 @@ function VideoHero() {
         const scale = Math.max(cw / iw, ch / ih);
         const overflow = Math.max(1, iw * scale - cw);
         const shiftPx = Math.min(0.195 * cw, overflow / 2);
-        const posX = 50 - (shiftPx / overflow) * 100 * raw; // settle toward the right
+        const posX = 50 + (shiftPx / overflow) * 100 * raw; // pan toward the right of the scene (matches old pan)
         v.style.objectPosition = `${posX}% center`;
         if (v.ended || v.currentTime >= dur) return;
       }
