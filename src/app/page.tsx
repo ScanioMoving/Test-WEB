@@ -436,6 +436,7 @@ function TestimonialCarousel() {
 function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showText, setShowText] = useState(false);
+  const [posterUp, setPosterUp] = useState(true);
 
   useEffect(() => {
     // Hold the poster (first frame) ~0.5s, then play — gives it time to buffer.
@@ -462,7 +463,7 @@ function VideoHero() {
         const win = Math.min(PAN_SECONDS, dur);
         const raw = Math.max(0, Math.min(1, (v.currentTime - (dur - win)) / win));
         const eased = 1 - Math.pow(1 - raw, 3); // ease-out cubic
-        v.style.objectPosition = `${50 + 15 * eased}% center`;
+        v.style.objectPosition = `${50 - 15 * eased}% center`;
         if (v.ended || v.currentTime >= dur) return;
       }
       raf = requestAnimationFrame(pan);
@@ -485,7 +486,18 @@ function VideoHero() {
           const v = e.currentTarget;
           if (v.duration && v.currentTime / v.duration > 0.7) setShowText(true);
         }}
+        onPlaying={() => setPosterUp(false)}
         onEnded={() => setShowText(true)}
+      />
+
+      {/* First-frame overlay — stays up until the video is actually rendering
+          frames, covering the gap between the poster being dropped and the
+          first decoded frame painting (otherwise the navy bg flashes black). */}
+      <img
+        src="/truck-sequence/ezgif-frame-001.webp"
+        alt=""
+        aria-hidden
+        className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-200 ${posterUp ? "opacity-100" : "opacity-0"}`}
       />
 
       {/* Dark gradient at the bottom for text legibility */}
