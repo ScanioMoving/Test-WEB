@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, ChevronDown } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_URL, pageMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import { FAQ_SECTIONS, FAQ_GLOSSARY } from "./faq-data";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
+  path: "/faqs",
   title: "Moving FAQs & Glossary",
   description:
     "Answers to common NYC moving questions — pianos, estimates, COIs, storage, packing, licensing, and a plain-language glossary of moving terms. Scanio Moving & Storage, since 1941.",
-  alternates: { canonical: "/faqs" },
-};
+});
 
 // Flatten an answer (lead + any bullets/steps) into plain text for schema.org.
 function answerText(it: { a: string; bullets?: string[]; steps?: string[] }): string {
@@ -39,6 +39,12 @@ const quickLinks = [
 export default function FaqsPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "FAQs", path: "/faqs" },
+        ])}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

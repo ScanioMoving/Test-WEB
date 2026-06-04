@@ -2,13 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
+import { pageMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/storage",
   title: "NYC Storage Services",
   description:
     "Secure, temperature-controlled storage in the NYC metro area, 3 miles from the Lincoln Tunnel. Flexible terms — pay only for the space you use.",
-  alternates: { canonical: "/storage" },
-};
+});
 
 const features = [
   "Temperature-controlled environment that protects against extreme heat and cold",
@@ -23,6 +25,12 @@ const features = [
 export default function StoragePage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Storage", path: "/storage" },
+        ])}
+      />
       {/* Spacer behind the fixed header */}
       <div className="h-[150px] w-full bg-white" />
 
@@ -90,12 +98,12 @@ export default function StoragePage() {
               </p>
 
               {/* Storage that works around you */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Storage that works around you
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-8 md:mb-10"
                 style={{ color: "#2D3748" }}
@@ -107,28 +115,28 @@ export default function StoragePage() {
                 terms.
               </p>
 
-              <h4
+              <h3
                 className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase font-medium mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 What you get
-              </h4>
-              <div className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14">
+              </h3>
+              <ul className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14 list-none">
                 {features.map((f) => (
-                  <div key={f} className="flex items-start gap-2.5">
+                  <li key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
                     <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               {/* Storage that connects to your move */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Storage that connects to your move
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
@@ -143,12 +151,12 @@ export default function StoragePage() {
               </p>
 
               {/* Ready to reserve your space */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Ready to reserve your space?
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85]"
                 style={{ color: "#2D3748" }}

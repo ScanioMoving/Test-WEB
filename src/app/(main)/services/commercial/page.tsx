@@ -2,13 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
+import { pageMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/services/commercial",
   title: "NYC Commercial Movers",
   description:
     "Office, warehouse, and retail relocation across NYC with minimal downtime. Trusted commercial movers since 1941. Call 212.722.6850.",
-  alternates: { canonical: "/services/commercial" },
-};
+});
 
 const features = [
   "Office, retail, warehouse, and institutional relocations",
@@ -28,6 +30,13 @@ const features = [
 export default function CommercialPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Commercial Moving", path: "/services/commercial" },
+        ])}
+      />
       {/* Spacer behind the fixed header */}
       <div className="h-[150px] w-full bg-white" />
 
@@ -87,12 +96,12 @@ export default function CommercialPage() {
               </p>
 
               {/* Why businesses choose Scanio */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Why businesses choose Scanio
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-12"
                 style={{ color: "#2D3748" }}
@@ -110,28 +119,28 @@ export default function CommercialPage() {
               </p>
 
               {/* Services list */}
-              <h4
+              <h3
                 className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase font-medium mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Our commercial services include
-              </h4>
-              <div className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14">
+              </h3>
+              <ul className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14 list-none">
                 {features.map((f) => (
-                  <div key={f} className="flex items-start gap-2.5">
+                  <li key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
                     <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               {/* Planning that protects your timeline */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Planning that protects your timeline
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
@@ -149,12 +158,12 @@ export default function CommercialPage() {
               </p>
 
               {/* Set up and ready to work */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Set up and ready to work
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85]"
                 style={{ color: "#2D3748" }}

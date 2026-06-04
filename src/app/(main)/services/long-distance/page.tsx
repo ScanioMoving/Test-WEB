@@ -2,13 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
+import { pageMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/services/long-distance",
   title: "Long Distance Movers NYC",
   description:
     "Long distance moves from New York City handled start to finish by one accountable team. ICC-licensed (MC93512), insured, and experienced since 1941.",
-  alternates: { canonical: "/services/long-distance" },
-};
+});
 
 const features = [
   "Direct, dedicated transport with your shipment in our care the entire way",
@@ -22,6 +24,13 @@ const features = [
 export default function LongDistancePage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Long Distance Moving", path: "/services/long-distance" },
+        ])}
+      />
       {/* Spacer behind the fixed header */}
       <div className="h-[150px] w-full bg-white" />
 
@@ -78,12 +87,12 @@ export default function LongDistancePage() {
               </p>
 
               {/* One company, the whole way there */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 One company, the whole way there
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-12"
                 style={{ color: "#2D3748" }}
@@ -100,28 +109,28 @@ export default function LongDistancePage() {
               </p>
 
               {/* Features list */}
-              <h4
+              <h3
                 className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase font-medium mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 What sets a Scanio long haul apart
-              </h4>
-              <div className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14">
+              </h3>
+              <ul className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14 list-none">
                 {features.map((f) => (
-                  <div key={f} className="flex items-start gap-2.5">
+                  <li key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
                     <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               {/* Built around your calendar */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Built around your calendar
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
@@ -137,12 +146,12 @@ export default function LongDistancePage() {
               </p>
 
               {/* Digital Inventory Management */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Digital inventory management
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
@@ -160,12 +169,12 @@ export default function LongDistancePage() {
               </p>
 
               {/* Know where your belongings are */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Know where your belongings are
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
@@ -177,12 +186,12 @@ export default function LongDistancePage() {
               </p>
 
               {/* Shuttle Transfers */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Shuttle transfers
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}

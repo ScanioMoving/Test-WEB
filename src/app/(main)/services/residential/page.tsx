@@ -174,12 +174,12 @@ export default function ResidentialPage() {
               </p>
 
               {/* Why families choose Scanio */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Why families choose Scanio
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-12"
                 style={{ color: "#2D3748" }}
@@ -196,28 +196,28 @@ export default function ResidentialPage() {
               </p>
 
               {/* Services list */}
-              <h4
+              <h3
                 className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase font-medium mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Our residential services include
-              </h4>
-              <div className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14">
+              </h3>
+              <ul className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14 list-none">
                 {features.map((f) => (
-                  <div key={f} className="flex items-start gap-2.5">
+                  <li key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
                     <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               {/* Planning your move */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Planning your move
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
@@ -234,12 +234,12 @@ export default function ResidentialPage() {
               </p>
 
               {/* Packing and unpacking */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Packing and unpacking, your way
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-7 md:mb-9"
                 style={{ color: "#2D3748" }}

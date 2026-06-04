@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { COMPANY } from "@/lib/contact";
 
 /**
@@ -61,9 +62,68 @@ export const localBusinessJsonLd = {
       closes: "17:00",
     },
   ],
+  // Corroborating profile(s) that identify the business. Google Business
+  // entity for now; add Facebook/Instagram/Yelp URLs here as they're confirmed.
+  sameAs: ["https://www.google.com/search?kgmid=/g/113h8bdvx"],
   additionalProperty: COMPANY.licenses.map((l) => ({
     "@type": "PropertyValue",
     name: l.label,
     value: l.value,
   })),
 } as const;
+
+const BRAND = "Scanio Moving & Storage";
+
+/**
+ * Per-route metadata helper. App Router merges metadata shallowly, so a page
+ * that sets only title/description silently inherits the ROOT openGraph block
+ * — meaning og:title/og:description/og:url all read as the homepage's. This
+ * builds a page-specific canonical + Open Graph + Twitter card so each route
+ * presents its own identity to social shares and crawlers.
+ */
+export function pageMetadata({
+  path,
+  title,
+  description,
+}: {
+  path: string;
+  title: string;
+  description: string;
+}): Metadata {
+  const ogTitle = `${title} | ${BRAND}`;
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: `${SITE_URL}${path}`,
+      siteName: BRAND,
+      title: ogTitle,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description,
+    },
+  };
+}
+
+/**
+ * BreadcrumbList JSON-LD from a list of {name, path} crumbs (paths resolved
+ * against SITE_URL). Render via the <JsonLd> component on inner pages.
+ */
+export function buildBreadcrumbJsonLd(crumbs: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      item: `${SITE_URL}${c.path}`,
+    })),
+  };
+}

@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { Star, Quote } from "lucide-react";
+import { pageMetadata } from "@/lib/seo";
 
 export const metadata = {
-  // Not featured yet — keep it out of the index until it's launched.
-  title: "Customer Reviews",
-  description:
-    "What NYC customers say about Scanio Moving & Storage — real reviews from New Yorkers who trusted us with their moves.",
+  ...pageMetadata({
+    path: "/testimonials",
+    title: "Customer Reviews",
+    description:
+      "What NYC customers say about Scanio Moving & Storage — real reviews from New Yorkers who trusted us with their moves.",
+  }),
   robots: { index: false, follow: true },
 };
 

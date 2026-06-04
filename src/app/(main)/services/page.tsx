@@ -10,13 +10,15 @@ import {
   Phone,
 } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
+import { pageMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/services",
   title: "Moving Services",
   description:
     "Full-service moving in NYC: residential, commercial, long distance, international, storage, and FF&E/designer handling. Licensed and insured since 1941.",
-  alternates: { canonical: "/services" },
-};
+});
 
 const services = [
   {
@@ -96,6 +98,12 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ])}
+      />
       {/* Hero */}
       <section className="bg-navy pt-[180px] pb-20">
         <div className="max-w-7xl mx-auto px-4">

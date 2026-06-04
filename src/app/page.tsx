@@ -427,6 +427,9 @@ export default function HomePage() {
 
   return (
     <div style={{ fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif" }}>
+      {/* Single screen-reader-only H1 — gives the homepage one clear top-level
+          heading with the primary phrase, with zero change to the visual design. */}
+      <h1 className="sr-only">Scanio Moving &amp; Storage — NYC Movers and Storage Since 1941</h1>
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Permanent+Marker&display=swap');
 

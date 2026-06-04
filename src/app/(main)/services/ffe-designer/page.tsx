@@ -1,13 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle, ExternalLink } from "lucide-react";
+import { pageMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/services/ffe-designer",
   title: "FF&E & Designer Services NYC",
   description:
     "White-glove FF&E and designer logistics in NYC: receiving, inspection, climate-controlled staging, and installation for interior designers and architects.",
-  alternates: { canonical: "/services/ffe-designer" },
-};
+});
 
 const features = [
   "Fine furniture and fixture handling",
@@ -23,6 +25,13 @@ const features = [
 export default function FFEDesignerPage() {
   return (
     <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "FF&E / Designer", path: "/services/ffe-designer" },
+        ])}
+      />
       {/* Spacer behind the fixed header */}
       <div className="h-[150px] w-full bg-white" />
 
@@ -74,12 +83,12 @@ export default function FFEDesignerPage() {
               </p>
 
               {/* Full-service FF&E project management */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Full-service FF&amp;E project management
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
@@ -96,12 +105,12 @@ export default function FFEDesignerPage() {
               </p>
 
               {/* Built for the way designers work */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Built for the way designers work
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
@@ -118,28 +127,28 @@ export default function FFEDesignerPage() {
               </p>
 
               {/* What we handle for designers */}
-              <h4
+              <h3
                 className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase font-medium mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 What we handle for designers
-              </h4>
-              <div className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14">
+              </h3>
+              <ul className="grid grid-cols-1 gap-y-2.5 md:gap-y-3 mb-10 md:mb-14 list-none">
                 {features.map((f) => (
-                  <div key={f} className="flex items-start gap-2.5">
+                  <li key={f} className="flex items-start gap-2.5">
                     <CheckCircle className="shrink-0 mt-0.5" size={15} style={{ color: "#0B5DB5" }} />
                     <span className="text-[14px] font-medium leading-[1.65] md:leading-[1.6]" style={{ color: "#2D3748" }}>{f}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               {/* One point of contact */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 One point of contact, start to finish
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85] mb-10 md:mb-14"
                 style={{ color: "#2D3748" }}
@@ -156,12 +165,12 @@ export default function FFEDesignerPage() {
               </p>
 
               {/* Let's plan your next project */}
-              <h3
+              <h2
                 className="text-[clamp(20px,2.4vw,30px)] font-light leading-[1.25] mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Let&apos;s plan your next project
-              </h3>
+              </h2>
               <p
                 className="text-[15px] md:text-[16px] font-normal leading-[1.8] md:leading-[1.85]"
                 style={{ color: "#2D3748" }}
