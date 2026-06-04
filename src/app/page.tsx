@@ -74,7 +74,12 @@ function TruckScrollHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [loaded, setLoaded] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  // Scroll progress + overlay opacities are driven imperatively (refs/DOM) so
+  // scrolling never triggers a React re-render — that per-frame setState was
+  // the main cause of janky truck scrolling, especially on mobile.
+  const progressRef = useRef(0);
+  const textRef = useRef<HTMLDivElement>(null);
+  const hintRef = useRef<HTMLDivElement>(null);
 
   // Preload frames
   useEffect(() => {
@@ -170,8 +175,8 @@ function TruckScrollHero() {
 
   // Redraw whenever a new frame has loaded (so first frame shows without scrolling)
   useEffect(() => {
-    if (loaded > 0) draw(scrollProgress);
-  }, [loaded, draw, scrollProgress]);
+    if (loaded > 0) draw(progressRef.current);
+  }, [loaded, draw]);
 
   // Size canvas to viewport (and redraw)
   useEffect(() => {
@@ -185,12 +190,12 @@ function TruckScrollHero() {
       canvas.style.height = `${window.innerHeight}px`;
       const ctx = canvas.getContext("2d");
       if (ctx) ctx.scale(dpr, dpr);
-      draw(scrollProgress);
+      draw(progressRef.current);
     };
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [draw, scrollProgress]);
+  }, [draw]);
 
   // Scroll handler
   useEffect(() => {
@@ -204,8 +209,11 @@ function TruckScrollHero() {
         const rect = el.getBoundingClientRect();
         const total = el.offsetHeight - window.innerHeight;
         const progress = Math.min(1, Math.max(0, -rect.top / total));
-        setScrollProgress(progress);
+        progressRef.current = progress;
         draw(progress);
+        // Update overlay opacities directly — no React render on scroll.
+        if (textRef.current) textRef.current.style.opacity = String(Math.max(0, (progress - 0.7) / 0.3));
+        if (hintRef.current) hintRef.current.style.opacity = progress < 0.1 ? "1" : "0";
       });
     };
     onScroll();
@@ -218,7 +226,6 @@ function TruckScrollHero() {
 
   const loadPct = Math.round((loaded / TRUCK_FRAME_COUNT) * 100);
   const ready = loaded >= Math.min(3, TRUCK_FRAME_COUNT); // show as soon as the opening frames land; draw() walks to nearest loaded frame for any unloaded targets
-  const textOpacity = Math.max(0, (scrollProgress - 0.7) / 0.3); // reveal in last 30%
 
   return (
     <section ref={sectionRef} className="relative" style={{ height: "300vh" }}>
@@ -245,8 +252,9 @@ function TruckScrollHero() {
 
         {/* Hero text — reveals near end of scroll */}
         <div
+          ref={textRef}
           className="absolute inset-x-0 bottom-6 md:bottom-24 z-10 px-8 md:px-16 transition-opacity duration-500"
-          style={{ opacity: textOpacity }}
+          style={{ opacity: 0 }}
         >
           <div className="flex flex-col gap-4 items-start">
             <a
@@ -272,8 +280,9 @@ function TruckScrollHero() {
 
         {/* Scroll hint — hides once scrolled past 10% */}
         <div
+          ref={hintRef}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-500 flex flex-col items-center gap-2"
-          style={{ opacity: scrollProgress < 0.1 ? 1 : 0 }}
+          style={{ opacity: 1 }}
         >
           <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">Scroll</span>
           <ArrowDown size={16} className="text-white/30" />
