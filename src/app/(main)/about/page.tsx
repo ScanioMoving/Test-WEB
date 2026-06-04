@@ -61,7 +61,7 @@ export default function AboutPage() {
                   src={photo.src}
                   alt={photo.alt}
                   fill
-                  quality={95}
+                  quality={82}
                   className="object-cover"
                   // The first photo (handshake-client.png) has a thin white
                   // border baked into the source — zoom slightly so it

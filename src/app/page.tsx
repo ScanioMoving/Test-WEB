@@ -855,10 +855,11 @@ export default function HomePage() {
                 {/* Photo */}
                 <div className="relative w-full aspect-square overflow-hidden">
                   <Image
-                    src="/vintage-trucks.jpg"
+                    src="/vintage-trucks.webp"
                     alt="Vintage Scanio Moving trucks"
                     fill
-                    quality={95}
+                    loading="eager"
+                    quality={82}
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
@@ -957,7 +958,8 @@ export default function HomePage() {
                     src={s.img}
                     alt={s.title}
                     fill
-                    quality={100}
+                    loading="eager"
+                    quality={82}
                     className="object-cover transition-transform duration-[1000ms] group-hover:scale-[1.04]"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 720px"
                   />
@@ -990,7 +992,8 @@ export default function HomePage() {
                     src={s.img}
                     alt={s.title}
                     fill
-                    quality={100}
+                    loading="eager"
+                    quality={82}
                     className="object-cover transition-transform duration-[800ms] group-hover:scale-[1.05]"
                     sizes="(max-width: 768px) 50vw, (max-width: 1280px) 25vw, 360px"
                   />

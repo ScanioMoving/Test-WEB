@@ -45,7 +45,7 @@ export default function FFEDesignerPage() {
               alt="Blue and white porcelain vase flanked by studio lamps in Scanio staging area"
               fill
               priority
-              quality={95}
+              quality={82}
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />

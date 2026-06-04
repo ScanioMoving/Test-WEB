@@ -46,7 +46,7 @@ export default function InternationalPage() {
               alt="International shipping and global relocations"
               fill
               priority
-              quality={95}
+              quality={82}
               className="object-cover"
               style={{ objectPosition: "center center" }}
               sizes="(max-width: 1024px) 100vw, 50vw"

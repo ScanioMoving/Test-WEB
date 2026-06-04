@@ -50,7 +50,7 @@ export default function CommercialPage() {
               alt="Scanio movers in branded gear carrying boxes and clearing workstations during an office relocation"
               fill
               priority
-              quality={100}
+              quality={82}
               className="object-cover"
               style={{ objectPosition: "center center" }}
               sizes="(max-width: 1024px) 100vw, 50vw"
