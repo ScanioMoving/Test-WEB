@@ -462,7 +462,7 @@ function VideoHero() {
         const win = Math.min(PAN_SECONDS, dur);
         const raw = Math.max(0, Math.min(1, (v.currentTime - (dur - win)) / win));
         const eased = 1 - Math.pow(1 - raw, 3); // ease-out cubic
-        v.style.objectPosition = `${50 + 10 * eased}% center`;
+        v.style.objectPosition = `${50 + 15 * eased}% center`;
         if (v.ended || v.currentTime >= dur) return;
       }
       raf = requestAnimationFrame(pan);
