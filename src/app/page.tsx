@@ -445,20 +445,25 @@ function VideoHero() {
     return () => clearTimeout(t);
   }, []);
 
-  // Mobile only: gently pan the framing across the clip. The 16:9 video
-  // center-crops on a portrait phone, so this follows the truck like the old
-  // scroll hero's mobile pan did. Driven off the video's own currentTime via
-  // rAF so it stays in sync and smooth. Desktop fills landscape fine — no pan.
+  // Mobile only: mirror the old scroll hero's framing. Hold centered, then
+  // ease-pan to the right ONLY over the last ~2 seconds, so the truck "drives"
+  // into its final framing and settles (ease-out cubic, like the old setup).
+  // Driven off the video's own currentTime via rAF so it stays in sync.
+  // Desktop fills a landscape screen fine — no pan there.
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia("(max-width: 1023px)").matches) return;
     const v = videoRef.current;
     if (!v) return;
     let raf = 0;
+    const PAN_SECONDS = 2; // only pan over the final stretch
     const pan = () => {
-      if (v.duration) {
-        const p = Math.min(1, v.currentTime / v.duration);
-        v.style.objectPosition = `${38 + 24 * p}% center`;
-        if (p >= 1) return;
+      const dur = v.duration;
+      if (dur) {
+        const win = Math.min(PAN_SECONDS, dur);
+        const raw = Math.max(0, Math.min(1, (v.currentTime - (dur - win)) / win));
+        const eased = 1 - Math.pow(1 - raw, 3); // ease-out cubic
+        v.style.objectPosition = `${50 + 10 * eased}% center`;
+        if (v.ended || v.currentTime >= dur) return;
       }
       raf = requestAnimationFrame(pan);
     };
