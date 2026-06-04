@@ -32,7 +32,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   return (
     <div
       ref={ref}
-      className={`transition-all duration-[1000ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${className}`}
+      className={`transition-all duration-[500ms] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${className}`}
       style={{ transitionDelay: `${delay}ms`, transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
     >
       {children}
