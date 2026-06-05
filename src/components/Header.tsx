@@ -105,7 +105,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-10">
             <Link
               href="/about"
-              className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-80 transition-opacity duration-300"
+              className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
               style={{
                 fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
@@ -118,7 +118,7 @@ export default function Header() {
               href="https://designers.scaniomoving.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-80 transition-opacity duration-300"
+              className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
               style={{
                 fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
@@ -134,7 +134,7 @@ export default function Header() {
               onMouseLeave={handleDropdownLeave}
             >
               <button
-                className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-80 transition-opacity duration-300"
+                className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
                 style={{
                   fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
                   color: "white",
@@ -167,7 +167,7 @@ export default function Header() {
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="block py-2 text-[12px] tracking-[0.1em] uppercase font-medium text-center transition-all duration-300"
+                      className="block py-2.5 text-[14px] tracking-[0.1em] uppercase font-medium text-center transition-all duration-300"
                       style={{ color: "rgba(11,93,181,0.6)" }}
                       onMouseEnter={(e) => { e.currentTarget.style.color = HEADER_BG; }}
                       onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(11,93,181,0.6)"; }}
@@ -182,7 +182,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-80 transition-opacity duration-300"
+              className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
               style={{
                 fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",

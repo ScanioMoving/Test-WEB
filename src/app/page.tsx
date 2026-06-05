@@ -684,7 +684,7 @@ export default function HomePage() {
             <div className="hidden lg:flex items-center gap-10">
               <Link
                 href="/about"
-                className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
+                className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
                 style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 About Us
@@ -694,7 +694,7 @@ export default function HomePage() {
                 href="https://designers.scaniomoving.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
+                className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
                 style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 Designer Portal
@@ -707,7 +707,7 @@ export default function HomePage() {
                 onMouseLeave={handleServiceLeave}
               >
                 <button
-                  className="flex items-center gap-1.5 text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
+                  className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
                   style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
                 >
                   Services
@@ -760,7 +760,7 @@ export default function HomePage() {
                       <Link
                         key={s.href}
                         href={s.href}
-                        className="block py-2 text-[12px] tracking-[0.1em] uppercase font-medium text-center transition-all duration-300"
+                        className="block py-2.5 text-[14px] tracking-[0.1em] uppercase font-medium text-center transition-all duration-300"
                         style={{ color: scrolled ? "rgba(11,93,181,0.5)" : "rgba(0,0,0,0.5)" }}
                         onMouseEnter={(e) => { e.currentTarget.style.color = scrolled ? "#0B5DB5" : "#000000"; }}
                         onMouseLeave={(e) => { e.currentTarget.style.color = scrolled ? "rgba(11,93,181,0.5)" : "rgba(0,0,0,0.5)"; }}
@@ -775,7 +775,7 @@ export default function HomePage() {
 
               <Link
                 href="/contact"
-                className="text-[16px] tracking-[0.15em] uppercase font-semibold hover:opacity-100 transition-all duration-500"
+                className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
                 style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 Contact
