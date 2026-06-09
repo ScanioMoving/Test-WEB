@@ -4,7 +4,6 @@ import { Phone, CheckCircle } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 import { pageMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
-import CommercialEasterEgg from "@/components/CommercialEasterEgg";
 
 export const metadata = pageMetadata({
   path: "/services/commercial",
@@ -216,8 +215,6 @@ export default function CommercialPage() {
           </div>
         </div>
       </section>
-
-      <CommercialEasterEgg />
     </>
   );
 }
