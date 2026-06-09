@@ -28,6 +28,16 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
+      // Whole-domain redirect: scaniomovers.com (+ www) -> www.scaniomoving.com.
+      // scaniomovers.com points at this Amplify app (for managed HTTPS); this
+      // 301s every request to the main site so it's a pure redirect, not
+      // duplicate content. Email stays on Microsoft 365 (MX lives in DNS).
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "(www\\.)?scaniomovers\\.com" }],
+        destination: "https://www.scaniomoving.com/:path*",
+        permanent: true,
+      },
       // Core pages
       { source: "/about-scanio-moving.php", destination: "/about", permanent: true },
       { source: "/nyc-moving-services.php", destination: "/services", permanent: true },
