@@ -23,12 +23,12 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Scanio Moving & Storage | NYC Movers Since 1941",
+    default: "NYC Movers & Storage Since 1941 | Scanio Moving & Storage",
     // Child pages set only their unique part; the brand appends automatically.
     template: "%s | Scanio Moving & Storage",
   },
   description:
-    "NYC's premier moving and storage company since 1941. Residential, commercial, long distance, and international moves. Free estimates — call 212.722.6850.",
+    "NYC movers and storage since 1941 — residential, commercial, long-distance, and international moving, plus secure storage. Free estimates: call 212.722.6850.",
   keywords: [
     "NYC movers",
     "moving company New York",
@@ -50,15 +50,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Scanio Moving & Storage",
-    title: "Scanio Moving & Storage | NYC Movers Since 1941",
+    title: "NYC Movers & Storage Since 1941 | Scanio Moving & Storage",
     description:
-      "NYC's premier moving and storage company since 1941. Residential, commercial, long distance, and international moves. Free estimates.",
+      "NYC movers and storage since 1941 — residential, commercial, long-distance, and international moving, plus secure storage. Free estimates.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Scanio Moving & Storage | NYC Movers Since 1941",
+    title: "NYC Movers & Storage Since 1941 | Scanio Moving & Storage",
     description:
-      "NYC's premier moving and storage company since 1941. Residential, commercial, long distance, and international moves.",
+      "NYC movers and storage since 1941 — residential, commercial, long-distance, and international moving, plus secure storage.",
   },
   robots: {
     index: true,
