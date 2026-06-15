@@ -437,6 +437,7 @@ function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showText, setShowText] = useState(false);
   const [posterUp, setPosterUp] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     // Hold the poster (first frame) ~0.5s, then play — gives it time to buffer.
@@ -444,6 +445,14 @@ function VideoHero() {
       videoRef.current?.play().catch(() => {});
     }, 500);
     return () => clearTimeout(t);
+  }, []);
+
+  // Hide the scroll cue as soon as the visitor starts scrolling.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Mobile only: hold the framing centered, then shift it LINEARLY over the
@@ -539,6 +548,26 @@ function VideoHero() {
           </Link>
         </div>
       </div>
+
+      {/* Scroll cue — makes it clear there's more below the hero. Appears once
+          the video is playing, fades out the moment the visitor scrolls. */}
+      <div
+        className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 transition-opacity duration-700 pointer-events-none"
+        style={{ opacity: !posterUp && !scrolled ? 1 : 0 }}
+      >
+        <span
+          className="text-[10px] tracking-[0.35em] uppercase text-white/75 font-medium"
+          style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}
+        >
+          Scroll
+        </span>
+        <ArrowDown
+          size={18}
+          className="text-white/75"
+          style={{ animation: "scrollBounce 1.6s ease-in-out infinite", filter: "drop-shadow(0 1px 6px rgba(0,0,0,0.6))" }}
+        />
+      </div>
+      <style>{`@keyframes scrollBounce { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(6px) } }`}</style>
     </section>
   );
 }
