@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
+import { getAllPostMeta } from "@/lib/blog";
 
 /**
  * Only real, indexable routes belong here. Deliberately excluded:
@@ -22,12 +23,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/storage", priority: 0.8, changeFrequency: "monthly" },
     { path: "/faqs", priority: 0.7, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.9, changeFrequency: "yearly" },
+    { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
   ];
 
-  return entries.map(({ path, priority, changeFrequency }) => ({
+  const staticEntries: MetadataRoute.Sitemap = entries.map(({ path, priority, changeFrequency }) => ({
     url: `${SITE_URL}${path}`,
     lastModified: now,
     changeFrequency,
     priority,
   }));
+
+  const blogEntries: MetadataRoute.Sitemap = getAllPostMeta().map((p) => ({
+    url: `${SITE_URL}/blog/${p.slug}`,
+    lastModified: p.date ? new Date(`${p.date}T00:00:00`) : now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...blogEntries];
 }

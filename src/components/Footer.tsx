@@ -68,6 +68,7 @@ export default function Footer() {
               {[
                 { label: "About", href: "/about" },
                 { label: "FAQs", href: "/faqs" },
+                { label: "Blog", href: "/blog" },
                 { label: "Free Estimate", href: "/contact" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (

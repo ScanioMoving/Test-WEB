@@ -12,7 +12,9 @@
     "@aws-sdk/client-sesv2": "^3.1055.0",
     "@fontsource/cormorant-garamond": "^5.2.11",
     "@fontsource/playfair-display": "^5.2.8",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.575.0",
+    "marked": "^18.0.5",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
