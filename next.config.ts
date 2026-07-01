@@ -107,6 +107,40 @@ const nextConfig: NextConfig = {
       { source: "/:slug.php", destination: "/", permanent: true },
     ];
   },
+
+  /**
+   * Baseline security response headers applied to every route. These are the
+   * low-risk, zero-visual-impact ones — they don't affect how the page looks
+   * or which resources it can load:
+   *   - HSTS: force HTTPS for a year (incl. subdomains) once seen.
+   *   - nosniff: stop browsers MIME-sniffing responses into a different type.
+   *   - X-Frame-Options SAMEORIGIN: block clickjacking via foreign iframes.
+   *   - Referrer-Policy: send the origin only on cross-origin navigations.
+   *   - Permissions-Policy: deny APIs the site never uses (camera/mic/geo).
+   * A Content-Security-Policy is deliberately NOT set here: a strict CSP would
+   * need tuning against Google Maps (autocomplete), Google Fonts, and
+   * styled-jsx inline styles before it could ship without breaking the page.
+   */
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains",
+          },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
