@@ -1128,7 +1128,7 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2">
           {[
             { title: "Residential Moving", desc: "From Park Avenue penthouses to Brooklyn brownstones. Every home move handled with museum-grade care.", img: "/services/residential-truck.webp", href: "/services/residential" },
-            { title: "Storage", desc: "Climate-controlled. Secure. Flexible terms for any timeline.", img: "/services/storage.webp", href: "/storage" },
+            { title: "Storage", desc: "Temperature-controlled. Secure. Flexible terms for any timeline.", img: "/services/storage.webp", href: "/storage" },
           ].map((s, i) => (
             <Reveal key={s.title} delay={i * 100}>
               <Link href={s.href} className="group block relative overflow-hidden cursor-pointer">

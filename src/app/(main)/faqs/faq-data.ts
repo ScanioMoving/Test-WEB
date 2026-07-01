@@ -52,7 +52,7 @@ export const FAQ_SECTIONS: FaqSection[] = [
       },
       {
         q: "This is for a design project — receiving artwork and furniture, holding it, then installing later. Can you do that?",
-        a: "Yes, that's our FF&E and designer service. We handle receiving and inspection with condition documentation, climate-controlled staging while pieces wait, and consolidated delivery and installation when the space is ready. Fine art, antiques, and custom crating are all part of it, with a dedicated project manager coordinating building access and COIs so installation day goes smoothly. Contact us at 212.722.6850 and we'll set up the project the right way from the start.",
+        a: "Yes, that's our FF&E and designer service. We handle receiving and inspection with condition documentation, temperature-controlled staging while pieces wait, and consolidated delivery and installation when the space is ready. Fine art, antiques, and custom crating are all part of it, with a dedicated project manager coordinating building access and COIs so installation day goes smoothly. Contact us at 212.722.6850 and we'll set up the project the right way from the start.",
       },
     ],
   },
@@ -160,7 +160,7 @@ export const FAQ_SECTIONS: FaqSection[] = [
       "Our temperature-controlled, 24/7-monitored Secaucus warehouse — flexible billing, access, and storage between closing dates.",
     items: [
       {
-        q: "Is your storage facility climate-controlled? I have wood furniture and some artwork I'm worried about.",
+        q: "Is your storage facility temperature-controlled? I have wood furniture and some artwork I'm worried about.",
         a: "Yes. Our warehouse in Secaucus, NJ is temperature-controlled, so your wood furniture, artwork, electronics, and other sensitive pieces are kept in a stable environment year-round rather than baking in summer or freezing in winter. That makes it a good fit for the kinds of belongings NYC apartments rarely have room for but you don't want to risk in an unconditioned space. If you have especially delicate items, just let your coordinator know so we can plan the handling and packing accordingly.",
       },
       {
@@ -283,7 +283,7 @@ export const FAQ_SECTIONS: FaqSection[] = [
       },
       {
         q: "I'm an interior designer or architect. Can Scanio handle receiving and installation for my projects?",
-        a: "Absolutely. We partner with designers and architects across the city through our FF&E and designer services — receiving and inspecting pieces at our warehouse, holding them in climate-controlled staging, and delivering and installing on your schedule with a dedicated project manager. It keeps your job site clear and your timeline tight, and it's one of the relationships we value most.",
+        a: "Absolutely. We partner with designers and architects across the city through our FF&E and designer services — receiving and inspecting pieces at our warehouse, holding them in temperature-controlled staging, and delivering and installing on your schedule with a dedicated project manager. It keeps your job site clear and your timeline tight, and it's one of the relationships we value most.",
       },
       {
         q: "Can we set up an ongoing relationship rather than a one-off move?",
@@ -312,7 +312,7 @@ export const FAQ_GLOSSARY: GlossaryTerm[] = [
   { term: "Door-to-Door Service", definition: "Transportation of your belongings directly from the origin to the destination, not counting any additional stops along the way." },
   { term: "DOT", definition: "The U.S. Department of Transportation, the federal agency that regulates movers. Scanio holds NY DOT T11495 and US DOT 537054." },
   { term: "Elevator Reservation", definition: "A booked time window for a building's service or freight elevator on move day, often required (sometimes with a deposit) by NYC buildings. We help coordinate it." },
-  { term: "FF&E (Furniture, Fixtures & Equipment)", definition: "The furnishings and equipment going into a designed or commercial space. Our FF&E service covers receiving, inspection, climate-controlled staging, delivery, and installation." },
+  { term: "FF&E (Furniture, Fixtures & Equipment)", definition: "The furnishings and equipment going into a designed or commercial space. Our FF&E service covers receiving, inspection, temperature-controlled staging, delivery, and installation." },
   { term: "Flight Charge", definition: "A charge that may apply for carrying items up or down flights of stairs, most common in walk-up buildings without an elevator." },
   { term: "Full-Service Mover", definition: "A company that handles every part of the move — packing, loading, transport, unloading, and unpacking." },
   { term: "Full-Value Protection", definition: "A liability option under which the mover is responsible for the repair, replacement, or value of any covered item that's lost or damaged — broader than the standard weight-based coverage." },
@@ -325,7 +325,7 @@ export const FAQ_GLOSSARY: GlossaryTerm[] = [
   { term: "PBO (Packed By Owner)", definition: "A notation for boxes packed by the customer rather than the mover." },
   { term: "Shuttle (Shuttle Transfer)", definition: "A smaller vehicle used to ferry belongings when a full-size truck can't reach the door — common on narrow NYC streets. We arrange it when needed." },
   { term: "Storage-in-Transit (SIT)", definition: "Temporary storage of your shipment at the warehouse when you're not ready for delivery, such as a gap between closing dates. It stays under Scanio's management until you're ready." },
-  { term: "Temperature-Controlled Storage", definition: "Warehouse storage kept within a steady climate range to protect wood furniture, artwork, and electronics. Our Secaucus, NJ warehouse is temperature-controlled and monitored 24/7." },
+  { term: "Temperature-Controlled Storage", definition: "Warehouse storage kept within a steady temperature range to protect wood furniture, artwork, and electronics. Our Secaucus, NJ warehouse is temperature-controlled and monitored 24/7." },
   { term: "Valuation", definition: "Your declared value of the goods being moved, which sets the mover's maximum liability. It isn't the same as insurance, but it's how your shipment's protection is calculated." },
   { term: "Weight Ticket", definition: "The receipt from weighing the loaded truck at a certified scale. On weight-based moves, your charges are figured from it." },
 ];

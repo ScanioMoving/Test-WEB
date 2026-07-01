@@ -16,7 +16,7 @@ const features = [
   "Fine furniture & fixture handling",
   "Antique & art transport",
   "Custom crating & packaging",
-  "Climate-controlled storage",
+  "Temperature-controlled storage",
   "Receiving & inspection services",
   "Warehouse staging & delivery",
   "Building & COI coordination",

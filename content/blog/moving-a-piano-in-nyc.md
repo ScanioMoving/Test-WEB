@@ -32,7 +32,7 @@ We've been moving New York's belongings since 1941, and high-value, delicate pie
 A few things matter for a piano specifically:
 
 - **NYC building experience.** We coordinate COIs and freight elevators on [residential moves](/services/residential) every day, so the access side is handled, not improvised.
-- **Climate-controlled storage** if the timing doesn't line up. Pianos do not like heat, cold, or humidity swings, and our [climate-controlled facility](/storage) in Secaucus, NJ keeps an instrument safe while you bridge a gap between homes.
+- **Temperature-controlled storage** if the timing doesn't line up. Pianos are sensitive to extremes of heat and cold, and our [temperature-controlled facility](/storage) in Secaucus, NJ keeps an instrument in a stable range while you bridge a gap between homes.
 - **Full value protection** on a licensed, insured operation (NY DOT T11495, US DOT 537054, ICC MC93512).
 
 ## A couple of honest notes

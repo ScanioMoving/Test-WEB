@@ -17,7 +17,7 @@ const features = [
   "Customs documentation and coordination",
   "Ocean and air freight options",
   "Custom crating for overseas transit",
-  "Climate-controlled storage in transit",
+  "Temperature-controlled storage in transit",
   "Insurance and valuation coverage",
   "Destination unpacking and setup",
   "Corporate and diplomatic relocations",

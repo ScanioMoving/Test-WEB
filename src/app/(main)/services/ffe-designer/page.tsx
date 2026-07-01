@@ -8,7 +8,7 @@ export const metadata = pageMetadata({
   path: "/services/ffe-designer",
   title: "FF&E & Designer Services NYC",
   description:
-    "White-glove FF&E and designer logistics in NYC: receiving, inspection, climate-controlled staging, and installation for interior designers and architects.",
+    "White-glove FF&E and designer logistics in NYC: receiving, inspection, temperature-controlled staging, and installation for interior designers and architects.",
 });
 
 const features = [

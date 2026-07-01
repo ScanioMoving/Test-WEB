@@ -65,7 +65,7 @@ const services = [
       "Fine art and gallery pieces",
       "Antique furniture and collectibles",
       "Pianos and musical instruments",
-      "Custom crating and climate-controlled transport",
+      "Custom crating and temperature-controlled transport",
     ],
     href: "/services/international",
   },
@@ -84,9 +84,9 @@ const services = [
   {
     icon: Warehouse,
     title: "Storage Solutions",
-    desc: "Our secure, climate-controlled facility in Secaucus, NJ — just 3 miles from the Lincoln Tunnel — offers flexible storage options for any duration. Pay only for the space you use.",
+    desc: "Our secure, temperature-controlled facility in Secaucus, NJ — just 3 miles from the Lincoln Tunnel — offers flexible storage options for any duration. Pay only for the space you use.",
     features: [
-      "Climate-controlled environment",
+      "Temperature-controlled environment",
       "Month-to-month or short-term",
       "Secure and monitored facility",
       "Weekday access hours",
