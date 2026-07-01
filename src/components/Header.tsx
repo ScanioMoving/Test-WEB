@@ -139,6 +139,7 @@ export default function Header() {
                   fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
                   color: "white",
                 }}
+                aria-expanded={servicesOpen}
               >
                 Services
                 <ChevronDown
@@ -200,6 +201,7 @@ export default function Header() {
               setServicesOpen(false);
             }}
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -242,6 +244,7 @@ export default function Header() {
                 className="flex items-center justify-between w-full py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
                 style={{ color: "white" }}
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                aria-expanded={mobileServicesOpen}
               >
                 Services
                 <ChevronDown

@@ -251,10 +251,11 @@ export default function ContactPage() {
                       </h3>
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div>
-                          <label className={labelClass} style={labelStyle}>
+                          <label htmlFor="fullName" className={labelClass} style={labelStyle}>
                             Full Name *
                           </label>
                           <input
+                            id="fullName"
                             type="text"
                             name="fullName"
                             required
@@ -264,10 +265,11 @@ export default function ContactPage() {
                           />
                         </div>
                         <div>
-                          <label className={labelClass} style={labelStyle}>
+                          <label htmlFor="phone" className={labelClass} style={labelStyle}>
                             Phone Number *
                           </label>
                           <input
+                            id="phone"
                             type="tel"
                             name="phone"
                             required
@@ -277,10 +279,11 @@ export default function ContactPage() {
                           />
                         </div>
                         <div>
-                          <label className={labelClass} style={labelStyle}>
+                          <label htmlFor="email" className={labelClass} style={labelStyle}>
                             Email Address *
                           </label>
                           <input
+                            id="email"
                             type="email"
                             name="email"
                             required
@@ -290,10 +293,11 @@ export default function ContactPage() {
                           />
                         </div>
                         <div>
-                          <label className={labelClass} style={labelStyle}>
+                          <label htmlFor="preferredDate" className={labelClass} style={labelStyle}>
                             Preferred Move Date
                           </label>
                           <input
+                            id="preferredDate"
                             type="date"
                             name="preferredDate"
                             className={inputClass}
@@ -313,10 +317,11 @@ export default function ContactPage() {
                       </h3>
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div className="sm:col-span-2">
-                          <label className={labelClass} style={labelStyle}>
+                          <label htmlFor="fromAddress" className={labelClass} style={labelStyle}>
                             Address *
                           </label>
                           <AddressAutocompleteInput
+                            id="fromAddress"
                             type="text"
                             name="fromAddress"
                             required
@@ -326,10 +331,11 @@ export default function ContactPage() {
                           />
                         </div>
                         <div>
-                          <label className={labelClass} style={labelStyle}>
+                          <label htmlFor="fromUnit" className={labelClass} style={labelStyle}>
                             Unit Number
                           </label>
                           <input
+                            id="fromUnit"
                             type="text"
                             name="fromUnit"
                             placeholder="e.g., Apt 4B, Suite 200"
@@ -350,10 +356,11 @@ export default function ContactPage() {
                       </h3>
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div className="sm:col-span-2">
-                          <label className={labelClass} style={labelStyle}>
+                          <label htmlFor="toAddress" className={labelClass} style={labelStyle}>
                             Address *
                           </label>
                           <AddressAutocompleteInput
+                            id="toAddress"
                             type="text"
                             name="toAddress"
                             required
@@ -363,10 +370,11 @@ export default function ContactPage() {
                           />
                         </div>
                         <div>
-                          <label className={labelClass} style={labelStyle}>
+                          <label htmlFor="toUnit" className={labelClass} style={labelStyle}>
                             Unit Number
                           </label>
                           <input
+                            id="toUnit"
                             type="text"
                             name="toUnit"
                             placeholder="e.g., Apt 12A, Unit 3"
@@ -406,10 +414,11 @@ export default function ContactPage() {
 
                       <div className="grid sm:grid-cols-2 gap-5 mb-5">
                         <div>
-                          <label className={labelClass} style={labelStyle}>
+                          <label htmlFor="hearAboutUs" className={labelClass} style={labelStyle}>
                             How did you hear about us? *
                           </label>
                           <input
+                            id="hearAboutUs"
                             type="text"
                             name="hearAboutUs"
                             required
@@ -421,10 +430,11 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className={labelClass} style={labelStyle}>
+                        <label htmlFor="details" className={labelClass} style={labelStyle}>
                           Additional Details
                         </label>
                         <textarea
+                          id="details"
                           name="details"
                           rows={4}
                           placeholder="Tell us about any special requirements, large or fragile items, timing constraints, etc."

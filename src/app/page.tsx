@@ -738,6 +738,7 @@ export default function HomePage() {
                 <button
                   className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
                   style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
+                  aria-expanded={servicesOpen}
                 >
                   Services
                   <ChevronDown
@@ -817,6 +818,7 @@ export default function HomePage() {
               style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -857,6 +859,7 @@ export default function HomePage() {
                   className="flex items-center justify-between w-full py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
                   style={{ color: "#0A1628" }}
                   onClick={() => setServicesOpen(!servicesOpen)}
+                  aria-expanded={servicesOpen}
                 >
                   Services
                   <ChevronDown
@@ -921,6 +924,7 @@ export default function HomePage() {
         )}
       </nav>
 
+      <main>
       {/* ─── HERO — Scroll-driven truck sequence ─── */}
       <VideoHero />
 
@@ -1221,6 +1225,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* ─── FOOTER ─── */}
       <footer className="pt-16 pb-10 border-t" style={{ borderColor: "#D6E0ED", background: "#0A1628" }}>
