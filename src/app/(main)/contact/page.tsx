@@ -394,10 +394,10 @@ export default function ContactPage() {
                         Details
                       </h3>
 
-                      <div className="mb-5">
-                        <p className={labelClass} style={labelStyle}>
+                      <fieldset className="mb-5 min-w-0 border-0 p-0 m-0">
+                        <legend className={labelClass} style={labelStyle}>
                           Special Services Needed
-                        </p>
+                        </legend>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-2">
                           {SPECIAL_SERVICES.map((s) => (
                             <label
@@ -410,7 +410,7 @@ export default function ContactPage() {
                             </label>
                           ))}
                         </div>
-                      </div>
+                      </fieldset>
 
                       <div className="grid sm:grid-cols-2 gap-5 mb-5">
                         <div>

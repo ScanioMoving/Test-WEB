@@ -184,6 +184,13 @@ function VideoHero() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // Respect reduced-motion: don't autoplay the hero clip. Leave the static
+    // poster (first frame) up and reveal the hero text immediately, so the
+    // section is complete without any motion (WCAG 2.2.2 / 2.3.3).
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setShowText(true);
+      return;
+    }
     // Hold the poster (first frame) ~0.5s, then play — gives it time to buffer.
     const t = setTimeout(() => {
       videoRef.current?.play().catch(() => {});
@@ -485,7 +492,10 @@ export default function HomePage() {
                 <button
                   className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
                   style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
+                  onClick={() => setServicesOpen((v) => !v)}
+                  aria-haspopup="true"
                   aria-expanded={servicesOpen}
+                  aria-controls="home-services-menu"
                 >
                   Services
                   <ChevronDown
@@ -499,6 +509,7 @@ export default function HomePage() {
 
                 {/* Services dropdown */}
                 <div
+                  id="home-services-menu"
                   className="absolute top-full pt-3"
                   onMouseEnter={handleServiceEnter}
                   onMouseLeave={handleServiceLeave}
@@ -507,7 +518,11 @@ export default function HomePage() {
                     opacity: servicesOpen ? 1 : 0,
                     transform: servicesOpen ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-4px)",
                     pointerEvents: servicesOpen ? "auto" : "none",
-                    transition: "opacity 180ms ease-out, transform 180ms ease-out",
+                    // visibility (deferred via the transition) drops the links
+                    // from the tab order while closed, so keyboard focus never
+                    // lands on hidden menu items.
+                    visibility: servicesOpen ? "visible" : "hidden",
+                    transition: "opacity 180ms ease-out, transform 180ms ease-out, visibility 180ms ease-out",
                   }}
                 >
                   <div
@@ -671,7 +686,7 @@ export default function HomePage() {
         )}
       </nav>
 
-      <main>
+      <main id="main-content">
       {/* ─── HERO — Scroll-driven truck sequence ─── */}
       <VideoHero />
 

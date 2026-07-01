@@ -263,12 +263,12 @@ export default function ResidentialPage() {
                 tailor each move to your needs.
               </p>
 
-              <h4
+              <h3
                 className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase font-medium mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Packing options
-              </h4>
+              </h3>
               <div className="space-y-3.5 md:space-y-4 mb-8 md:mb-10">
                 {packingOptions.map(([title, desc]) => (
                   <div key={title} className="flex items-start gap-3">
@@ -280,12 +280,12 @@ export default function ResidentialPage() {
                 ))}
               </div>
 
-              <h4
+              <h3
                 className="text-[11px] md:text-[12px] tracking-[0.22em] uppercase font-medium mb-4 md:mb-5"
                 style={{ color: "#0A1628" }}
               >
                 Unpacking options
-              </h4>
+              </h3>
               <div className="space-y-3.5 md:space-y-4 mb-7 md:mb-9">
                 {unpackingOptions.map(([title, desc]) => (
                   <div key={title} className="flex items-start gap-3">

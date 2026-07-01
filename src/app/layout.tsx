@@ -101,6 +101,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}
       >
+        {/* Skip link — first focusable element, lets keyboard/AT users jump
+            past the fixed nav straight to the page content (WCAG 2.4.1). */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-[14px] focus:font-semibold focus:text-[#0B5DB5] focus:shadow-lg focus:outline focus:outline-2 focus:outline-[#0B5DB5]"
+        >
+          Skip to main content
+        </a>
         {children}
         <MobileCallPill />
 

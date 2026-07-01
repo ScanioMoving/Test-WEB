@@ -139,7 +139,10 @@ export default function Header() {
                   fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
                   color: "white",
                 }}
+                onClick={() => setServicesOpen((v) => !v)}
+                aria-haspopup="true"
                 aria-expanded={servicesOpen}
+                aria-controls="header-services-menu"
               >
                 Services
                 <ChevronDown
@@ -151,12 +154,18 @@ export default function Header() {
 
               {/* Services dropdown */}
               <div
+                id="header-services-menu"
                 className="absolute top-full pt-3 transition-all duration-300"
                 style={{
                   left: "50%",
                   opacity: servicesOpen ? 1 : 0,
                   transform: servicesOpen ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(-6px)",
                   pointerEvents: servicesOpen ? "auto" : "none",
+                  // visibility:hidden (not just opacity) removes the links from
+                  // the tab order when the menu is closed, so keyboard users
+                  // don't focus invisible items. transition-all defers the flip
+                  // to hidden until the fade-out finishes.
+                  visibility: servicesOpen ? "visible" : "hidden",
                   zIndex: 60,
                 }}
               >
