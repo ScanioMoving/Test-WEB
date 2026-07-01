@@ -53,6 +53,10 @@ export default function MobileCallPill() {
       <a
         href={TEL_HREF}
         aria-label={`Call ${COMPANY.phone.display}`}
+        // When the pill is hidden it's aria-hidden; take the link out of the
+        // tab order too, so focus never lands on an invisible control and the
+        // aria-hidden container has no focusable descendants.
+        tabIndex={visible ? undefined : -1}
         className="flex items-center gap-2.5 px-6 py-3.5 rounded-full"
         style={{
           background: "#0B5DB5",
