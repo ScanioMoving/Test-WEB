@@ -22,6 +22,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchor-linked content and moved focus clear of the ~150px fixed
+     header (e.g. the /faqs#section deep links) instead of hidden beneath it. */
+  scroll-padding-top: 150px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overscroll-behavior: none;

@@ -405,7 +405,7 @@ export default function ContactPage() {
                               className="flex items-center gap-2 text-[13px]"
                               style={{ color: "#4A5568" }}
                             >
-                              <input type="checkbox" name="specialServices" value={s} />
+                              <input type="checkbox" name="specialServices" value={s} className="w-[18px] h-[18px] shrink-0 accent-[#0B5DB5]" />
                               {s}
                             </label>
                           ))}
