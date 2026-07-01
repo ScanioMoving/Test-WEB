@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, ArrowDown, ChevronDown, ChevronLeft, ChevronRight, Menu, X, ExternalLink } from "lucide-react";
@@ -65,261 +65,6 @@ const testimonials = [
     quote: "Having used Scanio both personally and as a vendor, I give them my highest recommendation. The consistency of their service quality is truly impressive.",
     author: "David L. Reni",
   },
-];
-
-const TRUCK_FRAME_COUNT = 188;
-
-function TruckScrollHero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imagesRef = useRef<HTMLImageElement[]>([]);
-  const [loaded, setLoaded] = useState(0);
-  // Scroll progress + overlay opacities are driven imperatively (refs/DOM) so
-  // scrolling never triggers a React re-render — that per-frame setState was
-  // the main cause of janky truck scrolling, especially on mobile.
-  const progressRef = useRef(0);
-  const textRef = useRef<HTMLDivElement>(null);
-  const hintRef = useRef<HTMLDivElement>(null);
-
-  // Preload frames
-  useEffect(() => {
-    let cancelled = false;
-    const images: HTMLImageElement[] = [];
-    let done = 0;
-
-    for (let i = 0; i < TRUCK_FRAME_COUNT; i++) {
-      const img = new window.Image();
-      const n = String(i + 1).padStart(3, "0");
-      const finish = () => {
-        done++;
-        if (!cancelled) setLoaded(done);
-      };
-      img.onload = finish;
-      img.onerror = finish;
-      // Bias the network: get the opening frames in viewers' eyes ASAP, defer
-      // the tail so it doesn't crowd out what they actually see first.
-      if (i < 12) {
-        (img as HTMLImageElement & { fetchPriority?: string }).fetchPriority = "high";
-      } else if (i > 60) {
-        (img as HTMLImageElement & { fetchPriority?: string }).fetchPriority = "low";
-      }
-      img.src = `/truck-sequence/ezgif-frame-${n}.webp`;
-      // if cached, onload may have fired before we attached — handle synchronously
-      if (img.complete && img.naturalWidth > 0) {
-        done++;
-      }
-      images.push(img);
-    }
-    imagesRef.current = images;
-    if (done > 0) setLoaded(done);
-
-    return () => { cancelled = true; };
-  }, []);
-
-  // Draw frame based on scroll progress
-  const draw = useCallback((progress: number) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    // Hold the final frame for the last ~12% of scroll (≈1/3 second at typical speed)
-    const holdAt = 0.88;
-    const eff = Math.min(1, Math.max(0, progress) / holdAt);
-    const target = Math.min(
-      TRUCK_FRAME_COUNT - 1,
-      Math.max(0, Math.floor(eff * (TRUCK_FRAME_COUNT - 1)))
-    );
-    // If target frame isn't loaded yet, walk outward to nearest ready frame
-    let img = imagesRef.current[target];
-    if (!img || !img.complete || img.naturalWidth === 0) {
-      let found: HTMLImageElement | null = null;
-      for (let d = 1; d < TRUCK_FRAME_COUNT; d++) {
-        const a = imagesRef.current[target - d];
-        if (a && a.complete && a.naturalWidth > 0) { found = a; break; }
-        const b = imagesRef.current[target + d];
-        if (b && b.complete && b.naturalWidth > 0) { found = b; break; }
-      }
-      if (!found) return;
-      img = found;
-    }
-
-    const cw = canvas.clientWidth;
-    const ch = canvas.clientHeight;
-    const iw = img.naturalWidth;
-    const ih = img.naturalHeight;
-
-    const scale = Math.max(cw / iw, ch / ih);
-    const dw = iw * scale;
-    const dh = ih * scale;
-    const dy = (ch - dh) / 2;
-
-    // Mobile-only final-stretch pan: a 16:9 source on a portrait viewport
-    // cover-fits with horizontal overflow on both sides. Pan kicks in at
-    // progress 0.7 and uses an ease-out so the motion decelerates as the
-    // truck settles into the lock frame — feels like a smooth arrival,
-    // not the compounding zoom that a linear ramp produces against the
-    // truck's own motion in the source.
-    const isMobile = cw < 1024;
-    const rawPanT = isMobile
-      ? Math.max(0, Math.min(1, (progress - 0.7) / (holdAt - 0.7)))
-      : 0;
-    const panT = 1 - Math.pow(1 - rawPanT, 3);
-    const horizontalHeadroom = Math.max(0, (dw - cw) / 2);
-    const horizontalShift = -Math.min(0.195 * cw, horizontalHeadroom) * panT;
-    const dx = (cw - dw) / 2 + horizontalShift;
-
-    ctx.clearRect(0, 0, cw, ch);
-    ctx.drawImage(img, dx, dy, dw, dh);
-  }, []);
-
-  // Redraw whenever a new frame has loaded (so first frame shows without scrolling)
-  useEffect(() => {
-    if (loaded > 0) draw(progressRef.current);
-  }, [loaded, draw]);
-
-  // Size the canvas backing store to the canvas's OWN rendered box (its
-  // 100dvh container) — not window.innerHeight. On mobile those differ
-  // because of the dynamic address bar, which left the canvas shorter than
-  // its container and exposed the dark background as a "black box" at the
-  // bottom. Let CSS (w-full h-full) drive the element size; we only set the
-  // backing-store resolution here and redraw on viewport changes.
-  useEffect(() => {
-    const resize = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const w = canvas.clientWidth;
-      const h = canvas.clientHeight;
-      if (!w || !h) return;
-      canvas.width = Math.round(w * dpr);
-      canvas.height = Math.round(h * dpr);
-      const ctx = canvas.getContext("2d");
-      if (ctx) ctx.scale(dpr, dpr);
-      draw(progressRef.current);
-    };
-    resize();
-    window.addEventListener("resize", resize);
-    // The mobile address bar showing/hiding fires visualViewport resize (not
-    // always window resize), so track that too to stay perfectly filled.
-    window.visualViewport?.addEventListener("resize", resize);
-    return () => {
-      window.removeEventListener("resize", resize);
-      window.visualViewport?.removeEventListener("resize", resize);
-    };
-  }, [draw]);
-
-  // Drive the animation from a continuous animation-frame loop (while the hero
-  // is on screen) instead of from scroll events. iOS dispatches touch-scroll
-  // events at an irregular cadence, so redrawing on each event stutters;
-  // sampling the scroll position every frame keeps the truck locked to the
-  // scroll and feels as fluid as a trackpad. The loop pauses when the hero
-  // leaves the viewport and skips redraws when nothing moved (no idle work).
-  // All updates are imperative (canvas + refs) — scrolling never re-renders.
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    let raf = 0;
-    let active = false;
-    let lastTop = NaN;
-
-    const frame = () => {
-      const el = sectionRef.current;
-      if (el) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top !== lastTop) {
-          lastTop = rect.top;
-          const total = el.offsetHeight - window.innerHeight;
-          const progress = Math.min(1, Math.max(0, -rect.top / total));
-          progressRef.current = progress;
-          draw(progress);
-          if (textRef.current) textRef.current.style.opacity = String(Math.max(0, (progress - 0.7) / 0.3));
-          if (hintRef.current) hintRef.current.style.opacity = progress < 0.1 ? "1" : "0";
-        }
-      }
-      raf = requestAnimationFrame(frame);
-    };
-    const start = () => { if (!active) { active = true; lastTop = NaN; raf = requestAnimationFrame(frame); } };
-    const stop = () => { if (active) { active = false; cancelAnimationFrame(raf); raf = 0; } };
-
-    const io = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) start(); else stop(); },
-      { rootMargin: "200px 0px 200px 0px" },
-    );
-    io.observe(section);
-    return () => { stop(); io.disconnect(); };
-  }, [draw]);
-
-  const loadPct = Math.round((loaded / TRUCK_FRAME_COUNT) * 100);
-  const ready = loaded >= Math.min(3, TRUCK_FRAME_COUNT); // show as soon as the opening frames land; draw() walks to nearest loaded frame for any unloaded targets
-
-  return (
-    <section ref={sectionRef} className="relative" style={{ height: "300vh" }}>
-      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden" style={{ background: "#0A1628" }}>
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-
-        {/* Loading overlay */}
-        {!ready && (
-          <div className="absolute inset-0 flex items-center justify-center" style={{ background: "#0A1628" }}>
-            <div className="text-center">
-              <p className="text-white/40 text-[11px] tracking-[0.3em] uppercase mb-3">Loading</p>
-              <div className="w-48 h-[1px] bg-white/10 relative overflow-hidden">
-                <div
-                  className="absolute inset-y-0 left-0 bg-white/60 transition-all duration-200"
-                  style={{ width: `${loadPct}%` }}
-                />
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Dark gradient at bottom for text */}
-        <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
-
-        {/* Hero text — reveals near end of scroll */}
-        <div
-          ref={textRef}
-          className="absolute inset-x-0 bottom-6 md:bottom-24 z-10 px-8 md:px-16 transition-opacity duration-500"
-          style={{ opacity: 0 }}
-        >
-          <div className="flex flex-col gap-4 items-start">
-            <a
-              href={TEL_HREF}
-              className="inline-flex items-center gap-2 text-white text-[clamp(15px,2.1vw,20px)] tracking-[0.2em] font-bold hover:opacity-80 transition-opacity"
-              style={{ textShadow: "0 2px 14px rgba(0,0,0,0.6)" }}
-            >
-              <Phone size={17} strokeWidth={2.4} />
-              {COMPANY.phone.display}
-            </a>
-            <Link
-              href="/quote"
-              className="inline-block text-white text-[clamp(13px,2.1vw,18px)] tracking-[0.28em] uppercase font-bold px-6 py-3 md:px-7 md:py-3.5 transition-all hover:opacity-90"
-              style={{
-                background: "#0B5DB5",
-                boxShadow: "0 8px 24px -8px rgba(0,0,0,0.45)",
-              }}
-            >
-              Request Consultation
-            </Link>
-          </div>
-        </div>
-
-        {/* Scroll hint — hides once scrolled past 10% */}
-        <div
-          ref={hintRef}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-500 flex flex-col items-center gap-2"
-          style={{ opacity: 1 }}
-        >
-          <span className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-light">Scroll</span>
-          <ArrowDown size={16} className="text-white/30" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const heroSlides = [
-  { src: "/slides/slide-2-cycle.webp", alt: "NYC skyline" },
 ];
 
 function TestimonialCarousel() {
@@ -428,11 +173,10 @@ function TestimonialCarousel() {
   );
 }
 
-// Plays the truck clip once on load (no scroll), on web and mobile. Built from
-// the same scroll frames, served as a single ~6MB H.264 video so it's light and
-// hardware-decoded (smooth on mobile). The first frame is held ~0.5s before
-// playback to give the clip a moment to buffer. To revert to the scroll-driven
-// version, render <TruckScrollHero /> instead of <VideoHero /> below.
+// Plays the truck clip once on load (no scroll), on web and mobile. Served as a
+// single ~5MB H.264 video so it's light and hardware-decoded (smooth on
+// mobile). The first frame (truck-sequence/ezgif-frame-001.webp) is used as the
+// poster and held ~0.5s before playback to give the clip a moment to buffer.
 function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showText, setShowText] = useState(false);
@@ -467,8 +211,11 @@ function VideoHero() {
     const v = videoRef.current;
     if (!v) return;
     let raf = 0;
+    // The clip was rendered from a 188-frame sequence; the pan happens over its
+    // last 40 frames, so it begins at ~0.787 of the video's duration.
+    const TOTAL_FRAMES = 188;
     const PAN_FRAMES = 40;
-    const startFrac = (TRUCK_FRAME_COUNT - PAN_FRAMES) / TRUCK_FRAME_COUNT; // ~0.787
+    const startFrac = (TOTAL_FRAMES - PAN_FRAMES) / TOTAL_FRAMES; // ~0.787
     const pan = () => {
       const dur = v.duration;
       if (dur) {
