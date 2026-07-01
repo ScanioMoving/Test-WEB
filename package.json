@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "a11y": "PUPPETEER_SKIP_DOWNLOAD=true npx --yes pa11y-ci@3 --config .pa11yci.json"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1055.0",

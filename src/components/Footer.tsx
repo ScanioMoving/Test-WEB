@@ -38,7 +38,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#0B5DB5" }}>
+            <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#5B9BD5" }}>
               Services
             </p>
             <ul className="space-y-3">
@@ -61,7 +61,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#0B5DB5" }}>
+            <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#5B9BD5" }}>
               Company
             </p>
             <ul className="space-y-3">
@@ -83,7 +83,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#0B5DB5" }}>
+            <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#5B9BD5" }}>
               Contact
             </p>
             <ul className="space-y-3 text-[16px] font-normal text-white/85">

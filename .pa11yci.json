@@ -1,0 +1,33 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": ["axe"],
+    "timeout": 60000,
+    "wait": 1200,
+    "chromeLaunchConfig": {
+      "executablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "args": ["--no-sandbox", "--disable-dev-shm-usage"]
+    },
+    "hideElements": "#google-maps-places",
+    "ignore": []
+  },
+  "urls": [
+    "https://www.scaniomoving.com/",
+    "https://www.scaniomoving.com/about",
+    "https://www.scaniomoving.com/services",
+    "https://www.scaniomoving.com/services/residential",
+    "https://www.scaniomoving.com/services/commercial",
+    "https://www.scaniomoving.com/services/long-distance",
+    "https://www.scaniomoving.com/services/international",
+    "https://www.scaniomoving.com/services/ffe-designer",
+    "https://www.scaniomoving.com/storage",
+    "https://www.scaniomoving.com/contact",
+    "https://www.scaniomoving.com/faqs",
+    "https://www.scaniomoving.com/testimonials",
+    "https://www.scaniomoving.com/blog",
+    "https://www.scaniomoving.com/blog/how-much-do-movers-cost-in-nyc",
+    "https://www.scaniomoving.com/blog/nyc-moving-checklist-week-by-week",
+    "https://www.scaniomoving.com/blog/planning-an-office-move-in-nyc",
+    "https://www.scaniomoving.com/blog/moving-a-piano-in-nyc"
+  ]
+}

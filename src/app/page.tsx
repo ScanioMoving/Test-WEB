@@ -255,13 +255,18 @@ function VideoHero() {
         muted
         playsInline
         preload="auto"
+        aria-label="A Scanio moving truck driving — a silent, decorative background clip"
         onTimeUpdate={(e) => {
           const v = e.currentTarget;
           if (v.duration && v.currentTime / v.duration > 0.7) setShowText(true);
         }}
         onPlaying={() => setPosterUp(false)}
         onEnded={() => setShowText(true)}
-      />
+      >
+        {/* Silent decorative clip — no speech to caption. Empty track is
+            provided so the video still exposes a captions track (WCAG 1.2.2). */}
+        <track kind="captions" src="/truck-hero.vtt" srcLang="en" label="English" />
+      </video>
 
       {/* First-frame overlay — stays up until the video is actually rendering
           frames, covering the gap between the poster being dropped and the
@@ -1024,7 +1029,7 @@ export default function HomePage() {
 
             {/* Services */}
             <div>
-              <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#0B5DB5" }}>
+              <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#5B9BD5" }}>
                 Services
               </p>
               <ul className="space-y-3">
@@ -1047,7 +1052,7 @@ export default function HomePage() {
 
             {/* Company */}
             <div>
-              <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#0B5DB5" }}>
+              <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#5B9BD5" }}>
                 Company
               </p>
               <ul className="space-y-3">
@@ -1068,7 +1073,7 @@ export default function HomePage() {
 
             {/* Contact */}
             <div>
-              <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#0B5DB5" }}>
+              <p className="text-[13px] uppercase font-bold tracking-[0.18em] mb-6" style={{ color: "#5B9BD5" }}>
                 Contact
               </p>
               <ul className="space-y-3 text-[16px] font-normal text-white/85">

@@ -55,7 +55,7 @@ export default function TestimonialsPage() {
     <>
       <section className="bg-navy pt-[180px] pb-20">
         <div className="max-w-7xl mx-auto px-4">
-          <p className="text-accent font-medium tracking-wider uppercase text-sm mb-3">
+          <p className="text-[#5B9BD5] font-medium tracking-wider uppercase text-sm mb-3">
             Testimonials
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">

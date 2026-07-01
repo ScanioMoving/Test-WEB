@@ -92,7 +92,7 @@ export default function Header() {
                 className="block text-[13px] md:text-[17px] tracking-[0.02em] uppercase font-normal"
                 style={{
                   fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
-                  color: "rgba(255,255,255,0.75)",
+                  color: "rgba(255,255,255,0.9)",
                   lineHeight: "1",
                   marginTop: "6px",
                 }}
