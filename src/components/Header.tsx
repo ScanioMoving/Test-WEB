@@ -78,7 +78,7 @@ export default function Header() {
               <span
                 className="block text-[56px] md:text-[72px] font-semibold tracking-[0.02em] uppercase"
                 style={{
-                  fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                  fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                   color: "white",
                   lineHeight: "0.85",
                   margin: 0,
@@ -91,7 +91,7 @@ export default function Header() {
               <span
                 className="block text-[13px] md:text-[17px] tracking-[0.02em] uppercase font-normal"
                 style={{
-                  fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                  fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                   color: "rgba(255,255,255,0.9)",
                   lineHeight: "1",
                   marginTop: "6px",
@@ -107,7 +107,7 @@ export default function Header() {
               href="/about"
               className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
               style={{
-                fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
               }}
             >
@@ -120,7 +120,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
               style={{
-                fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
               }}
             >
@@ -136,7 +136,7 @@ export default function Header() {
               <button
                 className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
                 style={{
-                  fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                  fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                   color: "white",
                 }}
                 onClick={() => setServicesOpen((v) => !v)}
@@ -194,7 +194,7 @@ export default function Header() {
               href="/contact"
               className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
               style={{
-                fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif",
+                fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
               }}
             >

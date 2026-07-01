@@ -1,8 +1,6 @@
-/* Google Fonts must be imported before any other rules (incl. Tailwind),
-   per the CSS spec: all @import statements precede other rules. Loads
-   Manrope (same weights as the home hero, so the wordmark renders
-   identically across pages) and Permanent Marker (polaroid handwriting). */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Permanent+Marker&display=swap');
+/* Manrope and Permanent Marker are self-hosted via next/font (see layout.tsx)
+   and exposed as --font-manrope / --font-permanent-marker, so there's no
+   render-blocking Google Fonts @import here anymore. */
 @import "tailwindcss";
 
 @theme inline {

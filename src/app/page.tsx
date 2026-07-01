@@ -254,7 +254,7 @@ function VideoHero() {
         poster="/truck-sequence/ezgif-frame-001.webp"
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         aria-label="A Scanio moving truck driving — a silent, decorative background clip"
         onTimeUpdate={(e) => {
           const v = e.currentTarget;
@@ -364,13 +364,11 @@ export default function HomePage() {
 
 
   return (
-    <div style={{ fontFamily: "'Manrope', 'Inter', 'Helvetica Neue', sans-serif" }}>
+    <div style={{ fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif" }}>
       {/* Single screen-reader-only H1 — gives the homepage one clear top-level
           heading with the primary phrase, with zero change to the visual design. */}
       <h1 className="sr-only">Scanio Moving &amp; Storage — NYC Movers and Storage Since 1941</h1>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Permanent+Marker&display=swap');
-
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
@@ -819,7 +817,7 @@ export default function HomePage() {
                     aria-hidden
                     className="absolute z-10 select-none"
                     style={{
-                      fontFamily: "'Permanent Marker', cursive",
+                      fontFamily: "var(--font-permanent-marker), cursive",
                       color: "#1A1F2C",
                       fontSize: "clamp(28px, 3.4vw, 44px)",
                       lineHeight: 1,

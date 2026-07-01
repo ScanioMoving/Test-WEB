@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Manrope } from "next/font/google";
+import { Geist, Geist_Mono, Manrope, Permanent_Marker } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import MobileCallPill from "@/components/MobileCallPill";
@@ -17,6 +17,14 @@ const geistMono = Geist_Mono({
 
 const manrope = Manrope({
   variable: "--font-manrope",
+  subsets: ["latin"],
+});
+
+// Polaroid handwriting. Single weight; self-hosted via next/font so it no
+// longer needs a render-blocking Google Fonts @import.
+const permanentMarker = Permanent_Marker({
+  weight: "400",
+  variable: "--font-permanent-marker",
   subsets: ["latin"],
 });
 
@@ -99,7 +107,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${permanentMarker.variable} antialiased`}
       >
         {/* Skip link — first focusable element, lets keyboard/AT users jump
             past the fixed nav straight to the page content (WCAG 2.4.1). */}
