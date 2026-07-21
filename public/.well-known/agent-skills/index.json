@@ -1,0 +1,13 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "version": "0.2.0",
+  "skills": [
+    {
+      "name": "get-contact-info",
+      "type": "text/markdown",
+      "description": "Retrieve Scanio Moving & Storage's phone, email, address, and hours.",
+      "url": "https://www.scaniomoving.com/.well-known/agent-skills/get-contact-info/SKILL.md",
+      "sha256": "c17a2f4da86a4d3885e7c89b481c63387ccb1aec3fbd7f33b9c1334564a6d524"
+    }
+  ]
+}

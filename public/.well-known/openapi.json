@@ -1,0 +1,64 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Scanio Moving & Storage — Contact API",
+    "version": "1.0.0",
+    "description": "Public, read-only endpoint that returns how to reach Scanio Moving & Storage (phone, email, address, hours). No authentication required.",
+    "contact": {
+      "name": "Scanio Moving & Storage",
+      "email": "info@scaniomoving.com",
+      "url": "https://www.scaniomoving.com/contact"
+    }
+  },
+  "servers": [{ "url": "https://www.scaniomoving.com" }],
+  "paths": {
+    "/api/contact-info": {
+      "get": {
+        "operationId": "getContactInfo",
+        "summary": "Get Scanio Moving & Storage contact information",
+        "description": "Returns the company's phone number, email, mailing address, and business hours.",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Contact details",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ContactInfo" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ContactInfo": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "telephone": { "type": "string" },
+          "phoneDisplay": { "type": "string" },
+          "telHref": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "emailHref": { "type": "string" },
+          "address": {
+            "type": "object",
+            "properties": {
+              "streetAddress": { "type": "string" },
+              "addressLocality": { "type": "string" },
+              "addressRegion": { "type": "string" },
+              "postalCode": { "type": "string" },
+              "addressCountry": { "type": "string" },
+              "formatted": { "type": "string" }
+            }
+          },
+          "hours": { "type": "string" },
+          "contactPage": { "type": "string", "format": "uri" }
+        }
+      }
+    }
+  }
+}

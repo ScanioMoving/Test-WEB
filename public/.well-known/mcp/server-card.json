@@ -1,0 +1,23 @@
+{
+  "serverInfo": {
+    "name": "scanio-moving",
+    "title": "Scanio Moving & Storage",
+    "version": "1.0.0"
+  },
+  "description": "Public MCP server exposing Scanio Moving & Storage's contact information.",
+  "transport": {
+    "type": "streamable-http",
+    "url": "https://www.scaniomoving.com/api/mcp"
+  },
+  "capabilities": {
+    "tools": { "listChanged": false }
+  },
+  "authentication": { "type": "none" },
+  "tools": [
+    {
+      "name": "get_contact_info",
+      "title": "Get Scanio contact info",
+      "description": "Returns Scanio Moving & Storage's phone number, email address, mailing address, and business hours."
+    }
+  ]
+}

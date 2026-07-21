@@ -1,0 +1,34 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.scaniomoving.com/api/contact-info",
+      "service-desc": [
+        {
+          "href": "https://www.scaniomoving.com/.well-known/openapi.json",
+          "type": "application/json",
+          "title": "OpenAPI description of the Scanio contact API"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.scaniomoving.com/llms.txt",
+          "type": "text/markdown",
+          "title": "Scanio Moving & Storage summary for AI assistants"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://www.scaniomoving.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "MCP server card"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://www.scaniomoving.com/api/contact-info",
+          "title": "Contact API (returns 200 with current details)"
+        }
+      ]
+    }
+  ]
+}

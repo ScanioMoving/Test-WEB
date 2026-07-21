@@ -21,7 +21,7 @@ export const COMPANY = {
   email: "info@scaniomoving.com",
 
   address: {
-    line1: "450 7th Ave",
+    line1: "450 Fashion Ave",
     line2: "New York, NY 10123",
   },
 

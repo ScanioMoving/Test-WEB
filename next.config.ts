@@ -139,6 +139,50 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+
+      // Agent discovery (RFC 8288): advertise the machine-readable resources
+      // from the homepage so agents can find the API catalog, its OpenAPI
+      // description, the AI summary, and the auth statement without guessing.
+      {
+        source: "/",
+        headers: [
+          {
+            key: "Link",
+            value: [
+              '</.well-known/api-catalog>; rel="api-catalog"',
+              '</.well-known/openapi.json>; rel="service-desc"',
+              '</llms.txt>; rel="service-doc"',
+              '</auth.md>; rel="author"',
+            ].join(", "),
+          },
+        ],
+      },
+
+      // Let browser-based agents fetch the discovery docs cross-origin. CORS
+      // lives only on this wildcard rule so the header is never duplicated.
+      {
+        source: "/.well-known/:path*",
+        headers: [{ key: "Access-Control-Allow-Origin", value: "*" }],
+      },
+      // The extension-less well-known docs need their content types set
+      // explicitly (no filename extension for the server to infer from).
+      {
+        source: "/.well-known/api-catalog",
+        headers: [
+          { key: "Content-Type", value: "application/linkset+json; charset=utf-8" },
+        ],
+      },
+      {
+        source: "/.well-known/oauth-protected-resource",
+        headers: [{ key: "Content-Type", value: "application/json; charset=utf-8" }],
+      },
+      {
+        source: "/auth.md",
+        headers: [
+          { key: "Content-Type", value: "text/markdown; charset=utf-8" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
     ];
   },
 };

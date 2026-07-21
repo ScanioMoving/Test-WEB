@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Manrope, Permanent_Marker } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import MobileCallPill from "@/components/MobileCallPill";
+import WebMCP from "@/components/WebMCP";
 import { SITE_URL, localBusinessJsonLd } from "@/lib/seo";
 
 const geistSans = Geist({
@@ -119,6 +120,9 @@ export default function RootLayout({
         </a>
         {children}
         <MobileCallPill />
+        {/* Exposes a get_contact_info tool to in-browser AI agents (WebMCP).
+            Feature-detected — renders nothing in browsers without support. */}
+        <WebMCP />
 
         {/* Google Analytics 4 — only loads when a measurement ID is set,
             so production never ships a broken placeholder tag. Set

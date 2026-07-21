@@ -46,7 +46,7 @@ export const localBusinessJsonLd = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    // Approximate — 450 7th Ave, Midtown Manhattan.
+    // Approximate — 450 Fashion Ave, Midtown Manhattan.
     latitude: 40.7522,
     longitude: -73.9906,
   },

@@ -1,0 +1,9 @@
+{
+  "resource": "https://www.scaniomoving.com/api/contact-info",
+  "authorization_servers": [],
+  "scopes_supported": [],
+  "bearer_methods_supported": [],
+  "resource_documentation": "https://www.scaniomoving.com/auth.md",
+  "x-authentication-required": false,
+  "x-note": "This resource is public and read-only. No OAuth authorization server is involved and no access token is required; call the endpoint directly."
+}
