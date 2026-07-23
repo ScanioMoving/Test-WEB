@@ -30,6 +30,16 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const url = `${SITE_URL}/blog/${slug}`;
+  // A named person is a stronger authorship/E-E-A-T signal than the company;
+  // use Person when the byline isn't the organization default.
+  const isOrgAuthor = post.author === "Scanio Moving & Storage";
+  const author = isOrgAuthor
+    ? { "@type": "Organization", name: post.author, url: SITE_URL }
+    : {
+        "@type": "Person",
+        name: post.author,
+        worksFor: { "@type": "Organization", name: "Scanio Moving & Storage", "@id": `${SITE_URL}/#business` },
+      };
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -37,13 +47,17 @@ export default async function BlogPostPage({
     description: post.description,
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@type": "Organization", name: post.author },
+    inLanguage: "en-US",
+    isAccessibleForFree: true,
+    image: `${SITE_URL}/scanio-logo.png`,
+    author,
     publisher: {
       "@type": "Organization",
       name: "Scanio Moving & Storage",
+      "@id": `${SITE_URL}/#business`,
       logo: { "@type": "ImageObject", url: `${SITE_URL}/scanio-logo.png` },
     },
-    mainEntityOfPage: url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
 
   return (
@@ -64,6 +78,7 @@ export default async function BlogPostPage({
           </Link>
           <p className="text-[12px] tracking-[0.1em] uppercase mt-6 mb-3" style={{ color: "#4A5568" }}>
             {formatDate(post.date)}
+            <span aria-hidden="true"> · </span>By {post.author}
           </p>
           <h1
             className="text-[clamp(30px,4.4vw,52px)] font-semibold leading-[1.08] tracking-[-0.02em] mb-8"
