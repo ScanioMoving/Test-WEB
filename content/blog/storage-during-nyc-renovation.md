@@ -1,63 +1,58 @@
 ---
-title: "Where to Put Your Stuff During a NYC Home Renovation"
-description: "Renovating a New York apartment means figuring out where your furniture goes. Here's a practical guide to storage options and how to plan around a job site."
-date: "2026-07-31"
+title: "Using Storage During a NYC Home Renovation"
+description: "How New York homeowners and renters use short-term storage to protect furniture, stay organized, and give contractors the space they need to work."
+date: "2026-09-25"
 author: "Scanio Moving & Storage"
 ---
 
-Renovating a New York City apartment is exciting until you realize the kitchen is coming out for six weeks and you have nowhere to put the dining table. A lot of New Yorkers discover this problem mid-contract, when the GC has already scheduled the demo crew. Getting ahead of it saves a lot of headaches and protects your furniture from construction dust, paint overspray, and the general chaos of a job site.
+Renovating a New York City apartment is complicated enough before you factor in the furniture. Contractors need clear floors. Dust and debris find their way into everything. And moving furniture from room to room inside a small apartment only gets you so far before you run out of room to move it to.
 
-## Why you can't just push things to another room
+Temporary storage solves the space problem cleanly. You move what's in the way out before the work starts, and bring it back once the walls are painted and the floors are done. Here's how to think through it.
 
-In a house with a basement and a garage, a renovation is inconvenient but manageable. In a 900-square-foot apartment, there's no backstage. A kitchen gut forces the refrigerator somewhere, the table somewhere else, and all the cabinets' contents into boxes that stack up wherever you can find space. Do a bathroom too and suddenly you've turned a two-bedroom into an obstacle course.
+## When storage actually makes sense
 
-Trying to work around the renovation inside the apartment also slows the crew down. Contractors who have to work around a living room full of covered furniture take longer, and that means extra days (and dollars) on the job.
+Not every renovation justifies it. A weekend bathroom retile probably doesn't. But these situations almost always do:
 
-## Your main options
+- A full kitchen or bathroom gut: counters, appliances, and contents need to be completely cleared.
+- Hardwood floor refinishing across the whole apartment: everything off the floors, full stop.
+- A multi-room project with several trades (plumber, electrician, painter) working in sequence for weeks.
+- Moving into a newly purchased apartment that needs work before you can live in it.
+- A gut renovation of a co-op or condo where you're staying elsewhere during construction.
 
-### 1. Full-service storage
+The common thread is contractors needing unobstructed access and you needing your belongings protected from dust, tools, and foot traffic.
 
-This is what professional movers offer: pack up everything from the affected rooms, transport it, and store it until the job is done. When the renovation wraps, it all comes back. The main advantage is protection. Your furniture is wrapped, padded, and kept in a controlled environment, not stacked against a wall under plastic sheeting.
+## What goes into storage
 
-If the renovation is large or affects the whole apartment, this is usually the cleanest solution. You move out temporarily, the crew has full access, and nothing is damaged by the work.
+The straightforward list: furniture, rugs, artwork, lamps, shelving, and anything fragile or valuable that you don't want near a construction site. Clothing and kitchen contents can often stay in boxes in a closet or spare room, but bulky furniture rarely fits that way.
 
-Scanio's [storage facility in Secaucus, NJ](/storage) is temperature-controlled, which matters more than people expect. Wood furniture, artwork, and electronics can all be affected by heat extremes, especially if a renovation runs through summer months and windows are left open or the HVAC is disconnected. Keeping pieces in a stable environment protects the investment.
+Artwork and antiques deserve particular attention. Fine pieces should be wrapped and crated properly before they're moved and stored, not loaded in a hurry. If you have anything in that category, ask your mover about their approach to specialty items. Scanio handles [residential moves](/services/residential) and has experience with fine art, antiques, and high-value pieces that need careful treatment.
 
-### 2. Self-storage
+## Timing it with the contractor
 
-Renting a unit yourself and moving things independently is an option if you have the truck, the help, and the time. The drawbacks: moving heavy furniture yourself carries real injury risk, and most self-storage facilities don't offer the kind of protection a professional facility does. You're also doing two moves instead of one (out and back in) without the packing support.
+The most important thing to get right is the schedule. Storage works best when you know roughly how long the project will run. A kitchen renovation might take three to six weeks. A full apartment gut can stretch months.
 
-If you're storing smaller items and boxes rather than full furniture, self-storage can work. For sofas, wardrobes, and anything else that needs to be moved carefully, professional storage is usually worth the difference.
+Build in cushion. Renovations almost always run longer than projected, and you don't want to be arranging an emergency extension in the middle of a project. When you request a storage quote, describe the renovation scope honestly and build two to three extra weeks into your estimate.
 
-### 3. PODs and portable containers
+Also coordinate the move-out carefully with the start of work. Contractors can't always wait while furniture is being packed. Confirm the schedule with both your mover and your contractor so the apartment is clear before the crew shows up with tools.
 
-Portable containers parked outside sound convenient, but in New York City the logistics are genuinely complicated. Parking permits are required, street parking is at a premium, and in many neighborhoods there simply isn't a workable spot. Co-ops and condos often won't allow a container on the street in front of the building. If you're in a house with a driveway or a neighborhood where it's feasible, it's worth exploring. In most of Manhattan and the denser parts of the outer boroughs, it's more trouble than it sounds.
+## NYC-specific considerations
 
-## Planning around the renovation timeline
+A few things that tend to come up in New York:
 
-A few things worth working out before anything gets packed:
+**Building rules.** Freight elevator windows are limited, and many buildings require a Certificate of Insurance from the mover before they'll allow access. Scanio handles COI paperwork for every move, so that's one less thing to chase down.
 
-**Which rooms are actually affected?** A kitchen renovation doesn't necessarily require you to move the bedroom. Think through the job scope and identify exactly what needs to leave and what can stay under careful protection.
+**Tight spaces.** NYC apartments are small. When the work is done and you're bringing things back, the movers navigate the same tight hallways and stairs they did on the way out. Factor that into your timeline.
 
-**How long is the job?** Contractors are optimistic. Whatever timeline you're given, plan for a buffer. Storage arrangements should cover the work period plus a couple of weeks on either side.
+**Temperature-controlled storage.** Furniture and artwork can be sensitive to temperature extremes. Scanio's [storage facility](/storage) in Secaucus, NJ is temperature-controlled, which protects wood, canvas, and upholstered pieces from seasonal temperature swings during a longer project.
 
-**Will you stay in the apartment or leave?** Some renovations are disruptive enough that staying isn't practical. If you're moving into temporary housing, it often makes sense to [have a moving crew handle everything](/services/residential) rather than piecing together the storage separately.
+## The move-back
 
-**Does the building have move restrictions?** Most NYC buildings require advance notice and freight elevator reservations for any significant move. If the same crew is handling both the renovation clearance and the eventual return move, they can handle [COI requirements and elevator coordination](/services/residential) as part of the job.
+Once the renovation is done, the furniture comes back. That delivery and setup is the piece people most often underestimate. If your floors are new, you'll want movers who are careful with placement and use protective covers. Confirm with your mover that the job includes reassembly of anything that was disassembled to get it out.
 
-## What to protect most carefully
+For longer projects, some people find the renovation changed the layout enough that they want to rethink what's coming back. If you plan to sell or donate pieces that won't fit the new space, factor that into the back-haul scope before the truck arrives.
 
-Not everything in a renovation zone is equally at risk:
+## Getting started
 
-- **Upholstered pieces** absorb dust and odors and are hard to clean after the fact
-- **Wood furniture** can be scratched, stained, or warped if left in a space with open windows or inconsistent temperature during summer
-- **Electronics** are sensitive to both dust and heat; they shouldn't stay in a room where drywall is being sanded
-- **Artwork** is best out of the space entirely during any work involving paint, solvents, or demolition
+The best time to arrange storage is before the contractor's start date, not after. If you're in the planning stages of a renovation, [get a free estimate](/quote) and we'll look at the scope, the timeline, and the building logistics and give you a real number.
 
-Even if you're keeping items in the apartment, cover them properly and separate them as far as possible from the work zone.
-
-## Timing it right
-
-The smartest time to arrange storage is before the contractor starts, not after demo has already begun. Once the walls are open, the dust is in motion. Get a sense of the schedule, book the storage, and plan the pack-out for the week before the job kicks off. The crew has clean access, your belongings are safe, and there's no scramble mid-renovation.
-
-If you're not sure what the scope calls for, [request a free estimate](/quote) and describe the renovation. We can help you figure out what needs to go, how much space it takes, and what the logistics look like at both ends.
+Scanio Moving and Storage has been handling New York moves and storage since 1941. Our team coordinates the full sequence, move-out, storage, and move-back, so the renovation side of things runs smoothly from start to finish.
