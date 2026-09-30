@@ -1,58 +1,60 @@
 ---
-title: "Moving Into a NYC Walk-Up: What to Expect and How to Prepare"
-description: "Walk-up moves in New York come with real logistical challenges. Here's how to plan around the stairs, protect your furniture, and make the day go smoothly."
-date: "2026-07-15"
+title: "Moving Into a NYC Walk-Up: What to Know Before Move Day"
+description: "Walk-up apartments need extra planning. Here's how to prepare for stairs, tight landings, and NYC building rules so your move goes smoothly."
+date: "2026-09-30"
 author: "Scanio Moving & Storage"
 ---
 
-Walk-up apartments are a fact of life in New York. Prewar buildings, brownstones, and older tenement-style units often have no elevator, which means everything you own goes up (or down) a staircase. That changes the math on a move. Stairs take more time, more labor, and some items that fit fine in a freight elevator simply won't make it around a tight landing. Planning ahead makes the difference between a long day and a disaster.
+Walk-up apartments are one of the things that make New York, New York. Prewar buildings with no elevator, narrow staircases, angled landings, and a fourth-floor unit that the listing described as "cozy." Millions of New Yorkers live in them, and thousands move into them every year. The good news: with some planning, a walk-up move goes fine. The bad news: without that planning, it can go sideways quickly.
 
-## What actually makes a walk-up harder
+Here's what to sort out before move day.
 
-The short answer is physics. Movers carry the same weight up stairs as in an elevator, but they have to manage the angle, the turns, and the landings at the same time. A standard Manhattan staircase can be narrow, steep, and full of 90-degree turns between floors. Fourth-floor walk-up means four flights, every trip.
+## Measure before anything else
 
-A few things compound the difficulty:
+This is the step most people skip, and it causes the most grief. A walk-up staircase has fixed dimensions. If your sofa, dresser, or bed frame can't make the turns, it doesn't matter how strong the crew is.
 
-- **Floor count.** Every flight adds time. A fifth-floor walk-up on a full one-bedroom will take noticeably longer than the same move into a second-floor unit.
-- **Stairwell dimensions.** Width and landing depth matter. A hallway that's 36 inches wide is manageable; 28 inches with a hard turn is a different situation entirely.
-- **Furniture size.** Large sofas, king-size bed frames, wide dressers, and dining tables all have to clear the turns. Some pieces need to be partially disassembled to make it through.
+Measure your furniture, then measure the relevant parts of the route:
 
-## Before your move: measure everything
+- Doorway widths at the building entrance, the stairwell door, and your apartment door
+- Ceiling height on the landings (lower than you'd think in some prewar buildings)
+- The width of the stairwell itself and the clearance at each landing turn
+- Any narrow hallway between the stairwell and your unit
 
-This is the step most people skip and then regret. Walk the staircase at your new place and note the narrowest points: the width of the staircase itself, the height of the ceiling on each landing, and how tight the turn is between flights.
+If something is borderline, flag it when you request your estimate. A good mover can often disassemble a piece, hoist something through a window, or suggest a workaround. They can't improvise at 9 a.m. on move day with no heads-up.
 
-Then measure your largest furniture pieces, including the diagonal. A 90-inch sofa is not just 90 inches when you're trying to pivot it around a landing. Knowing what you're dealing with ahead of time lets your movers plan how to handle each piece, or tells you to sell the sofa before the move rather than after.
+## Tell your mover the full picture
 
-## Items that need special attention
+When you request a [residential move estimate](/services/residential), describe the walk-up honestly: how many flights, the approximate width of the staircase, any tricky turns or landings, and whether there's a long hallway on your floor. The access at both ends affects the crew size, the time needed, and the equipment required.
 
-Some things need more thought in a walk-up situation:
+Don't assume the mover will figure it out on arrival. If a crew shows up expecting a straightforward second-floor job and finds a steep, narrow four-flight staircase with a 180-degree turn at each landing, the day gets harder for everyone.
 
-- **Sofas and sectionals.** These are the most common walk-up casualty. A standard sofa can often be stood on end and angled through a tight turn, but a sectional or curved sofa may not. Measure before you commit.
-- **Mattresses.** King and California king mattresses can be very awkward in a tight stairwell. Box springs are often the real obstacle since they're rigid. Modern platform beds and memory-foam mattresses in a bag are much easier to work with.
-- **Pianos.** A walk-up piano move is a specialist job. The weight, balance, and stair logistics all require trained crews and specific equipment. We cover that in detail separately for [piano moves](/services/ffe-designer), but the short version is: get the right team.
-- **Large appliances.** If your unit doesn't include a washer or dryer hook-up this may not apply, but refrigerators and washing machines on a high floor are a significant lift.
+## Building rules and truck parking
 
-## How to prepare your building
+Walk-up buildings often have simpler move rules than doorman buildings, since there's no freight elevator to reserve. But there are still things to check:
 
-Walk-ups don't require freight elevator reservations, but they still have rules. Many buildings, including co-ops and condos, require a Certificate of Insurance (COI) from your movers before they'll allow a move. A licensed mover provides this as a matter of course. If you're moving into a rental, check with your landlord about any move-in rules, protected hours, and stair runner requirements to protect the floors and walls.
+- **Move hours.** Many buildings restrict moves to weekday windows or specific hours on weekends.
+- **Truck access.** Some blocks in Manhattan, Brooklyn, and Queens have loading restrictions. Confirm where the truck can legally stop. If the nearest parking is half a block away, the crew carries further. That matters for both timing and cost.
+- **Super availability.** Know how to reach the building super in case a door needs to be propped or something comes up on the day.
 
-If there's a [residential move coordinator](/services/residential) on the building side, get their contact information early and confirm the paperwork before move day.
+## Heavy and bulky items need extra thought
 
-## On the day
+A sofa, a king mattress, a large wardrobe, or a desk with a glass top all get more complicated on stairs. For anything large or fragile, a professional crew with the right equipment makes a real difference. Furniture sliders, blanket pads, and ratchet straps let movers protect your pieces and the walls on their way up.
 
-A few practical things help walk-up moves run better:
+If you have antiques, artwork, or other high-value items, those deserve the same kind of planning. [Specialty handling](/services/ffe-designer) for fragile or irreplaceable pieces applies just as much to a fourth-floor walk-up as it does to a house.
 
-- **Start early.** Most buildings have quiet hours and summer heat makes an afternoon stair run miserable. An early start is always the right call.
-- **Clear the stairwell.** Ask neighbors on your floor (and between) to keep bikes, boxes, and furniture out of the landing area. Even a small obstacle causes delays.
-- **Have a plan for parking.** Walk-up buildings are often on narrower side streets. Knowing where the truck will park and how far the carry is affects the estimate and the pace.
-- **Protect the walls.** Stairwell walls are tight and corners are unforgiving. Good movers use furniture pads and door-frame protectors, but it helps to note any pre-existing dings so you're not responsible for them after.
+## Storage can simplify a tight timeline
 
-## Storage as a pressure valve
+Sometimes the move-in date on a walk-up doesn't line up perfectly with the move-out date on your old place. Or the new apartment is smaller and you need a buffer while you figure out what stays. [Temperature-controlled storage](/storage) at our Secaucus, NJ facility is a straightforward way to bridge that gap, with your things in stable conditions until you're ready for them.
 
-Occasionally a piece simply won't make it up the stairs, or you realize on move day that the unit is more cramped than it looked. [Temperature-controlled storage](/storage) in Secaucus, NJ can hold furniture and boxes while you figure out the next step, whether that's selling the piece, waiting for the right moment, or staging the apartment before a full unpack.
+## A few things to do the day before
 
-## Getting a real estimate
+- Clear the path on both ends. Remove anything that could block the stairwell or narrow the hallway.
+- Protect your floors and walls with movers' blankets if you have them, or let the crew handle it.
+- Have a plan for kids, pets, or anyone else who'll be in the apartment so the crew can work without navigating around them.
+- Keep your essentials bag close: documents, chargers, medications, and anything you'll need on the first night.
 
-Walk-up moves take longer and may require an extra crew member. The only way to price them accurately is to know the floor, the stairwell dimensions, the inventory, and the distance. Flat-rate guesses don't hold up. [Request a free estimate](/quote) and we'll put together an honest number based on what the job actually involves.
+## The honest truth about walk-ups
 
-Scanio has been moving New York apartments since 1941, walk-ups included. The stairs are nothing new.
+A walk-up move is more physical, takes a bit longer, and requires a crew that's done it before. Scanio has been moving New York apartments since 1941, and a large share of them have been walk-ups. We know the stairwells, the builds, and the planning that makes the difference.
+
+[Request a free estimate](/quote) and we'll take the specifics into account from the start.
