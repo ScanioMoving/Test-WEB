@@ -70,6 +70,43 @@ export const localBusinessJsonLd = {
     "https://www.instagram.com/scaniomovers/",
     "https://www.yelp.com/biz/scanio-moving-and-storage-new-york-2",
   ],
+  description:
+    "Family-owned New York City moving and storage company operating since 1941. Scanio provides residential, commercial, long-distance, and international moving, FF&E / designer logistics, professional packing, and temperature-controlled storage across the NYC metro area.",
+  slogan: "Moving & Storage — Since 1941",
+  knowsAbout: [
+    "Residential moving",
+    "Commercial and office moving",
+    "Long-distance moving",
+    "International moving",
+    "FF&E and designer logistics",
+    "Packing and unpacking",
+    "Storage and warehousing",
+    "Fine art and antique moving",
+  ],
+  // Enumerate the services so AI assistants and search can list exactly what
+  // the company offers, each linked to its own page.
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Moving & storage services",
+    itemListElement: [
+      { name: "Residential Moving", path: "/services/residential" },
+      { name: "Commercial & Office Moving", path: "/services/commercial" },
+      { name: "Long-Distance Moving", path: "/services/long-distance" },
+      { name: "International Moving", path: "/services/international" },
+      { name: "FF&E / Designer Logistics", path: "/services/ffe-designer" },
+      { name: "Storage", path: "/storage" },
+    ].map((s) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: s.name,
+        serviceType: s.name,
+        url: `${SITE_URL}${s.path}`,
+        provider: { "@id": `${SITE_URL}/#business` },
+        areaServed: { "@type": "City", name: "New York" },
+      },
+    })),
+  },
   additionalProperty: COMPANY.licenses.map((l) => ({
     "@type": "PropertyValue",
     name: l.label,
