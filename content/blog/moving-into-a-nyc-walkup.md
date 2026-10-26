@@ -1,58 +1,51 @@
 ---
-title: "Moving into a NYC Walk-Up: What to Know Before Moving Day"
-description: "Walk-up apartments are common across New York City. Here's what to expect, how to plan the move, and why building access matters as much as muscle."
-date: "2026-09-28"
+title: "Moving Into a NYC Walk-Up: What to Know Before Move Day"
+description: "Walk-up apartments are one of NYC's great challenges. Here's how to plan a smooth move up the stairs, from measuring furniture to choosing the right crew."
+date: "2026-10-26"
 author: "Scanio Moving & Storage"
 ---
 
-Walk-up buildings are a New York staple. Pre-war brownstones, railroad apartments, six-story tenements without elevators - they're scattered across every borough, often in the neighborhoods people most want to live in. Moving into one takes more planning than a standard building move, and the planning is worth it.
+Moving into a walk-up apartment is a rite of passage in New York. No elevator, narrow stairwells, tight landings, and however many flights between you and home. Done well, it's manageable. Done poorly, it's a long, miserable day with a couch stuck on a second-floor landing.
 
-## What makes a walk-up different
+Here's what makes walk-up moves different, and how to set yourself up for a good one.
 
-The obvious thing is stairs. Carrying furniture up three, four, or five flights of a narrow staircase is harder work than it sounds, and certain pieces make it dramatically harder. But stairs aren't the only challenge.
+## Measure before you commit to anything
 
-Walk-up buildings tend to have narrow doorways, tight landings, low ceilings at the turns, and no freight elevator to fall back on. What gets in (and what doesn't) is decided before the truck even shows up.
+The single most important step is also the one people skip most often: measure your furniture against the path it has to travel. That means the apartment's front door, each stairwell landing, and the width of the staircase itself.
 
-## Measure before you commit
+A sofa that fits through the lobby door can still get stuck on a turn at the first landing. Beds, wardrobes, and large dressers are the usual culprits. If something won't fit up the stairs, professional movers can sometimes disassemble it, take it apart in sections, or in rare cases hoist it from outside. Better to know that before move day, not during.
 
-This cannot be overstated: measure everything before moving day.
+Measure your new door frames too, including height. Old prewar buildings sometimes have lower doorways than you'd expect, and a tall piece of furniture can hit the frame before the crew realizes it.
 
-- The doorway width and height at the building entrance
-- The staircase width, at the narrowest point, which is usually the landing
-- The clearance at each turn in the staircase
-- Your apartment doorway and any interior doorways for large pieces
+## Think hard about what you're bringing
 
-Sofas and bed frames are the most common casualties. A sofa that barely fits in an elevator building might not make it around a stair landing. Some pieces can be taken apart, some can be stood on end and angled through, and some simply won't go. Better to know this before the crew is standing in the hallway at 8 a.m.
+A walk-up is a real incentive to declutter. Every item that comes up those stairs costs time and effort. Before you pack, walk through your belongings with that in mind.
 
-## The pieces that need extra thought
+Large, heavy items deserve particular attention. An upright piano, a full library's worth of books, a cast-iron tub, a large appliance: these are the things that add hours to a move and require special planning. Talk to your mover early about anything in that category so they can bring the right equipment and the right crew size.
 
-A few categories consistently cause problems in walk-ups:
+If your timeline allows, consider [storing](/storage) bulkier furniture temporarily while you settle in and figure out what actually works in the new layout. Our temperature-controlled facility in Secaucus, NJ is a good option for furniture, art, and anything sensitive to heat or cold during a gap between homes.
 
-- **Large sofas and sectionals.** The longer the piece, the harder it pivots around a landing.
-- **Box springs.** Many won't fit up a narrow staircase. Split box springs exist for exactly this reason.
-- **Heavy dressers and wardrobes.** Weight plus awkward size in a stairwell is a slow combination.
-- **Desks and dining tables.** Legs can usually come off, which helps considerably.
+## Coordinate with both buildings
 
-An experienced crew will flag potential problems early, but you can speed things up by noting these items when you [request an estimate](/quote).
+Just because a walk-up doesn't have a freight elevator doesn't mean there's no coordination required. Many NYC buildings have specific hours for moves, typically weekday mornings and afternoons, with weekends restricted. Check the rules at both your old place and your new one, and confirm whether either building requires a Certificate of Insurance from your moving company.
 
-## What a good crew brings to a walk-up
+A good mover provides the COI directly. As part of every [residential move](/services/residential) we do, Scanio handles the building paperwork so you're not chasing documents on your own.
 
-Walk-up moves aren't just more physically demanding. They require technique: knowing how to pivot a couch through a stair landing, how to safely carry weight up four flights without exhausting the crew in the first hour, and how to protect your walls, door frames, and floors throughout the process.
+Parking is another piece to line up early. Walk-up buildings are often in older, denser neighborhoods where curb space is tight. Your mover may need a full length of block for the truck. Scoping out the street beforehand, and sometimes arranging a parking permit through the city, saves real time on move day.
 
-Good movers use proper hand trucks and furniture dollies where stairs allow, bring blankets to wrap large pieces, and pad the walls at tight spots. The pace is slower than a building with a freight elevator, and any honest estimate reflects that.
+## What to look for in a walk-up moving crew
 
-At Scanio, [residential moves](/services/residential) in walk-up buildings are a regular part of our work. We've been doing this in New York since 1941, so the quirks of older buildings aren't a surprise.
+Not every crew handles walk-ups the same way. You want people who know how to work together on a narrow staircase, who are careful with your walls and bannisters, and who have the experience to read a tight spot before committing a piece of furniture to a bad angle.
 
-## The COI question in walk-ups
+That skill comes from repetition. A crew that has done hundreds of NYC walk-ups has internalized the technique: when to tilt, when to pivot, when to stop and reassess, and how to protect the building along the way. Scanio has been doing this in New York since 1941. Walk-ups are everyday work for us.
 
-Walk-up buildings often don't have an on-site building manager the way a large co-op or condo does. Many smaller landlords still require a Certificate of Insurance (COI) from the moving company before allowing a move. Check with your landlord or super ahead of time. We handle COI paperwork directly with buildings as a standard part of the job.
+If you have specialty items, fine furniture, or antiques in the mix, that experience matters even more. Our [FF&E and specialty-handling work](/services/ffe-designer) covers the kinds of pieces that need more than just a strong back.
 
-## If you need a storage bridge
+## A few practical tips for move day
 
-Sometimes the timing doesn't work. You might close on the new place before you're done in the old one, or you may need to put some furniture in storage while you figure out what fits the new space. Our [temperature-controlled storage facility](/storage) in Secaucus, NJ is a straightforward option for bridging that gap.
+- Put down corner guards and floor protection before the crew starts, especially on wood floors and painted stairwells.
+- Clear the stairwell completely. Bikes, boxes, or furniture left on landings by other tenants slow everything down and create real safety issues.
+- Have water available for the crew. A walk-up in a New York summer is genuinely hard work.
+- Stay reachable and on site. Walk-ups don't leave much room for questions to linger, and having someone who can make a quick decision keeps the day on track.
 
-## Plan for both ends
-
-If you're moving out of a walk-up as well as into one, plan for both ends when you get your quote. The access situation at the origin address matters as much as the destination. A crew that knows what they're walking into at both addresses runs a tighter, smoother day.
-
-Ready to get started? [Request a free estimate](/quote) and tell us about both addresses. We'll take it from there.
+If you're planning a walk-up move in New York City, [request a free estimate](/quote) and tell us the floor counts at each end. We'll plan around your stairwells, your furniture, and your schedule.
