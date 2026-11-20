@@ -128,6 +128,20 @@ export default function Header() {
               <ExternalLink size={12} className="opacity-60" />
             </a>
 
+            <a
+              href="https://storage.scaniomoving.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
+              style={{
+                fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
+                color: "white",
+              }}
+            >
+              Storage Portal
+              <ExternalLink size={12} className="opacity-60" />
+            </a>
+
             <div
               className="relative"
               onMouseEnter={handleDropdownEnter}
@@ -245,6 +259,17 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
             >
               Designer Portal
+              <ExternalLink size={13} className="opacity-60" />
+            </a>
+            <a
+              href="https://storage.scaniomoving.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
+              style={{ color: "white" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              Storage Portal
               <ExternalLink size={13} className="opacity-60" />
             </a>
 

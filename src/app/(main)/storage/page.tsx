@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, CheckCircle } from "lucide-react";
+import { Phone, CheckCircle, ExternalLink } from "lucide-react";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 import { pageMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
 import JsonLd from "@/components/JsonLd";
@@ -174,6 +174,17 @@ export default function StoragePage() {
                 a storage quote.
               </p>
 
+              <a
+                href="https://storage.scaniomoving.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-6 md:mt-7 text-[12px] tracking-[0.3em] uppercase font-medium px-9 py-4 transition-all hover:opacity-90"
+                style={{ background: "#0B5DB5", color: "white" }}
+              >
+                Explore Our Storage Site
+                <ExternalLink size={13} className="opacity-70" />
+              </a>
+
               {/* Warehouse address + NJ license */}
               <div
                 className="mt-10 md:mt-12 pt-6 md:pt-8 border-t"
@@ -235,6 +246,16 @@ export default function StoragePage() {
             >
               Get a Storage Quote
             </Link>
+            <a
+              href="https://storage.scaniomoving.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 text-[12px] tracking-[0.3em] uppercase font-medium px-10 py-4 border transition-all hover:opacity-70"
+              style={{ color: "#0A1628", borderColor: "#0A1628" }}
+            >
+              Visit Storage Site
+              <ExternalLink size={13} className="opacity-70" />
+            </a>
             <a
               href={TEL_HREF}
               className="flex items-center justify-center gap-2 text-[13px] tracking-[0.2em] uppercase font-medium transition-opacity hover:opacity-60"
