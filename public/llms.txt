@@ -24,7 +24,7 @@ This file is a curated, machine-readable summary for AI assistants and LLM crawl
 - [Long Distance Moving](https://www.scaniomoving.com/services/long-distance): Coast-to-coast interstate moves kept under one accountable team start to finish, with digital inventory and realistic delivery windows. ICC MC93512.
 - [International Moving](https://www.scaniomoving.com/services/international): Worldwide relocations with customs documentation, ocean and air freight, and door-to-door coordination.
 - [FF&E / Designer Services](https://www.scaniomoving.com/services/ffe-designer): White-glove receiving, inspection, climate-controlled staging, and installation for interior designers and architects. Fine art, antiques, and custom crating.
-- [Storage](https://www.scaniomoving.com/storage): Secure, temperature-controlled storage in Secaucus, NJ, three miles from the Lincoln Tunnel. Month-to-month flexibility; pay only for the space used.
+- [Storage](https://www.scaniomoving.com/storage): Secure, temperature-controlled storage in Secaucus, NJ, three miles from the Lincoln Tunnel. Month-to-month flexibility; pay only for the space used. Dedicated storage site: https://storage.scaniomoving.com.
 
 ## Full-service packing + storage
 
@@ -51,6 +51,7 @@ Scanio handles packing and storage as one coordinated, start-to-finish service: 
 - [Home](https://www.scaniomoving.com/): Overview and company heritage.
 - [About / The Scanio Story](https://www.scaniomoving.com/about): History, three generations of ownership, values, and licensing.
 - [All Services](https://www.scaniomoving.com/services): Index of every moving and storage service.
+- [Storage Site](https://storage.scaniomoving.com): Dedicated site for Scanio's temperature-controlled NYC-metro storage in Secaucus, NJ.
 - [Contact / Free Estimate](https://www.scaniomoving.com/contact): Request a free, no-obligation moving estimate or reach the team directly.
 
 ## Guides & articles

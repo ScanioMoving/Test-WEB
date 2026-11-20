@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 import { COMPANY, TEL_HREF, MAILTO_HREF } from "@/lib/contact";
 
 export default function Footer() {
@@ -56,6 +57,17 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://storage.scaniomoving.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[16px] font-normal text-white/85 hover:text-white transition-colors"
+                >
+                  Storage Portal
+                  <ExternalLink size={12} className="opacity-60" />
+                </a>
+              </li>
             </ul>
           </div>
 
