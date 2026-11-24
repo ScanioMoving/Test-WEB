@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
-import StoragePortalLink from "@/components/StoragePortalLink";
+import { Menu, X, ChevronDown } from "lucide-react";
+import HeaderPortalLinks from "@/components/HeaderPortalLinks";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 const serviceItems = [
@@ -59,7 +59,7 @@ export default function Header() {
           background: HEADER_BG,
         }}
       >
-        <div className="relative z-10 flex h-full w-full items-center gap-1.5 px-2.5 sm:gap-2 sm:px-10 lg:gap-4 lg:px-6 xl:gap-6 xl:px-8 2xl:gap-10 2xl:px-12">
+        <div className="relative z-10 grid h-full w-full grid-cols-[minmax(0,1fr)_auto] content-center items-center gap-x-3 gap-y-2 px-3 sm:px-10 lg:flex lg:gap-4 lg:px-6 xl:gap-6 xl:px-8 2xl:gap-10 2xl:px-12">
           <Link href="/" className="relative z-10 mr-auto flex shrink-0 items-center gap-1.5 min-[360px]:gap-2 sm:gap-4">
             <div
               className="block h-[32px] shrink-0 aspect-[1217/1561] translate-y-[1px] min-[360px]:h-[38px] sm:h-[60px] xl:h-[75px] xl:translate-y-[2px]"
@@ -103,10 +103,23 @@ export default function Header() {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-4 whitespace-nowrap lg:flex xl:gap-6 2xl:gap-10">
+          <button
+            className="lg:hidden p-2 relative z-10"
+            style={{ color: "white" }}
+            onClick={() => {
+              setMobileOpen(!mobileOpen);
+              setServicesOpen(false);
+            }}
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+
+          <div className="col-span-2 flex items-center justify-center gap-4 whitespace-nowrap xl:gap-6 2xl:gap-10">
             <Link
               href="/about"
-              className="text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-80 transition-opacity duration-300 xl:text-[17px] xl:tracking-[0.15em]"
+              className="hidden text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-80 transition-opacity duration-300 lg:block xl:text-[17px] xl:tracking-[0.15em]"
               style={{
                 fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
@@ -115,22 +128,14 @@ export default function Header() {
               About Us
             </Link>
 
-            <a
-              href="https://designers.scaniomoving.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-80 transition-opacity duration-300 xl:text-[17px] xl:tracking-[0.15em]"
-              style={{
-                fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
-                color: "white",
-              }}
-            >
-              Designer Portal
-              <ExternalLink size={12} className="opacity-60" />
-            </a>
+            <HeaderPortalLinks
+              className="transition-opacity duration-300 hover:opacity-80"
+              color="white"
+              onClick={() => setMobileOpen(false)}
+            />
 
             <div
-              className="relative"
+              className="relative hidden lg:block"
               onMouseEnter={handleDropdownEnter}
               onMouseLeave={handleDropdownLeave}
             >
@@ -193,7 +198,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-80 transition-opacity duration-300 xl:text-[17px] xl:tracking-[0.15em]"
+              className="hidden text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-80 transition-opacity duration-300 lg:block xl:text-[17px] xl:tracking-[0.15em]"
               style={{
                 fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
@@ -202,21 +207,6 @@ export default function Header() {
               Contact
             </Link>
           </div>
-
-          <StoragePortalLink color="white" onClick={() => setMobileOpen(false)} />
-
-          <button
-            className="lg:hidden p-2 relative z-10"
-            style={{ color: "white" }}
-            onClick={() => {
-              setMobileOpen(!mobileOpen);
-              setServicesOpen(false);
-            }}
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
         </div>
 
       </div>
@@ -239,17 +229,6 @@ export default function Header() {
             >
               About Us
             </Link>
-            <a
-              href="https://designers.scaniomoving.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
-              style={{ color: "white" }}
-              onClick={() => setMobileOpen(false)}
-            >
-              Designer Portal
-              <ExternalLink size={13} className="opacity-60" />
-            </a>
             <div>
               <button
                 className="flex items-center justify-between w-full py-3 text-[15px] tracking-[0.1em] uppercase font-medium"

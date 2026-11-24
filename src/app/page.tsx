@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, ArrowDown, ChevronDown, ChevronLeft, ChevronRight, Menu, X, ExternalLink } from "lucide-react";
-import StoragePortalLink from "@/components/StoragePortalLink";
+import { Phone, ArrowDown, ChevronDown, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import HeaderPortalLinks from "@/components/HeaderPortalLinks";
 import { COMPANY, TEL_HREF, MAILTO_HREF } from "@/lib/contact";
 
 /**
@@ -431,7 +431,7 @@ export default function HomePage() {
               ].join(", "),
             }}
           />
-          <div className="relative z-10 flex h-full w-full items-center gap-1.5 px-2.5 sm:gap-2 sm:px-10 lg:gap-4 lg:px-6 xl:gap-6 xl:px-8 2xl:gap-10 2xl:px-12">
+          <div className="relative z-10 grid h-full w-full grid-cols-[minmax(0,1fr)_auto] content-center items-center gap-x-3 gap-y-2 px-3 sm:px-10 lg:flex lg:gap-4 lg:px-6 xl:gap-6 xl:px-8 2xl:gap-10 2xl:px-12">
             <Link href="/" className="mr-auto flex shrink-0 items-center gap-1.5 min-[360px]:gap-2 sm:gap-4">
               <div
                 className="block h-[32px] shrink-0 aspect-[1217/1561] translate-y-[1px] transition-colors duration-500 min-[360px]:h-[38px] sm:h-[60px] xl:h-[75px] xl:translate-y-[2px]"
@@ -467,29 +467,33 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Desktop nav */}
-            <div className="hidden items-center gap-4 whitespace-nowrap lg:flex xl:gap-6 2xl:gap-10">
+            <button
+              className="lg:hidden p-2 transition-colors duration-500"
+              style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
+              onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+
+            <div className="col-span-2 flex items-center justify-center gap-4 whitespace-nowrap xl:gap-6 2xl:gap-10">
               <Link
                 href="/about"
-                className="text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-100 transition-colors duration-500 xl:text-[17px] xl:tracking-[0.15em]"
+                className="hidden text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-100 transition-colors duration-500 lg:block xl:text-[17px] xl:tracking-[0.15em]"
                 style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 About Us
               </Link>
 
-              <a
-                href="https://designers.scaniomoving.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-100 transition-colors duration-500 xl:text-[17px] xl:tracking-[0.15em]"
-                style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
-              >
-                Designer Portal
-                <ExternalLink size={12} className="opacity-50" />
-              </a>
+              <HeaderPortalLinks
+                className="transition-colors duration-500"
+                color={scrolled ? "#0B5DB5" : "#000000"}
+                onClick={() => setMobileOpen(false)}
+              />
 
               <div
-                className="relative"
+                className="relative hidden lg:block"
                 onMouseEnter={handleServiceEnter}
                 onMouseLeave={handleServiceLeave}
               >
@@ -571,28 +575,12 @@ export default function HomePage() {
 
               <Link
                 href="/contact"
-                className="text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-100 transition-colors duration-500 xl:text-[17px] xl:tracking-[0.15em]"
+                className="hidden text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-100 transition-colors duration-500 lg:block xl:text-[17px] xl:tracking-[0.15em]"
                 style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 Contact
               </Link>
             </div>
-
-            <StoragePortalLink
-              color={scrolled ? "#0B5DB5" : "#000000"}
-              onClick={() => setMobileOpen(false)}
-            />
-
-            {/* Mobile hamburger */}
-            <button
-              className="lg:hidden p-2 transition-colors duration-500"
-              style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
-              onClick={() => { setMobileOpen(!mobileOpen); setServicesOpen(false); }}
-              aria-label="Toggle menu"
-              aria-expanded={mobileOpen}
-            >
-              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
           </div>
 
         </div>
@@ -612,17 +600,6 @@ export default function HomePage() {
               >
                 About Us
               </Link>
-              <a
-                href="https://designers.scaniomoving.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
-                style={{ color: "#0A1628" }}
-                onClick={() => setMobileOpen(false)}
-              >
-                Designer Portal
-                <ExternalLink size={13} className="opacity-40" />
-              </a>
 
               {/* Mobile services accordion */}
               <div>
