@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import StoragePortalLink from "@/components/StoragePortalLink";
 import { COMPANY, TEL_HREF } from "@/lib/contact";
 
 const serviceItems = [
@@ -58,10 +59,10 @@ export default function Header() {
           background: HEADER_BG,
         }}
       >
-        <div className="relative z-10 w-full px-10 md:px-12 h-full flex items-center justify-between">
-          <Link href="/" className="flex shrink-0 items-center gap-4 relative z-10">
+        <div className="relative z-10 flex h-full w-full items-center gap-1.5 px-2.5 sm:gap-2 sm:px-10 lg:gap-4 lg:px-6 xl:gap-6 xl:px-8 2xl:gap-10 2xl:px-12">
+          <Link href="/" className="relative z-10 mr-auto flex shrink-0 items-center gap-1.5 min-[360px]:gap-2 sm:gap-4">
             <div
-              className="block shrink-0 h-[60px] md:h-[75px] aspect-[1217/1561] translate-y-[1px] md:translate-y-[2px]"
+              className="block h-[32px] shrink-0 aspect-[1217/1561] translate-y-[1px] min-[360px]:h-[38px] sm:h-[60px] xl:h-[75px] xl:translate-y-[2px]"
               style={{
                 background: "white",
                 WebkitMaskImage: "url(/scanio-s-knockout-white.png)",
@@ -76,7 +77,7 @@ export default function Header() {
             />
             <div className="flex flex-col justify-center items-start" style={{ transform: "translateY(var(--logoTextOffsetY, 0px))" }}>
               <span
-                className="block text-[56px] md:text-[72px] font-semibold tracking-[0.02em] uppercase"
+                className="block text-[28px] font-semibold tracking-[0.02em] uppercase min-[360px]:text-[34px] sm:text-[56px] xl:text-[72px]"
                 style={{
                   fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                   color: "white",
@@ -89,7 +90,7 @@ export default function Header() {
                 Scanio
               </span>
               <span
-                className="block text-[13px] md:text-[17px] tracking-[0.02em] uppercase font-normal"
+                className="block text-[7px] font-normal tracking-[0.02em] uppercase min-[360px]:text-[8px] sm:text-[13px] xl:text-[17px]"
                 style={{
                   fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                   color: "rgba(255,255,255,0.9)",
@@ -102,10 +103,10 @@ export default function Header() {
             </div>
           </Link>
 
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden items-center gap-4 whitespace-nowrap lg:flex xl:gap-6 2xl:gap-10">
             <Link
               href="/about"
-              className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
+              className="text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-80 transition-opacity duration-300 xl:text-[17px] xl:tracking-[0.15em]"
               style={{
                 fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
@@ -118,7 +119,7 @@ export default function Header() {
               href="https://designers.scaniomoving.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
+              className="flex items-center gap-1.5 text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-80 transition-opacity duration-300 xl:text-[17px] xl:tracking-[0.15em]"
               style={{
                 fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
@@ -128,27 +129,13 @@ export default function Header() {
               <ExternalLink size={12} className="opacity-60" />
             </a>
 
-            <a
-              href="https://storage.scaniomoving.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
-              style={{
-                fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
-                color: "white",
-              }}
-            >
-              Storage Portal
-              <ExternalLink size={12} className="opacity-60" />
-            </a>
-
             <div
               className="relative"
               onMouseEnter={handleDropdownEnter}
               onMouseLeave={handleDropdownLeave}
             >
               <button
-                className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
+                className="flex items-center gap-1.5 text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-80 transition-opacity duration-300 xl:text-[17px] xl:tracking-[0.15em]"
                 style={{
                   fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                   color: "white",
@@ -206,7 +193,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-80 transition-opacity duration-300"
+              className="text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-80 transition-opacity duration-300 xl:text-[17px] xl:tracking-[0.15em]"
               style={{
                 fontFamily: "var(--font-manrope), 'Inter', 'Helvetica Neue', sans-serif",
                 color: "white",
@@ -215,6 +202,8 @@ export default function Header() {
               Contact
             </Link>
           </div>
+
+          <StoragePortalLink color="white" onClick={() => setMobileOpen(false)} />
 
           <button
             className="lg:hidden p-2 relative z-10"
@@ -261,18 +250,6 @@ export default function Header() {
               Designer Portal
               <ExternalLink size={13} className="opacity-60" />
             </a>
-            <a
-              href="https://storage.scaniomoving.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 py-3 text-[15px] tracking-[0.1em] uppercase font-medium"
-              style={{ color: "white" }}
-              onClick={() => setMobileOpen(false)}
-            >
-              Storage Portal
-              <ExternalLink size={13} className="opacity-60" />
-            </a>
-
             <div>
               <button
                 className="flex items-center justify-between w-full py-3 text-[15px] tracking-[0.1em] uppercase font-medium"

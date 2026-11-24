@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, ArrowDown, ChevronDown, ChevronLeft, ChevronRight, Menu, X, ExternalLink } from "lucide-react";
+import StoragePortalLink from "@/components/StoragePortalLink";
 import { COMPANY, TEL_HREF, MAILTO_HREF } from "@/lib/contact";
 
 /**
@@ -430,10 +431,10 @@ export default function HomePage() {
               ].join(", "),
             }}
           />
-          <div className="relative z-10 w-full px-10 md:px-12 h-full flex items-center justify-between">
-            <Link href="/" className="flex shrink-0 items-center gap-4">
+          <div className="relative z-10 flex h-full w-full items-center gap-1.5 px-2.5 sm:gap-2 sm:px-10 lg:gap-4 lg:px-6 xl:gap-6 xl:px-8 2xl:gap-10 2xl:px-12">
+            <Link href="/" className="mr-auto flex shrink-0 items-center gap-1.5 min-[360px]:gap-2 sm:gap-4">
               <div
-                className="block shrink-0 transition-all duration-500 h-[60px] md:h-[75px] aspect-[1217/1561] translate-y-[1px] md:translate-y-[2px]"
+                className="block h-[32px] shrink-0 aspect-[1217/1561] translate-y-[1px] transition-colors duration-500 min-[360px]:h-[38px] sm:h-[60px] xl:h-[75px] xl:translate-y-[2px]"
                 style={{
                   background: scrolled ? "#0B5DB5" : "#000000",
                   WebkitMaskImage: "url(/scanio-s-knockout-white.png)",
@@ -448,13 +449,13 @@ export default function HomePage() {
               />
               <div className="flex flex-col justify-center items-start" style={{ transform: "translateY(var(--logoTextOffsetY, 0px))" }}>
                 <span
-                  className="block text-[56px] md:text-[72px] font-semibold tracking-[0.02em] uppercase transition-colors duration-500"
+                  className="block text-[28px] font-semibold tracking-[0.02em] uppercase transition-colors duration-500 min-[360px]:text-[34px] sm:text-[56px] xl:text-[72px]"
                   style={{ color: scrolled ? "#0B5DB5" : "#000000", lineHeight: "0.85", margin: 0, marginLeft: "-3px", padding: 0 }}
                 >
                   Scanio
                 </span>
                 <span
-                  className="block text-[13px] md:text-[17px] tracking-[0.02em] uppercase font-normal transition-colors duration-500"
+                  className="block text-[7px] font-normal tracking-[0.02em] uppercase transition-colors duration-500 min-[360px]:text-[8px] sm:text-[13px] xl:text-[17px]"
                   style={{
                     color: scrolled ? "#4A5568" : "rgba(0,0,0,0.65)",
                     lineHeight: "1",
@@ -467,10 +468,10 @@ export default function HomePage() {
             </Link>
 
             {/* Desktop nav */}
-            <div className="hidden lg:flex items-center gap-10">
+            <div className="hidden items-center gap-4 whitespace-nowrap lg:flex xl:gap-6 2xl:gap-10">
               <Link
                 href="/about"
-                className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
+                className="text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-100 transition-colors duration-500 xl:text-[17px] xl:tracking-[0.15em]"
                 style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 About Us
@@ -480,7 +481,7 @@ export default function HomePage() {
                 href="https://designers.scaniomoving.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
+                className="flex items-center gap-1.5 text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-100 transition-colors duration-500 xl:text-[17px] xl:tracking-[0.15em]"
                 style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 Designer Portal
@@ -493,7 +494,7 @@ export default function HomePage() {
                 onMouseLeave={handleServiceLeave}
               >
                 <button
-                  className="flex items-center gap-1.5 text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
+                  className="flex items-center gap-1.5 text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-100 transition-colors duration-500 xl:text-[17px] xl:tracking-[0.15em]"
                   style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
                   onClick={() => setServicesOpen((v) => !v)}
                   aria-haspopup="true"
@@ -570,12 +571,17 @@ export default function HomePage() {
 
               <Link
                 href="/contact"
-                className="text-[17px] tracking-[0.15em] uppercase font-bold hover:opacity-100 transition-all duration-500"
+                className="text-[14px] tracking-[0.08em] uppercase font-bold hover:opacity-100 transition-colors duration-500 xl:text-[17px] xl:tracking-[0.15em]"
                 style={{ color: scrolled ? "#0B5DB5" : "#000000" }}
               >
                 Contact
               </Link>
             </div>
+
+            <StoragePortalLink
+              color={scrolled ? "#0B5DB5" : "#000000"}
+              onClick={() => setMobileOpen(false)}
+            />
 
             {/* Mobile hamburger */}
             <button
